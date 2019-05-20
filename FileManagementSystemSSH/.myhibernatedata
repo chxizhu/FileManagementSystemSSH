@@ -1,11 +1,11 @@
 #MyEclipse Hibernate Properties
-#Mon May 20 11:00:41 GMT+08:00 2019
-genBasicCompId=true
-sessionFactoryName=
+#Mon May 20 17:16:15 GMT+08:00 2019
+genBasicCompId=false
+sessionFactoryName=business.basic.HibernateSessionFactory
 profile=
 daoSFId=
 jndiPath=
-detectM2M=true
+detectM2M=false
 reStrategyClass=
 detectO2O=false
 springDaoFile=
@@ -15,6 +15,6 @@ genVersionTag=false
 sessionFactoryId=
 basePersistenceClass=
 genAnnotations=false
-reSettingsFile=
+reSettingsFile=/FileManagementSystemSSH/hibernate.reveng.xml
 configFile=/FileManagementSystemSSH/src/hibernate.cfg.xml
 createConfigFile=true
