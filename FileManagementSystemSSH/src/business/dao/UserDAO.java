@@ -12,47 +12,47 @@ import model.TUser;
 import model.VUser;
 
 /**
- * ÆóÒµÎÄ¼ş×ÊÔ´¹ÜÀíÏµÍ³ÓÃ»§ÒµÎñ½Ó¿Ú
+ * ä¼ä¸šæ–‡ä»¶èµ„æºç®¡ç†ç³»ç»Ÿç”¨æˆ·ä¸šåŠ¡æ¥å£
  * @author cya
  * @since 2019-4-10
  */
 public interface UserDAO {
 	/**
-	 * ÓÃ»§µÇÂ¼ÒµÎñ·½·¨
-	 * @param userid   ÓÃ»§µÇÂ¼Ãû
-	 * @param pwd   µÇÂ¼ÃÜÂë
-	 * @return  TUser  µ±Ç°µÇÂ¼µÄÓÃ»§¶ÔÏó
+	 * ç”¨æˆ·ç™»å½•ä¸šåŠ¡æ–¹æ³•
+	 * @param userid   ç”¨æˆ·ç™»å½•å
+	 * @param pwd   ç™»å½•å¯†ç 
+	 * @return  TUser  å½“å‰ç™»å½•çš„ç”¨æˆ·å¯¹è±¡
 	 */
 	public TUser login(String userid,String pwd);
 	/**
-	 * ĞŞ¸ÄÃÜÂë
-	 * @param userid  ÒªĞŞ¸ÄµÄÓÃ»§µÄÓÃ»§Ãû
-	 * @param pwd  ĞŞ¸ÄºóµÄÃÜÂë
-	 * @return ĞŞ¸Ä³É¹¦·µ»Øtrue Ê§°Ü·µ»Øfalse
+	 * ä¿®æ”¹å¯†ç 
+	 * @param userid  è¦ä¿®æ”¹çš„ç”¨æˆ·çš„ç”¨æˆ·å
+	 * @param pwd  ä¿®æ”¹åçš„å¯†ç 
+	 * @return ä¿®æ”¹æˆåŠŸè¿”å›true å¤±è´¥è¿”å›false
 	 */
 	public boolean modifyPwd(String userid,String pwd); 
 	/**
-	 * ÆÕÍ¨ÓÃ»§µÄ×¢²á·½·¨
-	 * @param userid  ÓÃ»§×¢²áµÄÓÃ»§Ãû
-	 * @param pwd  ÓÃ»§×¢²áÂ¼ÃÜÂëµÄµÄ
-	 * @param username  ÓÃ»§×¢²áµÄÃû×Ö
-	 * @param agend ÓÃ»§µÄÄêÁä
-	 * @param phone ÓÃ»§µÄµç»°
-	 * @param role_name ÓÃ»§µÄÈ¨ÏŞ
-	 * @param department_id ÓÃ»§ËùÊôµÄ²¿ÃÅ
-	 * @return  boolean  ×¢²á³É¹¦·µ»Øtrue Ê§°Ü·µ»Øfalse
+	 * æ™®é€šç”¨æˆ·çš„æ³¨å†Œæ–¹æ³•
+	 * @param userid  ç”¨æˆ·æ³¨å†Œçš„ç”¨æˆ·å
+	 * @param pwd  ç”¨æˆ·æ³¨å†Œå½•å¯†ç çš„çš„
+	 * @param username  ç”¨æˆ·æ³¨å†Œçš„åå­—
+	 * @param agend ç”¨æˆ·çš„å¹´é¾„
+	 * @param phone ç”¨æˆ·çš„ç”µè¯
+	 * @param role_name ç”¨æˆ·çš„æƒé™
+	 * @param department_id ç”¨æˆ·æ‰€å±çš„éƒ¨é—¨
+	 * @return  boolean  æ³¨å†ŒæˆåŠŸè¿”å›true å¤±è´¥è¿”å›false
 	 */
 	public boolean addNormalUser(String userid,String pwd,String username,String agend,String phone,int role_name,int department_id);
 
 	/**
-	 * ĞŞ¸ÄÆÕÍ¨ÓÃ»§ĞÅÏ¢
-	 * @param userid  ÒªĞŞ¸ÄµÄÓÃ»§µÄÓÃ»§Ãû
-	 * @param pwd  ÓÃ»§×¢²áÂ¼ÃÜÂëµÄµÄ
-	 * @param username  ÓÃ»§×¢²áµÄÃû×Ö
-	 * @param agend ÓÃ»§µÄÄêÁä
-	 * @param phone ÓÃ»§µÄµç»°
-	 * @param department_id ÓÃ»§ËùÊôµÄ²¿ÃÅ
-	 * @return ĞŞ¸Ä³É¹¦·µ»Øtrue Ê§°Ü·µ»Øfalse
+	 * ä¿®æ”¹æ™®é€šç”¨æˆ·ä¿¡æ¯
+	 * @param userid  è¦ä¿®æ”¹çš„ç”¨æˆ·çš„ç”¨æˆ·å
+	 * @param pwd  ç”¨æˆ·æ³¨å†Œå½•å¯†ç çš„çš„
+	 * @param username  ç”¨æˆ·æ³¨å†Œçš„åå­—
+	 * @param agend ç”¨æˆ·çš„å¹´é¾„
+	 * @param phone ç”¨æˆ·çš„ç”µè¯
+	 * @param department_id ç”¨æˆ·æ‰€å±çš„éƒ¨é—¨
+	 * @return ä¿®æ”¹æˆåŠŸè¿”å›true å¤±è´¥è¿”å›false
 	 */
 	public boolean modifyNormalUser(String userid,String pwd,String username,String agend,String phone,int department_id); 
 
@@ -61,35 +61,35 @@ public interface UserDAO {
 	
 	
 	/**
-	 * °´·¢±íÎÄÕÂÊıÁ¿µ¹ĞòÅÅĞò£¬·µ»ØËùÓĞÓÃ»§ĞÅÏ¢
-	 * @return List<TUser> ·µ»Ø´æ´¢ÈÎÒâ¶à¸öTUser¶ÔÏóµÄListÊı×é
+	 * æŒ‰å‘è¡¨æ–‡ç« æ•°é‡å€’åºæ’åºï¼Œè¿”å›æ‰€æœ‰ç”¨æˆ·ä¿¡æ¯
+	 * @return List<TUser> è¿”å›å­˜å‚¨ä»»æ„å¤šä¸ªTUserå¯¹è±¡çš„Listæ•°ç»„
 	 */
 	public List<TUser> getAllBolgeruserByHot();
 
 	/**
-	 * ¸ù¾İÓÃ»§ÊäÈëµÄÓÃ»§Ãû·µ»Ø¶ÔÓ¦µÄTUser¶ÔÏó
-	 * @param userid ÓÃ»§Ãû
-	 * @return TUser¶ÔÏó
+	 * æ ¹æ®ç”¨æˆ·è¾“å…¥çš„ç”¨æˆ·åè¿”å›å¯¹åº”çš„TUserå¯¹è±¡
+	 * @param userid ç”¨æˆ·å
+	 * @return TUserå¯¹è±¡
 	 */
 	public TUser getTUserById(String userid);
 	
 	/**
-	 * ¸ù¾İÓÃ»§ÊäÈëµÄÓÃ»§Ãû·µ»Ø¶ÔÓ¦µÄTUser¶ÔÏó
-	 * @param userid ÓÃ»§Ãû
-	 * @return TUser¶ÔÏó
+	 * æ ¹æ®ç”¨æˆ·è¾“å…¥çš„ç”¨æˆ·åè¿”å›å¯¹åº”çš„TUserå¯¹è±¡
+	 * @param userid ç”¨æˆ·å
+	 * @return TUserå¯¹è±¡
 	 */
 	public VUser getVUserById(String userid);
 	
 	/**
-	 * ÅĞ¶Ï×¢²áÓÃ»§ÃûÊÇ·ñ¿ÉÓÃ
+	 * åˆ¤æ–­æ³¨å†Œç”¨æˆ·åæ˜¯å¦å¯ç”¨
 	 * @param userid
-	 * @return ÓÃ»§Ãû¿ÉÓÃ·µ»Øtrue£¬ ·ñÔò·µ»Øfalse
+	 * @return ç”¨æˆ·åå¯ç”¨è¿”å›trueï¼Œ å¦åˆ™è¿”å›false
 	 */
 	public boolean isValidateUserid(String userid);
 	
 	/**
-	 * Í£ÓÃÒ»¸öÓÃ»§ÕËºÅ
-	 * @param userid   ÒªÍ£ÓÃµÄÓÃ»§ÕËºÅ
+	 * åœç”¨ä¸€ä¸ªç”¨æˆ·è´¦å·
+	 * @param userid   è¦åœç”¨çš„ç”¨æˆ·è´¦å·
 	 * @return
 	 */
 	public boolean disableUser(String userid);
