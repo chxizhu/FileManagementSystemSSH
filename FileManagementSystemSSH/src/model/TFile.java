@@ -3,10 +3,10 @@ package model;
 import java.sql.Timestamp;
 
 /**
- * File entity. @author MyEclipse Persistence Tools
+ * TFile entity. @author MyEclipse Persistence Tools
  */
 
-public class File implements java.io.Serializable {
+public class TFile implements java.io.Serializable {
 
 	// Fields
 
@@ -26,11 +26,11 @@ public class File implements java.io.Serializable {
 	// Constructors
 
 	/** default constructor */
-	public File() {
+	public TFile() {
 	}
 
 	/** full constructor */
-	public File(String filename, Timestamp uptime, String author,
+	public TFile(String filename, Timestamp uptime, String author,
 			Integer typeId, Integer pathId, String dscribe,
 			Integer authorityId, String lable, String filesize,
 			String filesuffix, String filepath) {

@@ -2,7 +2,7 @@ package business.dao;
 
 import java.util.List;
 
-import model.Authority;
+import model.TAuthority;
 import model.TFile;
 import model.TFileType;
 import model.VFile;

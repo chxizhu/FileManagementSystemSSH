@@ -3,25 +3,25 @@
 
 <hibernate-reverse-engineering>
 	<table name="T_FilePath" schema="dbo"
-		catalog="FileManagementSystemDB" class="model.FilePath">
+		catalog="FileManagementSystemDB" class="model.TFilePath">
 		<primary-key>
 			<generator class="identity"></generator>
 		</primary-key>
 	</table>
 	<table name="T_File" schema="dbo" catalog="FileManagementSystemDB"
-		class="model.File">
+		class="model.TFile">
 		<primary-key>
 			<generator class="identity"></generator>
 		</primary-key>
 	</table>
 	<table name="T_Department" schema="dbo"
-		catalog="FileManagementSystemDB" class="model.Deparment">
+		catalog="FileManagementSystemDB" class="model.TDeparment">
 		<primary-key>
 			<generator class="assigned"></generator>
 		</primary-key>
 	</table>
 <table name="T_Authority" schema="dbo" catalog="FileManagementSystemDB"
-	class="model.Auhority">
+	class="model.TAuthority">
 	<primary-key>
 		<generator class="assigned"></generator>
 	</primary-key>

@@ -1,10 +1,10 @@
 package model;
 
 /**
- * Deparment entity. @author MyEclipse Persistence Tools
+ * TDeparment entity. @author MyEclipse Persistence Tools
  */
 
-public class Deparment implements java.io.Serializable {
+public class TDeparment implements java.io.Serializable {
 
 	// Fields
 
@@ -15,16 +15,16 @@ public class Deparment implements java.io.Serializable {
 	// Constructors
 
 	/** default constructor */
-	public Deparment() {
+	public TDeparment() {
 	}
 
 	/** minimal constructor */
-	public Deparment(Integer departmentid) {
+	public TDeparment(Integer departmentid) {
 		this.departmentid = departmentid;
 	}
 
 	/** full constructor */
-	public Deparment(Integer departmentid, String departmentname,
+	public TDeparment(Integer departmentid, String departmentname,
 			Integer updepartmentid) {
 		this.departmentid = departmentid;
 		this.departmentname = departmentname;
