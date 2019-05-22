@@ -7,7 +7,11 @@ import model.VUser;
 import business.basic.iHibBaseDAO;
 import business.basic.iHibBaseDAOImpl;
 import business.dao.UserDAO;
-
+/**
+ * 
+ * @author xizhu
+ *
+ */
 public class UserDAOImpl implements UserDAO {
 	
 	private iHibBaseDAO bdao = null;
@@ -21,9 +25,17 @@ public class UserDAOImpl implements UserDAO {
 	}
 	
 	@Override
-	public TUser login(String userid, String pwd) {
-		// TODO Auto-generated method stub
-		return null;
+	public VUser login(String userid, String pwd) {
+		String hql = " from VUser where userid = ? and pwd = ?";
+		Object[] para = { userid, pwd };
+		List list = bdao.select(hql, para);
+		if (list.size() > 0) {
+			return (VUser) list.get(0);
+		}
+
+		else {
+			return null;
+		}
 	}
 
 	@Override

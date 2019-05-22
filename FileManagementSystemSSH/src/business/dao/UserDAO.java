@@ -25,7 +25,7 @@ public interface UserDAO {
 	 * @param pwd 登录密码
 	 * @return TUser 当前登录的用户对象
 	 */
-	public TUser login(String userid,String pwd);
+	public VUser login(String userid,String pwd);
 
 	/**
 	 * 修改密码
