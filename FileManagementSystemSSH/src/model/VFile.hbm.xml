@@ -6,39 +6,33 @@
 -->
 <hibernate-mapping>
     <class name="model.VFile" table="V_File" schema="dbo" catalog="FileManagementSystemDB">
-       
-            <id name="fileid" type="java.lang.Integer">
-                <column name="fileid" />
+   
+            <id name="userid" type="java.lang.String">
+                <column name="userid" length="25" />
             </id>
+            <property name="username" type="java.lang.String">
+                <column name="username" length="25" />
+            </property>
+            <property name="roleid" type="java.lang.Integer">
+                <column name="roleid" />
+            </property>
+            <property name="rolename" type="java.lang.String">
+                <column name="rolename" length="20" />
+            </property>
+            <property name="authorityid" type="java.lang.Integer">
+                <column name="authorityid" />
+            </property>
+            <property name="authorityname" type="java.lang.String">
+                <column name="authorityname" length="20" />
+            </property>
+            <property name="fileid" type="java.lang.Integer">
+                <column name="fileid" />
+            </property>
             <property name="filename" type="java.lang.String">
                 <column name="filename" length="100" />
             </property>
             <property name="uptime" type="java.sql.Timestamp">
                 <column name="uptime" length="23" />
-            </property>
-            <property name="author" type="java.lang.String">
-                <column name="author" length="25" />
-            </property>
-            <property name="dscribe" type="java.lang.String">
-                <column name="dscribe" length="200" />
-            </property>
-            <property name="authorityId" type="java.lang.Integer">
-                <column name="authority_id" />
-            </property>
-            <property name="lable" type="java.lang.String">
-                <column name="lable" length="25" />
-            </property>
-            <property name="filesuffix" type="java.lang.String">
-                <column name="filesuffix" />
-            </property>
-            <property name="filesize" type="java.lang.String">
-                <column name="filesize" length="25" />
-            </property>
-            <property name="filepath" type="java.lang.String">
-                <column name="filepath" length="100" />
-            </property>
-            <property name="downloads" type="java.lang.Integer">
-                <column name="downloads" />
             </property>
             <property name="typeid" type="java.lang.Integer">
                 <column name="typeid" />
@@ -46,14 +40,23 @@
             <property name="typename" type="java.lang.String">
                 <column name="typename" length="10" />
             </property>
-            <property name="authorityid" type="java.lang.Integer">
-                <column name="authorityid" />
+            <property name="dscribe" type="java.lang.String">
+                <column name="dscribe" length="200" />
             </property>
-            <property name="includeid" type="java.lang.Integer">
-                <column name="includeid" />
+            <property name="lable" type="java.lang.String">
+                <column name="lable" length="25" />
             </property>
-            <property name="authorityname" type="java.lang.String">
-                <column name="authorityname" length="20" />
+            <property name="filesize" type="java.lang.String">
+                <column name="filesize" length="25" />
+            </property>
+            <property name="filesuffix" type="java.lang.String">
+                <column name="filesuffix" />
+            </property>
+            <property name="filepath" type="java.lang.String">
+                <column name="filepath" length="100" />
+            </property>
+            <property name="downloads" type="java.lang.Integer">
+                <column name="downloads" />
             </property>
        
     </class>

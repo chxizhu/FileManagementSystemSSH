@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
@@ -71,17 +74,24 @@
 		<div class="layui-col-md6 layui-col-md-offset3 top">	
 			
 			<div class="layui-card daohan">
-			  <div class="layui-card-header">秦始皇简介</div>
-			  <div class="layui-card-body line-limit-length">
+			
+			<c:forEach items="${forumlist }" var="forum">
+			
+			  <div class="layui-card-header">${forum.filename}</div>
+			 <!--  <div class="layui-card-body line-limit-length">
 			    卡片式面板面板通常用于非白色背景色的主体内从而映衬出边框投影这几天心里颇不宁静。今晚在院子里坐着乘凉，忽然想起日日走过的荷塘，在这满月的光里，总该另有一番样子吧。月亮渐渐地升高了，墙外马路上孩子们的欢笑，已经听不见了；妻在屋里拍着闰儿⑴，迷迷糊糊地哼着眠歌。我悄悄地披了大衫，带上门出去。
 沿着荷塘，是一条曲折的小煤屑路。
-			  </div>
+			  </div> -->
+			  
+			   <div class="layui-card-body line-limit-length">${forum.dscribe}</div>
 			  
 			   <div class="layui-card-body line-limit-length">
-			   	<a href="">上传用户:XXX</a>
-			   	<span style="margin-left:80px"><a href="">上传时间:XXX</a></span>
-			   	<span style="margin-left:80px"><a href="">文件大小:XXX</a></span>
+			   	<a href="">上传用户:${forum.userid.username}</a>
+			   	<span style="margin-left:80px"><a href="">上传时间:${forum.uptime}</a></span>
+			   	<span style="margin-left:80px"><a href="">文件大小:${forum.filesize}</a></span>
 			  </div>
+			  
+			  </c:forEach>
 			  
 			</div>
 			

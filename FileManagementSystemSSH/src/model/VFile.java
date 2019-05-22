@@ -3,29 +3,28 @@ package model;
 import java.sql.Timestamp;
 
 /**
- * VFileId entity. @author MyEclipse Persistence Tools
+ * VFile entity. @author MyEclipse Persistence Tools
  */
 
 public class VFile implements java.io.Serializable {
 
-	// Fields
-
+	private String userid;
+	private String username;
+	private Integer roleid;
+	private String rolename;
+	private Integer authorityid;
+	private String authorityname;
 	private Integer fileid;
 	private String filename;
 	private Timestamp uptime;
-	private String author;
-	private String dscribe;
-	private Integer authorityId;
-	private String lable;
-	private String filesuffix;
-	private String filesize;
-	private String filepath;
-	private Integer downloads;
 	private Integer typeid;
 	private String typename;
-	private Integer authorityid;
-	private Integer includeid;
-	private String authorityname;
+	private String dscribe;
+	private String lable;
+	private String filesize;
+	private String filesuffix;
+	private String filepath;
+	private Integer downloads;
 
 	// Constructors
 
@@ -34,37 +33,89 @@ public class VFile implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public VFile(Integer fileid, Integer typeid, Integer authorityid) {
+	public VFile(String userid, Integer roleid, Integer authorityid,
+			Integer fileid, Integer typeid) {
+		this.userid = userid;
+		this.roleid = roleid;
+		this.authorityid = authorityid;
 		this.fileid = fileid;
 		this.typeid = typeid;
-		this.authorityid = authorityid;
 	}
 
 	/** full constructor */
-	public VFile(Integer fileid, String filename, Timestamp uptime,
-			String author, String dscribe, Integer authorityId, String lable,
-			String filesuffix, String filesize, String filepath,
-			Integer downloads, Integer typeid, String typename,
-			Integer authorityid, Integer includeid, String authorityname) {
+	public VFile(String userid, String username, Integer roleid,
+			String rolename, Integer authorityid, String authorityname,
+			Integer fileid, String filename, Timestamp uptime, Integer typeid,
+			String typename, String dscribe, String lable, String filesize,
+			String filesuffix, String filepath, Integer downloads) {
+		this.userid = userid;
+		this.username = username;
+		this.roleid = roleid;
+		this.rolename = rolename;
+		this.authorityid = authorityid;
+		this.authorityname = authorityname;
 		this.fileid = fileid;
 		this.filename = filename;
 		this.uptime = uptime;
-		this.author = author;
-		this.dscribe = dscribe;
-		this.authorityId = authorityId;
-		this.lable = lable;
-		this.filesuffix = filesuffix;
-		this.filesize = filesize;
-		this.filepath = filepath;
-		this.downloads = downloads;
 		this.typeid = typeid;
 		this.typename = typename;
-		this.authorityid = authorityid;
-		this.includeid = includeid;
-		this.authorityname = authorityname;
+		this.dscribe = dscribe;
+		this.lable = lable;
+		this.filesize = filesize;
+		this.filesuffix = filesuffix;
+		this.filepath = filepath;
+		this.downloads = downloads;
 	}
 
 	// Property accessors
+
+	public String getUserid() {
+		return this.userid;
+	}
+
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+
+	public String getUsername() {
+		return this.username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public Integer getRoleid() {
+		return this.roleid;
+	}
+
+	public void setRoleid(Integer roleid) {
+		this.roleid = roleid;
+	}
+
+	public String getRolename() {
+		return this.rolename;
+	}
+
+	public void setRolename(String rolename) {
+		this.rolename = rolename;
+	}
+
+	public Integer getAuthorityid() {
+		return this.authorityid;
+	}
+
+	public void setAuthorityid(Integer authorityid) {
+		this.authorityid = authorityid;
+	}
+
+	public String getAuthorityname() {
+		return this.authorityname;
+	}
+
+	public void setAuthorityname(String authorityname) {
+		this.authorityname = authorityname;
+	}
 
 	public Integer getFileid() {
 		return this.fileid;
@@ -90,12 +141,20 @@ public class VFile implements java.io.Serializable {
 		this.uptime = uptime;
 	}
 
-	public String getAuthor() {
-		return this.author;
+	public Integer getTypeid() {
+		return this.typeid;
 	}
 
-	public void setAuthor(String author) {
-		this.author = author;
+	public void setTypeid(Integer typeid) {
+		this.typeid = typeid;
+	}
+
+	public String getTypename() {
+		return this.typename;
+	}
+
+	public void setTypename(String typename) {
+		this.typename = typename;
 	}
 
 	public String getDscribe() {
@@ -106,14 +165,6 @@ public class VFile implements java.io.Serializable {
 		this.dscribe = dscribe;
 	}
 
-	public Integer getAuthorityId() {
-		return this.authorityId;
-	}
-
-	public void setAuthorityId(Integer authorityId) {
-		this.authorityId = authorityId;
-	}
-
 	public String getLable() {
 		return this.lable;
 	}
@@ -122,20 +173,20 @@ public class VFile implements java.io.Serializable {
 		this.lable = lable;
 	}
 
-	public String getFilesuffix() {
-		return this.filesuffix;
-	}
-
-	public void setFilesuffix(String filesuffix) {
-		this.filesuffix = filesuffix;
-	}
-
 	public String getFilesize() {
 		return this.filesize;
 	}
 
 	public void setFilesize(String filesize) {
 		this.filesize = filesize;
+	}
+
+	public String getFilesuffix() {
+		return this.filesuffix;
+	}
+
+	public void setFilesuffix(String filesuffix) {
+		this.filesuffix = filesuffix;
 	}
 
 	public String getFilepath() {
@@ -154,43 +205,4 @@ public class VFile implements java.io.Serializable {
 		this.downloads = downloads;
 	}
 
-	public Integer getTypeid() {
-		return this.typeid;
-	}
-
-	public void setTypeid(Integer typeid) {
-		this.typeid = typeid;
-	}
-
-	public String getTypename() {
-		return this.typename;
-	}
-
-	public void setTypename(String typename) {
-		this.typename = typename;
-	}
-
-	public Integer getAuthorityid() {
-		return this.authorityid;
-	}
-
-	public void setAuthorityid(Integer authorityid) {
-		this.authorityid = authorityid;
-	}
-
-	public Integer getIncludeid() {
-		return this.includeid;
-	}
-
-	public void setIncludeid(Integer includeid) {
-		this.includeid = includeid;
-	}
-
-	public String getAuthorityname() {
-		return this.authorityname;
-	}
-
-	public void setAuthorityname(String authorityname) {
-		this.authorityname = authorityname;
-	}
 }

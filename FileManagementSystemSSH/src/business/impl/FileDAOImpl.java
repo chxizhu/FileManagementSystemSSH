@@ -1,5 +1,6 @@
 package business.impl;
 
+import java.sql.ResultSet;
 import java.util.List;
 
 import model.TAuthority;
@@ -48,8 +49,10 @@ public class FileDAOImpl implements FileDAO {
 
 	@Override
 	public List<VFile> slectallfile(String filename) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "SELECT * FROM V_UserFile o where concat(o.userid,o.username,o.fileid,o.filename,o.dscribe,o.lable) like ? ";
+		Object[] para = { "%" + filename + "%" };
+		return bdao.select(sql, para);
+	
 	}
 
 	@Override

@@ -38,10 +38,16 @@
 			<generator class="identity"></generator>
 		</primary-key>
 	</table>
-<table name="T_Record" schema="dbo" catalog="FileManagementSystemDB"
-	class="model.TRecord">
+	<table name="T_Record" schema="dbo" catalog="FileManagementSystemDB"
+		class="model.TRecord">
+		<primary-key>
+			<generator class="identity"></generator>
+		</primary-key>
+	</table>
+<table name="VUserFile" schema="dbo" catalog="FileManagementSystemDB"
+	class="model.VUserFile">
 	<primary-key>
-		<generator class="identity"></generator>
+		<generator class="assigned"></generator>
 	</primary-key>
 </table>
 </hibernate-reverse-engineering>

@@ -1,7 +1,6 @@
 package business.basic;
 
 import java.io.Serializable;
-
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,619 +8,619 @@ import java.sql.ResultSet;
 import java.util.List;
 
 
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-
-
 public class iHibBaseDAOImpl implements iHibBaseDAO {
 	
-	//ä¸ºRoomDAOåˆ›å»ºä¸€ä¸ªå®ƒæ‰€ä½¿ç”¨çš„æ—¥å¿—å¯¹è±¡ï¼Œæ¯ä¸ªè¦ä½¿ç”¨æ—¥å¿—çš„ç±»éƒ½éœ€è¦è¿™æ¡è¯­å¥
-	//private static final Log log = LogFactory.getLog(iHibBaseDAO.class);
-	
-	public static final int INSERT = 1; // ä»£è¡¨æ·»åŠ æ“ä½œ
-	public static final int UPDATE = 2;  // ä»£è¡¨ä¿®æ”¹æ“ä½œ
-	public static final int DELETE = 3; // ä»£è¡¨åˆ é™¤æ“ä½œ
+	//ÎªRoomDAO´´½¨Ò»¸öËüËùÊ¹ÓÃµÄÈÕÖ¾¶ÔÏó£¬Ã¿¸öÒªÊ¹ÓÃÈÕÖ¾µÄÀà¶¼ĞèÒªÕâÌõÓï¾ä
+		private static final Log log = LogFactory.getLog(iHibBaseDAO.class);
+		
+		public static final int INSERT = 1; // ´ú±íÌí¼Ó²Ù×÷
+		public static final int UPDATE = 2; // ´ú±íĞŞ¸Ä²Ù×÷
+		public static final int DELETE = 3; // ´ú±íÉ¾³ı²Ù×÷
 
-	@Override
-	public Object insert(Object obj) {
-		Session session = HibernateSessionFactory.getSession();
-		Transaction tx = null;
-		try {
-			tx = session.beginTransaction();// å¼€å§‹äº‹ç‰©
-			Serializable key = session.save(obj);
-			tx.commit();// æäº¤äº‹åŠ¡ï¼ˆæ‰§è¡Œå¯¹è±¡çš„æŒä¹…åŒ–æ“ä½œï¼‰
-			session.close();
-			return key;
-		} catch (Exception e) {
-			//LogUtil.err("insert(Object obj)", e);
-			e.printStackTrace();
-			if (tx != null) tx.rollback();// å›æ»šäº‹ç‰©ï¼ˆæ’¤é”€å¯¹è±¡çš„æŒä¹…åŒ–æ“ä½œï¼‰
-			if (session != null) session.close();
-		}
-		return null;
-	}
-
-	@Override
-	public boolean insert(List<Object> list) {
-		Session session = HibernateSessionFactory.getSession();
-		Transaction tx = null;
-		try {
-			tx = session.beginTransaction();// å¼€å§‹äº‹ç‰©
-			for (Object obj : list) {
-				session.save(obj);
-			}
-			tx.commit();// æäº¤äº‹åŠ¡ï¼ˆæ‰§è¡Œå¯¹è±¡çš„æŒä¹…åŒ–æ“ä½œï¼‰
-			session.close();
-			return true;
-		} catch (Exception e) {
-			e.printStackTrace();
-			if (tx != null) tx.rollback();// å›æ»šäº‹ç‰©ï¼ˆæ’¤é”€å¯¹è±¡çš„æŒä¹…åŒ–æ“ä½œï¼‰
-			if (session != null) session.close();
-		}
-		return false;
-	}
-
-	@Override
-	public boolean delete(Class cls, Serializable id) {
-		Session session = HibernateSessionFactory.getSession();
-		Transaction tx = null;
-		try {
-			tx = session.beginTransaction(); // å¼€å¯ä¸€ä¸ªäº‹åŠ¡
-			// å…ˆç”¨clså’ŒidæŸ¥å‡ºè¦åˆ é™¤çš„å¯¹è±¡
-			session.delete(session.get(cls, id));
-			tx.commit(); // æŒä¹…åŒ–æ“ä½œ
-			session.close();
-			return true;
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			if (tx != null) tx.rollback(); // æ’¤é”€
-			if (session != null) session.close();
-		}
-		return false;
-	}
-
-	@Override
-	public boolean delete(Object obj) {
-		Session session = HibernateSessionFactory.getSession();
-		Transaction tx = null;
-		try {
-			tx = session.beginTransaction(); // å¼€å¯ä¸€ä¸ªäº‹åŠ¡
-			session.delete(obj);
-			tx.commit();// æŒä¹…åŒ–æ“ä½œ
-			session.close();
-			return true;
-		} catch (Exception e) {
-			e.printStackTrace();
-			if (tx != null) tx.rollback(); // æ’¤é”€
-			if (session != null) session.close();
-		}
-		return false;
-	}
-
-	@Override
-	public boolean update(Object obj) {
-		Session session = HibernateSessionFactory.getSession();
-		Transaction tx = null;
-		try {
-			tx = session.beginTransaction(); // å¼€å¯ä¸€ä¸ªäº‹åŠ¡
-			session.update(obj);
-			tx.commit(); // æŒä¹…åŒ–æ“ä½œ
-			session.close();
-			return true;
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			if (tx != null) tx.rollback(); // æ’¤é”€
-			if (session != null) session.close();
-		}
-		return false;
-	}
-
-	@Override
-	public List select(String hql) {
-		Session session = HibernateSessionFactory.getSession();
-		try {
-			Query query = session.createQuery(hql);
-			List list = query.list();
-			session.close();
-			return list;
-		} catch (Exception e) {
-			e.printStackTrace();
-			if (session != null) session.close();
-		}
-		return null;
-	}
-
-	@Override
-	public List select(String hql, int startIndex, int length) {
-		Session session = HibernateSessionFactory.getSession();
-		try {
-			Query query = session.createQuery(hql);
-			query.setFirstResult(startIndex); // è®¾ç½®èµ·å§‹è®°å½•ä½ç½®
-			query.setMaxResults(length); // è®¾ç½®è¿”å›è®°å½•æ•°
-			List list = query.list();
-			session.close();
-			return list;
-		} catch (Exception e) {
-			e.printStackTrace();
-			if (session != null) session.close();
-		}
-		return null;
-	}
-
-	@Override
-	public List select(String hql, Object[] para) {
-		Session session = HibernateSessionFactory.getSession();
-		try {
-			Query query = session.createQuery(hql);
-			// æ ¹æ®paraè®¾ç½®å‚æ•°
-			for (int i = 0; i < para.length; i++) {
-				query.setParameter(i, para[i]);
-			}
-			List list = query.list();
-			session.close();
-			return list;
-		} catch (Exception e) {
-			e.printStackTrace();
-			if (session != null) session.close();
-		}
-		return null;
-	}
-
-	@Override
-	public List select(String hql, Object[] para, int startIndex, int length) {
-		Session session = HibernateSessionFactory.getSession();
-		try {
-			Query query = session.createQuery(hql);
-			// æ ¹æ®paraè®¾ç½®å‚æ•°
-			for (int i = 0; i < para.length; i++) {
-				query.setParameter(i, para[i]);
-			}
-			query.setFirstResult(startIndex); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½Â¼Î»ï¿½ï¿½
-			query.setMaxResults(length); // ï¿½ï¿½ï¿½Ã·ï¿½ï¿½Ø¼ï¿½Â¼ï¿½ï¿½
-			List list = query.list();
-			session.close();
-			return list;
-		} catch (Exception e) {
-			e.printStackTrace();
-			if (session != null) session.close();
-		}
-		return null;
-	}
-
-	@Override
-	public int selectValue(String hql) {
-		Session session = HibernateSessionFactory.getSession();
-		try {
-			Query query = session.createQuery(hql);
-
-			Object obj = query.uniqueResult();
-			session.close();
-			if (obj instanceof Long)
-				return ((Long) obj).intValue();
-			else if (obj instanceof Integer)
-				return ((Integer) obj).intValue();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			if (session != null) session.close();
-		}
-		return 0;
-	}
-
-	@Override
-	public int selectValue(String hql, Object[] para) {
-		Session session = HibernateSessionFactory.getSession();
-		try {
-			Query query = session.createQuery(hql);
-			// æ ¹æ®paraè®¾ç½®å‚æ•°
-			for (int i = 0; i < para.length; i++) {
-				query.setParameter(i, para[i]);
-			}
-
-			Object obj = query.uniqueResult();
-			session.close();
-			if (obj instanceof Long)
-				return ((Long) obj).intValue();
-			else if (obj instanceof Integer)
-				return ((Integer) obj).intValue();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			if (session != null) session.close();
-		}
-		return 0;
-	}
-
-	@Override
-	public int selectPages(String hql, int pageSize) {
-		Session session = HibernateSessionFactory.getSession();
-		long pages_all = 0;
-		try {
-			Query query = session.createQuery(hql);
-
-			List list = query.list();
-			// è·å¾—æŸ¥è¯¢è®°å½•æ€»æ•°
-			long records = list.size();
-			// è®¡ç®—åˆ†é¡µæ•°
-			pages_all = records % pageSize == 0 ? records / pageSize : records
-					/ pageSize + 1; // è·å¾—æ€»é¡µæ•°
-			session.close();
-			return (int) pages_all;
-		} catch (Exception e) {
-			e.printStackTrace();
-			if (session != null) session.close();
-		}
-		return 0;
-	}
-
-	@Override
-	public int selectPages(String hql, Object[] para, int pageSize) {
-		Session session = HibernateSessionFactory.getSession();
-		// ç¼–ç¨‹æ€æƒ³ï¼šå…ˆè·å¾—æŸ¥è¯¢è®°å½•æ•°ï¼Œå†ä½¿ç”¨ç®—æ³•æ¥è®¡ç®—å‡ºåˆ†é¡µçš„é¡µæ•°
-		long pages_all = 0;
-		try {
-			Query query = session.createQuery(hql);
-			// æ ¹æ®paraè®¾ç½®å‚æ•°
-			for (int i = 0; i < para.length; i++) {
-				query.setParameter(i, para[i]);
-			}
-			List list = query.list();
-			// è·å¾—æŸ¥è¯¢è®°å½•æ€»æ•°
-			long records = list.size();
-			// è®¡ç®—åˆ†é¡µæ•°
-			pages_all = records % pageSize == 0 ? records / pageSize : records
-					/ pageSize + 1; // è·å¾—æ€»é¡µæ•°
-			session.close();
-			return (int) pages_all;
-		} catch (Exception e) {
-			e.printStackTrace();
-			if (session != null) session.close();
-		}
-		return 0;
-	}
-
-	@Override
-	public List selectByPage(String hql, int startPage, int pageSize) {
-		Session session = HibernateSessionFactory.getSession();
-		List pList = null;
-		int currentPage;
-		try {
-			Query query = session.createQuery(hql);
-			// å…ˆæ±‚å‡ºæŒ‰ç…§pageSizeå¾—åˆ°çš„åˆ†é¡µçš„é¡µæ•°
-			List list = query.list();
-			// è·å¾—æŸ¥è¯¢è®°å½•æ€»æ•°
-			long records = list.size();
-			// è·å¾—æ€»é¡µæ•°
-
-			int pages_all = (int) (records % pageSize == 0 ? records / pageSize
-					: records / pageSize + 1); // è·å¾—æ€»é¡µæ•°
-			// è®¾ç½®ç±»æˆå‘˜å½“å‰é¡µé¢çš„æ“ä½œé¡µç 
-			if (startPage <= 1) {
-				currentPage = 1;
-			} else if (startPage >= pages_all) {
-				currentPage = pages_all;
-			} else {
-				currentPage = startPage;
-			}
-
-			Query query2 = session.createQuery(hql);
-			query2.setFirstResult((currentPage - 1) * pageSize);// ï¿½ÓµÚ¼ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ê¼ï¿½ï¿½Ñ¯
-
-			query2.setMaxResults(pageSize);// æ¯é¡µæ˜¾ç¤ºå¤šå°‘æ¡è®°å½•
-			pList = query2.list();
-			session.close();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			if (session != null) session.close();
-		}
-		return pList;
-	}
-
-	@Override
-	public List selectByPage(String hql, Object[] para, int startPage,int pageSize) {
-		Session session = HibernateSessionFactory.getSession();
-		List pList = null;
-		int currentPage;
-		try {
-			Query query = session.createQuery(hql);
-			// æ ¹æ®paraè®¾ç½®å‚æ•°
-			for (int i = 0; i < para.length; i++) {
-				query.setParameter(i, para[i]);
-			}
-			List list = query.list();
-			// è·å¾—æŸ¥è¯¢è®°å½•æ€»æ•°
-			long records = list.size();
-			// è·å¾—æ€»é¡µæ•°
-			int pages_all = (int) (records % pageSize == 0 ? records / pageSize
-					: records / pageSize + 1); // è·å¾—æ€»é¡µæ•°
-			// è®¾ç½®ç±»æˆå‘˜å½“å‰é¡µé¢çš„æ“ä½œé¡µç 
-
-			if (startPage <= 1) {
-				currentPage = 1;
-			} else if (startPage >= pages_all) {
-				currentPage = pages_all;
-			} else {
-				currentPage = startPage;
-			}
-
-			Query query2 = session.createQuery(hql);
-			// ï¿½ï¿½ï¿½paraï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½
-			for (int i = 0; i < para.length; i++) {
-				query2.setParameter(i, para[i]);
-
-			}
-			query2.setFirstResult((currentPage - 1) * pageSize);// ï¿½ÓµÚ¼ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ê¼ï¿½ï¿½Ñ¯
-
-			query2.setMaxResults(pageSize);// Ã¿Ò³ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼
-			pList = query2.list();
-			session.close();
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			if (session != null) session.close();
-		}
-		return pList;
-	}
-
-	@Override
-	public Object findById(Class cls, Serializable id) {
-		Session session = HibernateSessionFactory.getSession();
-		try {
-			Object obj = session.get(cls, id);
-			session.close();
-			return obj;
-		} catch (Exception e) {
-			e.printStackTrace();
-			if (session != null) session.close();
-		}
-		return null;
-	}
-
-	@Override
-	public boolean update(String sql) {
-		Session session = HibernateSessionFactory.getSession();
-		Transaction tx = null;
-		try {
-			tx = session.beginTransaction(); // ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-			// ï¿½ï¿½ï¿½á»°Sessionï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½jdbcï¿½ï¿½Connection
-			Connection con = session.connection();
-			PreparedStatement ptmt = con.prepareStatement(sql);
-			int row = ptmt.executeUpdate();
-
-			tx.commit(); // ï¿½Ö¾Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
-			session.close();
-
-			if (row > 0)
-				return true;
-			else
-				return false;
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			if (tx != null)
-				tx.rollback(); // ï¿½ï¿½ï¿½ï¿½
-			if (session != null) session.close();
-		}
-		return false;
-
-	}
-
-	@Override
-	public boolean update(String sql, Object[] para) {
-		Session session = HibernateSessionFactory.getSession();
-		Transaction tx = null;
-		try {
-			tx = session.beginTransaction(); // ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-			// ï¿½ï¿½ï¿½á»°Sessionï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½jdbcï¿½ï¿½Connection
-			Connection con = session.connection();
-			PreparedStatement ptmt = con.prepareStatement(sql);
-			for (int i = 0; i < para.length; i++) {
-				ptmt.setObject(i + 1, para[i]);
-			}
-			int row = ptmt.executeUpdate();
-			tx.commit(); // ï¿½Ö¾Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
-			session.close();
-
-			if (row > 0)
-				return true;
-			else
-				return false;
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			if (tx != null)
-				tx.rollback(); // ï¿½ï¿½ï¿½ï¿½
-			if (session != null) session.close();
-		}
-		return false;
-	}
-
-	@Override
-	public boolean delete(String sql) {
-		Session session = HibernateSessionFactory.getSession();
-		Transaction tx = null;
-
-		try {
-			tx = session.beginTransaction(); // ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-			// ï¿½ï¿½ï¿½á»°Sessionï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½jdbcï¿½ï¿½Connection
-			Connection con = session.connection();
-			PreparedStatement ptmt = con.prepareStatement(sql);
-			int row = ptmt.executeUpdate();
-			tx.commit(); // ï¿½Ö¾Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
-			session.close();
-
-			if (row > 0) return true;
-
-			else return false;
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			if (tx != null) tx.rollback(); // ï¿½ï¿½ï¿½ï¿½
-			if (session != null) session.close();
-		}
-		return false;
-
-	}
-
-	@Override
-	public boolean delete(String sql, Object[] para) {
-		Session session = HibernateSessionFactory.getSession();
-		Transaction tx = null;
-		try {
-			tx = session.beginTransaction(); // ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
-			// ï¿½ï¿½ï¿½á»°Sessionï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½jdbcï¿½ï¿½Connection
-			Connection con = session.connection();
-			PreparedStatement ptmt = con.prepareStatement(sql);
-			for (int i = 0; i < para.length; i++) {
-				ptmt.setObject(i + 1, para[i]);
-			}
-			int row = ptmt.executeUpdate();
-			tx.commit(); // ï¿½Ö¾Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
-			session.close();
-
-			if (row > 0) return true;
-			else return false;
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			if (tx != null) tx.rollback(); // ï¿½ï¿½ï¿½ï¿½
-			if (session != null) session.close();
-		}
-
-		return false;
-
-	}
-
-	@Override
-	public Object executeProduce(String procName) {
-		Session session = HibernateSessionFactory.getSession();
-		Transaction tx = null;
-		try {
-
-			tx = session.beginTransaction();
-			Connection conn = session.connection();
-			CallableStatement ctmt = conn.prepareCall("{ ?  =  call " + procName + " }");
-			ctmt.registerOutParameter(1, java.sql.Types.INTEGER);
-
-			boolean type = ctmt.execute();
-			tx.commit();
-			if (type) { // Îªtrueï¿½ï¿½ï¿½ï¿½ï¿½æ´¢ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½selectï¿½ï¿½ï¿½
-				ResultSet rs = ctmt.getResultSet();
-				// globesession.close();
-				return rs;
-			} else { // ï¿½ï¿½ï¿½ï¿½selectï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Öµ
-
-				int isSuccess = ctmt.getInt(1); // ï¿½ï¿½Ã·ï¿½ï¿½ï¿½Öµï¿½ï¿½
+		@Override
+		public Object insert(Object obj) {
+			Session session = HibernateSessionFactory.getSession();
+			Transaction tx = null;
+			try {
+				tx = session.beginTransaction();// ¿ªÊ¼ÊÂÎï
+				Serializable key = session.save(obj);
+				tx.commit();// Ìá½»ÊÂÎñ£¨Ö´ĞĞ¶ÔÏóµÄ³Ö¾Ã»¯²Ù×÷£©
 				session.close();
-				return new Integer(isSuccess);
+				return key;
+			} catch (Exception e) {			
+				e.printStackTrace();
+				if (tx != null) tx.rollback();// »Ø¹öÊÂÎï£¨³·Ïú¶ÔÏóµÄ³Ö¾Ã»¯²Ù×÷£©
+				if (session != null) session.close();
 			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			if (tx != null) tx.rollback(); // ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ø¹ï¿½ï¿½ï¿½ï¿½ï¿½
-			if (session != null) session.close();
+			return null;
 		}
-		return null;
 
-	}
-
-	@Override
-	public Object executeProduce(String procName, Object[] para) {
-		Session session = HibernateSessionFactory.getSession();
-		Transaction tx = null;
-		try {
-			tx = session.beginTransaction();
-			Connection conn = session.connection();
-			CallableStatement ctmt = conn.prepareCall("{ ?  =  call " + procName + " }");
-
-			ctmt.registerOutParameter(1, java.sql.Types.INTEGER);
-			for (int i = 0; i < para.length; i++) {
-				ctmt.setObject(i + 2, para[i]);
-			}
-			boolean type = ctmt.execute();
-
-			tx.commit();
-			if (type) { // Îªtrueï¿½ï¿½ï¿½ï¿½ï¿½æ´¢ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½selectï¿½ï¿½ï¿½
-				ResultSet rs = ctmt.getResultSet();
-				// globesession.close();
-				return rs;
-			} else { // ï¿½ï¿½ï¿½ï¿½selectï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Öµ
-
-				int isSuccess = ctmt.getInt(1); // ï¿½ï¿½Ã·ï¿½ï¿½ï¿½Öµï¿½ï¿½
-				session.close();
-				return new Integer(isSuccess);
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			if (tx != null) tx.rollback(); // ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ø¹ï¿½ï¿½ï¿½ï¿½ï¿½
-			if (session != null) session.close();
-		}
-		return null;
-
-	}
-
-	@Override
-	public boolean executeBatch(Object[] obj, int[] model) {
-		Session session = HibernateSessionFactory.getSession();
-		Transaction tx = null;
-		tx = session.beginTransaction();
-		try {
-			for (int i = 0; i < obj.length; i++) {
-				if (model[i] == INSERT)
-					session.save(obj[i]);
-				else if (model[i] == UPDATE)
-					session.update(obj[i]);
-				else if (model[i] == DELETE)
-					session.delete(obj[i]);
-			}
-			tx.commit();
-			session.close();
-			return true;
-
-		} catch (Exception e) {
-
-			e.printStackTrace();
-			if (tx != null) tx.rollback(); // ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ø¹ï¿½ï¿½ï¿½ï¿½ï¿½
-			if (session != null) session.close();
-		}
-		return false;
-
-	}
-
-	@Override
-	public boolean executeBatch(List<Object> list, List<Integer> models) {
-		Session session = HibernateSessionFactory.getSession();
-		Transaction tx = null;
-		try {
-			tx = session.beginTransaction();
-			for (int i = 0; i < list.size(); i++) {
-				Object obj = list.get(i);
-				Integer model = (Integer) models.get(i);
-				if (model.intValue() == INSERT) {
-
+		@Override
+		public boolean insert(List<Object> list) {
+			Session session = HibernateSessionFactory.getSession();
+			Transaction tx = null;
+			try {
+				tx = session.beginTransaction();// ¿ªÊ¼ÊÂÎï
+				for (Object obj : list) {
 					session.save(obj);
-				} else if (model.intValue() == UPDATE) {
-					session.update(obj);
-				} else if (model.intValue() == DELETE) {
-					session.delete(obj);
 				}
+				tx.commit();// Ìá½»ÊÂÎñ£¨Ö´ĞĞ¶ÔÏóµÄ³Ö¾Ã»¯²Ù×÷£©
+				session.close();
+				return true;
+			} catch (Exception e) {
+				e.printStackTrace();
+				if (tx != null) tx.rollback();// »Ø¹öÊÂÎï£¨³·Ïú¶ÔÏóµÄ³Ö¾Ã»¯²Ù×÷£©
+				if (session != null) session.close();
 			}
-			tx.commit();
-			session.close();
-			return true;
-		} catch (Exception e) {
-			e.printStackTrace();
-			if (tx != null) tx.rollback(); // ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ø¹ï¿½ï¿½ï¿½ï¿½ï¿½
-			if (session != null) session.close();
+			return false;
 		}
-		return false;
 
-	}
+		@Override
+		public boolean delete(Class cls, Serializable id) {
+			Session session = HibernateSessionFactory.getSession();
+			Transaction tx = null;
+			try {
+				tx = session.beginTransaction(); // ¿ªÆôÒ»¸öÊÂÎñ
+				// ÏÈÓÃclsºÍid²é³öÒªÉ¾³ıµÄ¶ÔÏó
+				session.delete(session.get(cls, id));
+				tx.commit(); // ³Ö¾Ã»¯²Ù×÷
+				session.close();
+				return true;
+
+			} catch (Exception e) {
+				e.printStackTrace();
+				if (tx != null) tx.rollback(); // ³·Ïú
+				if (session != null) session.close();
+			}
+			return false;
+		}
+
+		@Override
+		public boolean delete(Object obj) {
+			Session session = HibernateSessionFactory.getSession();
+			Transaction tx = null;
+			try {
+				tx = session.beginTransaction(); // ¿ªÆôÒ»¸öÊÂÎñ
+				session.delete(obj);
+				tx.commit(); // ³Ö¾Ã»¯²Ù×÷
+				session.close();
+				return true;
+			} catch (Exception e) {
+				e.printStackTrace();
+				if (tx != null) tx.rollback(); // ³·Ïú
+				if (session != null) session.close();
+			}
+			return false;
+		}
+
+		@Override
+		public boolean update(Object obj) {
+			Session session = HibernateSessionFactory.getSession();
+			Transaction tx = null;
+			try {
+				tx = session.beginTransaction(); // ¿ªÆôÒ»¸öÊÂÎñ
+				session.update(obj);
+				tx.commit(); // ³Ö¾Ã»¯²Ù×÷
+				session.close();
+				return true;
+
+			} catch (Exception e) {
+				e.printStackTrace();
+				if (tx != null) tx.rollback(); // ³·Ïú
+				if (session != null) session.close();
+			}
+			return false;
+		}
+
+		@Override
+		public List select(String hql) {
+			Session session = HibernateSessionFactory.getSession();
+			try {
+				Query query = session.createQuery(hql);
+				List list = query.list();
+				session.close();
+				return list;
+			} catch (Exception e) {
+				e.printStackTrace();
+				if (session != null) session.close();
+			}
+			return null;
+		}
+
+		@Override
+		public List select(String hql, int startIndex, int length) {
+			Session session = HibernateSessionFactory.getSession();
+			try {
+				Query query = session.createQuery(hql);
+				query.setFirstResult(startIndex); // ÉèÖÃÆğÊ¼¼ÇÂ¼Î»ÖÃ
+				query.setMaxResults(length); // ÉèÖÃ·µ»Ø¼ÇÂ¼Êı
+				List list = query.list();
+				session.close();
+				return list;
+			} catch (Exception e) {
+				e.printStackTrace();
+				if (session != null) session.close();
+			}
+			return null;
+		}
+
+		@Override
+		public List select(String hql, Object[] para) {
+			Session session = HibernateSessionFactory.getSession();
+			try {
+				Query query = session.createQuery(hql);
+				// ¸ù¾İparaÉèÖÃ²ÎÊı
+				for (int i = 0; i < para.length; i++) {
+					query.setParameter(i, para[i]);
+				}
+				List list = query.list();
+				session.close();
+				return list;
+			} catch (Exception e) {
+				e.printStackTrace();
+				if (session != null) session.close();
+			}
+			return null;
+		}
+
+		@Override
+		public List select(String hql, Object[] para, int startIndex, int length) {
+			Session session = HibernateSessionFactory.getSession();
+			try {
+				Query query = session.createQuery(hql);
+				// ¸ù¾İparaÉèÖÃ²ÎÊı
+				for (int i = 0; i < para.length; i++) {
+					query.setParameter(i, para[i]);
+				}
+				query.setFirstResult(startIndex); // ÉèÖÃÆğÊ¼¼ÇÂ¼Î»ÖÃ
+				query.setMaxResults(length); // ÉèÖÃ·µ»Ø¼ÇÂ¼Êı
+				List list = query.list();
+				session.close();
+				return list;
+			} catch (Exception e) {
+				e.printStackTrace();
+				if (session != null) session.close();
+			}
+			return null;
+		}
+
+		@Override
+		public int selectValue(String hql) {
+			Session session = HibernateSessionFactory.getSession();
+			try {
+				Query query = session.createQuery(hql);
+
+				Object obj = query.uniqueResult();
+				session.close();
+				if (obj instanceof Long)
+					return ((Long) obj).intValue();
+				else if (obj instanceof Integer)
+					return ((Integer) obj).intValue();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+				if (session != null) session.close();
+			}
+			return 0;
+		}
+
+		@Override
+		public int selectValue(String hql, Object[] para) {
+			Session session = HibernateSessionFactory.getSession();
+			try {
+				Query query = session.createQuery(hql);
+				// ¸ù¾İparaÉèÖÃ²ÎÊı
+				for (int i = 0; i < para.length; i++) {
+					query.setParameter(i, para[i]);
+				}
+
+				Object obj = query.uniqueResult();
+				session.close();
+				if (obj instanceof Long)
+					return ((Long) obj).intValue();
+				else if (obj instanceof Integer)
+					return ((Integer) obj).intValue();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+				if (session != null) session.close();
+			}
+			return 0;
+		}
+
+		@Override
+		public int selectPages(String hql, int pageSize) {
+			Session session = HibernateSessionFactory.getSession();
+			long pages_all = 0;
+			try {
+				Query query = session.createQuery(hql);
+
+				List list = query.list();
+				// »ñµÃ²éÑ¯¼ÇÂ¼×ÜÊı
+				long records = list.size();
+				// ¼ÆËã·ÖÒ³Êı
+				pages_all = records % pageSize == 0 ? records / pageSize : records
+						/ pageSize + 1; // »ñµÃ×ÜÒ³Êı
+				session.close();
+				return (int) pages_all;
+			} catch (Exception e) {
+				e.printStackTrace();
+				if (session != null) session.close();
+			}
+			return 0;
+		}
+
+		@Override
+		public int selectPages(String hql, Object[] para, int pageSize) {
+			Session session = HibernateSessionFactory.getSession();
+			// ±à³ÌË¼Ïë£ºÏÈ»ñµÃ²éÑ¯¼ÇÂ¼Êı£¬ÔÙÊ¹ÓÃËã·¨À´¼ÆËã³ö·ÖÒ³µÄÒ³Êı
+			long pages_all = 0;
+			try {
+				Query query = session.createQuery(hql);
+				// ¸ù¾İparaÉèÖÃ²ÎÊı
+				for (int i = 0; i < para.length; i++) {
+					query.setParameter(i, para[i]);
+				}
+				List list = query.list();
+				// »ñµÃ²éÑ¯¼ÇÂ¼×ÜÊı
+				long records = list.size();
+				// ¼ÆËã·ÖÒ³Êı
+				pages_all = records % pageSize == 0 ? records / pageSize : records
+						/ pageSize + 1; // »ñµÃ×ÜÒ³Êı
+				session.close();
+				return (int) pages_all;
+			} catch (Exception e) {
+				e.printStackTrace();
+				if (session != null) session.close();
+			}
+			return 0;
+		}
+
+		@Override
+		public List selectByPage(String hql, int startPage, int pageSize) {
+			Session session = HibernateSessionFactory.getSession();
+			List pList = null;
+			int currentPage;
+			try {
+				Query query = session.createQuery(hql);
+				// ÏÈÇó³ö°´ÕÕpageSizeµÃµ½µÄ·ÖÒ³µÄÒ³Êı
+				List list = query.list();
+				// »ñµÃ²éÑ¯¼ÇÂ¼×ÜÊı
+				long records = list.size();
+				// »ñµÃ×ÜÒ³Êı
+
+				int pages_all = (int) (records % pageSize == 0 ? records / pageSize
+						: records / pageSize + 1); // »ñµÃ×ÜÒ³Êı
+				// ÉèÖÃÀà³ÉÔ±µ±Ç°Ò³ÃæµÄ²Ù×÷Ò³Âë
+				if (startPage <= 1) {
+					currentPage = 1;
+				} else if (startPage >= pages_all) {
+					currentPage = pages_all;
+				} else {
+					currentPage = startPage;
+				}
+
+				Query query2 = session.createQuery(hql);
+				query2.setFirstResult((currentPage - 1) * pageSize);// ´ÓµÚ¼¸Ìõ¼ÇÂ¼¿ªÊ¼²éÑ¯
+
+				query2.setMaxResults(pageSize);// Ã¿Ò³ÏÔÊ¾¶àÉÙÌõ¼ÇÂ¼
+				pList = query2.list();
+				session.close();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+				if (session != null) session.close();
+			}
+			return pList;
+		}
+
+		@Override
+		public List selectByPage(String hql, Object[] para, int startPage,int pageSize) {
+			Session session = HibernateSessionFactory.getSession();
+			List pList = null;
+			int currentPage;
+			try {
+				Query query = session.createQuery(hql);
+				// ¸ù¾İparaÉèÖÃ²ÎÊı
+				for (int i = 0; i < para.length; i++) {
+					query.setParameter(i, para[i]);
+				}
+				List list = query.list();
+				// »ñµÃ²éÑ¯¼ÇÂ¼×ÜÊı
+				long records = list.size();
+				// »ñµÃ×ÜÒ³Êı
+				int pages_all = (int) (records % pageSize == 0 ? records / pageSize
+						: records / pageSize + 1); // »ñµÃ×ÜÒ³Êı
+				// ÉèÖÃÀà³ÉÔ±µ±Ç°Ò³ÃæµÄ²Ù×÷Ò³Âë
+
+				if (startPage <= 1) {
+					currentPage = 1;
+				} else if (startPage >= pages_all) {
+					currentPage = pages_all;
+				} else {
+					currentPage = startPage;
+				}
+
+				Query query2 = session.createQuery(hql);
+				// ¸ù¾İparaÉèÖÃ²ÎÊı
+				for (int i = 0; i < para.length; i++) {
+					query2.setParameter(i, para[i]);
+
+				}
+				query2.setFirstResult((currentPage - 1) * pageSize);// ´ÓµÚ¼¸Ìõ¼ÇÂ¼¿ªÊ¼²éÑ¯
+
+				query2.setMaxResults(pageSize);// Ã¿Ò³ÏÔÊ¾¶àÉÙÌõ¼ÇÂ¼
+				pList = query2.list();
+				session.close();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+				if (session != null) session.close();
+			}
+			return pList;
+		}
+
+		@Override
+		public Object findById(Class cls, Serializable id) {
+			Session session = HibernateSessionFactory.getSession();
+			try {
+				Object obj = session.get(cls, id);
+				session.close();
+				return obj;
+			} catch (Exception e) {
+				e.printStackTrace();
+				if (session != null) session.close();
+			}
+			return null;
+		}
+
+		@Override
+		public boolean update(String sql) {
+			Session session = HibernateSessionFactory.getSession();
+			Transaction tx = null;
+			try {
+				tx = session.beginTransaction(); // ¿ªÆôÒ»¸öÊÂÎñ
+				// ½«»á»°Session¶ÔÏó×ª»»³ÉjdbcµÄConnection
+				Connection con = session.connection();
+				PreparedStatement ptmt = con.prepareStatement(sql);
+				int row = ptmt.executeUpdate();
+
+				tx.commit(); // ³Ö¾Ã»¯²Ù×÷
+				session.close();
+
+				if (row > 0)
+					return true;
+				else
+					return false;
+
+			} catch (Exception e) {
+				e.printStackTrace();
+				if (tx != null)
+					tx.rollback(); // ³·Ïú
+				if (session != null) session.close();
+			}
+			return false;
+
+		}
+
+		@Override
+		public boolean update(String sql, Object[] para) {
+			Session session = HibernateSessionFactory.getSession();
+			Transaction tx = null;
+			try {
+				tx = session.beginTransaction(); // ¿ªÆôÒ»¸öÊÂÎñ
+				// ½«»á»°Session¶ÔÏó×ª»»³ÉjdbcµÄConnection
+				Connection con = session.connection();
+				PreparedStatement ptmt = con.prepareStatement(sql);
+				for (int i = 0; i < para.length; i++) {
+					ptmt.setObject(i + 1, para[i]);
+				}
+				int row = ptmt.executeUpdate();
+				tx.commit(); // ³Ö¾Ã»¯²Ù×÷
+				session.close();
+
+				if (row > 0)
+					return true;
+				else
+					return false;
+
+			} catch (Exception e) {
+				e.printStackTrace();
+				if (tx != null)
+					tx.rollback(); // ³·Ïú
+				if (session != null) session.close();
+			}
+			return false;
+		}
+
+		@Override
+		public boolean delete(String sql) {
+			Session session = HibernateSessionFactory.getSession();
+			Transaction tx = null;
+
+			try {
+				tx = session.beginTransaction(); // ¿ªÆôÒ»¸öÊÂÎñ
+				// ½«»á»°Session¶ÔÏó×ª»»³ÉjdbcµÄConnection
+				Connection con = session.connection();
+				PreparedStatement ptmt = con.prepareStatement(sql);
+				int row = ptmt.executeUpdate();
+				tx.commit(); // ³Ö¾Ã»¯²Ù×÷
+				session.close();
+
+				if (row > 0) return true;
+
+				else return false;
+
+			} catch (Exception e) {
+				e.printStackTrace();
+				if (tx != null) tx.rollback(); // ³·Ïú
+				if (session != null) session.close();
+			}
+			return false;
+
+		}
+
+		@Override
+		public boolean delete(String sql, Object[] para) {
+			Session session = HibernateSessionFactory.getSession();
+			Transaction tx = null;
+			try {
+				tx = session.beginTransaction(); // ¿ªÆôÒ»¸öÊÂÎñ
+				// ½«»á»°Session¶ÔÏó×ª»»³ÉjdbcµÄConnection
+				Connection con = session.connection();
+				PreparedStatement ptmt = con.prepareStatement(sql);
+				for (int i = 0; i < para.length; i++) {
+					ptmt.setObject(i + 1, para[i]);
+				}
+				int row = ptmt.executeUpdate();
+				tx.commit(); // ³Ö¾Ã»¯²Ù×÷
+				session.close();
+
+				if (row > 0) return true;
+				else return false;
+
+			} catch (Exception e) {
+				e.printStackTrace();
+				if (tx != null) tx.rollback(); // ³·Ïú
+				if (session != null) session.close();
+			}
+
+			return false;
+
+		}
+
+		@Override
+		public Object executeProduce(String procName) {
+			Session session = HibernateSessionFactory.getSession();
+			Transaction tx = null;
+			try {
+
+				tx = session.beginTransaction();
+				Connection conn = session.connection();
+				CallableStatement ctmt = conn.prepareCall("{ ?  =  call " + procName + " }");
+				ctmt.registerOutParameter(1, java.sql.Types.INTEGER);
+
+				boolean type = ctmt.execute();
+				tx.commit();
+				if (type) { // Îªtrue±íÃ÷´æ´¢¹ı³ÌÊÇÒ»¸öselectÓï¾ä
+					ResultSet rs = ctmt.getResultSet();
+					// globesession.close();
+					return rs;
+				} else { // ²»ÊÇselect£¬Ôò»ñÈ¡·µ»ØÖµ
+
+					int isSuccess = ctmt.getInt(1); // »ñµÃ·µ»ØÖµ¡£
+					session.close();
+					return new Integer(isSuccess);
+				}
+
+			} catch (Exception e) {
+				e.printStackTrace();
+				if (tx != null) tx.rollback(); // ´íÎóÊ±£¬»Ø¹ö²Ù×÷
+				if (session != null) session.close();
+			}
+			return null;
+
+		}
+
+		@Override
+		public Object executeProduce(String procName, Object[] para) {
+			Session session = HibernateSessionFactory.getSession();
+			Transaction tx = null;
+			try {
+				tx = session.beginTransaction();
+				Connection conn = session.connection();
+				CallableStatement ctmt = conn.prepareCall("{ ?  =  call " + procName + " }");
+
+				ctmt.registerOutParameter(1, java.sql.Types.INTEGER);
+				for (int i = 0; i < para.length; i++) {
+					ctmt.setObject(i + 2, para[i]);
+				}
+				boolean type = ctmt.execute();
+
+				tx.commit();
+				if (type) { // Îªtrue±íÃ÷´æ´¢¹ı³ÌÊÇÒ»¸öselectÓï¾ä
+					ResultSet rs = ctmt.getResultSet();
+					// globesession.close();
+					return rs;
+				} else { // ²»ÊÇselect£¬Ôò»ñÈ¡·µ»ØÖµ
+
+					int isSuccess = ctmt.getInt(1); // »ñµÃ·µ»ØÖµ¡£
+					session.close();
+					return new Integer(isSuccess);
+				}
+
+			} catch (Exception e) {
+				e.printStackTrace();
+				if (tx != null) tx.rollback(); // ´íÎóÊ±£¬»Ø¹ö²Ù×÷
+				if (session != null) session.close();
+			}
+			return null;
+
+		}
+
+		@Override
+		public boolean executeBatch(Object[] obj, int[] model) {
+			Session session = HibernateSessionFactory.getSession();
+			Transaction tx = null;
+			tx = session.beginTransaction();
+			try {
+				for (int i = 0; i < obj.length; i++) {
+					if (model[i] == INSERT)
+						session.save(obj[i]);
+					else if (model[i] == UPDATE)
+						session.update(obj[i]);
+					else if (model[i] == DELETE)
+						session.delete(obj[i]);
+				}
+				tx.commit();
+				session.close();
+				return true;
+
+			} catch (Exception e) {
+
+				e.printStackTrace();
+				if (tx != null) tx.rollback(); // ´íÎóÊ±£¬»Ø¹ö²Ù×÷
+				if (session != null) session.close();
+			}
+			return false;
+
+		}
+
+		@Override
+		public boolean executeBatch(List<Object> list, List<Integer> models) {
+			Session session = HibernateSessionFactory.getSession();
+			Transaction tx = null;
+			try {
+				tx = session.beginTransaction();
+				for (int i = 0; i < list.size(); i++) {
+					Object obj = list.get(i);
+					Integer model = (Integer) models.get(i);
+					if (model.intValue() == INSERT) {
+
+						session.save(obj);
+					} else if (model.intValue() == UPDATE) {
+						session.update(obj);
+					} else if (model.intValue() == DELETE) {
+						session.delete(obj);
+					}
+				}
+				tx.commit();
+				session.close();
+				return true;
+			} catch (Exception e) {
+				e.printStackTrace();
+				if (tx != null) tx.rollback(); // ´íÎóÊ±£¬»Ø¹ö²Ù×÷
+				if (session != null) session.close();
+			}
+			return false;
+
+		}
 
 }
