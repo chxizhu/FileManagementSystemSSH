@@ -1,0 +1,208 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="layui/css/layui.css" media="all">
+<title>用户基础信息修改</title>
+<style>
+			.mtop {
+				margin-top: 30px;
+			}
+			
+			.same {
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+				border: 1;
+				height: 45px;
+			}
+			
+			.text {
+				width: 80%;
+			}
+			
+			.btn {
+				width: 20%;
+			}
+			
+			.footer {
+				margin-top: 300px;
+				text-align: center;
+			}
+			
+			.bcolor {
+				background-color: #dddddd;
+			}
+			.fontsize{
+				font-size: large;
+				
+			}
+		</style>
+</head>
+<body class="bcolor">
+	<!--导航信息 -->
+		<div class="layui-row">
+			<div class="layui-col-md12">
+
+				<ul class="layui-nav layui-bg-blue">
+					<li class="layui-nav-item">
+						<a href="">文件资源管理系统</a>
+					</li>
+					<li class="layui-nav-item layui-this">
+						<a href="">用户基础信息修改</a>
+					</li>
+
+					<li class="layui-nav-item layui-col-md-offset8">
+						<a href="">欢迎您：xxx</a>
+					</li>
+					<li class="layui-nav-item ">
+						<a href="">退出</a>
+					</li>
+
+				</ul>
+
+			</div>
+		</div>
+		
+		
+		
+			<!--主要內容-->
+		<div class="layui-container mtop">
+			<div class="layui-row">
+				<div class="layui-col-md10 layui-col-md-offset1 ">
+					<div class="layui-card">
+						
+
+							
+
+							<div ><p class="fontsize" style="margin-top: 30px;margin-bottom: 10px;">用户基础信息修改</p></div>
+							<hr class="layui-bg-blue">
+							<form class="layui-form" action="">
+								<div class="layui-form-item">
+									<label class="layui-form-label">用户账号</label>
+									<div class="layui-input-block">
+										<input disabled="disabled" value="123" type="text" name="title" lay-verify="title" autocomplete="off"  class="layui-input">
+									</div>
+								</div>
+
+								<div class="layui-form-item">
+									<label class="layui-form-label">用户名</label>
+									<div class="layui-input-block">
+										<input  type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入修改的用户名" class="layui-input">
+									</div>
+								</div>
+								
+								<div class="layui-form-item">
+									 <label class="layui-form-label">修改密码</label>
+										    <div class="layui-input-inline">
+										      <input type="password" name="password" lay-verify="pass" placeholder="请输入密码" autocomplete="off" class="layui-input">
+										    </div>
+										    <div class="layui-form-mid layui-word-aux">请填写6到12位密码</div>
+								</div>
+								
+								<div class="layui-form-item">
+								  <label class="layui-form-label">性别</label>
+								    <div class="layui-input-block">
+								      <input type="radio" name="sex" value="男" title="男" checked="">
+								      <input type="radio" name="sex" value="女" title="女">
+								      
+								    </div>
+								</div>
+								
+								<div class="layui-form-item">
+									  <label class="layui-form-label">手机号码</label>
+									      <div class="layui-input-inline">
+									        <input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input">
+									      </div>
+								</div>
+								
+								<div class="layui-form-item">
+									 <label class="layui-form-label">所属部门</label>
+									      <div class="layui-input-inline">
+									        <select name="modules" lay-verify="required" lay-search="">
+									          <option value="">直接选择或搜索选择你所属的部门</option>
+									          <option value="1">layer</option>
+									          <option value="2">form</option>
+									          <option value="3">layim</option>
+									          <option value="4">element</option>
+									          <option value="5">laytpl</option>
+									          <option value="6">upload</option>
+									          <option value="7">laydate</option>
+									          <option value="8">laypage</option>
+									          <option value="9">flow</option>
+									          <option value="10">util</option>
+									          <option value="11">code</option>
+									          <option value="12">tree</option>
+									          <option value="13">layedit</option>
+									          <option value="14">nav</option>
+									          <option value="15">tab</option>
+									          <option value="16">table</option>
+									          <option value="17">select</option>
+									          <option value="18">checkbox</option>
+									          <option value="19">switch</option>
+									          <option value="20">radio</option>
+									        </select>
+									      </div>
+								</div>
+								
+								
+
+								<div class="layui-form-item">
+									<div class="layui-input-block">
+										<button class="layui-btn  layui-btn-normal" lay-submit="" lay-filter="demo1">确定修改</button>
+										<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+									</div>
+								</div>
+							</form>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="layui-footer" style="margin-top: 20px;margin-bottom: 30px.;text-align: center;">
+			<div class="layui-main">
+				<p>&copy; 2019
+					<a href="/">文件资源管理系统</a>
+				</p>
+			</div>
+		</div>
+		
+<script src="layui/layui.js" charset="utf-8"></script>
+
+<script>
+layui.use(['form', 'layedit', 'laydate'], function(){
+var form = layui.form
+  ,layer = layui.layer
+  ,layedit = layui.layedit
+  ,laydate = layui.laydate;
+  
+  //自定义验证规则
+  form.verify({
+  password: [
+      /^[\S]{6,12}$/
+      ,'密码必须6到12位，且不能出现空格'
+    ]
+    ,content: function(value){
+      layedit.sync(editIndex);
+    }
+  });
+  
+	 //表单初始赋值
+  form.val('example', {
+    "username": "贤心" // "name": "value"
+    ,"password": "123456"
+    ,"interest": 1
+    ,"like[write]": true //复选框选中状态
+    ,"close": true //开关状态
+    ,"sex": "女"
+    ,"desc": "我爱 layui"
+  })
+	
+});
+</script>
+</body>
+</html>
