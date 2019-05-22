@@ -5,7 +5,7 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>layui</title>
+		<title>企业文件资源管理系统</title>
 		<meta name="renderer" content="webkit">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -18,7 +18,8 @@
 			
 			.same {
 				padding: 0;
-				margin: 0;
+				margin-top: -2px;
+				margin-left: -1px;
 				box-sizing: border-box;
 				border: 1;
 				height: 45px;
@@ -65,10 +66,10 @@
 					</li>
 						
 					<li class="layui-nav-item layui-col-md-offset5">
-						<a href="">欢迎您：xxx</a>
+						<a href="javascript:;">欢迎您：${loginUser.username}</a>
 					</li>
 					<li class="layui-nav-item ">
-						<a href="">退出</a>
+						<a href="login.jsp">退出</a>
 					</li>
 
 				</ul>
@@ -91,7 +92,7 @@
 
 		<div class="layui-footer footer">
 			<div class="layui-main">
-				<p>&copy; 2019 <a href="/">文件资源管理系统</a> </p>
+				<p>&copy; 2019 <a href="javascript:;">文件资源管理系统</a> </p>
 			</div>
 		</div>
 

@@ -8,4 +8,7 @@
 		</action>
 		<action name="UserinformationEditAction"
 			class="control.action.UserinformationEditAction">
+		</action>
+		<action name="loginout" class="control.action.LoginOutAction">
+			<result name="success" type="dispatcher">/login.jsp</result>
 		</action></package></struts>    
