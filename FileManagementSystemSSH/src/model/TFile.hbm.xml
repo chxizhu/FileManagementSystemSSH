@@ -22,9 +22,6 @@
         <property name="typeId" type="java.lang.Integer">
             <column name="type_id" />
         </property>
-        <property name="pathId" type="java.lang.Integer">
-            <column name="path_id" />
-        </property>
         <property name="dscribe" type="java.lang.String">
             <column name="dscribe" length="200" />
         </property>
@@ -42,6 +39,9 @@
         </property>
         <property name="filepath" type="java.lang.String">
             <column name="filepath" length="100" />
+        </property>
+        <property name="downloads" type="java.lang.Integer">
+            <column name="downloads" />
         </property>
     </class>
 </hibernate-mapping>

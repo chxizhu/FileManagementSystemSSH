@@ -15,13 +15,13 @@ public class TFile implements java.io.Serializable {
 	private Timestamp uptime;
 	private String author;
 	private Integer typeId;
-	private Integer pathId;
 	private String dscribe;
 	private Integer authorityId;
 	private String lable;
 	private String filesize;
 	private String filesuffix;
 	private String filepath;
+	private Integer downloads;
 
 	// Constructors
 
@@ -31,20 +31,20 @@ public class TFile implements java.io.Serializable {
 
 	/** full constructor */
 	public TFile(String filename, Timestamp uptime, String author,
-			Integer typeId, Integer pathId, String dscribe,
-			Integer authorityId, String lable, String filesize,
-			String filesuffix, String filepath) {
+			Integer typeId, String dscribe, Integer authorityId, String lable,
+			String filesize, String filesuffix, String filepath,
+			Integer downloads) {
 		this.filename = filename;
 		this.uptime = uptime;
 		this.author = author;
 		this.typeId = typeId;
-		this.pathId = pathId;
 		this.dscribe = dscribe;
 		this.authorityId = authorityId;
 		this.lable = lable;
 		this.filesize = filesize;
 		this.filesuffix = filesuffix;
 		this.filepath = filepath;
+		this.downloads = downloads;
 	}
 
 	// Property accessors
@@ -87,14 +87,6 @@ public class TFile implements java.io.Serializable {
 
 	public void setTypeId(Integer typeId) {
 		this.typeId = typeId;
-	}
-
-	public Integer getPathId() {
-		return this.pathId;
-	}
-
-	public void setPathId(Integer pathId) {
-		this.pathId = pathId;
 	}
 
 	public String getDscribe() {
@@ -143,6 +135,14 @@ public class TFile implements java.io.Serializable {
 
 	public void setFilepath(String filepath) {
 		this.filepath = filepath;
+	}
+
+	public Integer getDownloads() {
+		return this.downloads;
+	}
+
+	public void setDownloads(Integer downloads) {
+		this.downloads = downloads;
 	}
 
 }

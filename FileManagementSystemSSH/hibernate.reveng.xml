@@ -32,8 +32,14 @@
 			<generator class="identity"></generator>
 		</primary-key>
 	</table>
-<table name="V_User" schema="dbo" catalog="FileManagementSystemDB"
-	class="model.VUser">
+	<table name="V_User" schema="dbo" catalog="FileManagementSystemDB"
+		class="model.VUser">
+		<primary-key>
+			<generator class="identity"></generator>
+		</primary-key>
+	</table>
+<table name="T_Record" schema="dbo" catalog="FileManagementSystemDB"
+	class="model.TRecord">
 	<primary-key>
 		<generator class="identity"></generator>
 	</primary-key>

@@ -25,10 +25,10 @@
 		<mapping resource="model/TFileType.hbm.xml" />
 		<mapping resource="model/TAuthority.hbm.xml" />
 		<mapping resource="model/TDeparment.hbm.xml" />
-		<mapping resource="model/TFile.hbm.xml" />
-		<mapping resource="model/TFilePath.hbm.xml" />
-		<mapping resource="model/VFile.hbm.xml" />
 		<mapping resource="model/VUser.hbm.xml" />
+		<mapping resource="model/TFile.hbm.xml" />
+		<mapping resource="model/TRecord.hbm.xml" />
+		<mapping resource="model/VFile.hbm.xml" />
 
 	</session-factory>
 

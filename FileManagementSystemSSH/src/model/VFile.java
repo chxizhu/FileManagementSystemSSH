@@ -2,154 +2,195 @@ package model;
 
 import java.sql.Timestamp;
 
-
 /**
  * VFileId entity. @author MyEclipse Persistence Tools
  */
 
 public class VFile implements java.io.Serializable {
 
+	// Fields
 
-    // Fields    
+	private Integer fileid;
+	private String filename;
+	private Timestamp uptime;
+	private String author;
+	private String dscribe;
+	private Integer authorityId;
+	private String lable;
+	private String filesuffix;
+	private String filesize;
+	private String filepath;
+	private Integer downloads;
+	private Integer typeid;
+	private String typename;
+	private Integer authorityid;
+	private Integer includeid;
+	private String authorityname;
 
-     private Integer fileid;
-     private String filename;
-     private Timestamp uptime;
-     private String userid;
-     private String username;
-     private String filesize;
-     private String filesuffix;
-     private String lable;
-     private String typename;
-     private String filepath;
-     private String dscribe;
-     private Integer authorityId;
+	// Constructors
 
-
-    // Constructors
-
-    /** default constructor */
-    public VFile() {
-    }
+	/** default constructor */
+	public VFile() {
+	}
 
 	/** minimal constructor */
-    public VFile(Integer fileid, String userid) {
-        this.fileid = fileid;
-        this.userid = userid;
-    }
-    
-    /** full constructor */
-    public VFile(Integer fileid, String filename, Timestamp uptime, String userid, String username, String filesize, String filesuffix, String lable, String typename, String filepath, String dscribe, Integer authorityId) {
-        this.fileid = fileid;
-        this.filename = filename;
-        this.uptime = uptime;
-        this.userid = userid;
-        this.username = username;
-        this.filesize = filesize;
-        this.filesuffix = filesuffix;
-        this.lable = lable;
-        this.typename = typename;
-        this.filepath = filepath;
-        this.dscribe = dscribe;
-        this.authorityId = authorityId;
-    }
+	public VFile(Integer fileid, Integer typeid, Integer authorityid) {
+		this.fileid = fileid;
+		this.typeid = typeid;
+		this.authorityid = authorityid;
+	}
 
-   
-    // Property accessors
+	/** full constructor */
+	public VFile(Integer fileid, String filename, Timestamp uptime,
+			String author, String dscribe, Integer authorityId, String lable,
+			String filesuffix, String filesize, String filepath,
+			Integer downloads, Integer typeid, String typename,
+			Integer authorityid, Integer includeid, String authorityname) {
+		this.fileid = fileid;
+		this.filename = filename;
+		this.uptime = uptime;
+		this.author = author;
+		this.dscribe = dscribe;
+		this.authorityId = authorityId;
+		this.lable = lable;
+		this.filesuffix = filesuffix;
+		this.filesize = filesize;
+		this.filepath = filepath;
+		this.downloads = downloads;
+		this.typeid = typeid;
+		this.typename = typename;
+		this.authorityid = authorityid;
+		this.includeid = includeid;
+		this.authorityname = authorityname;
+	}
 
-    public Integer getFileid() {
-        return this.fileid;
-    }
-    
-    public void setFileid(Integer fileid) {
-        this.fileid = fileid;
-    }
+	// Property accessors
 
-    public String getFilename() {
-        return this.filename;
-    }
-    
-    public void setFilename(String filename) {
-        this.filename = filename;
-    }
+	public Integer getFileid() {
+		return this.fileid;
+	}
 
-    public Timestamp getUptime() {
-        return this.uptime;
-    }
-    
-    public void setUptime(Timestamp uptime) {
-        this.uptime = uptime;
-    }
+	public void setFileid(Integer fileid) {
+		this.fileid = fileid;
+	}
 
-    public String getUserid() {
-        return this.userid;
-    }
-    
-    public void setUserid(String userid) {
-        this.userid = userid;
-    }
+	public String getFilename() {
+		return this.filename;
+	}
 
-    public String getUsername() {
-        return this.username;
-    }
-    
-    public void setUsername(String username) {
-        this.username = username;
-    }
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
 
-    public String getFilesize() {
-        return this.filesize;
-    }
-    
-    public void setFilesize(String filesize) {
-        this.filesize = filesize;
-    }
+	public Timestamp getUptime() {
+		return this.uptime;
+	}
 
-    public String getFilesuffix() {
-        return this.filesuffix;
-    }
-    
-    public void setFilesuffix(String filesuffix) {
-        this.filesuffix = filesuffix;
-    }
+	public void setUptime(Timestamp uptime) {
+		this.uptime = uptime;
+	}
 
-    public String getLable() {
-        return this.lable;
-    }
-    
-    public void setLable(String lable) {
-        this.lable = lable;
-    }
+	public String getAuthor() {
+		return this.author;
+	}
 
-    public String getTypename() {
-        return this.typename;
-    }
-    
-    public void setTypename(String typename) {
-        this.typename = typename;
-    }
+	public void setAuthor(String author) {
+		this.author = author;
+	}
 
-    public String getFilepath() {
-        return this.filepath;
-    }
-    
-    public void setFilepath(String filepath) {
-        this.filepath = filepath;
-    }
+	public String getDscribe() {
+		return this.dscribe;
+	}
 
-    public String getDscribe() {
-        return this.dscribe;
-    }
-    
-    public void setDscribe(String dscribe) {
-        this.dscribe = dscribe;
-    }
+	public void setDscribe(String dscribe) {
+		this.dscribe = dscribe;
+	}
 
-    public Integer getAuthorityId() {
-        return this.authorityId;
-    }
-    
-    public void setAuthorityId(Integer authorityId) {
-        this.authorityId = authorityId;
-    }
-    }
+	public Integer getAuthorityId() {
+		return this.authorityId;
+	}
+
+	public void setAuthorityId(Integer authorityId) {
+		this.authorityId = authorityId;
+	}
+
+	public String getLable() {
+		return this.lable;
+	}
+
+	public void setLable(String lable) {
+		this.lable = lable;
+	}
+
+	public String getFilesuffix() {
+		return this.filesuffix;
+	}
+
+	public void setFilesuffix(String filesuffix) {
+		this.filesuffix = filesuffix;
+	}
+
+	public String getFilesize() {
+		return this.filesize;
+	}
+
+	public void setFilesize(String filesize) {
+		this.filesize = filesize;
+	}
+
+	public String getFilepath() {
+		return this.filepath;
+	}
+
+	public void setFilepath(String filepath) {
+		this.filepath = filepath;
+	}
+
+	public Integer getDownloads() {
+		return this.downloads;
+	}
+
+	public void setDownloads(Integer downloads) {
+		this.downloads = downloads;
+	}
+
+	public Integer getTypeid() {
+		return this.typeid;
+	}
+
+	public void setTypeid(Integer typeid) {
+		this.typeid = typeid;
+	}
+
+	public String getTypename() {
+		return this.typename;
+	}
+
+	public void setTypename(String typename) {
+		this.typename = typename;
+	}
+
+	public Integer getAuthorityid() {
+		return this.authorityid;
+	}
+
+	public void setAuthorityid(Integer authorityid) {
+		this.authorityid = authorityid;
+	}
+
+	public Integer getIncludeid() {
+		return this.includeid;
+	}
+
+	public void setIncludeid(Integer includeid) {
+		this.includeid = includeid;
+	}
+
+	public String getAuthorityname() {
+		return this.authorityname;
+	}
+
+	public void setAuthorityname(String authorityname) {
+		this.authorityname = authorityname;
+	}
+}
