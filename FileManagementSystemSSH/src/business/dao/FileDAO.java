@@ -71,7 +71,7 @@ public interface FileDAO {
 	 * @param filename  文件标题
 	 * @param author  上传作者
 	 * @param dscribe  详细说明
-	 * type_id 文件类型
+	 * @param type_id 文件类型
 	 * @return  authority_id  文件权限
 	 * * @return  lable  标签
 	 * * @return  filesize  文件大小
@@ -85,7 +85,7 @@ public interface FileDAO {
 	 * @param filename  文件标题
 	 * @param author  上传作者
 	 * @param dscribe  详细说明
-	 * type_id 文件类型
+	 * @param type_id 文件类型
 	 * @return  authority_id  文件权限
 	 * * @return  lable  标签
 	 * * @return  filesize  文件大小
