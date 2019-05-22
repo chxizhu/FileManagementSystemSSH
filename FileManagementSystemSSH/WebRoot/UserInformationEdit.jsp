@@ -83,7 +83,7 @@
 								<div class="layui-form-item">
 									<label class="layui-form-label">用户账号</label>
 									<div class="layui-input-block">
-										<input disabled="disabled" value="123" type="text" name="title" lay-verify="title" autocomplete="off"  class="layui-input">
+										<input disabled="disabled" value="${loginUser.userid} " type="text" name="title" lay-verify="title" autocomplete="off"  class="layui-input">
 									</div>
 								</div>
 

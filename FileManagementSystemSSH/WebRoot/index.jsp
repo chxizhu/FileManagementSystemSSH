@@ -52,19 +52,19 @@
 						<a href="index.jsp">文件资源管理系统</a>
 					</li>
 					
-					<li class="layui-nav-item layui-this">
+					<li class="layui-nav-item ">
 						<a href="uplode.jsp">文件上传</a>
 					</li>
 					
-					<li class="layui-nav-item layui-this">
+					<li class="layui-nav-item ">
 						<a href="ownfile.html">个人文件管理</a>
 					</li>
 					
-					<li class="layui-nav-item layui-this">
+					<li class="layui-nav-item ">
 						<a href="UserInformationEdit.jsp">用户基础信息修改</a>
 					</li>
 						
-					<li class="layui-nav-item layui-col-md-offset8">
+					<li class="layui-nav-item layui-col-md-offset5">
 						<a href="">欢迎您：xxx</a>
 					</li>
 					<li class="layui-nav-item ">
