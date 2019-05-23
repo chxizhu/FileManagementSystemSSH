@@ -47,18 +47,27 @@
 			<div class="layui-col-md12">
 
 				<ul class="layui-nav layui-bg-blue">
-					<li class="layui-nav-item">
-						<a href="">文件资源管理系统</a>
+					<li class="layui-nav-item ">
+						<a href="index.jsp">文件资源管理系统</a>
 					</li>
-					<li class="layui-nav-item layui-this">
-						<a href="">用户基础信息修改</a>
+					
+					<li class="layui-nav-item ">
+						<a href="uplode.jsp">文件上传</a>
 					</li>
-
-					<li class="layui-nav-item layui-col-md-offset8">
-						<a href="">欢迎您：xxx</a>
+					
+					<li class="layui-nav-item ">
+						<a href="ownfile.html">个人文件管理</a>
+					</li>
+					
+					<li class="layui-nav-item ">
+						<a href="UserInformationEdit.jsp">用户基础信息修改</a>
+					</li>
+						
+					<li class="layui-nav-item layui-col-md-offset5">
+						<a href="javascript:;">欢迎您：${loginUser.username}</a>
 					</li>
 					<li class="layui-nav-item ">
-						<a href="">退出</a>
+						<a href="login.jsp">退出</a>
 					</li>
 
 				</ul>
