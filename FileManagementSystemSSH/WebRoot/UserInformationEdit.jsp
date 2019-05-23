@@ -79,25 +79,25 @@
 
 							<div ><p class="fontsize" style="margin-top: 30px;margin-bottom: 10px;">用户基础信息修改</p></div>
 							<hr class="layui-bg-blue">
-							<form class="layui-form" action="">
+							<form class="layui-form" action="UserinformationEditAction.action">
 								<div class="layui-form-item">
 									<label class="layui-form-label">用户账号</label>
 									<div class="layui-input-block">
-										<input disabled="disabled" value="${loginUser.userid} " type="text" name="title" lay-verify="title" autocomplete="off"  class="layui-input">
+										<input disabled="disabled" value="${loginUser.userid} " type="text" name="userid" lay-verify="title" autocomplete="off"  class="layui-input">
 									</div>
 								</div>
 
 								<div class="layui-form-item">
 									<label class="layui-form-label">用户名</label>
 									<div class="layui-input-block">
-										<input  type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入修改的用户名" class="layui-input">
+										<input  type="text" name="username" lay-verify="username" autocomplete="off" placeholder="请输入修改的用户名" class="layui-input">
 									</div>
 								</div>
 								
 								<div class="layui-form-item">
 									 <label class="layui-form-label">修改密码</label>
 										    <div class="layui-input-inline">
-										      <input type="password" name="password" lay-verify="pass" placeholder="请输入密码" autocomplete="off" class="layui-input">
+										      <input type="password" name="pwd" lay-verify="pass" placeholder="请输入密码" autocomplete="off" class="layui-input">
 										    </div>
 										    <div class="layui-form-mid layui-word-aux">请填写6到12位密码</div>
 								</div>
@@ -105,8 +105,8 @@
 								<div class="layui-form-item">
 								  <label class="layui-form-label">性别</label>
 								    <div class="layui-input-block">
-								      <input type="radio" name="sex" value="男" title="男" checked="">
-								      <input type="radio" name="sex" value="女" title="女">
+								      <input type="radio" name="agend" value="男" title="男" checked="">
+								      <input type="radio" name="agend" value="女" title="女">
 								      
 								    </div>
 								</div>
@@ -121,9 +121,9 @@
 								<div class="layui-form-item">
 									 <label class="layui-form-label">所属部门</label>
 									      <div class="layui-input-inline">
-									        <select name="modules" lay-verify="required" lay-search="">
+									        <select name="department_id" lay-verify="required" lay-search="">
 									          <option value="">直接选择或搜索选择你所属的部门</option>
-									          <option value="1">layer</option>
+									          <option value="101">layer</option>
 									          <option value="2">form</option>
 									          <option value="3">layim</option>
 									          <option value="4">element</option>
