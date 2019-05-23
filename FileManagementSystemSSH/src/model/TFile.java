@@ -12,7 +12,7 @@ public class TFile implements java.io.Serializable {
 
 	private Integer fileid;
 	private String filename;
-	private Timestamp uptime;
+	private String uptime;
 	private String author;
 	private Integer typeId;
 	private String dscribe;
@@ -30,7 +30,7 @@ public class TFile implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public TFile(String filename, Timestamp uptime, String author,
+	public TFile(String filename, String uptime, String author,
 			Integer typeId, String dscribe, Integer authorityId, String lable,
 			String filesize, String filesuffix, String filepath,
 			Integer downloads) {
@@ -65,12 +65,12 @@ public class TFile implements java.io.Serializable {
 		this.filename = filename;
 	}
 
-	public Timestamp getUptime() {
+	public String getUptime() {
 		return this.uptime;
 	}
 
-	public void setUptime(Timestamp uptime) {
-		this.uptime = uptime;
+	public void setUptime(String string) {
+		this.uptime = string;
 	}
 
 	public String getAuthor() {

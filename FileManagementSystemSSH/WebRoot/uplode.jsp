@@ -81,16 +81,7 @@
 							<i class="layui-icon" style="color: #01AAED;"></i>
 							<p>点击上传，或将文件拖拽到此处</p>
 						</div>
-						<div>
-							<form class="layui-form" action="">								
-									<div class="layui-form-item">
-								<label class="layui-form-label">文件大小</label>
-								<div class="layui-input-block">
-									<input type="text" id="size" class="layui-input">
-								</div>
-							</div>
-							</form>
-						</div>
+						
 						<div>
 							<a id="a"></a>
 						</div>
@@ -99,19 +90,26 @@
 							<div class="layui-form-item">
 								<label class="layui-form-label">文件标题</label>
 								<div class="layui-input-block">
-									<input type="text" name="title" lay-verify="title" id="title"
-										autocomplete="off" placeholder="请输入标题" class="layui-input">
+									<input type="text" name="filename" lay-verify="title" id="title"
+										autocomplete="off" placeholder="文件标题内容不可修改（如需修改请直接修改上传前文件标题）" readonly="true" class="layui-input">
+								</div>
+							</div>
+							
+							<div class="layui-form-item">
+								<label class="layui-form-label">文件大小</label>
+								<div class="layui-input-block">
+									<input type="text" id="size" name="filesize" readonly="true" class="layui-input">
 								</div>
 							</div>
 
 							<div class="layui-form-item">
 								<label class="layui-form-label">文件权限</label>
 								<div class="layui-input-block">
-									<select name="interest" lay-filter="aihao">
+									<select name="authority_id" lay-filter="aihao">
 										<option value=""></option>
-										<option value="0" selected="">个人</option>
-										<option value="1">部门</option>
-										<option value="2">公司</option>
+										<option value="101" selected="">个人</option>
+										<option value="102">部门</option>
+										<option value="103">公司</option>
 
 									</select>
 								</div>
@@ -119,15 +117,15 @@
 							<div class="layui-form-item">
 								<label class="layui-form-label">文件标签</label>
 								<div class="layui-input-block">
-									<input type="text" name="title" lay-verify="title"
-										autocomplete="off" placeholder="请输入标题" class="layui-input">
+									<input type="text" name="lable" lay-verify="title"
+										autocomplete="off" placeholder="请输入文件标签，标签之间用，隔开" class="layui-input">
 								</div>
 							</div>
 
 							<div class="layui-form-item layui-form-text">
-								<label class="layui-form-label">文件说明</label>
+								<label class="layui-form-label">文件简介</label>
 								<div class="layui-input-block">
-									<textarea placeholder="请输入内容" class="layui-textarea"></textarea>
+									<textarea placeholder="请简介输入内容" name="dscribe" class="layui-textarea"></textarea>
 								</div>
 							</div>
 
@@ -189,22 +187,17 @@
 				choose : function(obj) {
 					//将每次选择的文件追加到文件队列
 					var files = obj.pushFile();
-
 					//预读本地文件，如果是多文件，则会遍历。(不支持ie8/9)
 					obj.preview(function(index, file, result) {
 						//console.log(index); //得到文件索引
 						//console.log(file); //得到文件对象
 						//console.log(result); //得到文件base64编码，比如图片
-
 						$("#title").val(file.name);
-						$("#size").val(file.size / 1024 + "K"  + "-----------" +"文件上传中");
-						
-
+						$("#size").val(file.size / 1024 + "K");
 						//alert(file.type);
 						//alert(file.lastModifiedDate);
 						//alert("文件上传成功");
 						var layer = layui.layer;
-
 						layer.msg('文件上传中，请补充文件信息！');
 					});
 

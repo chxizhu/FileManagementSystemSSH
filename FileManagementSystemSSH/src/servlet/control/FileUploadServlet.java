@@ -84,12 +84,6 @@ public class FileUploadServlet extends HttpServlet {
 		try {
 			// itemList保存有从jsp中获取出来的图片的全路径名称
 			List itemList = upload.parseRequest(request); // 从请求对象中获得对象列表
-			
-			/*System.out.println(itemList);
-			String a = "C:\\Users\\xizhu\\Desktop\\企业文件资源管理系（数据库数据）.png";
-			System.out.println("类型"+GetFileTypeByHead.getFileType(a));*/
-			
-			
 			for (Iterator it = itemList.iterator(); it.hasNext();) {
 				FileItem item = (FileItem) it.next();
 				if (!item.isFormField())// 如果是非表单数据
@@ -109,9 +103,9 @@ public class FileUploadServlet extends HttpServlet {
 					// 项目在服务器上的路径,因为上传文件需要保存在服务器路径中
 					String path = "";
 					if (relaPath == null || relaPath.equals("")) {
-						path = "e:\\tomcatupload\\blogs\\";
+						path = "d:\\tomcatupload\\";
 					} else {
-						path = "e:\\tomcatupload\\blogs\\" + relaPath + "\\";
+						path = "d:\\tomcatupload\\" + relaPath + "\\";
 					}
 
 					// 根据路径和文件名创建路径和文件
@@ -140,9 +134,7 @@ public class FileUploadServlet extends HttpServlet {
 					// respjson.msg = "文件上传成功";
 					// respjson.result1 = "" + photoid; // 返回图片资源id
 					// respjson.result2 = relaPath + "\\" + fileName;
-					System.out.print(relaPath + "\\" + fileName);
-					
-					System.out.print("文件类型："+FileTypeUtil.getType(fileName));
+					//System.out.print(relaPath + "\\" + fileName);
 				}
 			}
 		} catch (Exception e) {
