@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Struts2Diagram version="2.0">
   <package name="default" location="35,22" size="367,420">
-    <action name="loginAction" location="10,42" size="150,41">
+    <action name="loginAction" location="21,53" size="150,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="index.jsp" />
       </result>
     </action>
-    <action name="UserinformationEditAction" location="8,314" size="150,40" />
-    <action name="loginout" location="14,114" size="150,41">
+    <action name="UserinformationEditAction" location="24,298" size="150,40" />
+    <action name="loginout" location="25,125" size="150,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="login.jsp" />
       </result>
     </action>
-    <action name="seek" location="9,189" size="150,40">
+    <action name="seek" location="20,200" size="150,62">
       <result name="success">
         <resourceEdge source="success" routing="0" target="seek.jsp" />
       </result>
@@ -20,10 +20,16 @@
         <resourceEdge source="error" routing="0" target="error.jsp" />
       </result>
     </action>
+    <action name="addfile" location="28,354" size="150,41">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="uplode.jsp" />
+      </result>
+    </action>
   </package>
   <webResource name="index.jsp" path="/index.jsp" location="476,51" size="150,55" />
   <webResource name="login.jsp" path="/login.jsp" location="473,132" size="150,55" />
   <webResource name="seek.jsp" path="/seek.jsp" location="453,208" size="150,55" />
   <webResource name="error.jsp" path="/error.jsp" location="654,195" size="150,55" />
+  <webResource name="uplode.jsp" path="/uplode.jsp" location="443,372" size="150,55" />
 </Struts2Diagram>
 

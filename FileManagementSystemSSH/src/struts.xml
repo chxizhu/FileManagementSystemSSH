@@ -15,4 +15,7 @@
 		<action name="seek" class="control.action.SeekAction">
 			<result name="success" type="dispatcher">/seek.jsp</result>
 			<result name="error" type="dispatcher">/error.jsp</result>
+		</action>
+		<action name="addfileAction" class="control.action.addfileAction">
+			<result name="success" type="dispatcher">/uplode.jsp</result>
 		</action></package></struts>    

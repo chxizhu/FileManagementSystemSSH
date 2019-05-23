@@ -25,8 +25,8 @@ public class FileDAOImpl implements FileDAO {
 	
 	@Override
 	public int addFile(TFile file) {
-		// TODO Auto-generated method stub
-		return 0;
+		return  (Integer) bdao.insert(file);
+		
 	}
 
 	@Override

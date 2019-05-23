@@ -82,19 +82,20 @@
 							<p>点击上传，或将文件拖拽到此处</p>
 						</div>
 						<div>
-							<form class="layui-form" action="">
-								<div class="layui-form-item">
-									<label class="layui-form-label">文件大小：</label>
-									<div class="layui-input-inline">
-										<input type="text" id="size" class="layui-input">
-									</div>
+							<form class="layui-form" action="">								
+									<div class="layui-form-item">
+								<label class="layui-form-label">文件大小</label>
+								<div class="layui-input-block">
+									<input type="text" id="size" class="layui-input">
+								</div>
+							</div>
 							</form>
 						</div>
 						<div>
 							<a id="a"></a>
 						</div>
 						<hr class="layui-bg-blue">
-						<form class="layui-form" action="">
+						<form class="layui-form" action="addfileAction.action">
 							<div class="layui-form-item">
 								<label class="layui-form-label">文件标题</label>
 								<div class="layui-input-block">
@@ -196,7 +197,7 @@
 						//console.log(result); //得到文件base64编码，比如图片
 
 						$("#title").val(file.name);
-						$("#size").val(file.size / 1024 + "K"+"&nbsp;&nbsp;"+"文件上传中");
+						$("#size").val(file.size / 1024 + "K"  + "-----------" +"文件上传中");
 						
 
 						//alert(file.type);
