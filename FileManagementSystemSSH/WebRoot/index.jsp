@@ -83,7 +83,7 @@
 				<div class="layui-col-md6 layui-col-md-offset3 ">
 					<form class="layui-form" action="">
 						<div class="same ">
-							<input type="text" placeholder="请输入标题" class="same text "><button class="layui-btn layui-btn-normal same btn">搜  索</button>
+							<input type="text" placeholder="请输入标题" class="same text " name="seek"><button class="layui-btn layui-btn-normal same btn">搜  索</button>
 						</div>
 					</form>
 				</div>

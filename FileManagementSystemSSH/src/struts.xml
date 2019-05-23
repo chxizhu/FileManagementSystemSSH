@@ -11,4 +11,8 @@
 		</action>
 		<action name="loginout" class="control.action.LoginOutAction">
 			<result name="success" type="dispatcher">/login.jsp</result>
+		</action>
+		<action name="seek" class="control.action.SeekAction">
+			<result name="success" type="dispatcher">/seek.jsp</result>
+			<result name="error" type="dispatcher">/error.jsp</result>
 		</action></package></struts>    

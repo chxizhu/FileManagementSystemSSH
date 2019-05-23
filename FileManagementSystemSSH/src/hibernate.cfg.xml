@@ -29,6 +29,7 @@
 		<mapping resource="model/TFile.hbm.xml" />
 		<mapping resource="model/TRecord.hbm.xml" />
 		<mapping resource="model/VFile.hbm.xml" />
+		<mapping resource="model/VUserFile.hbm.xml" />
 
 	</session-factory>
 

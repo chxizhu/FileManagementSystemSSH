@@ -14,208 +14,210 @@ import org.hibernate.*;
 import org.hibernate.cfg.*;
 import org.hibernate.sql.Insert;
 
-/**
- * åŸºäºhibernateæŠ€æœ¯å®ç°çš„BaseDAOåŸºç±»
- * @author å¼ é”¦ç›› 
- * @since 2014-12-19
- * @version 2017-4-20
- */
-public interface iHibBaseDAO {
 	/**
-	 * å®ç°å•ä¸ªçš„æ–°ç¬æ—¶å®ä½“ç±»å¯¹è±¡çš„æŒä¹…åŒ–æ“ä½œï¼ˆæ·»åŠ å¯¹è±¡åˆ°æ•°æ®åº“ä¸­ï¼‰
-	 * è¯¥hibernateæ·»åŠ æ–¹æ³•ä»…ç”¨äºå¯¹å•ä¸ªçš„ç¬æ—¶å¯¹è±¡è¿›è¡ŒæŒä¹…åŒ–æ“ä½œ
-	 * @param Object ä»»æ„çš„Hibernateçš„è¡¨æ˜ å°„å®ä½“ç±»å¯¹è±¡
-	 * @return Object  ä¸»é”®idï¼Œ nullåˆ™è¡¨ç¤ºæ·»åŠ å¤±è´¥ 
+	 * »ùÓÚhibernate¼¼ÊõÊµÏÖµÄBaseDAO»ùÀà
+	 * @author ÕÅ½õÊ¢ 
+	 * @since 2014-12-19
+	 * @version 2017-4-20
+	 */
+	public interface iHibBaseDAO {
+	/**
+	 * ÊµÏÖµ¥¸öµÄĞÂË²Ê±ÊµÌåÀà¶ÔÏóµÄ³Ö¾Ã»¯²Ù×÷£¨Ìí¼Ó¶ÔÏóµ½Êı¾İ¿âÖĞ£©
+	 * ¸ÃhibernateÌí¼Ó·½·¨½öÓÃÓÚ¶Ôµ¥¸öµÄË²Ê±¶ÔÏó½øĞĞ³Ö¾Ã»¯²Ù×÷
+	 * @param Object ÈÎÒâµÄHibernateµÄ±íÓ³ÉäÊµÌåÀà¶ÔÏó
+	 * @return Object  Ö÷¼üid£¬ nullÔò±íÊ¾Ìí¼ÓÊ§°Ü 
 	 */
 	public Object insert(Object obj);
 
-
 	/**
-	 * å®ç°æ‰¹é‡çš„æ–°ç¬æ—¶å®ä½“ç±»å¯¹è±¡çš„æŒä¹…åŒ–æ“ä½œï¼ˆæ·»åŠ å¯¹è±¡åˆ°æ•°æ®åº“ä¸­ï¼‰
-	 * è¯¥hibernateæ·»åŠ æ–¹æ³•ä»…ç”¨äºå¯¹å•ä¸ªçš„ç¬æ—¶å¯¹è±¡è¿›è¡ŒæŒä¹…åŒ–æ“ä½œ
-	 * @param List<Object> ä»»æ„çš„Hibernateçš„è¡¨æ˜ å°„å®ä½“ç±»å¯¹è±¡åˆ—è¡¨
-	 * @return boolean  trueæˆåŠŸï¼Œfalseå¤±è´¥
+	 * ÊµÏÖÅúÁ¿µÄĞÂË²Ê±ÊµÌåÀà¶ÔÏóµÄ³Ö¾Ã»¯²Ù×÷£¨Ìí¼Ó¶ÔÏóµ½Êı¾İ¿âÖĞ£©
+	 * ¸ÃhibernateÌí¼Ó·½·¨½öÓÃÓÚ¶Ôµ¥¸öµÄË²Ê±¶ÔÏó½øĞĞ³Ö¾Ã»¯²Ù×÷
+	 * @param List<Object> ÈÎÒâµÄHibernateµÄ±íÓ³ÉäÊµÌåÀà¶ÔÏóÁĞ±í
+	 * @return boolean  true³É¹¦£¬falseÊ§°Ü
 	 */
 	public boolean insert(List<Object> list);
 	
 	/**
-	 * æ‰§è¡Œè¡¨æ•°æ®åˆ é™¤æ“ä½œ
-	 * è¯¥hibernateåˆ é™¤æ–¹æ³•ä»…ç”¨äºå¯¹å•ä¸ªçš„ç¬æ—¶å¯¹è±¡ä½¿ç”¨å…¶idå±æ€§è¿›è¡ŒæŒä¹…åŒ–æ“ä½œ
-	 * @param Class ç»™å‡ºå¯¹åº”è¡¨çš„Pojoç±»ç±»å‹ï¼Œå¦‚User.class
-	 * @param Serializable å¯¹åº”è¡¨ä¸­ä¸»é”®å­—æ®µçš„Pojoç±»çš„æˆå‘˜å±æ€§çš„å€¼ï¼Œå¦‚ç”¨æˆ·ç¼–å·id
-	 * @return boolean true æˆåŠŸ    false å¤±è´¥
+	 * Ö´ĞĞ±íÊı¾İÉ¾³ı²Ù×÷
+	 * ¸ÃhibernateÉ¾³ı·½·¨½öÓÃÓÚ¶Ôµ¥¸öµÄË²Ê±¶ÔÏóÊ¹ÓÃÆäidÊôĞÔ½øĞĞ³Ö¾Ã»¯²Ù×÷
+	 * @param Class ¸ø³ö¶ÔÓ¦±íµÄPojoÀàÀàĞÍ£¬ÈçUser.class
+	 * @param Serializable ¶ÔÓ¦±íÖĞÖ÷¼ü×Ö¶ÎµÄPojoÀàµÄ³ÉÔ±ÊôĞÔµÄÖµ£¬ÈçÓÃ»§±àºÅid
+	 * @return boolean true ³É¹¦    false Ê§°Ü
 	 */
 	public boolean delete(Class cls, java.io.Serializable id);
 
 	/**
-	 * æ‰§è¡Œè¡¨æ•°æ®åˆ é™¤æ“ä½œ
-	 * è¯¥hibernateåˆ é™¤æ–¹æ³•ä»…ç”¨äºå¯¹å•ä¸ªçš„ç¬æ—¶å¯¹è±¡è¿›è¡ŒæŒä¹…åŒ–åˆ é™¤æ“ä½œ
-	 * @param Object Hibernateçš„è¡¨æ˜ å°„å¯¹è±¡ å½“å‰ä¸ºè¦åˆ é™¤è¡¨çš„å®ä½“ç±»å¯¹è±¡
-	 * @return boolean true æˆåŠŸ    false å¤±è´¥
+	 * Ö´ĞĞ±íÊı¾İÉ¾³ı²Ù×÷
+	 * ¸ÃhibernateÉ¾³ı·½·¨½öÓÃÓÚ¶Ôµ¥¸öµÄË²Ê±¶ÔÏó½øĞĞ³Ö¾Ã»¯É¾³ı²Ù×÷
+	 * @param Object HibernateµÄ±íÓ³Éä¶ÔÏó µ±Ç°ÎªÒªÉ¾³ı±íµÄÊµÌåÀà¶ÔÏó
+	 * @return boolean true ³É¹¦    false Ê§°Ü
 	 */
 	public boolean delete(Object obj) ;
 	
 	/**
-	 * ä¿®æ”¹è¡¨è®°å½•ï¼Œä½¿ç”¨å¯¹åº”è¡¨çš„å®ä½“ç±»å¯¹è±¡å®ç°
-	 * è¯¥hibernateæ›´æ–°æ–¹æ³•ä»…ç”¨äºå¯¹å•ä¸ªçš„ç¬æ—¶å¯¹è±¡è¿›è¡ŒæŒä¹…åŒ–æ“ä½œ
-	 * @param Object Hibernateçš„è¡¨æ˜ å°„å¯¹è±¡
-	 * @return boolean true æˆåŠŸ    false å¤±è´¥
+	 * ĞŞ¸Ä±í¼ÇÂ¼£¬Ê¹ÓÃ¶ÔÓ¦±íµÄÊµÌåÀà¶ÔÏóÊµÏÖ
+	 * ¸Ãhibernate¸üĞÂ·½·¨½öÓÃÓÚ¶Ôµ¥¸öµÄË²Ê±¶ÔÏó½øĞĞ³Ö¾Ã»¯²Ù×÷
+	 * @param Object HibernateµÄ±íÓ³Éä¶ÔÏó
+	 * @return boolean true ³É¹¦    false Ê§°Ü
 	 */
 	public boolean update(Object obj) ;
 
 	/**
-	 * ä½¿ç”¨æ— å‚æ•°çš„hqlå®ç°æŸ¥è¯¢çš„ï¼Œä»–å°†è¿”å›åŸºäºhqlä¸­æŸ¥è¯¢å¯¹è±¡çš„Listæ•°ç»„å¯¹è±¡
-	 * @param String ç¬¦åˆhqlç»“æ„çš„æ— å‚æ•°æŸ¥è¯¢è¯­å¥
-	 * @return List  å¤±è´¥è¿”å›null
+	 * Ê¹ÓÃÎŞ²ÎÊıµÄhqlÊµÏÖ²éÑ¯µÄ£¬Ëû½«·µ»Ø»ùÓÚhqlÖĞ²éÑ¯¶ÔÏóµÄListÊı×é¶ÔÏó
+	 * @param String ·ûºÏhql½á¹¹µÄÎŞ²ÎÊı²éÑ¯Óï¾ä
+	 * @return List  Ê§°Ü·µ»Ønull
 	 */
 	public List select(String hql) ;
 	
 	/**
-	 * ä½¿ç”¨æ— å‚æ•°çš„hqlå®ç°æŸ¥è¯¢çš„ï¼Œä»–å°†è¿”å›åŸºäºhqlä¸­æŸ¥è¯¢å¯¹è±¡çš„Listæ•°ç»„å¯¹è±¡,å®ç°topåŠŸèƒ½
-	 * @param String ç¬¦åˆhqlç»“æ„çš„æ— å‚æ•°æŸ¥è¯¢è¯­å¥
-	 * @param String å–Listå€¼çš„å¼€å§‹ç´¢å¼•
-	 * @param String å–Listå€¼å¾—ç»“æŸç´¢å¼•
-	 * @return List  å¤±è´¥è¿”å›null
+	 * Ê¹ÓÃÎŞ²ÎÊıµÄhqlÊµÏÖ²éÑ¯µÄ£¬Ëû½«·µ»Ø»ùÓÚhqlÖĞ²éÑ¯¶ÔÏóµÄListÊı×é¶ÔÏó,ÊµÏÖtop¹¦ÄÜ
+	 * @param String ·ûºÏhql½á¹¹µÄÎŞ²ÎÊı²éÑ¯Óï¾ä
+	 * @param String È¡ListÖµµÄ¿ªÊ¼Ë÷Òı
+	 * @param String È¡ListÖµµÃ½áÊøË÷Òı
+	 * @return List  Ê§°Ü·µ»Ønull
 	 */
 	public List select(String hql,int startIndex, int length) ;
 
 	/**
-	 * ä½¿ç”¨å¸¦æœ‰å‚æ•°çš„hqlå®ç°æŸ¥è¯¢çš„ï¼Œä»–å°†è¿”å›åŸºäºhqlä¸­æŸ¥è¯¢å¯¹è±¡çš„Listæ•°ç»„å¯¹è±¡
-	 * @param String ç¬¦åˆhqlç»“æ„çš„æœ‰å‚æ•°æŸ¥è¯¢è¯­å¥
-	 * @param Object[] å‚æ•°å€¼æ•°ç»„
-	 * @return List  å¤±è´¥è¿”å›null
+	 * Ê¹ÓÃ´øÓĞ²ÎÊıµÄhqlÊµÏÖ²éÑ¯µÄ£¬Ëû½«·µ»Ø»ùÓÚhqlÖĞ²éÑ¯¶ÔÏóµÄListÊı×é¶ÔÏó
+	 * @param String ·ûºÏhql½á¹¹µÄÓĞ²ÎÊı²éÑ¯Óï¾ä
+	 * @param Object[] ²ÎÊıÖµÊı×é
+	 * @return List  Ê§°Ü·µ»Ønull
 	 */
 	public List select(String hql,Object[] para) ;
 	
 	/**
-	 * ä½¿ç”¨æ— å‚æ•°çš„hqlå®ç°æŸ¥è¯¢çš„ï¼Œä»–å°†è¿”å›åŸºäºhqlä¸­æŸ¥è¯¢å¯¹è±¡çš„Listæ•°ç»„å¯¹è±¡,å®ç°topåŠŸèƒ½
-	 * @param String ç¬¦åˆhqlç»“æ„çš„æ— å‚æ•°æŸ¥è¯¢è¯­å¥
-	 * @param String å–Listå€¼çš„å¼€å§‹ç´¢å¼•
-	 * @param String å–Listå€¼å¾—ç»“æŸç´¢å¼•
-	 * @return List  å¤±è´¥è¿”å›null
+	 * Ê¹ÓÃÎŞ²ÎÊıµÄhqlÊµÏÖ²éÑ¯µÄ£¬Ëû½«·µ»Ø»ùÓÚhqlÖĞ²éÑ¯¶ÔÏóµÄListÊı×é¶ÔÏó,ÊµÏÖtop¹¦ÄÜ
+	 * @param String ·ûºÏhql½á¹¹µÄÎŞ²ÎÊı²éÑ¯Óï¾ä
+	 * @param String È¡ListÖµµÄ¿ªÊ¼Ë÷Òı
+	 * @param String È¡ListÖµµÃ½áÊøË÷Òı
+	 * @return List  Ê§°Ü·µ»Ønull
 	 */
 	public List select(String hql,Object[] para,
 			int startIndex, int length) ;
 	
 	/**
-	 * è·å–å¸¦èšåˆå‡½æ•°hqlè¯­å¥çš„æŸ¥è¯¢ç»“æœ
-	 * @param hql å¸¦èšåˆå‡½æ•°çš„hqlç»“æ„çš„æ— å‚æ•°æŸ¥è¯¢è¯­å¥
-	 * @return List  å¤±è´¥è¿”å›null
+	 * »ñÈ¡´ø¾ÛºÏº¯ÊıhqlÓï¾äµÄ²éÑ¯½á¹û
+	 * @param hql ´ø¾ÛºÏº¯ÊıµÄhql½á¹¹µÄÎŞ²ÎÊı²éÑ¯Óï¾ä
+	 * @return List  Ê§°Ü·µ»Ønull
 	 */
 	public int selectValue(String hql);
 	
 	/**
-	 * ä½¿ç”¨å¸¦æœ‰å‚æ•°çš„hql,è·å–èšåˆå‡½æ•°æŸ¥è¯¢çš„ç»“æœ
-	 * @param hql å¸¦èšåˆå‡½æ•°çš„hqlç»“æ„çš„æœ‰å‚æ•°æŸ¥è¯¢è¯­å¥
-	 * @param para Object[]ç±»å‹çš„å‚æ•°å€¼æ•°ç»„
-	 * @return List  å¤±è´¥è¿”å›null
+	 * Ê¹ÓÃ´øÓĞ²ÎÊıµÄhql,»ñÈ¡¾ÛºÏº¯Êı²éÑ¯µÄ½á¹û
+	 * @param hql ´ø¾ÛºÏº¯ÊıµÄhql½á¹¹µÄÓĞ²ÎÊı²éÑ¯Óï¾ä
+	 * @param para Object[]ÀàĞÍµÄ²ÎÊıÖµÊı×é
+	 * @return List  Ê§°Ü·µ»Ønull
 	 */
 	public int selectValue(String hql,Object[] para);
 	
 	/**
-	 * ä½¿ç”¨å¸¦æœ‰å‚æ•°çš„hql,è·å–èšåˆå‡½æ•°æŸ¥è¯¢çš„ç»“æœ
-	 * @param hql å¸¦èšåˆå‡½æ•°çš„hqlç»“æ„çš„æœ‰å‚æ•°æŸ¥è¯¢è¯­å¥
-	 * @param para Object[]ç±»å‹çš„å‚æ•°å€¼æ•°ç»„
-	 * @return List  å¤±è´¥è¿”å›null
+	 * ·ÖÒ³²éÑ¯·µ»Ø×ÜÒ³Êı
+	 * ¿ÉÊ¹ÓÃµÄhqlÓï¾äÎª(1)"from DForum" 
+	 * (2)from DForum order by forumid desc"
+	 * (3)from DForum where DUser.userid = 'zhangjs' order by forumid desc"
+	 * @param String hql ·ÖÒ³²éÑ¯µÄhql×Ö·û´®
+	 * @param String pageSize Ã¿Ò³µÄ½á¹ûÊıÁ¿
+	 * @return int ²éÑ¯µÃµ½µÄ×ÜÒ³Êı½á¹û
 	 */
 	public int selectPages(String hql,int pageSize);
 	
 	/**
-	 * åˆ†é¡µæŸ¥è¯¢è¿”å›æ€»é¡µæ•°
-	 * å¯ä½¿ç”¨çš„hqlè¯­å¥ä¸º(1)"from DForum" 
+	 * ·ÖÒ³²éÑ¯·µ»Ø×ÜÒ³Êı
+	 * ¿ÉÊ¹ÓÃµÄhqlÓï¾äÎª(1)"from DForum" 
 	 * (2)from DForum order by forumid desc"
 	 * (3)from DForum where DUser.userid = 'zhangjs' order by forumid desc"
-	 * @param String hql åˆ†é¡µæŸ¥è¯¢çš„hqlå­—ç¬¦ä¸²
-	 * @param Object[] para å¯¹åº”hqlä¸­å‚æ•°çš„å€¼æ•°ç»„
-	 * @param String pageSize æ¯é¡µçš„ç»“æœæ•°é‡
-	 * @return int æŸ¥è¯¢å¾—åˆ°çš„æ€»é¡µæ•°ç»“æœ
+	 * @param String hql ·ÖÒ³²éÑ¯µÄhql×Ö·û´®
+	 * @param Object[] para ¶ÔÓ¦hqlÖĞ²ÎÊıµÄÖµÊı×é
+	 * @param String pageSize Ã¿Ò³µÄ½á¹ûÊıÁ¿
+	 * @return int ²éÑ¯µÃµ½µÄ×ÜÒ³Êı½á¹û
 	 */
 	public int selectPages(String hql,Object[] para, int pageSize);
 	
 	/**
-	 * åˆ†é¡µæŸ¥è¯¢
-	 * å¯ä½¿ç”¨çš„hqlè¯­å¥ä¸º(1)"from DForum" 
+	 * ·ÖÒ³²éÑ¯
+	 * ¿ÉÊ¹ÓÃµÄhqlÓï¾äÎª(1)"from DForum" 
 	 * (2)from DForum order by forumid desc"
 	 * (3)from DForum where DUser.userid = 'zhangjs' order by forumid desc"
-	 * @param String hql åˆ†é¡µæŸ¥è¯¢çš„æ— å‚æ•°hqlå­—ç¬¦ä¸²
-	 * @param int startPage æŸ¥è¯¢å¼€å§‹çš„é¡µæ•°
-	 * @param int pageSize æŸ¥è¯¢è¦æ±‚çš„æ¯é¡µçš„è®°å½•æ•°
-	 * @return List æŸ¥è¯¢è¿”å›çš„è®°å½•é˜Ÿåˆ—
+	 * @param String hql ·ÖÒ³²éÑ¯µÄÎŞ²ÎÊıhql×Ö·û´®
+	 * @param int startPage ²éÑ¯¿ªÊ¼µÄÒ³Êı
+	 * @param int pageSize ²éÑ¯ÒªÇóµÄÃ¿Ò³µÄ¼ÇÂ¼Êı
+	 * @return List ²éÑ¯·µ»ØµÄ¼ÇÂ¼¶ÓÁĞ
 	 */
 	public List selectByPage(String hql,int startPage, int pageSize);
 	
 	/**
-	 * åˆ†é¡µæŸ¥è¯¢
-	 * å¯ä½¿ç”¨çš„hqlè¯­å¥ä¸º(1)"from DForum" 
+	 * ·ÖÒ³²éÑ¯
+	 * ¿ÉÊ¹ÓÃµÄhqlÓï¾äÎª(1)"from DForum" 
 	 * (2)from DForum order by forumid desc"
 	 * (3)from DForum where DUser.userid = 'zhangjs' order by forumid desc"
-	 * @param String hql åˆ†é¡µæŸ¥è¯¢çš„æ— å‚æ•°hqlå­—ç¬¦ä¸²
-	 * @param Object[] para å¯¹åº”åˆ†é¡µæŸ¥è¯¢hqlä¸­å‚æ•°çš„å€¼æ•°ç»„
-	 * @param int startPage æŸ¥è¯¢å¼€å§‹çš„é¡µæ•°
-	 * @param int pageSize æŸ¥è¯¢è¦æ±‚çš„æ¯é¡µçš„è®°å½•æ•°
-	 * @return List æŸ¥è¯¢è¿”å›çš„è®°å½•é˜Ÿåˆ—
+	 * @param String hql ·ÖÒ³²éÑ¯µÄÎŞ²ÎÊıhql×Ö·û´®
+	 * @param Object[] para ¶ÔÓ¦·ÖÒ³²éÑ¯hqlÖĞ²ÎÊıµÄÖµÊı×é
+	 * @param int startPage ²éÑ¯¿ªÊ¼µÄÒ³Êı
+	 * @param int pageSize ²éÑ¯ÒªÇóµÄÃ¿Ò³µÄ¼ÇÂ¼Êı
+	 * @return List ²éÑ¯·µ»ØµÄ¼ÇÂ¼¶ÓÁĞ
 	 */
 	public List selectByPage(String hql,Object[] para, int startPage, int pageSize);
 	
 	/**
-	 * æ ¹æ®clså¯¹åº”è¡¨çš„ä¸»é”®å±æ€§idæ¥æŸ¥è¯¢å¹¶è¿”å›clsç±»å‹çš„å¯¹è±¡
-	 * @param Class cls è¦æŸ¥è¯¢çš„Hibernateçš„è¡¨æ˜ å°„ç±»å¯¹è±¡åï¼Œå¦‚Userå¯¹è±¡çš„ç±»å‹ä¸ºUser.class
-	 * @param java.io.Serializable id æŸ¥è¯¢æ‰€ç”¨çš„å¯¹åº”ä¸»é”®çš„å€¼
-	 * @return Object è¿”å›çš„clsç±»å‹çš„å¯¹è±¡
+	 * ¸ù¾İcls¶ÔÓ¦±íµÄÖ÷¼üÊôĞÔidÀ´²éÑ¯²¢·µ»ØclsÀàĞÍµÄ¶ÔÏó
+	 * @param Class cls Òª²éÑ¯µÄHibernateµÄ±íÓ³ÉäÀà¶ÔÏóÃû£¬ÈçUser¶ÔÏóµÄÀàĞÍÎªUser.class
+	 * @param java.io.Serializable id ²éÑ¯ËùÓÃµÄ¶ÔÓ¦Ö÷¼üµÄÖµ
+	 * @return Object ·µ»ØµÄclsÀàĞÍµÄ¶ÔÏó
 	 */
 	public Object findById(Class cls, java.io.Serializable id);
 	
 	/**
-	 * åˆ©ç”¨æ— å‚æ•°çš„sqlå®ç°æ•°æ®è¡¨å¯¹è±¡çš„æ›´æ–°æ“ä½œ
-	 * @param String sql æ— å‚æ•°çš„updateçš„sqlè¯­å¥
-	 * @return boolean true æˆåŠŸ   false å¤±è´¥
+	 * ÀûÓÃÎŞ²ÎÊıµÄsqlÊµÏÖÊı¾İ±í¶ÔÏóµÄ¸üĞÂ²Ù×÷
+	 * @param String sql ÎŞ²ÎÊıµÄupdateµÄsqlÓï¾ä
+	 * @return boolean true ³É¹¦   false Ê§°Ü
 	 */
 	public boolean update(String sql);
 	
 	/**
-	 * åˆ©ç”¨å¸¦å‚æ•°çš„sqlå®ç°æ•°æ®è¡¨å¯¹è±¡çš„æ›´æ–°æ“ä½œ
-	 * @param String sql å¸¦å‚æ•°çš„updateçš„sqlè¯­å¥
-	 * @param Object[] para å¯¹åº”sqlè¯­å¥ä¸­çš„å‚æ•°å€¼
-	 * @return boolean true æˆåŠŸ   false å¤±è´¥
+	 * ÀûÓÃ´ø²ÎÊıµÄsqlÊµÏÖÊı¾İ±í¶ÔÏóµÄ¸üĞÂ²Ù×÷
+	 * @param String sql ´ø²ÎÊıµÄupdateµÄsqlÓï¾ä
+	 * @param Object[] para ¶ÔÓ¦sqlÓï¾äÖĞµÄ²ÎÊıÖµ
+	 * @return boolean true ³É¹¦   false Ê§°Ü
 	 */
 	public boolean update(String hql,Object[] para);
 	
 	/**
-	 * åˆ©ç”¨sqlå®ç°æ•°æ®è¡¨çš„æ‰¹é‡åˆ é™¤
-	 * @param String sql æ— å‚æ•°çš„deleteçš„sqlè¯­å¥
-	 * @return boolean true æˆåŠŸ   false å¤±è´¥
+	 * ÀûÓÃsqlÊµÏÖÊı¾İ±íµÄÅúÁ¿É¾³ı
+	 * @param String sql ÎŞ²ÎÊıµÄdeleteµÄsqlÓï¾ä
+	 * @return boolean true ³É¹¦   false Ê§°Ü
 	 */
 	public boolean delete(String sql);
 	
 	/**
-	 * åˆ©ç”¨å¸¦å‚æ•°çš„sqlå®ç°æ•°æ®è¡¨çš„æ‰¹é‡åˆ é™¤
-	 * @param String sql å¸¦å‚æ•°çš„deleteçš„sqlè¯­å¥
-	 * @param Object[] para å¯¹åº”sqlè¯­å¥ä¸­çš„å‚æ•°å€¼
-	 * @return boolean true æˆåŠŸ   false å¤±è´¥
+	 * ÀûÓÃ´ø²ÎÊıµÄsqlÊµÏÖÊı¾İ±íµÄÅúÁ¿É¾³ı
+	 * @param String sql ´ø²ÎÊıµÄdeleteµÄsqlÓï¾ä
+	 * @param Object[] para ¶ÔÓ¦sqlÓï¾äÖĞµÄ²ÎÊıÖµ
+	 * @return boolean true ³É¹¦   false Ê§°Ü
 	 */
 	public boolean delete(String sql,Object[] para);
 	
 	/*
-	 * è°ƒç”¨æ•°æ®åº“å­˜å‚¨è¿‡ç¨‹ï¼ˆæ— å‚æ•°ï¼‰
-	 * å‚æ•°ï¼šString procName æ•°æ®åº“å­˜å‚¨è¿‡ç¨‹å
-	 * è¾“å‡ºå‚æ•°:ResultSet rs è¿”å›å­˜å‚¨è¿‡ç¨‹ä¸­æŸ¥è¯¢çš„ç»“æœ
-	 * è¿”å›å€¼ï¼š0 æ›´æ–°è¯­å¥æ‰§è¡Œå¤±è´¥   >0 æ›´æ–°è¯­å¥æˆåŠŸ
+	 * µ÷ÓÃÊı¾İ¿â´æ´¢¹ı³Ì£¨ÎŞ²ÎÊı£©
+	 * ²ÎÊı£ºString procName Êı¾İ¿â´æ´¢¹ı³ÌÃû
+	 * Êä³ö²ÎÊı:ResultSet rs ·µ»Ø´æ´¢¹ı³ÌÖĞ²éÑ¯µÄ½á¹û
+	 * ·µ»ØÖµ£º0 ¸üĞÂÓï¾äÖ´ĞĞÊ§°Ü   >0 ¸üĞÂÓï¾ä³É¹¦
 	 */
 	public Object executeProduce(String procName);
 	
 	/*
-	 * è°ƒç”¨æ•°æ®åº“å­˜å‚¨è¿‡ç¨‹ï¼ˆå¸¦å‚æ•°ï¼‰
-	 * å‚æ•°ï¼šString procName æ•°æ®åº“å­˜å‚¨è¿‡ç¨‹å
-	 * è¾“å‡ºå‚æ•°:ResultSet rs è¿”å›å­˜å‚¨è¿‡ç¨‹ä¸­æŸ¥è¯¢çš„ç»“æœ
-	 * è¿”å›å€¼ï¼š0 æ›´æ–°è¯­å¥æ‰§è¡Œå¤±è´¥   >0 æ›´æ–°è¯­å¥æˆåŠŸ
+	 * µ÷ÓÃÊı¾İ¿â´æ´¢¹ı³Ì£¨´ø²ÎÊı£©
+	 * ²ÎÊı£ºString procName Êı¾İ¿â´æ´¢¹ı³ÌÃû
+	 * Êä³ö²ÎÊı:ResultSet rs ·µ»Ø´æ´¢¹ı³ÌÖĞ²éÑ¯µÄ½á¹û
+	 * ·µ»ØÖµ£º0 ¸üĞÂÓï¾äÖ´ĞĞÊ§°Ü   >0 ¸üĞÂÓï¾ä³É¹¦
 	 */
 	public Object executeProduce(String procName,Object[] para);
 	
 	/**
-	 * æ‰§è¡Œæ›´æ–°æ“ä½œçš„æ‰¹å¤„ç†è¯­å¥ï¼Œè¿™é‡Œå°†é‡‡ç”¨å¤šä¸ªç»“æœçš„äº‹åŠ¡æ–¹å¼ï¼Œä¸€èµ·æäº¤ï¼Œä¸€èµ·å›æ»š
+	 * Ö´ĞĞ¸üĞÂ²Ù×÷µÄÅú´¦ÀíÓï¾ä£¬ÕâÀï½«²ÉÓÃ¶à¸ö½á¹ûµÄÊÂÎñ·½Ê½£¬Ò»ÆğÌá½»£¬Ò»Æğ»Ø¹ö
 	 * 
-	 * @param Object Hibernateçš„è¡¨æ˜ å°„å¯¹è±¡ å½“å‰ä¸ºè¦åˆ é™¤è¡¨çš„å®ä½“ç±»å¯¹è±¡
-	 * @return boolean true æˆåŠŸ    false å¤±è´¥
+	 * @param Object HibernateµÄ±íÓ³Éä¶ÔÏó µ±Ç°ÎªÒªÉ¾³ı±íµÄÊµÌåÀà¶ÔÏó
+	 * @return boolean true ³É¹¦    false Ê§°Ü
 	 */
 	public boolean executeBatch(Object[] obj, int[] model);
 	
