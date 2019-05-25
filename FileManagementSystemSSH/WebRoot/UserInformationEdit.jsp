@@ -56,7 +56,7 @@
 					</li>
 					
 					<li class="layui-nav-item ">
-						<a href="ownfile.html">个人文件管理</a>
+						<a href="ownfile.jsp">个人文件管理</a>
 					</li>
 					
 					<li class="layui-nav-item ">

@@ -95,4 +95,10 @@ public interface FileDAO {
 	 */
 	public boolean addFileTwo(String filename,String author,String dscribe,String type_id,String authority_id,String lable);
 	
+	/**
+	 * 获得指定用户发表的文件对象列表
+	 * @param 用户编号，当前页，每页最大数量
+	 * @return 文件信息对象列表
+	 */
+	public List<VFile> getForumListByPage(String userid,int page, int limit);
 }

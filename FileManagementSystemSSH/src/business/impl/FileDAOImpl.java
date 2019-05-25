@@ -86,5 +86,14 @@ public class FileDAOImpl implements FileDAO {
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
+	@Override
+	public List<VFile> getForumListByPage(String userid, int page,
+			int limit) {
+		String hql = "from VFile where userid = ? order by createtime";
+		Object[] para = { userid };
+		return bdao.selectByPage(hql, para, page, limit);
+	}
+
 
 }
