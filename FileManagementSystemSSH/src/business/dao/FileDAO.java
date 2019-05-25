@@ -6,6 +6,7 @@ import model.TAuthority;
 import model.TFile;
 import model.TFileType;
 import model.VFile;
+import model.VUserFile;
 /**
  * 
 * @ClassName: FileDAO  
@@ -49,10 +50,10 @@ public interface FileDAO {
 	
 	/**
 	 * 模糊查询文件
-	 * @param String filename 文件搜索关键字
+	 * @param String filekeyword 文件搜索关键字
 	 * @return  List<TFile>
 	 */
-	public List<VFile> slectallfile(String filename);
+	public List<VUserFile> slectallfile(String filekeyword);
 	
 	/**
 	 * 根据文件权限查询权限名称

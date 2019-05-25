@@ -7,6 +7,7 @@ import model.TAuthority;
 import model.TFile;
 import model.TFileType;
 import model.VFile;
+import model.VUserFile;
 import business.basic.iHibBaseDAO;
 import business.basic.iHibBaseDAOImpl;
 import business.dao.FileDAO;
@@ -48,11 +49,15 @@ public class FileDAOImpl implements FileDAO {
 	}
 
 	@Override
-	public List<VFile> slectallfile(String filename) {
-		String sql = "SELECT * FROM V_UserFile o where concat(o.userid,o.username,o.fileid,o.filename,o.dscribe,o.lable) like ? ";
-		Object[] para = { "%" + filename + "%" };
+	/*public List<VUserFile> slectallfile(String filekeyword) {
+		String sql = "select * from V_UserFile o where concat(o.userid,o.username,o.fileid,o.filename,o.dscribe,o.lable) like ? ";
+		Object[] para = { "%" + filekeyword + "%" };
 		return bdao.select(sql, para);
 	
+	}*/
+	public List<VUserFile> slectallfile(String filekeyword) {
+		String sql = "select * from V_UserFile where " + filekeyword;
+		return bdao.select(sql);	
 	}
 
 	@Override
