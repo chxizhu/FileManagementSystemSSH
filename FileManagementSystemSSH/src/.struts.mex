@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Struts2Diagram version="2.0">
   <package name="default" location="35,22" size="367,597">
-    <action name="loginAction" location="37,56" size="150,41">
+    <action name="loginAction" location="45,64" size="150,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="index.jsp" />
       </result>
     </action>
-    <action name="UserinformationEditAction" location="38,312" size="150,40" />
-    <action name="loginout" location="39,139" size="150,41">
+    <action name="UserinformationEditAction" location="46,320" size="150,40" />
+    <action name="loginout" location="47,147" size="150,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="login.jsp" />
       </result>
     </action>
-    <action name="seek" location="34,214" size="150,62">
+    <action name="seek" location="42,222" size="150,62">
       <result name="success">
         <resourceEdge source="success" routing="0" target="seek.jsp" />
       </result>
@@ -20,23 +20,18 @@
         <resourceEdge source="error" routing="0" target="error.jsp" />
       </result>
     </action>
-    <action name="addfileAction" location="42,368" size="150,41">
+    <action name="addfileAction" location="50,376" size="150,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="uplode.jsp" />
       </result>
     </action>
-    <action name="error" location="38,433" size="150,40" />
-    <action name="ownfile" location="32,506" size="150,41">
-      <result name="success">
-        <resourceEdge source="success" routing="0" target="ownfile.jsp" />
-      </result>
-    </action>
+    <action name="error" location="46,441" size="150,40" />
+    <action name="ownfile" location="40,514" size="150,40" />
   </package>
   <webResource name="index.jsp" path="/index.jsp" location="459,62" size="150,55" />
   <webResource name="login.jsp" path="/login.jsp" location="473,132" size="150,55" />
   <webResource name="seek.jsp" path="/seek.jsp" location="453,208" size="150,55" />
   <webResource name="error.jsp" path="/error.jsp" location="654,195" size="150,55" />
   <webResource name="uplode.jsp" path="/uplode.jsp" location="443,372" size="150,55" />
-  <webResource name="ownfile.jsp" path="/ownfile.jsp" location="0,0" size="150,55" />
 </Struts2Diagram>
 

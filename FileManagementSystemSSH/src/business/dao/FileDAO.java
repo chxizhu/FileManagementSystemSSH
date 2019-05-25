@@ -100,5 +100,5 @@ public interface FileDAO {
 	 * @param 用户编号，当前页，每页最大数量
 	 * @return 文件信息对象列表
 	 */
-	public List<VFile> getForumListByPage(String userid,int page, int limit);
+	public List<VFile> getForumListByPage(String userid,int startPage, int pageSize);
 }

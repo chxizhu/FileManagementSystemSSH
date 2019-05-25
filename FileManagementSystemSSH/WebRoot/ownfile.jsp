@@ -119,17 +119,13 @@
 				<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
 				<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 			</script>
-
-			<script src="//res.layui.com/layui/dist/layui.js" charset="utf-8"></script>
-			<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
-
 			<script>
 				layui.use('table', function() {
 					var table = layui.table;
 
 					table.render({
 						elem: '#test',
-						url: '/test/table/demo1.json',
+						url: 'ownfile.action',
 						toolbar: '#toolbarDemo',
 						title: '用户数据表',
 						cols: [
@@ -137,61 +133,36 @@
 								type: 'checkbox',
 								fixed: 'left'
 							}, {
-								field: 'id',
-								title: 'ID',
+								field: 'filename',
+								title: '文件标题',
 								width: 80,
 								fixed: 'left',
 								unresize: true,
 								sort: true
 							}, {
-								field: 'username',
-								title: '用户名',
+								field: 'authorityname',
+								title: '权限',
 								width: 120,
 								edit: 'text'
-							}, {
-								field: 'email',
-								title: '邮箱',
-								width: 150,
-								edit: 'text',
-								templet: function(res) {
-									return '<em>' + res.email + '</em>'
-								}
-							}, {
-								field: 'sex',
-								title: '性别',
+							}, 
+							{
+								field: 'filesize',
+								title: '大小',
 								width: 80,
 								edit: 'text',
 								sort: true
 							}, {
-								field: 'city',
-								title: '城市',
+								field: 'lable',
+								title: '标签',
 								width: 100
 							}, {
-								field: 'sign',
-								title: '签名'
+								field: '类型',
+								title: '类型'
 							}, {
-								field: 'experience',
-								title: '积分',
+								field: 'uptime',
+								title: '上传时间',
 								width: 80,
 								sort: true
-							}, {
-								field: 'ip',
-								title: 'IP',
-								width: 120
-							}, {
-								field: 'logins',
-								title: '登入次数',
-								width: 100,
-								sort: true
-							}, {
-								field: 'joinTime',
-								title: '加入时间',
-								width: 120
-							}, {
-								fixed: 'right',
-								title: '操作',
-								toolbar: '#barDemo',
-								width: 150
 							}]
 						],
 						page: true
