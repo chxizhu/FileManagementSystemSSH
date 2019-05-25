@@ -3,8 +3,11 @@ package control.action;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.components.Bean;
 
 import model.VFile;
 import model.VUser;
@@ -51,8 +54,12 @@ public class ownfileAction extends BaseAction {
 		
 		System.out.println("页数"+page+limit);
 		FileDAO udao = DAOFactorys.getFileDAO();
+		
 		List<VFile> list=udao.getForumListByPage(loginUser.getUserid(), page, limit);
 
+		for (VFile b : list) {
+            System.out.println(b.getFilename() + "|" + b.getFileid());
+        }
 		
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("application/json");
@@ -61,7 +68,7 @@ public class ownfileAction extends BaseAction {
 		Util.ReturnData rd = new Util.ReturnData();
 		rd.code = Util.ReturnData.SUCCESS;
 		rd.msg = "";
-		rd.count="50";
+		rd.count="8";
 		rd.data = list;
 		out.write(JSON.toJSONString(rd));
 		
