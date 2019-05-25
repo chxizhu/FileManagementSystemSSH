@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Struts2Diagram version="2.0">
-  <package name="default" location="35,22" size="367,420">
+  <package name="default" location="35,22" size="367,538">
     <action name="loginAction" location="30,49" size="150,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="index.jsp" />
@@ -25,6 +25,7 @@
         <resourceEdge source="success" routing="0" target="uplode.jsp" />
       </result>
     </action>
+    <action name="error" location="30,435" size="150,40" />
   </package>
   <webResource name="index.jsp" path="/index.jsp" location="459,62" size="150,55" />
   <webResource name="login.jsp" path="/login.jsp" location="473,132" size="150,55" />

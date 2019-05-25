@@ -18,6 +18,9 @@
 		background:#f2f2f2;
 	}	
 	
+	.color{
+		color:#FF0000
+	}
 }
 		
 </style>
@@ -44,7 +47,7 @@
 		</div>	
 		
 		<div class="layui-col-md1 top">
-			<div class="layui-col-md1" style="width:250px;text-align :center"><a href="">当前用户:XXX</a></div>
+			<div class="layui-col-md1" style="width:250px;text-align :center"><a href="">当前用户:${loginUser.username}</a></div>
 		</div>																				
 	</div>
 	
@@ -65,7 +68,8 @@
 	      <h1><span class="icon">!</span>404<span class="sub">page not found</span></h1>
 	    </header>
 	    <div id="content">
-	      <h2>很抱歉，没有找到与您搜索相关的网页。</h2>
+	      <!-- <h2>很抱歉，没有找到与您搜索相关的网页。</h2> -->
+	       <h2>很抱歉，没有找到与“<span class="color">${filekeyword }</span>”相关的网页。</h2>
 	      <p>温馨提示：<br>
 	        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请检查您的输入是否正确<br>
 	        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如网页未收录或者新站未收录，请提交网址给我们<br>

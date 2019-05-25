@@ -22,4 +22,4 @@
 				/uplode.jsp
 			</result>
 		</action>
-	</package></struts>    
+		<action name="error" class="control.action.ErrorAction"></action></package></struts>    
