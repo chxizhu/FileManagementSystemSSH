@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Struts2Diagram version="2.0">
-  <package name="default" location="35,22" size="367,597">
-    <action name="loginAction" location="45,64" size="150,41">
+  <package name="default" location="33,22" size="369,724">
+    <action name="loginAction" location="51,70" size="150,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="index.jsp" />
       </result>
     </action>
-    <action name="UserinformationEditAction" location="46,320" size="150,40" />
-    <action name="loginout" location="47,147" size="150,41">
+    <action name="UserinformationEditAction" location="52,326" size="150,40" />
+    <action name="loginout" location="53,153" size="150,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="login.jsp" />
       </result>
     </action>
-    <action name="seek" location="42,222" size="150,62">
+    <action name="seek" location="48,228" size="150,62">
       <result name="success">
         <resourceEdge source="success" routing="0" target="seek.jsp" />
       </result>
@@ -20,13 +20,18 @@
         <resourceEdge source="error" routing="0" target="error.jsp" />
       </result>
     </action>
-    <action name="addfileAction" location="50,376" size="150,41">
+    <action name="addfileAction" location="56,382" size="150,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="uplode.jsp" />
       </result>
     </action>
-    <action name="error" location="46,441" size="150,40" />
-    <action name="ownfile" location="40,514" size="150,40" />
+    <action name="error" location="52,447" size="150,40" />
+    <action name="ownfile" location="46,520" size="150,40" />
+    <action name="PassdEitsaction" location="49,602" size="150,40">
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="error.jsp" />
+      </result>
+    </action>
   </package>
   <webResource name="index.jsp" path="/index.jsp" location="459,62" size="150,55" />
   <webResource name="login.jsp" path="/login.jsp" location="473,132" size="150,55" />

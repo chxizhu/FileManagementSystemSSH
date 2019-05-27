@@ -25,4 +25,8 @@
 		<action name="error" class="control.action.ErrorAction"></action>
 		<action name="ownfile" class="control.action.ownfileAction">
 			
+		</action>
+		<action name="PassdEitsaction"
+			class="control.action.PassdEitsaction">
+			<result name="error">/error.jsp</result>
 		</action></package></struts>    
