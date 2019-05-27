@@ -55,7 +55,9 @@
 		</div>	
 		
 		<div class="layui-col-md1 layui-col-md-offset1 top">
-			<div class="layui-col-md1" style="width:250px;text-align :center"><a href="">当前用户:${loginUser.username}</a></div>
+			<div class="layui-col-md1" style="width:250px;text-align :center"><a href="">当前用户:${loginUser.username}</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="login.jsp">退出</a>
+			</div>
 		</div>																				
 	</div>
 	
@@ -73,27 +75,41 @@
 	<div class="row top">
 		<div class="layui-col-md6 layui-col-md-offset3 top">	
 			
-			<div class="layui-card daohan">
+		 <c:forEach items="${filelist }" var="forum" begin="0" end="6" step="1">
 			
-			<c:forEach items="${forumlist }" var="forum">
+			<div class="layui-card daohan">						
 			
-			  <div class="layui-card-header">${forum.filename}</div>
-			 <!--  <div class="layui-card-body line-limit-length">
-			    卡片式面板面板通常用于非白色背景色的主体内从而映衬出边框投影这几天心里颇不宁静。今晚在院子里坐着乘凉，忽然想起日日走过的荷塘，在这满月的光里，总该另有一番样子吧。月亮渐渐地升高了，墙外马路上孩子们的欢笑，已经听不见了；妻在屋里拍着闰儿⑴，迷迷糊糊地哼着眠歌。我悄悄地披了大衫，带上门出去。
-沿着荷塘，是一条曲折的小煤屑路。
-			  </div> -->
-			  
-			   <div class="layui-card-body line-limit-length">${forum.dscribe}</div>
+			  <div class="layui-card-header">文件标题：${forum.filename}</div>
+
+			   <div class="layui-card-body line-limit-length">详细说明：${forum.dscribe}</div>
 			  
 			   <div class="layui-card-body line-limit-length">
-			   	<a href="">上传用户:${forum.userid.username}</a>
+			   	<a href="">上传用户:${forum.username}</a>
 			   	<span style="margin-left:80px"><a href="">上传时间:${forum.uptime}</a></span>
 			   	<span style="margin-left:80px"><a href="">文件大小:${forum.filesize}</a></span>
-			  </div>
-			  
-			  </c:forEach>
+			  </div>			  			  
 			  
 			</div>
+			
+			</c:forEach>
+			
+			<!-- <div class="layui-card daohan">						
+			
+			  <div class="layui-card-header">文章</div>
+ 			 <div class="layui-card-body line-limit-length">
+			    卡片式面板面板通常用于非白色背景色的主体内从而映衬出边框投影这几天心里颇不宁静。今晚在院子里坐着乘凉，忽然想起日日走过的荷塘，在这满月的光里，总该另有一番样子吧。月亮渐渐地升高了，墙外马路上孩子们的欢笑，已经听不见了；妻在屋里拍着闰儿⑴，迷迷糊糊地哼着眠歌。我悄悄地披了大衫，带上门出去。
+				沿着荷塘，是一条曲折的小煤屑路。
+			  </div>
+			  
+			   <div class="layui-card-body line-limit-length"></div>
+			  
+			   <div class="layui-card-body line-limit-length">
+			   	<a href="">上传用户:是的</a>
+			   	<span style="margin-left:80px"><a href="">上传时间:2019-8-1</a></span>
+			   	<span style="margin-left:80px"><a href="">文件大小:20kb</a></span>
+			  </div>			  			  
+			  
+			</div> -->
 			
 		</div>
 	</div>

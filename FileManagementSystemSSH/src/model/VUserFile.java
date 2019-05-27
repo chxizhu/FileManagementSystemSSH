@@ -14,14 +14,15 @@ public class VUserFile implements java.io.Serializable {
 		private String username;
 		private Integer fileid;
 		private String filename;
-		private Timestamp uptime;
-		private Integer typeId;
+		private Timestamp uptime;		
 		private String dscribe;
 		private String lable;
 		private String filesize;
 		private String filesuffix;
 		private String filepath;
 		private Integer downloads;
+		private Integer typeId;
+		private String typename;
 
 		// Constructors
 
@@ -37,21 +38,22 @@ public class VUserFile implements java.io.Serializable {
 
 		/** full constructor */
 		public VUserFile(String userid, String username, Integer fileid,
-				String filename, Timestamp uptime, Integer typeId, String dscribe,
+				String filename, Timestamp uptime, String dscribe,
 				String lable, String filesize, String filesuffix, String filepath,
-				Integer downloads) {
+				Integer downloads, Integer typeId, String typename) {
 			this.userid = userid;
 			this.username = username;
 			this.fileid = fileid;
 			this.filename = filename;
-			this.uptime = uptime;
-			this.typeId = typeId;
+			this.uptime = uptime;			
 			this.dscribe = dscribe;
 			this.lable = lable;
 			this.filesize = filesize;
 			this.filesuffix = filesuffix;
 			this.filepath = filepath;
 			this.downloads = downloads;
+			this.typeId = typeId;
+			this.typename = typename;
 		}
 
 		// Property accessors
@@ -94,15 +96,7 @@ public class VUserFile implements java.io.Serializable {
 
 		public void setUptime(Timestamp uptime) {
 			this.uptime = uptime;
-		}
-
-		public Integer getTypeId() {
-			return this.typeId;
-		}
-
-		public void setTypeId(Integer typeId) {
-			this.typeId = typeId;
-		}
+		}		
 
 		public String getDscribe() {
 			return this.dscribe;
@@ -150,6 +144,22 @@ public class VUserFile implements java.io.Serializable {
 
 		public void setDownloads(Integer downloads) {
 			this.downloads = downloads;
+		}
+		
+		public Integer getTypeId() {
+			return this.typeId;
+		}
+
+		public void setTypeId(Integer typeId) {
+			this.typeId = typeId;
+		}
+		
+		public String getTypename() {
+			return this.typename;
+		}
+
+		public void setTypename(String typename) {
+			this.typename = typename;
 		}
 
 }

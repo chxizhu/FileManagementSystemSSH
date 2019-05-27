@@ -48,18 +48,13 @@ public class FileDAOImpl implements FileDAO {
 		return null;
 	}
 
-	@Override
-	/*public List<VUserFile> slectallfile(String filekeyword) {
-		String sql = "select * from V_UserFile o where concat(o.userid,o.username,o.fileid,o.filename,o.dscribe,o.lable) like ? ";
-		Object[] para = { "%" + filekeyword + "%" };
-		return bdao.select(sql, para);
-	
-	}*/
+	@Override	
 	public List<VUserFile> slectallfile(String filekeyword) {
-		String sql = "select * from V_UserFile where " + filekeyword;
-		return bdao.select(sql);	
+		String hql =  "from VUserFile o where concat(o.userid,o.username,o.filename,o.dscribe,o.lable,o.filesize) like ? ";
+		Object[] para = {"%" + filekeyword + "%"};
+		return bdao.select(hql, para);
 	}
-
+	
 	@Override
 	public List<TAuthority> getAuthority() {
 		// TODO Auto-generated method stub
