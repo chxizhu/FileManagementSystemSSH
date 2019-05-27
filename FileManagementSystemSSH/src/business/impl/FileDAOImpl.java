@@ -91,7 +91,7 @@ public class FileDAOImpl implements FileDAO {
 	}
 
 	@Override	
-	public List<VUserFile> slectallfileid(String fileid) {
+	public List<VUserFile> slectallfileid(int fileid) {
 		String hql =  "from TFile where fileid = ?  ";
 		Object[] para = {fileid};
 		return bdao.select(hql, para);
