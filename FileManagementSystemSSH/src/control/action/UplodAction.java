@@ -2,7 +2,7 @@ package control.action;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class PassdEitsaction extends BaseAction {
+public class UplodAction extends ActionSupport {
 
 	/**
 	 * @return

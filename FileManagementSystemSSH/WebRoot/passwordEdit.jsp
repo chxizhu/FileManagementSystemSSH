@@ -88,8 +88,14 @@
 
 							<div ><p class="fontsize" style="margin-top: 30px;margin-bottom: 10px;">用户基础信息修改</p></div>
 							<hr class="layui-bg-blue">
-							<form class="layui-form" action="UserinformationEditAction.action" onsubmit= "return formCheck() ">
+							<form class="layui-form" action="PassdEitsaction.action" onsubmit= "return formCheck() ">
 							
+							<div class="layui-form-item">
+									<label class="layui-form-label">用户账号</label>
+									<div class="layui-input-block">
+										<input disabled="disabled" value="${loginUser.userid} " type="text" name="userid" lay-verify="title" autocomplete="off"  class="layui-input">
+									</div>
+								</div>
 
 								
 								

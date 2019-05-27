@@ -29,4 +29,8 @@
 		<action name="PassdEitsaction"
 			class="control.action.PassdEitsaction">
 			<result name="error">/error.jsp</result>
+		</action>
+		<action name="UplodeAction"
+			class="control.action.UplodAction">
+			<result name="error">/error.jsp</result>
 		</action></package></struts>    
