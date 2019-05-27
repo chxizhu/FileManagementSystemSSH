@@ -2,7 +2,7 @@ package control.action;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class UplodAction extends ActionSupport {
+public class downloadAction extends ActionSupport {
 
 	/**
 	 * @return

@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Struts2Diagram version="2.0">
   <package name="default" location="33,22" size="369,724">
-    <action name="loginAction" location="58,77" size="150,41">
+    <action name="loginAction" location="59,78" size="150,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="index.jsp" />
       </result>
     </action>
-    <action name="UserinformationEditAction" location="59,333" size="150,40" />
-    <action name="loginout" location="60,160" size="150,41">
+    <action name="UserinformationEditAction" location="60,334" size="150,40" />
+    <action name="loginout" location="61,161" size="150,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="login.jsp" />
       </result>
     </action>
-    <action name="seek" location="55,235" size="150,62">
+    <action name="seek" location="56,236" size="150,62">
       <result name="success">
         <resourceEdge source="success" routing="0" target="seek.jsp" />
       </result>
@@ -20,19 +20,19 @@
         <resourceEdge source="error" routing="0" target="error.jsp" />
       </result>
     </action>
-    <action name="addfileAction" location="63,389" size="150,41">
+    <action name="addfileAction" location="64,390" size="150,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="uplode.jsp" />
       </result>
     </action>
-    <action name="error" location="59,454" size="150,40" />
-    <action name="ownfile" location="53,527" size="150,40" />
-    <action name="PassdEitsaction" location="56,609" size="150,41">
+    <action name="error" location="60,455" size="150,40" />
+    <action name="ownfile" location="54,528" size="150,40" />
+    <action name="PassdEitsaction" location="57,610" size="150,41">
       <result name="error">
         <resourceEdge source="error" routing="0" target="error.jsp" />
       </result>
     </action>
-    <action name="UplodeAction" location="49,666" size="150,40">
+    <action name="downloadAction" location="50,667" size="150,41">
       <result name="error">
         <resourceEdge source="error" routing="0" target="error.jsp" />
       </result>

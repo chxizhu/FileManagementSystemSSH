@@ -30,7 +30,7 @@
 			class="control.action.PassdEitsaction">
 			<result name="error">/error.jsp</result>
 		</action>
-		<action name="UplodeAction"
-			class="control.action.UplodAction">
+		<action name="downloadAction"
+			class="control.action.downloadAction">
 			<result name="error">/error.jsp</result>
 		</action></package></struts>    
