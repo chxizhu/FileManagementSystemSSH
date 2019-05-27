@@ -46,7 +46,24 @@
             </property>
              <property name="typename" type="java.lang.String">
                 <column name="typename" length="10" />
+            </property>          
+             <property name="roleid" type="java.lang.Integer">
+                <column name="roleid" />
             </property>
-     
+             <property name="rolename" type="java.lang.String">
+                <column name="rolename" length="20" />
+            </property>
+             <property name="authorityid" type="java.lang.Integer">
+                <column name="authorityid" />
+            </property>
+             <property name="authorityname" type="java.lang.String">
+                <column name="authorityname" length="20" />
+            </property>
+     		  <property name="departmentid" type="java.lang.Integer">
+                <column name="departmentid" />
+            </property>
+             <property name="departmentname" type="java.lang.String">
+                <column name="departmentname" length="20" />
+            </property>
     </class>
 </hibernate-mapping>

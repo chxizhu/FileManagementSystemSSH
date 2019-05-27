@@ -23,6 +23,12 @@ public class VUserFile implements java.io.Serializable {
 		private Integer downloads;
 		private Integer typeId;
 		private String typename;
+		private Integer roleid;
+		private String rolename;
+		private Integer authorityid;
+		private String authorityname;
+		private Integer departmentid;
+		private String departmentname;
 
 		// Constructors
 
@@ -40,7 +46,8 @@ public class VUserFile implements java.io.Serializable {
 		public VUserFile(String userid, String username, Integer fileid,
 				String filename, Timestamp uptime, String dscribe,
 				String lable, String filesize, String filesuffix, String filepath,
-				Integer downloads, Integer typeId, String typename) {
+				Integer downloads, Integer typeId, String typename, Integer roleid,
+				String rolename, Integer authorityid, String authorityname, Integer departmentid, String departmentname) {
 			this.userid = userid;
 			this.username = username;
 			this.fileid = fileid;
@@ -54,6 +61,12 @@ public class VUserFile implements java.io.Serializable {
 			this.downloads = downloads;
 			this.typeId = typeId;
 			this.typename = typename;
+			this.typeId = roleid;
+			this.typename = rolename;
+			this.authorityid = authorityid;
+			this.authorityname = authorityname;
+			this.departmentid = departmentid;
+			this.departmentname = departmentname;
 		}
 
 		// Property accessors
@@ -161,5 +174,52 @@ public class VUserFile implements java.io.Serializable {
 		public void setTypename(String typename) {
 			this.typename = typename;
 		}
+				
+		public Integer getRoleid() {
+			return this.roleid;
+		}
 
+		public void setRoleid(Integer roleid) {
+			this.typeId = roleid;
+		}
+		
+		public String getRolename() {
+			return this.rolename;
+		}
+
+		public void setRolename(String rolename) {
+			this.rolename = rolename;
+		}
+			
+		public Integer getAuthorityid() {
+			return this.authorityid;
+		}
+
+		public void setAuthorityid(Integer authorityid) {
+			this.authorityid = authorityid;
+		}
+		
+		public String getAuthorityname() {
+			return this.authorityname;
+		}
+
+		public void setAuthorityname(String authorityname) {
+			this.authorityname = authorityname;
+		}
+
+		public Integer getDepartmentid() {
+			return this.departmentid;
+		}
+
+		public void setDepartmentid(Integer departmentid) {
+			this.departmentid = departmentid;
+		}
+		
+		public String getDepartmentname() {
+			return this.departmentname;
+		}
+
+		public void setDepartmentname(String departmentname) {
+			this.departmentname = departmentname;
+		}
 }
