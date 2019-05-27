@@ -41,7 +41,9 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public boolean modifyPwd(String userid, String pwd) {
 		// TODO Auto-generated method stub
-		return false;
+		String sql = "update T_User set pwd=? where userid=?";
+		Object[] param = {pwd,userid};
+		return bdao.update(sql, param);
 	}
 
 	@Override
