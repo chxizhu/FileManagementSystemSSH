@@ -90,5 +90,11 @@ public class FileDAOImpl implements FileDAO {
 		return bdao.selectByPage(hql, para, startPage, pageSize);
 	}
 
+	@Override	
+	public List<VUserFile> slectallfileid(String fileid) {
+		String hql =  "from TFile where fileid = ?  ";
+		Object[] para = {fileid};
+		return bdao.select(hql, para);
+	}
 
 }
