@@ -124,7 +124,7 @@
 									<select name="authority_id" lay-filter="aihao">
 										<option value=""></option>
 										<option value="101" selected="">个人</option>
-										<option value="102">部门</option>
+										<option value="${loginUser.departmentid}">${loginUser.departmentname }</option>
 										<option value="103">公司</option>
 
 									</select>
