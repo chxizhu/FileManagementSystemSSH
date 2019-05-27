@@ -176,7 +176,7 @@
 					else if (obj.event === 'detail') {
 						
 						var fileid = data.fileid; 
-						window.location.href="downloadAction.acton?fileid="+fileid;
+						window.location.href="downloadAction.action?fileid="+fileid;
 					}  else if (obj.event === 'edit') {
 						layer.prompt({
 							formType : 2,

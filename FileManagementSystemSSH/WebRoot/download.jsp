@@ -87,7 +87,7 @@
 
 							<div ><p class="fontsize" style="margin-top: 30px;margin-bottom: 10px;">文件基本信息</p></div>
 							<hr class="layui-bg-blue">
-							<form class="layui-form" action="">
+							<form class="layui-form" action="downloadAction.action">
 								<div class="layui-form-item">
 									<label class="layui-form-label">文件标题</label>
 									<div class="layui-input-block">
