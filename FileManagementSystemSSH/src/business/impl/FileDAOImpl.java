@@ -26,7 +26,7 @@ public class FileDAOImpl implements FileDAO {
 	
 	@Override
 	public int addFile(TFile file) {
-		System.out.println(file.getAuthor()+file.getUptime()+file.getFDepartmentId());
+		
 		int a =(Integer) bdao.insert(file);
 		return  1;
 		

@@ -93,7 +93,7 @@ public class addfileAction extends BaseAction {
 		TFile tFile = new TFile();
 		tFile.setFilename(filename);
 		
-		//tFile.setUptime(datetime);
+		tFile.setUptime(datetime);
 		tFile.setAuthor(loginUser.getUserid());
 		tFile.setTypeId(TypeId);
 		tFile.setDscribe(dscribe);
@@ -102,7 +102,8 @@ public class addfileAction extends BaseAction {
 		tFile.setFilesize(filesize);
 		tFile.setFilesuffix(filesuffix);// 文件后缀
 		tFile.setFilepath(filename);// 文件路径
-		tFile.setFDepartmentId(301);
+		tFile.setDownloads(0);
+		tFile.setFDepartmentId(loginUser.getDepartmentid());
 		FileDAO udao = DAOFactorys.getFileDAO();
 		int returnNum = udao.addFile(tFile);
 		return SUCCESS;
