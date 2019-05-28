@@ -1,5 +1,10 @@
 package control.action;
 
+import business.dao.FileDAO;
+import business.dao.UserDAO;
+import business.impl.FileDAOImpl;
+import business.impl.UserDAOImpl;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 public class downloadAction extends BaseAction {
@@ -27,9 +32,12 @@ public class downloadAction extends BaseAction {
 	 */
 	public String execute() {
 		// TODO Auto-generated method stub
+		FileDAO udao = new FileDAOImpl();
+		udao.slectallfileid(fileid);
 		
-		System.out.println("id"+fileid);
-		System.out.println("嘿嘿嘿嘿");
+		
+		//System.out.println("id"+fileid);
+		
 		return SUCCESS;
 	}
 }
