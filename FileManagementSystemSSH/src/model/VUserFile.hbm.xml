@@ -6,12 +6,11 @@
 -->
 <hibernate-mapping>
     <class name="model.VUserFile" table="V_UserFile" schema="dbo" catalog="FileManagementSystemDB">
-     
-       
+   
             <id name="id" type="java.lang.String">
-                <column name="id" length="25" />
+                <column name="id" length="36" />
             </id>
-             <property name="userid" type="java.lang.String">
+            <property name="userid" type="java.lang.String">
                 <column name="userid" length="25" />
             </property>
             <property name="username" type="java.lang.String">
@@ -23,23 +22,20 @@
             <property name="filename" type="java.lang.String">
                 <column name="filename" length="100" />
             </property>
-            <property name="uptime" type="java.sql.Timestamp">
+            <property name="uptime" type="java.lang.String">
                 <column name="uptime" length="23" />
-            </property>
-            <property name="typeId" type="java.lang.Integer">
-                <column name="type_id" />
             </property>
             <property name="dscribe" type="java.lang.String">
                 <column name="dscribe" length="200" />
             </property>
             <property name="lable" type="java.lang.String">
-                <column name="lable" length="25" />
+                <column name="lable" length="100" />
             </property>
             <property name="filesize" type="java.lang.String">
                 <column name="filesize" length="25" />
             </property>
             <property name="filesuffix" type="java.lang.String">
-                <column name="filesuffix" />
+                <column name="filesuffix" length="50" />
             </property>
             <property name="filepath" type="java.lang.String">
                 <column name="filepath" length="100" />
@@ -47,29 +43,33 @@
             <property name="downloads" type="java.lang.Integer">
                 <column name="downloads" />
             </property>
-             <property name="typename" type="java.lang.String">
+            <property name="typeId" type="java.lang.Integer">
+                <column name="type_id" />
+            </property>
+            <property name="typename" type="java.lang.String">
                 <column name="typename" length="10" />
-            </property>          
-             <property name="roleid" type="java.lang.Integer">
+            </property>
+            <property name="roleid" type="java.lang.Integer">
                 <column name="roleid" />
             </property>
-             <property name="rolename" type="java.lang.String">
+            <property name="rolename" type="java.lang.String">
                 <column name="rolename" length="20" />
             </property>
-             <property name="authorityid" type="java.lang.Integer">
-                <column name="authorityid" />
-            </property>
-             <property name="authorityname" type="java.lang.String">
-                <column name="authorityname" length="20" />
-            </property>
-     		  <property name="departmentid" type="java.lang.Integer">
+            <property name="departmentid" type="java.lang.Integer">
                 <column name="departmentid" />
             </property>
-             <property name="departmentname" type="java.lang.String">
+            <property name="departmentname" type="java.lang.String">
                 <column name="departmentname" length="20" />
             </property>
-            <!--  <property name="authority_id" type="java.lang.Integer">
-                <column name="authority_id" />
-            </property> -->
+            <property name="authorityid" type="java.lang.Integer">
+                <column name="authorityid" />
+            </property>
+            <property name="authorityname" type="java.lang.String">
+                <column name="authorityname" length="20" />
+            </property>
+            <property name="FDepartmentId" type="java.lang.Integer">
+                <column name="f_department_id" />
+            </property>
+
     </class>
 </hibernate-mapping>
