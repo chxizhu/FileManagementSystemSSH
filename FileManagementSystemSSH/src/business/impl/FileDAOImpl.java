@@ -85,7 +85,7 @@ public class FileDAOImpl implements FileDAO {
 	@Override
 	public List<VFile> getForumListByPage(String userid, int startPage,
 			int pageSize) {
-		String hql = "from VFile where userid = ? order by fileid";
+		String hql = "from VFile where userid = ? order by newid() ";
 		Object[] para = { userid };
 		return bdao.selectByPage(hql, para, startPage, pageSize);
 	}
