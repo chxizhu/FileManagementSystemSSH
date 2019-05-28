@@ -9,7 +9,7 @@ import java.sql.Timestamp;
 public class VUserFile implements java.io.Serializable {
 
 	// Fields
-
+		private String id;
 		private String userid;
 		private String username;
 		private Integer fileid;
@@ -29,6 +29,7 @@ public class VUserFile implements java.io.Serializable {
 		private String authorityname;
 		private Integer departmentid;
 		private String departmentname;
+		//private Integer authority_id;
 
 		// Constructors
 
@@ -43,11 +44,12 @@ public class VUserFile implements java.io.Serializable {
 		}
 
 		/** full constructor */
-		public VUserFile(String userid, String username, Integer fileid,
+		public VUserFile(String id,String userid, String username, Integer fileid,
 				String filename, Timestamp uptime, String dscribe,
 				String lable, String filesize, String filesuffix, String filepath,
 				Integer downloads, Integer typeId, String typename, Integer roleid,
 				String rolename, Integer authorityid, String authorityname, Integer departmentid, String departmentname) {
+			this.id = id;
 			this.userid = userid;
 			this.username = username;
 			this.fileid = fileid;
@@ -67,12 +69,20 @@ public class VUserFile implements java.io.Serializable {
 			this.authorityname = authorityname;
 			this.departmentid = departmentid;
 			this.departmentname = departmentname;
+			//this.authority_id = authority_id;
 		}
 
 		// Property accessors
 
+		public String getId() {
+			return this.id;
+		}
+
+		public void setId(String id) {
+			this.id = id;
+		}
 		public String getUserid() {
-			return this.userid;
+			return this.id;
 		}
 
 		public void setUserid(String userid) {
@@ -222,4 +232,12 @@ public class VUserFile implements java.io.Serializable {
 		public void setDepartmentname(String departmentname) {
 			this.departmentname = departmentname;
 		}
-}
+		
+/*//		public Integer getAuthority_id() {
+//			return this.authority_id;
+//		}
+//
+//		public void setAuthority_id(Integer authority_id) {
+//			this.authority_id = authority_id;
+//		}
+*/}
