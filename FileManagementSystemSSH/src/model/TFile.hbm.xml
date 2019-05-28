@@ -13,7 +13,7 @@
         <property name="filename" type="java.lang.String">
             <column name="filename" length="100" />
         </property>
-        <property name="uptime" type="java.sql.Timestamp">
+        <property name="uptime" type="java.lang.String">
             <column name="uptime" length="23" />
         </property>
         <property name="author" type="java.lang.String">

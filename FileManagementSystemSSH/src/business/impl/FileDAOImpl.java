@@ -26,7 +26,9 @@ public class FileDAOImpl implements FileDAO {
 	
 	@Override
 	public int addFile(TFile file) {
-		return  (Integer) bdao.insert(file);
+		
+		int a =(Integer) bdao.insert(file);
+		return  1;
 		
 	}
 
