@@ -3,11 +3,14 @@ package model;
 import java.sql.Timestamp;
 
 /**
- * VFile entity. @author MyEclipse Persistence Tools
+ * VFileId entity. @author MyEclipse Persistence Tools
  */
 
 public class VFile implements java.io.Serializable {
 
+	// Fields
+
+	private String id;
 	private String userid;
 	private String username;
 	private Integer roleid;
@@ -43,11 +46,12 @@ public class VFile implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public VFile(String userid, String username, Integer roleid,
+	public VFile(String id, String userid, String username, Integer roleid,
 			String rolename, Integer authorityid, String authorityname,
 			Integer fileid, String filename, Timestamp uptime, Integer typeid,
 			String typename, String dscribe, String lable, String filesize,
 			String filesuffix, String filepath, Integer downloads) {
+		this.id = id;
 		this.userid = userid;
 		this.username = username;
 		this.roleid = roleid;
@@ -68,6 +72,14 @@ public class VFile implements java.io.Serializable {
 	}
 
 	// Property accessors
+
+	public String getId() {
+		return this.id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 
 	public String getUserid() {
 		return this.userid;
@@ -204,5 +216,4 @@ public class VFile implements java.io.Serializable {
 	public void setDownloads(Integer downloads) {
 		this.downloads = downloads;
 	}
-
 }
