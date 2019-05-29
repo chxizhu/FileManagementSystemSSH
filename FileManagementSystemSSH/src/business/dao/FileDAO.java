@@ -50,11 +50,12 @@ public interface FileDAO {
 	
 	/**
 	 * 模糊查询文件
-	 * * @param String userid 当前用户
+	 * @param String userid 当前用户
+	 * @param int f_department_id  文件所属部门ID
 	 * @param String filekeyword 文件搜索关键字
 	 * @return  List<TFile>
 	 */
-	public List<VUserFile> slectallfile(String userid,String filekeyword);
+	public List<VUserFile> slectallfile(String userid,int f_department_id,String filekeyword);
 	
 	/**
 	 * 根据文件权限查询权限名称

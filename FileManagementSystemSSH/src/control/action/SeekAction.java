@@ -12,15 +12,16 @@ import business.factory.DAOFactorys;
 public class SeekAction extends BaseAction {
 	
 	private String userid;
-	/*private int authorityid;
+	private int f_department_id;
+	
 
-	public int getAuthorityid() {
-		return authorityid;
+	public int getF_department_id() {
+		return f_department_id;
 	}
 
-	public void setAuthorityid(int authorityid) {
-		this.authorityid = authorityid;
-	}*/
+	public void setF_department_id(int f_department_id) {
+		this.f_department_id = f_department_id;
+	}
 
 	public String getUserid() {
 		return userid;
@@ -37,9 +38,10 @@ public class SeekAction extends BaseAction {
 		
 		String filekeyword = request.getParameter("filekeyword");
 		session.setAttribute("filekeyword", filekeyword);
+		String loginUser = request.getParameter("loginUser");
 		//String str = MessageFormat.format("userid {0} or username {0} or filename {0} or dscribe {0} or lable {0} or filesize {0} or filesuffix {0} ","like '%"+filekeyword+"%'");
-		
-		List<VUserFile> filelist = DAOFactorys.getFileDAO().slectallfile(userid,filekeyword);		
+				
+		List<VUserFile> filelist = DAOFactorys.getFileDAO().slectallfile(userid,f_department_id,filekeyword);		
 		
 /*		for(VUserFile i: filelist){
 			i.getFileid();
