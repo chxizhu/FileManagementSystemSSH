@@ -22,7 +22,10 @@
 				/uplode.jsp
 			</result>
 		</action>
-		<action name="error" class="control.action.ErrorAction"></action>
+		<action name="error" class="control.action.ErrorAction">
+			<result name="success" type="dispatcher">/seek.jsp</result>
+			<result name="error" type="dispatcher">/error.jsp</result>
+		</action>
 		<action name="ownfile" class="control.action.ownfileAction">
 			
 		</action>

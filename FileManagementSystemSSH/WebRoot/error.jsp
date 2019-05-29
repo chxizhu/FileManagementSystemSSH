@@ -21,6 +21,24 @@
 	.color{
 		color:#FF0000
 	}
+	
+	.same {
+		padding: 0;
+		margin-top: -2px;
+		margin-left: -1px;
+		box-sizing: border-box;
+		border: 1;
+		height: 45px;
+	}
+			
+	.text {
+		width: 80%;
+	}
+	
+	.btn {
+		width: 20%;
+		}
+		
 }
 		
 </style>
@@ -33,17 +51,16 @@
 	<div class="row">
 		<div class="layui-col-md8 layui-col-md-offset2 top">	
 		
-			<div class="layui-col-md10">				
-				<form class="layui-form" action="">
-				  <div class="layui-form-item">
-				    <div class="layui-input-block">
-				      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入搜索关键字" class="layui-input">
-				    </div>
-				  </div>
-			  </form>				
+			<div class="layui-col-md10">											  
+			  	<form class="layui-form" action="seek.action">
+					<div class="same ">
+						<input type="hidden" name="userid" value="${loginUser.userid }">	
+						<input type="hidden" name="f_department_id" value="${loginUser.departmentid }">											
+						<input type="text" placeholder="${filekeyword }" class="same text " name="filekeyword"><button class="layui-btn layui-btn-normal same btn">搜  索</button>
+					</div>
+				</form>
 			</div>
-			
-			<div class="layui-col-md1"><button class="layui-btn layui-btn-normal">搜索一下</button></div>										
+							 				
 		</div>	
 		
 		<div class="layui-col-md1 top">
@@ -55,7 +72,7 @@
 	</div>
 	
 	<div class="row">
-		<div class="layui-col-md12">	
+		<div class="layui-col-md12" style="margin-top:20px">	
 			<ul class="layui-nav daohan" lay-filter="">
   				<li class="layui-nav-item"><a href=""><font color="#000">视频</font></a></li>
   				<li class="layui-nav-item"><a href=""><font color="#000">图片</font></a></li>
@@ -65,20 +82,23 @@
 		</div>
 	</div>
 	
-	<div id="wrapper"><a class="logo" href="/"></a>
-	  <div id="main">
-	    <header id="header">
-	      <h1><span class="icon">!</span>404<span class="sub">page not found</span></h1>
-	    </header>
-	    <div id="content">
-	      <!-- <h2>很抱歉，没有找到与您搜索相关的网页。</h2> -->
-	       <h2>很抱歉，没有找到与“<span class="color">${filekeyword }</span>”相关的网页。</h2>
-	      <p>温馨提示：<br>
-	        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请检查您的输入是否正确<br>
-	        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如网页未收录或者新站未收录，请提交网址给我们<br>
-	        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如有任何意见或建议，请及时反馈给我们</p>
-	     </div>
-	  </div>
+	<div class="row">
+		<div class="layui-col-md12">	
+			<div id="wrapper"><a class="logo" href="/"></a>
+	  			<div id="main">
+				    <header id="header">   
+				      <h1><span class="icon">!</span>404<span class="sub">page not found</span></h1>
+				    </header>
+				    <div id="content">				      
+				    <h2>很抱歉，没有找到与“<span class="color">${filekeyword }</span>”相关的网页。</h2>
+				      <p>温馨提示：<br>
+				        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请检查您的输入是否正确<br>
+				        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如网页未收录或者新站未收录，请提交网址给我们<br>
+				        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如有任何意见或建议，请及时反馈给我们</p>
+				     </div>
+	  			</div>
+			</div>
+		</div>
 	</div>
 	
 	
