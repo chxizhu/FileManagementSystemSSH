@@ -45,4 +45,9 @@
 			<result name="success" type="dispatcher">
 				/ownfile.jsp
 			</result>
+		</action>
+		<action name="categoryseek"
+			class="control.action.CategorySeekAction">
+			<result name="success" type="dispatcher">/seek.jsp</result>
+			<result name="error" type="dispatcher">/error.jsp</result>
 		</action></package></struts>    

@@ -30,6 +30,10 @@
 		text-overflow: ellipsis;		
 		white-space: nowrap; //文本不换行，这样超出一行的部分被截取，显示...
 }
+.seekbtn{
+	margin-left:742px;
+	margin-top:-38px;
+	}	
 		
 </style>
 
@@ -45,13 +49,16 @@
 				<form class="layui-form" action="">
 				  <div class="layui-form-item">
 				    <div class="layui-input-block">
-				      <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入搜索关键字" class="layui-input">
+				      <input type="hidden" name="userid" value="${loginUser.userid }">	
+					  <input type="hidden" name="f_department_id" value="${loginUser.departmentid }">		
+				      <input type="text" name="filekeyword" lay-verify="title" autocomplete="off" placeholder="${filekeyword }" class="layui-input">
+				      <button class="layui-btn layui-btn-normal seekbtn">搜索一下</button>
 				    </div>
 				  </div>
 			  </form>				
 			</div>
 			
-			<div class="layui-col-md1"><button class="layui-btn layui-btn-normal">搜索一下</button></div>										
+			<!-- <div class="layui-col-md1"><button class="layui-btn layui-btn-normal">搜索一下</button></div>				 -->						
 		</div>	
 		
 		<div class="layui-col-md1 layui-col-md-offset1 top">
@@ -75,7 +82,7 @@
 	<div class="row top">
 		<div class="layui-col-md6 layui-col-md-offset3 top">	
 			
-		 <c:forEach items="${filelist }" var="forum" begin="0" end="6" step="1">
+		 <c:forEach items="${filelist }" var="forum" begin="0" end="1000" step="1">
 			
 			<div class="layui-card daohan">						
 			

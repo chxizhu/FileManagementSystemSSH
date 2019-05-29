@@ -52,6 +52,14 @@
         <resourceEdge source="success" routing="0" target="ownfile.jsp" />
       </result>
     </action>
+    <action name="categoryseek" location="24,789" size="150,40">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="seek.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="error.jsp" />
+      </result>
+    </action>
   </package>
   <webResource name="index.jsp" path="/index.jsp" location="488,39" size="150,55" />
   <webResource name="login.jsp" path="/login.jsp" location="479,126" size="150,55" />
