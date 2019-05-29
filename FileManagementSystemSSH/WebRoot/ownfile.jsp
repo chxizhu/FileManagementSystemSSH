@@ -132,7 +132,9 @@
 						field : 'authorityname',
 						title : '权限',
 						width : 80,
-						sort : true
+						sort : true,
+						edit: 'text'
+						
 					}, {
 						field : 'filesize',
 						title : '大小',
@@ -183,18 +185,16 @@
 						});
 					}
 
-					else if (obj.event === 'detail') {
-						
+					else if (obj.event === 'detail') {	
 						var fileid = data.fileid; 
 						window.location.href="downloadAction.action?fileid="+fileid;
-					}  else if (obj.event === 'edit') {
-						
-						
+					}  
+					else if (obj.event === 'edit') {
 						layui.use('layer', function(){
 						  var layer = layui.layer;
-						  var fileid = data.authorityname; 
+						  var fileid = data.fileid; 
 						    layer.msg(fileid);
-						
+						    window.location.href="fileupdating.jsp?fileid="+fileid;
 						});  
 					}
 				});
