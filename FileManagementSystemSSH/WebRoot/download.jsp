@@ -136,7 +136,7 @@
 
 								<div class="layui-form-item">
 									<div class="layui-input-block">
-										<button class="layui-btn  layui-btn-normal" lay-submit="" lay-filter="demo1" >文件下载</button>
+										<a href="../upload2/${path}">文件下载</a>
 										
 									</div>
 								</div>
