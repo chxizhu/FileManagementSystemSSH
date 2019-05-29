@@ -9,12 +9,24 @@ import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * 
- * @author xizhu
- *
+* @Title: loginAction.java
+* @Package control.action
+* @Description: TODO(登录验证action)
+* @author 成锡柱
+* @date 2019年5月29日 下午8:20:37
+* @version V1.0
  */
 public class loginAction extends BaseAction {
 	private String userid;
 	private String pwd;
+    private String varify;
+	public String getVarify() {
+		return varify;
+	}
+
+	public void setVarify(String varify) {
+		this.varify = varify;
+	}
 
 	public String getUserid() {
 		return userid;
@@ -36,6 +48,7 @@ public class loginAction extends BaseAction {
 	 * @return
 	 */
 	public String execute() {
+		String errorsTest;
 		HttpSession session = request.getSession();
 		String srand = (String) session.getAttribute("rand");
 		// 数据校验
@@ -49,12 +62,15 @@ public class loginAction extends BaseAction {
 			return ERROR;
 		}
 
-		/*
-		 * else if(varify==null ||varify.trim().equals("")){
-		 * errorsTest="验证码不能为空"; bakurl="login.jsp"; return ERROR; }else
-		 * if(!varify.equals(srand)){ errorsTest="验证码不正确"; bakurl="login.jsp";
-		 * return ERROR; }
-		 */
+		// else if(varify==null ||varify.trim().equals("")){
+		// errorsTest="验证码不能为空"; bakurl="login.jsp"; return ERROR; }else
+		if (!varify.equals(srand)) {
+			 errorsTest = "验证码不正确,请重新输入";
+			request.setAttribute("errorsTest", errorsTest );
+			request.setAttribute("userid", userid );
+			request.setAttribute("pwd", pwd );
+			return ERROR;
+		}
 
 		UserDAOImpl udao = new UserDAOImpl();
 		VUser loginUser = udao.login(userid, pwd);
@@ -64,9 +80,10 @@ public class loginAction extends BaseAction {
 			session.setAttribute("loginUser", loginUser);
 			return SUCCESS;
 		} else {
-			// 错误时跳转到 error.jsp页面 ，并传递 错误信息
-			// errorsTest = "用户名或密码错误";
-			// bakurl = "login.jsp";
+			 errorsTest = "用户名或密码不正确，请重新输入";
+				request.setAttribute("errorsTest", errorsTest );
+				request.setAttribute("userid", userid );
+				request.setAttribute("pwd", pwd );
 			return ERROR;
 		}
 	}

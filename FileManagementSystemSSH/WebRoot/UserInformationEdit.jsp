@@ -99,21 +99,21 @@
 								<div class="layui-form-item">
 									<label class="layui-form-label">用户名</label>
 									<div class="layui-input-block">
-										<input  type="text" name="username" lay-verify="username" autocomplete="off" placeholder="请输入修改的用户名" class="layui-input">
+										<input  type="text" name="username" lay-verify="required" autocomplete="off" placeholder="请输入修改的用户名" class="layui-input">
 									</div>
 								</div>
 								
 								<div class="layui-form-item">
 									 <label class="layui-form-label">修改密码</label>
 										    <div class="layui-input-inline">
-										      <input id="pwd1" type="password" name="pwd" lay-verify="pass" placeholder="请输入密码" autocomplete="off" class="layui-input">
+										      <input id="pwd1" type="password" lay-verify="required" name="pwd" lay-verify="pass" placeholder="请输入密码" autocomplete="off" class="layui-input">
 										    </div>
 										    <div class="layui-form-mid layui-word-aux">请填写6到12位密码</div>
 								</div>
 								<div class="layui-form-item">
 									 <label class="layui-form-label">确定密码</label>
 										    <div class="layui-input-inline">
-										      <input id="pwd2" type="password" name="pwd1" lay-verify="pass" placeholder="请输入密码" autocomplete="off" class="layui-input">
+										      <input id="pwd2" type="password" name="pwd1" lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
 										    </div>
 										    <div class="layui-form-mid layui-word-aux">请再次输入密码</div>
 								</div>

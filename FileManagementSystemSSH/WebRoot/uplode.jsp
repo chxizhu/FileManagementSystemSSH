@@ -106,7 +106,7 @@
 							<div class="layui-form-item">
 								<label class="layui-form-label">文件标题</label>
 								<div class="layui-input-block">
-									<input type="text" name="filename" lay-verify="title" id="title"
+									<input type="text" name="filename" lay-verify="required" id="title"
 										autocomplete="off" placeholder="文件标题内容不可修改（如需修改请直接修改上传前文件标题）" readonly="true" class="layui-input">
 								</div>
 							</div>
@@ -114,7 +114,7 @@
 							<div class="layui-form-item">
 								<label class="layui-form-label">文件大小</label>
 								<div class="layui-input-block">
-									<input type="text" id="size" name="filesize" readonly="true" class="layui-input">
+									<input type="text" id="size" lay-verify="required" name="filesize" readonly="true" class="layui-input">
 								</div>
 							</div>
 
@@ -133,7 +133,7 @@
 							<div class="layui-form-item">
 								<label class="layui-form-label">文件标签</label>
 								<div class="layui-input-block">
-									<input type="text" name="lable" lay-verify="title"
+									<input type="text" name="lable" lay-verify="required"
 										autocomplete="off" placeholder="请输入文件标签，标签之间用，隔开" class="layui-input">
 								</div>
 							</div>
@@ -141,7 +141,7 @@
 							<div class="layui-form-item layui-form-text">
 								<label class="layui-form-label">文件简介</label>
 								<div class="layui-input-block">
-									<textarea placeholder="请简介输入内容" name="dscribe" class="layui-textarea"></textarea>
+									<textarea placeholder="请简介输入内容" name="dscribe"  lay-verify="required" class="layui-textarea"></textarea>
 								</div>
 							</div>
 
@@ -170,7 +170,13 @@
 	</div>
 
 	<script src="layui/layui.js" charset="utf-8"></script>
-
+	<script>
+		layui.use('form', function(){
+		  var form = layui.form;
+		  
+		  //各种基于事件的操作，下面会有进一步介绍
+		});
+		</script>
 	<script>
 		layui.use('element', function() {
 			var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
