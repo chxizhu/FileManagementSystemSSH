@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Struts2Diagram version="2.0">
-  <package name="default" location="33,22" size="369,724">
-    <action name="loginAction" location="59,78" size="150,41">
+  <package name="default" location="33,22" size="225,994">
+    <action name="loginAction" location="69,88" size="150,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="index.jsp" />
       </result>
     </action>
-    <action name="UserinformationEditAction" location="60,334" size="150,40" />
-    <action name="loginout" location="61,161" size="150,41">
+    <action name="UserinformationEditAction" location="70,344" size="150,40" />
+    <action name="loginout" location="71,171" size="150,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="login.jsp" />
       </result>
     </action>
-    <action name="seek" location="56,236" size="150,62">
+    <action name="seek" location="66,246" size="150,62">
       <result name="success">
         <resourceEdge source="success" routing="0" target="seek.jsp" />
       </result>
@@ -20,24 +20,29 @@
         <resourceEdge source="error" routing="0" target="error.jsp" />
       </result>
     </action>
-    <action name="addfileAction" location="64,390" size="150,41">
+    <action name="addfileAction" location="74,400" size="150,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="uplode.jsp" />
       </result>
     </action>
-    <action name="error" location="60,455" size="150,40" />
-    <action name="ownfile" location="54,528" size="150,40" />
-    <action name="PassdEitsaction" location="57,610" size="150,41">
+    <action name="error" location="70,465" size="150,40" />
+    <action name="ownfile" location="64,538" size="150,40" />
+    <action name="PassdEitsaction" location="66,619" size="150,41">
       <result name="error">
         <resourceEdge source="error" routing="0" target="error.jsp" />
       </result>
     </action>
-    <action name="downloadAction" location="50,667" size="150,41">
+    <action name="downloadAction" location="60,677" size="150,62">
       <result name="error">
         <resourceEdge source="error" routing="0" target="error.jsp" />
       </result>
       <result name="success">
         <resourceEdge source="success" routing="0" target="download.jsp" />
+      </result>
+    </action>
+    <action name="deleteownfile" location="49,816" size="150,40">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="ownfile.jsp" />
       </result>
     </action>
   </package>
@@ -46,6 +51,7 @@
   <webResource name="seek.jsp" path="/seek.jsp" location="453,208" size="150,55" />
   <webResource name="error.jsp" path="/error.jsp" location="654,195" size="150,55" />
   <webResource name="uplode.jsp" path="/uplode.jsp" location="443,372" size="150,55" />
-  <webResource name="download.jsp" path="/download.jsp" location="0,0" size="150,55" />
+  <webResource name="download.jsp" path="/download.jsp" location="500,500" size="150,55" />
+  <webResource name="ownfile.jsp" path="/ownfile.jsp" location="0,0" size="150,55" />
 </Struts2Diagram>
 

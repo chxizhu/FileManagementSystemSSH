@@ -52,14 +52,11 @@ public class ownfileAction extends BaseAction {
 		HttpSession session = request.getSession();
 		VUser loginUser = (VUser) session.getAttribute("loginUser");
 		
-		System.out.println("页数"+page+limit);
+		//System.out.println("页数"+page+limit);
 		FileDAO udao = DAOFactorys.getFileDAO();
 		
 		List<VFile> list=udao.getForumListByPage(loginUser.getUserid(), page, limit);
 
-		for (VFile b : list) {
-            System.out.println(b.getFilename() + "|" + b.getFileid());
-        }
 		
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("application/json");

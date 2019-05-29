@@ -28,7 +28,7 @@ public class FileDAOImpl implements FileDAO {
 	public int addFile(TFile file) {
 		
 		int a =(Integer) bdao.insert(file);
-		return  1;
+		return  a;
 		
 	}
 
@@ -99,4 +99,21 @@ public class FileDAOImpl implements FileDAO {
 		return bdao.select(hql, para);
 	}
 
+	@Override	
+	public int deleteFile(int fileid) {
+		String hql =  "delete from T_File where fileid=?  ";
+		Object[] para = {fileid};
+		
+		if( bdao.delete(hql, para)==true){
+			return 1;
+		}else {
+			return 0;
+		}
+			
+		
+				
+	}
+
+	
+	
 }

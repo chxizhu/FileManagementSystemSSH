@@ -170,6 +170,9 @@
 						layer.confirm('真的删除行么', function(index) {
 							obj.del();
 							layer.close(index);
+							var fileid = data.fileid; 
+							window.location.href="deleteownfile.action?fileid="+fileid;
+							
 						});
 					}
 

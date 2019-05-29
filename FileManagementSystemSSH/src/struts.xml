@@ -36,4 +36,10 @@
 			<result name="success" type="dispatcher">
 				/download.jsp
 			</result>
+		</action>
+		<action name="deleteownfile"
+			class="control.action.deleteownfileAction">
+			<result name="success" type="dispatcher">
+				/ownfile.jsp
+			</result>
 		</action></package></struts>    

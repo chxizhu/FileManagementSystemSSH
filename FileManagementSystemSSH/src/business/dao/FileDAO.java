@@ -110,4 +110,12 @@ public interface FileDAO {
 	 * @return  List<TFile>
 	 */
 	public List<TFile> slectallfileid(int fileid);
+	
+	/**
+	 * 单文件删除方法
+	 * @param TFile file 文件内容对象
+	 * @return  boolean  成功返回true 失败返回false
+	 */
+	public int deleteFile(int fileid);
+	
 }
