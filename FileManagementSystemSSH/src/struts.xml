@@ -5,6 +5,7 @@
 	<package name="default" extends="struts-default" namespace="/">
 		<action name="loginAction" class="control.action.loginAction">
 			<result name="success" type="dispatcher">/index.jsp</result>
+			<result name="error" type="dispatcher">/login.jsp</result>
 		</action>
 		<action name="UserinformationEditAction"
 			class="control.action.UserinformationEditAction">

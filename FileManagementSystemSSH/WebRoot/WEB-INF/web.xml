@@ -24,6 +24,11 @@
     <servlet-name>FileUploadServlet</servlet-name>
     <servlet-class>servlet.control.FileUploadServlet</servlet-class>
   </servlet>
+  
+  <servlet>
+    <servlet-name>SafeCode</servlet-name>
+    <servlet-class>servlet.control.SafeCode</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>FileUploadServlet</servlet-name>
@@ -33,4 +38,8 @@
     <param-name>contextConfigLocation</param-name>
     <param-value>classpath:applicationContext.xml</param-value>
   </context-param>
+  <servlet-mapping>
+    <servlet-name>SafeCode</servlet-name>
+    <url-pattern>/SafeCode.do</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -5,6 +5,9 @@
       <result name="success">
         <resourceEdge source="success" routing="0" target="index.jsp" />
       </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="login.jsp" />
+      </result>
     </action>
     <action name="UserinformationEditAction" location="19,274" size="150,40" />
     <action name="loginout" location="32,103" size="150,41">
