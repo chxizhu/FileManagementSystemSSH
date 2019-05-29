@@ -91,56 +91,46 @@
 								<div class="layui-form-item">
 									<label class="layui-form-label">文件标题</label>
 									<div class="layui-input-block">
-										<input disabled="disabled" value="123" type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+										<input disabled="disabled" value="${title }" type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
 									</div>
 								</div>
 
 								<div class="layui-form-item">
 									<label class="layui-form-label">上传时间</label>
 									<div class="layui-input-block">
-										<input disabled="disabled" value="123" type="text" name="date" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+										<input disabled="disabled" value="${date }" type="text" name="date" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
 									</div>
 								</div>
 								
 								<div class="layui-form-item">
 									<label class="layui-form-label">上传作者</label>
 									<div class="layui-input-block">
-										<input disabled="disabled" value="123" type="text" name="author" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+										<input disabled="disabled" value="${author}" type="text" name="author" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
 									</div>
 								</div>
 								
 								<div class="layui-form-item">
 									<label class="layui-form-label">文件路径</label>
 									<div class="layui-input-block">
-										<input disabled="disabled" value="123" type="text" name="path" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+										<input disabled="disabled" value="${path}" type="text" name="path" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
 									</div>
 								</div>
 								
-								<div class="layui-form-item">
-									<label class="layui-form-label">文件类型</label>
-									<div class="layui-input-block">
-										<input disabled="disabled" value="123" type="text" name="type" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
-									</div>
-								</div>
 								
-								<div class="layui-form-item">
-									<label class="layui-form-label">文件权限</label>
-									<div class="layui-input-block">
-										<input disabled="disabled" value="123" type="text" name="authority" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
-									</div>
-								</div>
+								
+								
 								
 								<div class="layui-form-item">
 									<label class="layui-form-label">文件标签</label>
 									<div class="layui-input-block">
-										<input disabled="disabled" value="123" type="text" name="labe" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
+										<input disabled="disabled" value="${labe}" type="text" name="labe" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
 									</div>
 								</div>
 
 								<div class="layui-form-item layui-form-text">
 									<label class="layui-form-label">文件说明</label>
 									<div class="layui-input-block">
-										<textarea  class="layui-textarea" disabled="disabled" >123</textarea>
+										<textarea  class="layui-textarea" disabled="disabled"  >${authority}</textarea>
 									</div>
 								</div>
 

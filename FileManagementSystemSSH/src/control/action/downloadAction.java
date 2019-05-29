@@ -147,12 +147,29 @@ public class downloadAction extends BaseAction {
 		
 		List<TFile> down=udao.slectallfileid(fileid);
 		
+		
 		for (int i =0;i< down.size();i++){
 	           title=down.get(i).getFilename();
+	          
+	           request.setAttribute("title", title);
 	           
-	        }
+	           date=down.get(i).getUptime();
+	           request.setAttribute("date", date);
+	         
+	           author=down.get(i).getAuthor();
+	           request.setAttribute("author", author);
+	         
+	           path=down.get(i).getFilepath();
+	           request.setAttribute("path", path);
+	           
+	           labe=down.get(i).getLable();
+	           request.setAttribute("labe", labe);
+	          
+	           authority=down.get(i).getDscribe();
+	           request.setAttribute("authority", authority);
+	        		   }
 	
-	System.out.println("测试"+down.size());
+	
 		
 	System.out.println("id"+fileid);
 		
