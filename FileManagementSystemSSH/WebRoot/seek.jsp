@@ -83,11 +83,15 @@
 
 			   <div class="layui-card-body line-limit-length">详细说明：${forum.dscribe}</div>
 			  
+			   <div class="layui-card-body line-limit-length">标签：${forum.lable}</div>
+			   
 			   <div class="layui-card-body line-limit-length">
-			   	<a href="">上传用户:${forum.username}</a>
-			   	<span style="margin-left:80px"><a href="">上传时间:${forum.uptime}</a></span>
-			   	<span style="margin-left:80px"><a href="">文件大小:${forum.filesize}</a></span>
-			  </div>			  			  
+			   	<a href="javascript:;">上传用户:${forum.username}</a>
+			   	<span style="margin-left:20px"><a href="javascript:;">上传时间:${forum.uptime}</a></span>
+			   	<span style="margin-left:20px"><a href="javascript:;">文件大小:${forum.filesize}</a></span>	
+			    <span style="margin-left:20px"><a href="javascript:;">文件权限:${forum.authorityname}</a></span>
+			   	<span style="margin-left:20px"><a href="javascript:;">所属部门:${forum.departmentname}</a></span>		   
+			  </div>				 	  			  
 			  
 			</div>
 			

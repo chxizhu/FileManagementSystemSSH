@@ -52,7 +52,7 @@ public class FileDAOImpl implements FileDAO {
 
 	@Override	
 	public List<VUserFile> slectallfile(String userid,String filekeyword) {
-		String hql =  "from VUserFile o where userid = ? and concat(o.userid,o.username,o.filename,o.dscribe,o.lable,o.filesize) like ? ";
+		String hql =  "from VUserFile o where (userid = ? or authorityid = 102 or authorityid = 103) and concat(o.userid,o.username,o.filename,o.dscribe,o.lable,o.filesize) like ? ";
 		Object[] para = {userid,"%" + filekeyword + "%"};
 		return bdao.select(hql, para);
 	}

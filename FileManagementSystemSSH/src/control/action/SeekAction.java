@@ -12,15 +12,15 @@ import business.factory.DAOFactorys;
 public class SeekAction extends BaseAction {
 	
 	private String userid;
-	private int authority_id;
+	/*private int authorityid;
 
-	public int getAuthority_id() {
-		return authority_id;
+	public int getAuthorityid() {
+		return authorityid;
 	}
 
-	public void setAuthority_id(int authority_id) {
-		this.authority_id = authority_id;
-	}
+	public void setAuthorityid(int authorityid) {
+		this.authorityid = authorityid;
+	}*/
 
 	public String getUserid() {
 		return userid;
