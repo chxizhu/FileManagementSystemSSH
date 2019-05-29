@@ -49,13 +49,21 @@ public interface FileDAO {
 	
 	
 	/**
-	 * 模糊查询文件
+	 * 普通员工模糊查询文件(可查询文件权限为个人，本部门，公司的)
 	 * @param String userid 当前用户
 	 * @param int f_department_id  文件所属部门ID
 	 * @param String filekeyword 文件搜索关键字
 	 * @return  List<TFile>
 	 */
 	public List<VUserFile> slectallfile(String userid,int f_department_id,String filekeyword);
+	
+	/**
+	 * 领导模糊查询文件(可查询文件权限为个人，所有部门，公司的)
+	 * @param String userid 当前用户
+	 * @param String filekeyword 文件搜索关键字
+	 * @return  List<TFile>
+	 */
+	public List<VUserFile> leadslectallfile(String userid,String filekeyword);
 	
 	/**
 	 * 根据文件权限查询权限名称

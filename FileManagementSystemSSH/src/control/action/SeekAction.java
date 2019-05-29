@@ -1,10 +1,13 @@
 package control.action;
 
 import java.text.MessageFormat;
+import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.struts2.components.Else;
 import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
+import model.VUser;
 import model.VUserFile;
 import business.factory.DAOFactorys;
 
@@ -36,20 +39,19 @@ public class SeekAction extends BaseAction {
 	 */
 	public String execute() {
 		
-		String filekeyword = request.getParameter("filekeyword");
+		String filekeyword = request.getParameter("filekeyword");//得到搜索框中的内容
 		session.setAttribute("filekeyword", filekeyword);
-		String loginUser = request.getParameter("loginUser");
-		//String str = MessageFormat.format("userid {0} or username {0} or filename {0} or dscribe {0} or lable {0} or filesize {0} or filesuffix {0} ","like '%"+filekeyword+"%'");
+		VUser loginUser = (VUser)session.getAttribute("loginUser");//得到当前登录用户
 				
-		List<VUserFile> filelist = DAOFactorys.getFileDAO().slectallfile(userid,f_department_id,filekeyword);		
+		List<VUserFile> filelist = new ArrayList<VUserFile>() ;
 		
-/*		for(VUserFile i: filelist){
-			i.getFileid();
-			System.out.println(i.getFileid());
+		if(loginUser.getRoleid() == 203){//判断当前登录用户是否为管理层领导，203位总经理管理层
+                filelist = DAOFactorys.getFileDAO().leadslectallfile(filekeyword, filekeyword);
+				request.setAttribute("filelist", filelist);	
+			}else{
+				 filelist = DAOFactorys.getFileDAO().slectallfile(userid,f_department_id,filekeyword);	
+				 request.setAttribute("filelist", filelist);					
 		}		
-		System.out.println("filelist :" + filelist);*/	
-		
-		request.setAttribute("filelist", filelist);
 
 		if(filelist == null || filelist.size() == 0)
 			return ERROR;
@@ -57,4 +59,5 @@ public class SeekAction extends BaseAction {
 		//返回success 使用dispatch方式跳转到seek.jsp中
 		return SUCCESS;
 	}
+			
 }
