@@ -73,11 +73,12 @@
 	
 	<div class="row">
 		<div class="layui-col-md12" style="margin-top:20px">	
-			<ul class="layui-nav daohan" lay-filter="">
-  				<li class="layui-nav-item"><a href=""><font color="#000">视频</font></a></li>
-  				<li class="layui-nav-item"><a href=""><font color="#000">图片</font></a></li>
-  				<li class="layui-nav-item"><a href=""><font color="#000">文档</font></a></li>
-  				<li class="layui-nav-item"><a href=""><font color="#000">其他</font></a></li>
+			<ul class="layui-nav daohan" lay-filter=""> 				
+  				<li class="layui-nav-item"><a href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=1"><font color="#000">图片</font></a></li>
+  				<li class="layui-nav-item"><a href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&typeid=2"><font color="#000">文档</font></a></li>
+  				<li class="layui-nav-item"><a href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&typeid=3"><font color="#000">视频</font></a></li>
+  				<li class="layui-nav-item"><a href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&typeid=4"><font color="#000">音频</font></a></li>
+  				<li class="layui-nav-item"><a href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=5"><font color="#000">其他</font></a></li>
 			</ul>
 		</div>
 	</div>

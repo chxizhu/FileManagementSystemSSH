@@ -64,6 +64,20 @@ public class FileDAOImpl implements FileDAO {
 		return bdao.select(hql, para);
 	}
 	
+	@Override	
+	public List<VUserFile> categoryslectallfile(String userid,int f_department_id,int type_id) {
+		String hql =  "from VUserFile o where (userid = ? or authorityid = 102 or authorityid = 103) and (f_department_id = ? or authorityid = 103) and type_id = ? ";
+		Object[] para = {userid,f_department_id,type_id};
+		return bdao.select(hql, para);
+	}
+	
+	@Override	
+	public List<VUserFile> leadcategoryslectallfile(String userid,int type_id) {
+		String hql =  "from VUserFile o where (userid = ? or authorityid = 102 or authorityid = 103) and type_id = ? ";
+		Object[] para = {userid,type_id};
+		return bdao.select(hql, para);
+	}
+	
 	@Override
 	public List<TAuthority> getAuthority() {
 		// TODO Auto-generated method stub

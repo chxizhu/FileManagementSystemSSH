@@ -46,7 +46,7 @@
 		<div class="layui-col-md8 layui-col-md-offset1">	
 		
 			<div class="layui-col-md10">				
-				<form class="layui-form" action="">
+				<form class="layui-form" action="categoryseek.action">
 				  <div class="layui-form-item">
 				    <div class="layui-input-block">
 				      <input type="hidden" name="userid" value="${loginUser.userid }">	
@@ -69,13 +69,15 @@
 	</div>
 	
 	<div class="row">
-		<div class="layui-col-md12">	
-			<ul class="layui-nav daohan" lay-filter="">
-  				<li class="layui-nav-item"><a href=""><font color="#000">视频</font></a></li>
-  				<li class="layui-nav-item"><a href=""><font color="#000">图片</font></a></li>
-  				<li class="layui-nav-item"><a href=""><font color="#000">文档</font></a></li>
-  				<li class="layui-nav-item"><a href=""><font color="#000">其他</font></a></li>
+		<div class="layui-col-md12">			
+			<ul class="layui-nav daohan" lay-filter=""> 				
+  				<li class="layui-nav-item"><a href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=1"><font color="#000">图片</font></a></li>
+  				<li class="layui-nav-item"><a href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&typeid=2"><font color="#000">文档</font></a></li>
+  				<li class="layui-nav-item"><a href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&typeid=3"><font color="#000">视频</font></a></li>
+  				<li class="layui-nav-item"><a href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&typeid=4"><font color="#000">音频</font></a></li>
+  				<li class="layui-nav-item"><a href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=5"><font color="#000">其他</font></a></li>
 			</ul>
+	
 		</div>
 	</div>
 	
