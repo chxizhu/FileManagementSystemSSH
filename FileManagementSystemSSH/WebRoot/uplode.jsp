@@ -65,7 +65,7 @@
 					</li>
 					
 					<li class="layui-nav-item ">
-						<a href="ownfile.jap">个人文件管理</a>
+						<a href="ownfile.jsp">个人文件管理</a>
 					</li>
 					
 					<li class="layui-nav-item ">
@@ -164,7 +164,7 @@
 		style="margin-top: 20px;margin-bottom: 30px.;text-align: center;">
 		<div class="layui-main">
 			<p>
-				&copy; 2019 <a href="/">文件资源管理系统</a>
+				&copy; 2019 <a href="">文件资源管理系统</a>
 			</p>
 		</div>
 	</div>

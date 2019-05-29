@@ -52,7 +52,7 @@
 
 				<li class="layui-nav-item "><a href="uplode.jsp">文件上传</a></li>
 
-				<li class="layui-nav-item "><a href="ownfile.html">个人文件管理</a></li>
+				<li class="layui-nav-item "><a href="#">个人文件管理</a></li>
 
 				<li class="layui-nav-item "><a href="UserInformationEdit.jsp">用户基础信息修改</a>
 				</li>
@@ -67,10 +67,10 @@
 	</div>
 
 	<!--主要內容-->
-	<div class="layui-container">
+	<div class="layui-fluid">
 
 		<div class="layui-row">
-			<div class="layui-col-md10 layui-col-md-offset1">
+			<div class="layui-col-md12 ">
 
 				<div class="layui-card" style="margin-top: 20px;">
 					<div class="layui-card-header">个人文件管理</div>
@@ -86,7 +86,7 @@
 		<div class="layui-footer footer">
 			<div class="layui-main">
 				<p>
-					&copy; 2019 <a href="/">文件资源管理系统</a>
+					&copy; 2019 <a href="">文件资源管理系统</a>
 				</p>
 			</div>
 		</div>
@@ -114,7 +114,6 @@
 		<script>
 			layui.use('table', function() {
 				var table = layui.table;
-
 				table.render({
 					elem : '#test',
 					url : 'ownfile.action',
@@ -126,38 +125,47 @@
 					}, {
 						field : 'filename',
 						title : '文件标题',
-						width : 80,
 						fixed : 'left',
 						unresize : true,
 						sort : true
 					}, {
 						field : 'authorityname',
 						title : '权限',
-						width : 120,
-						edit : 'text'
+						width : 80,
+						sort : true
 					}, {
 						field : 'filesize',
 						title : '大小',
-						width : 80,
-						edit : 'text',
+						width : 120,
 						sort : true
 					}, {
 						field : 'lable',
 						title : '标签',
-						width : 100
+						
+						
 					}, {
-						field : '类型',
-						title : '类型'
+						field : 'typename',
+						title : '类型',
+						sort : true,
+						width : 80
+						
 					}, {
 						field : 'uptime',
 						title : '上传时间',
-						width : 80,
 						sort : true
-					}, {
+					}, 
+					
+					{
+						field : 'dscribe',
+						title : '说明',
+					
+					}, 
+					
+					{
 						fixed : 'right',
 						title : '操作',
 						toolbar : '#barDemo',
-						width : 150
+						width : 180
 					} ] ],
 					page : true
 				});
@@ -167,12 +175,11 @@
 					var data = obj.data;
 					//console.log(obj)
 					if (obj.event === 'del') {
-						layer.confirm('真的删除行么', function(index) {
+						layer.confirm('确认删除本文件吗？（删除后不可恢复）', function(index) {
 							obj.del();
 							layer.close(index);
 							var fileid = data.fileid; 
-							window.location.href="deleteownfile.action?fileid="+fileid;
-							
+							window.location.href="deleteownfile.action?fileid="+fileid;	
 						});
 					}
 
@@ -181,15 +188,14 @@
 						var fileid = data.fileid; 
 						window.location.href="downloadAction.action?fileid="+fileid;
 					}  else if (obj.event === 'edit') {
-						layer.prompt({
-							formType : 2,
-							value : data.email
-						}, function(value, index) {
-							obj.update({
-								email : value
-							});
-							layer.close(index);
-						});
+						
+						
+						layui.use('layer', function(){
+						  var layer = layui.layer;
+						  var fileid = data.authorityname; 
+						    layer.msg(fileid);
+						
+						});  
 					}
 				});
 			});

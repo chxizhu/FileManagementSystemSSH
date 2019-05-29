@@ -183,7 +183,7 @@
 		<div class="layui-footer" style="margin-top: 20px;margin-bottom: 30px.;text-align: center;">
 			<div class="layui-main">
 				<p>&copy; 2019
-					<a href="/">文件资源管理系统</a>
+					<a href="#">文件资源管理系统</a>
 				</p>
 			</div>
 		</div>
