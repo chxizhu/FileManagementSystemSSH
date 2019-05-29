@@ -109,5 +109,5 @@ public interface FileDAO {
 	 * * @param String fileid 文件用户
 	 * @return  List<TFile>
 	 */
-	public List<VUserFile> slectallfileid(int fileid);
+	public List<TFile> slectallfileid(int fileid);
 }

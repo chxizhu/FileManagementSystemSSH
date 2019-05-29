@@ -36,6 +36,9 @@
       <result name="error">
         <resourceEdge source="error" routing="0" target="error.jsp" />
       </result>
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="download.jsp" />
+      </result>
     </action>
   </package>
   <webResource name="index.jsp" path="/index.jsp" location="459,62" size="150,55" />
@@ -43,5 +46,6 @@
   <webResource name="seek.jsp" path="/seek.jsp" location="453,208" size="150,55" />
   <webResource name="error.jsp" path="/error.jsp" location="654,195" size="150,55" />
   <webResource name="uplode.jsp" path="/uplode.jsp" location="443,372" size="150,55" />
+  <webResource name="download.jsp" path="/download.jsp" location="0,0" size="150,55" />
 </Struts2Diagram>
 

@@ -33,4 +33,7 @@
 		<action name="downloadAction"
 			class="control.action.downloadAction">
 			<result name="error">/error.jsp</result>
+			<result name="success" type="dispatcher">
+				/download.jsp
+			</result>
 		</action></package></struts>    
