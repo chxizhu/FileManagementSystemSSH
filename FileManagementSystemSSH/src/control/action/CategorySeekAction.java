@@ -52,10 +52,10 @@ public class CategorySeekAction extends BaseAction {
 		
 		if(loginUser.getRoleid() == 203){//判断当前登录用户是否为管理层领导，203位总经理管理层
 			if(filekeyword != null){//通过输入框来查询
-				filelist = DAOFactorys.getFileDAO().leadslectallfile(filekeyword, filekeyword);
+				filelist = DAOFactorys.getFileDAO().leadslectallfile(userid, filekeyword);
 			} 
 			else{//通过文件分类来查询
-				filelist = DAOFactorys.getFileDAO().leadcategoryslectallfile(filekeyword, type_id);
+				filelist = DAOFactorys.getFileDAO().leadcategoryslectallfile(userid, type_id);
 			}				
 		}
 		else{//普通员查询
@@ -65,6 +65,7 @@ public class CategorySeekAction extends BaseAction {
 			else{//通过文件分类来查询
 					filelist = DAOFactorys.getFileDAO().categoryslectallfile(filekeyword, f_department_id, type_id);		
 				}
+			
 		}
 		request.setAttribute("filelist", filelist);			
 
