@@ -67,6 +67,9 @@
 						<a href="javascript:;">欢迎您：${loginUser.username}</a>
 					</li>
 					<li class="layui-nav-item ">
+						<a href="index.jsp">返回首页</a>
+					</li>
+					<li class="layui-nav-item ">
 						<a href="login.jsp">退出</a>
 					</li>
 

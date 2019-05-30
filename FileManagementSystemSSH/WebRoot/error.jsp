@@ -66,6 +66,7 @@
 		<div class="layui-col-md1 top">
 			<div class="layui-col-md1" style="width:250px;text-align :center">
 				<a href="javascript:;">当前用户:${loginUser.username}</a>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="index.jsp">返回首页</a>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="login.jsp">退出</a>
 			</div>
 		</div>																				

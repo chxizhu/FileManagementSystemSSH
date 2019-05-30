@@ -168,10 +168,7 @@ public class downloadAction extends BaseAction {
 	           authority=down.get(i).getDscribe();
 	           request.setAttribute("authority", authority);
 	        		   }
-	
-	
 		
-	System.out.println("id"+fileid);
 		
 		return SUCCESS;
 	}

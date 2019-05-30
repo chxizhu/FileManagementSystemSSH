@@ -63,6 +63,7 @@
 		
 		<div class="layui-col-md1 layui-col-md-offset1 top">
 			<div class="layui-col-md1" style="width:250px;text-align :center"><a href="javascript:;">当前用户:${loginUser.username}</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="index.jsp">返回首页</a>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="login.jsp">退出</a>
 			</div>
 		</div>																				
@@ -71,7 +72,7 @@
 	<div class="row">
 		<div class="layui-col-md12">			
 			<ul class="layui-nav daohan" lay-filter=""> 				
-  				<li class="layui-nav-item"><a href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=1"><font color="#000">图片</font></a></li>
+  				<li class="layui-nav-item"><a href="seekimg.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=1"><font color="#000">图片</font></a></li>
   				<li class="layui-nav-item"><a href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=2"><font color="#000">文档</font></a></li>
   				<li class="layui-nav-item"><a href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=3"><font color="#000">视频</font></a></li>
   				<li class="layui-nav-item"><a href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=4"><font color="#000">音频</font></a></li>
@@ -88,18 +89,18 @@
 			
 			<div class="layui-card daohan">						
 			
-			  <div class="layui-card-header">文件标题：${forum.filename}</div>
+			  <div class="layui-card-header"><a href="downloadAction.action?fileid=${forum.fileid}">文件标题：${forum.filename}</a></div>
 
-			   <div class="layui-card-body line-limit-length">详细说明：${forum.dscribe}</div>
+			   <div class="layui-card-body line-limit-length"><a href="downloadAction.action?fileid=${forum.fileid}">详细说明：${forum.dscribe}</a></div>
 			  
-			   <div class="layui-card-body line-limit-length">标签：${forum.lable}</div>
+			   <div class="layui-card-body line-limit-length"><a href="downloadAction.action?fileid=${forum.fileid}">标签：${forum.lable}</a></div>
 			   
 			   <div class="layui-card-body line-limit-length">
-			   	<a href="javascript:;">上传用户:${forum.username}</a>
-			   	<span style="margin-left:20px"><a href="javascript:;">上传时间:${forum.uptime}</a></span>
-			   	<span style="margin-left:20px"><a href="javascript:;">文件大小:${forum.filesize}</a></span>	
-			    <span style="margin-left:20px"><a href="javascript:;">文件权限:${forum.authorityname}</a></span>
-			   	<span style="margin-left:20px"><a href="javascript:;">所属部门:${forum.departmentname}</a></span>		   
+			   	<a href="downloadAction.action?fileid=${forum.fileid}">上传用户:${forum.username}</a>
+			   	<span style="margin-left:20px"><a href="downloadAction.action?fileid=${forum.fileid}">上传时间:${forum.uptime}</a></span>
+			   	<span style="margin-left:20px"><a href="downloadAction.action?fileid=${forum.fileid}">文件大小:${forum.filesize}</a></span>	
+			    <span style="margin-left:20px"><a href="downloadAction.action?fileid=${forum.fileid}">文件权限:${forum.authorityname}</a></span>
+			   	<span style="margin-left:20px"><a href="downloadAction.action?fileid=${forum.fileid}">所属部门:${forum.departmentname}</a></span>		   
 			  </div>				 	  			  
 			  
 			</div>

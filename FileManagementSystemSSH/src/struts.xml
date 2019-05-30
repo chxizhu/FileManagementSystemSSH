@@ -51,4 +51,10 @@
 			class="control.action.CategorySeekAction">
 			<result name="success" type="dispatcher">/seek.jsp</result>
 			<result name="error" type="dispatcher">/error.jsp</result>
+		</action>
+		<action name="seekimg" class="control.action.SeekImgAction">
+			<result name="success" type="dispatcher">
+				/seekImg.jsp
+			</result>
+			<result name="error" type="dispatcher">/error.jsp</result>
 		</action></package></struts>    
