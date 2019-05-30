@@ -7,6 +7,6 @@ public class ReturnData {
 	public int code;
 	public String msg;
 	public Object data;
-	public String count;
+	public int count;
 
 }

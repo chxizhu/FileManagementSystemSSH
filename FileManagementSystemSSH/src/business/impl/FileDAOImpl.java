@@ -136,12 +136,16 @@ public class FileDAOImpl implements FileDAO {
 			return 1;
 		}else {
 			return 0;
-		}
+		}		
+	}
+	
+	@Override	
+	public List<VFile> selectfilesum(String userid){
+		String hql =  "  from VFile WHERE userid = ?";
+		Object[] para = {userid};
+		return  bdao.select(hql, para);
 			
 		
-				
 	}
-
-	
 	
 }

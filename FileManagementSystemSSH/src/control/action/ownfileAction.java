@@ -16,7 +16,15 @@ import business.factory.DAOFactorys;
 
 import com.alibaba.fastjson.JSON;
 import com.opensymphony.xwork2.ActionSupport;
-
+/**
+ * 
+* @Title: ownfileAction.java
+* @Package control.action
+* @Description: TODO(个人文件数据表格数据查询)
+* @author 成锡柱
+* @date 2019年5月30日 下午6:25:49
+* @version V1.0
+ */
 public class ownfileAction extends BaseAction {
 	
 	private int page;
@@ -56,6 +64,8 @@ public class ownfileAction extends BaseAction {
 		FileDAO udao = DAOFactorys.getFileDAO();
 		
 		List<VFile> list=udao.getForumListByPage(loginUser.getUserid(), page, limit);
+		List<VFile> num = udao.selectfilesum(loginUser.getUserid());
+		System.out.println(num.size());
 
 		
 		response.setCharacterEncoding("utf-8");
@@ -65,7 +75,7 @@ public class ownfileAction extends BaseAction {
 		Util.ReturnData rd = new Util.ReturnData();
 		rd.code = Util.ReturnData.SUCCESS;
 		rd.msg = "";
-		rd.count="8";
+		rd.count=num.size();
 		rd.data = list;
 		out.write(JSON.toJSONString(rd));
 		

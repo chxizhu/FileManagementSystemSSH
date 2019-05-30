@@ -62,11 +62,20 @@
 
 				<li class="layui-nav-item "><a href="ownfile.jsp">个人文件管理</a></li>
 
-				<li class="layui-nav-item "><a href="UserInformationEdit.jsp">用户基础信息修改</a>
-				</li>
+				
+				<li class="layui-nav-item layui-col-md-offset6"><a href="javascript:;">欢迎您：${loginUser.username}</a>
+					<dl class="layui-nav-child">
+						<!-- 二级菜单 -->
+						<dd>
+							<a href="UserInformationEdit.jsp">个人信息修改</a>
+						</dd>
+						<dd>
+							<a href="passwordEdit.jsp">密码修改</a>
+						</dd>
+						
+					</dl></li>
 
-				<li class="layui-nav-item layui-col-md-offset5"><a
-					href="javascript:;">欢迎您：${loginUser.username}</a></li>
+				
 				<li class="layui-nav-item "><a href="login.jsp">退出</a></li>
 
 			</ul>

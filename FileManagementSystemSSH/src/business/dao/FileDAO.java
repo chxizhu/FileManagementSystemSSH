@@ -154,4 +154,11 @@ public interface FileDAO {
 	 */
 	public int deleteFile(int fileid);
 	
+	/**
+	 * 统计用户文件总数
+	 * @param int  文件内容对象
+	 * @return  boolean  成功返回true 失败返回false
+	 */
+	public List<VFile> selectfilesum(String userid);
+	
 }

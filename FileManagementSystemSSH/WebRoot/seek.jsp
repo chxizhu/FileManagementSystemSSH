@@ -44,41 +44,36 @@
 	
 	<!--导航信息 -->
 
-		<div class="layui-row">
-			<div class="layui-col-md12">
+	<div class="layui-row">
+		<div class="layui-col-md12">
 
-				<ul class="layui-nav layui-bg-blue">
-					<li class="layui-nav-item ">
-						<a href="index.jsp">文件资源管理系统</a>
-					</li>
-					
-					<li class="layui-nav-item ">
-						<a href="uplode.jsp">文件上传</a>
-					</li>
-					
-					<li class="layui-nav-item ">
-						<a href="ownfile.jsp">个人文件管理</a>
-					</li>
-					
-					<li class="layui-nav-item ">
-						<a href="UserInformationEdit.jsp">用户基础信息修改</a>
-					</li>
-					
-					<li class="layui-nav-item ">
-						<a href="passwordEdit.jsp">密码修改</a>
-					</li>
+			<ul class="layui-nav layui-bg-blue">
+				<li class="layui-nav-item "><a href="index.jsp">文件资源管理系统</a></li>
+
+				<li class="layui-nav-item "><a href="uplode.jsp">文件上传</a></li>
+
+				<li class="layui-nav-item "><a href="ownfile.jsp">个人文件管理</a></li>
+
+				
+				<li class="layui-nav-item layui-col-md-offset6"><a href="javascript:;">欢迎您：${loginUser.username}</a>
+					<dl class="layui-nav-child">
+						<!-- 二级菜单 -->
+						<dd>
+							<a href="UserInformationEdit.jsp">个人信息修改</a>
+						</dd>
+						<dd>
+							<a href="passwordEdit.jsp">密码修改</a>
+						</dd>
 						
-					<li class="layui-nav-item layui-col-md-offset5">
-						<a href="javascript:;">欢迎您：${loginUser.username}</a>
-					</li>
-					<li class="layui-nav-item ">
-						<a href="login.jsp">退出</a>
-					</li>
+					</dl></li>
 
-				</ul>
+				
+				<li class="layui-nav-item "><a href="login.jsp">退出</a></li>
 
-			</div>
+			</ul>
+
 		</div>
+	</div>
 		
 	<div class="row top">
 		<div class="layui-col-md8 layui-col-md-offset2">	

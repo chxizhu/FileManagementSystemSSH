@@ -9,6 +9,8 @@ import java.util.List;
 
 
 
+
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Query;
@@ -17,26 +19,26 @@ import org.hibernate.Transaction;
 
 public class iHibBaseDAOImpl implements iHibBaseDAO {
 	
-	//ÎªRoomDAO´´½¨Ò»¸öËüËùÊ¹ÓÃµÄÈÕÖ¾¶ÔÏó£¬Ã¿¸öÒªÊ¹ÓÃÈÕÖ¾µÄÀà¶¼ĞèÒªÕâÌõÓï¾ä
+	//ä¸ºRoomDAOåˆ›å»ºä¸€ä¸ªå®ƒæ‰€ä½¿ç”¨çš„æ—¥å¿—å¯¹è±¡ï¼Œæ¯ä¸ªè¦ä½¿ç”¨æ—¥å¿—çš„ç±»éƒ½éœ€è¦è¿™æ¡è¯­å¥
 		private static final Log log = LogFactory.getLog(iHibBaseDAO.class);
 		
-		public static final int INSERT = 1; // ´ú±íÌí¼Ó²Ù×÷
-		public static final int UPDATE = 2; // ´ú±íĞŞ¸Ä²Ù×÷
-		public static final int DELETE = 3; // ´ú±íÉ¾³ı²Ù×÷
+		public static final int INSERT = 1; // ä»£è¡¨æ·»åŠ æ“ä½œ
+		public static final int UPDATE = 2; // ä»£è¡¨ä¿®æ”¹æ“ä½œ
+		public static final int DELETE = 3; // ä»£è¡¨åˆ é™¤æ“ä½œ
 
 		@Override
 		public Object insert(Object obj) {
 			Session session = HibernateSessionFactory.getSession();
 			Transaction tx = null;
 			try {
-				tx = session.beginTransaction();// ¿ªÊ¼ÊÂÎï
+				tx = session.beginTransaction();// å¼€å§‹äº‹ç‰©
 				Serializable key = session.save(obj);
-				tx.commit();// Ìá½»ÊÂÎñ£¨Ö´ĞĞ¶ÔÏóµÄ³Ö¾Ã»¯²Ù×÷£©
+				tx.commit();// æäº¤äº‹åŠ¡ï¼ˆæ‰§è¡Œå¯¹è±¡çš„æŒä¹…åŒ–æ“ä½œï¼‰
 				session.close();
 				return key;
 			} catch (Exception e) {			
 				e.printStackTrace();
-				if (tx != null) tx.rollback();// »Ø¹öÊÂÎï£¨³·Ïú¶ÔÏóµÄ³Ö¾Ã»¯²Ù×÷£©
+				if (tx != null) tx.rollback();// å›æ»šäº‹ç‰©ï¼ˆæ’¤é”€å¯¹è±¡çš„æŒä¹…åŒ–æ“ä½œï¼‰
 				if (session != null) session.close();
 			}
 			return null;
@@ -47,16 +49,16 @@ public class iHibBaseDAOImpl implements iHibBaseDAO {
 			Session session = HibernateSessionFactory.getSession();
 			Transaction tx = null;
 			try {
-				tx = session.beginTransaction();// ¿ªÊ¼ÊÂÎï
+				tx = session.beginTransaction();// å¼€å§‹äº‹ç‰©
 				for (Object obj : list) {
 					session.save(obj);
 				}
-				tx.commit();// Ìá½»ÊÂÎñ£¨Ö´ĞĞ¶ÔÏóµÄ³Ö¾Ã»¯²Ù×÷£©
+				tx.commit();// æäº¤äº‹åŠ¡ï¼ˆæ‰§è¡Œå¯¹è±¡çš„æŒä¹…åŒ–æ“ä½œï¼‰
 				session.close();
 				return true;
 			} catch (Exception e) {
 				e.printStackTrace();
-				if (tx != null) tx.rollback();// »Ø¹öÊÂÎï£¨³·Ïú¶ÔÏóµÄ³Ö¾Ã»¯²Ù×÷£©
+				if (tx != null) tx.rollback();// å›æ»šäº‹ç‰©ï¼ˆæ’¤é”€å¯¹è±¡çš„æŒä¹…åŒ–æ“ä½œï¼‰
 				if (session != null) session.close();
 			}
 			return false;
@@ -67,16 +69,16 @@ public class iHibBaseDAOImpl implements iHibBaseDAO {
 			Session session = HibernateSessionFactory.getSession();
 			Transaction tx = null;
 			try {
-				tx = session.beginTransaction(); // ¿ªÆôÒ»¸öÊÂÎñ
-				// ÏÈÓÃclsºÍid²é³öÒªÉ¾³ıµÄ¶ÔÏó
+				tx = session.beginTransaction(); // å¼€å¯ä¸€ä¸ªäº‹åŠ¡
+				// å…ˆç”¨clså’ŒidæŸ¥å‡ºè¦åˆ é™¤çš„å¯¹è±¡
 				session.delete(session.get(cls, id));
-				tx.commit(); // ³Ö¾Ã»¯²Ù×÷
+				tx.commit(); // æŒä¹…åŒ–æ“ä½œ
 				session.close();
 				return true;
 
 			} catch (Exception e) {
 				e.printStackTrace();
-				if (tx != null) tx.rollback(); // ³·Ïú
+				if (tx != null) tx.rollback(); // æ’¤é”€
 				if (session != null) session.close();
 			}
 			return false;
@@ -87,14 +89,14 @@ public class iHibBaseDAOImpl implements iHibBaseDAO {
 			Session session = HibernateSessionFactory.getSession();
 			Transaction tx = null;
 			try {
-				tx = session.beginTransaction(); // ¿ªÆôÒ»¸öÊÂÎñ
+				tx = session.beginTransaction(); // å¼€å¯ä¸€ä¸ªäº‹åŠ¡
 				session.delete(obj);
-				tx.commit(); // ³Ö¾Ã»¯²Ù×÷
+				tx.commit(); // æŒä¹…åŒ–æ“ä½œ
 				session.close();
 				return true;
 			} catch (Exception e) {
 				e.printStackTrace();
-				if (tx != null) tx.rollback(); // ³·Ïú
+				if (tx != null) tx.rollback(); // æ’¤é”€
 				if (session != null) session.close();
 			}
 			return false;
@@ -105,15 +107,15 @@ public class iHibBaseDAOImpl implements iHibBaseDAO {
 			Session session = HibernateSessionFactory.getSession();
 			Transaction tx = null;
 			try {
-				tx = session.beginTransaction(); // ¿ªÆôÒ»¸öÊÂÎñ
+				tx = session.beginTransaction(); // å¼€å¯ä¸€ä¸ªäº‹åŠ¡
 				session.update(obj);
-				tx.commit(); // ³Ö¾Ã»¯²Ù×÷
+				tx.commit(); // æŒä¹…åŒ–æ“ä½œ
 				session.close();
 				return true;
 
 			} catch (Exception e) {
 				e.printStackTrace();
-				if (tx != null) tx.rollback(); // ³·Ïú
+				if (tx != null) tx.rollback(); // æ’¤é”€
 				if (session != null) session.close();
 			}
 			return false;
@@ -139,8 +141,8 @@ public class iHibBaseDAOImpl implements iHibBaseDAO {
 			Session session = HibernateSessionFactory.getSession();
 			try {
 				Query query = session.createQuery(hql);
-				query.setFirstResult(startIndex); // ÉèÖÃÆğÊ¼¼ÇÂ¼Î»ÖÃ
-				query.setMaxResults(length); // ÉèÖÃ·µ»Ø¼ÇÂ¼Êı
+				query.setFirstResult(startIndex); // è®¾ç½®èµ·å§‹è®°å½•ä½ç½®
+				query.setMaxResults(length); // è®¾ç½®è¿”å›è®°å½•æ•°
 				List list = query.list();
 				session.close();
 				return list;
@@ -156,7 +158,7 @@ public class iHibBaseDAOImpl implements iHibBaseDAO {
 			Session session = HibernateSessionFactory.getSession();
 			try {
 				Query query = session.createQuery(hql);
-				// ¸ù¾İparaÉèÖÃ²ÎÊı
+				// æ ¹æ®paraè®¾ç½®å‚æ•°
 				for (int i = 0; i < para.length; i++) {
 					query.setParameter(i, para[i]);
 				}
@@ -175,12 +177,12 @@ public class iHibBaseDAOImpl implements iHibBaseDAO {
 			Session session = HibernateSessionFactory.getSession();
 			try {
 				Query query = session.createQuery(hql);
-				// ¸ù¾İparaÉèÖÃ²ÎÊı
+				// æ ¹æ®paraè®¾ç½®å‚æ•°
 				for (int i = 0; i < para.length; i++) {
 					query.setParameter(i, para[i]);
 				}
-				query.setFirstResult(startIndex); // ÉèÖÃÆğÊ¼¼ÇÂ¼Î»ÖÃ
-				query.setMaxResults(length); // ÉèÖÃ·µ»Ø¼ÇÂ¼Êı
+				query.setFirstResult(startIndex); // è®¾ç½®èµ·å§‹è®°å½•ä½ç½®
+				query.setMaxResults(length); // è®¾ç½®è¿”å›è®°å½•æ•°
 				List list = query.list();
 				session.close();
 				return list;
@@ -216,7 +218,7 @@ public class iHibBaseDAOImpl implements iHibBaseDAO {
 			Session session = HibernateSessionFactory.getSession();
 			try {
 				Query query = session.createQuery(hql);
-				// ¸ù¾İparaÉèÖÃ²ÎÊı
+				// æ ¹æ®paraè®¾ç½®å‚æ•°
 				for (int i = 0; i < para.length; i++) {
 					query.setParameter(i, para[i]);
 				}
@@ -243,11 +245,11 @@ public class iHibBaseDAOImpl implements iHibBaseDAO {
 				Query query = session.createQuery(hql);
 
 				List list = query.list();
-				// »ñµÃ²éÑ¯¼ÇÂ¼×ÜÊı
+				// è·å¾—æŸ¥è¯¢è®°å½•æ€»æ•°
 				long records = list.size();
-				// ¼ÆËã·ÖÒ³Êı
+				// è®¡ç®—åˆ†é¡µæ•°
 				pages_all = records % pageSize == 0 ? records / pageSize : records
-						/ pageSize + 1; // »ñµÃ×ÜÒ³Êı
+						/ pageSize + 1; // è·å¾—æ€»é¡µæ•°
 				session.close();
 				return (int) pages_all;
 			} catch (Exception e) {
@@ -260,20 +262,20 @@ public class iHibBaseDAOImpl implements iHibBaseDAO {
 		@Override
 		public int selectPages(String hql, Object[] para, int pageSize) {
 			Session session = HibernateSessionFactory.getSession();
-			// ±à³ÌË¼Ïë£ºÏÈ»ñµÃ²éÑ¯¼ÇÂ¼Êı£¬ÔÙÊ¹ÓÃËã·¨À´¼ÆËã³ö·ÖÒ³µÄÒ³Êı
+			// ç¼–ç¨‹æ€æƒ³ï¼šå…ˆè·å¾—æŸ¥è¯¢è®°å½•æ•°ï¼Œå†ä½¿ç”¨ç®—æ³•æ¥è®¡ç®—å‡ºåˆ†é¡µçš„é¡µæ•°
 			long pages_all = 0;
 			try {
 				Query query = session.createQuery(hql);
-				// ¸ù¾İparaÉèÖÃ²ÎÊı
+				// æ ¹æ®paraè®¾ç½®å‚æ•°
 				for (int i = 0; i < para.length; i++) {
 					query.setParameter(i, para[i]);
 				}
 				List list = query.list();
-				// »ñµÃ²éÑ¯¼ÇÂ¼×ÜÊı
+				// è·å¾—æŸ¥è¯¢è®°å½•æ€»æ•°
 				long records = list.size();
-				// ¼ÆËã·ÖÒ³Êı
+				// è®¡ç®—åˆ†é¡µæ•°
 				pages_all = records % pageSize == 0 ? records / pageSize : records
-						/ pageSize + 1; // »ñµÃ×ÜÒ³Êı
+						/ pageSize + 1; // è·å¾—æ€»é¡µæ•°
 				session.close();
 				return (int) pages_all;
 			} catch (Exception e) {
@@ -290,15 +292,15 @@ public class iHibBaseDAOImpl implements iHibBaseDAO {
 			int currentPage;
 			try {
 				Query query = session.createQuery(hql);
-				// ÏÈÇó³ö°´ÕÕpageSizeµÃµ½µÄ·ÖÒ³µÄÒ³Êı
+				// å…ˆæ±‚å‡ºæŒ‰ç…§pageSizeå¾—åˆ°çš„åˆ†é¡µçš„é¡µæ•°
 				List list = query.list();
-				// »ñµÃ²éÑ¯¼ÇÂ¼×ÜÊı
+				// è·å¾—æŸ¥è¯¢è®°å½•æ€»æ•°
 				long records = list.size();
-				// »ñµÃ×ÜÒ³Êı
+				// è·å¾—æ€»é¡µæ•°
 
 				int pages_all = (int) (records % pageSize == 0 ? records / pageSize
-						: records / pageSize + 1); // »ñµÃ×ÜÒ³Êı
-				// ÉèÖÃÀà³ÉÔ±µ±Ç°Ò³ÃæµÄ²Ù×÷Ò³Âë
+						: records / pageSize + 1); // è·å¾—æ€»é¡µæ•°
+				// è®¾ç½®ç±»æˆå‘˜å½“å‰é¡µé¢çš„æ“ä½œé¡µç 
 				if (startPage <= 1) {
 					currentPage = 1;
 				} else if (startPage >= pages_all) {
@@ -308,9 +310,9 @@ public class iHibBaseDAOImpl implements iHibBaseDAO {
 				}
 
 				Query query2 = session.createQuery(hql);
-				query2.setFirstResult((currentPage - 1) * pageSize);// ´ÓµÚ¼¸Ìõ¼ÇÂ¼¿ªÊ¼²éÑ¯
+				query2.setFirstResult((currentPage - 1) * pageSize);// ä»ç¬¬å‡ æ¡è®°å½•å¼€å§‹æŸ¥è¯¢
 
-				query2.setMaxResults(pageSize);// Ã¿Ò³ÏÔÊ¾¶àÉÙÌõ¼ÇÂ¼
+				query2.setMaxResults(pageSize);// æ¯é¡µæ˜¾ç¤ºå¤šå°‘æ¡è®°å½•
 				pList = query2.list();
 				session.close();
 
@@ -328,17 +330,17 @@ public class iHibBaseDAOImpl implements iHibBaseDAO {
 			int currentPage;
 			try {
 				Query query = session.createQuery(hql);
-				// ¸ù¾İparaÉèÖÃ²ÎÊı
+				// æ ¹æ®paraè®¾ç½®å‚æ•°
 				for (int i = 0; i < para.length; i++) {
 					query.setParameter(i, para[i]);
 				}
 				List list = query.list();
-				// »ñµÃ²éÑ¯¼ÇÂ¼×ÜÊı
+				// è·å¾—æŸ¥è¯¢è®°å½•æ€»æ•°
 				long records = list.size();
-				// »ñµÃ×ÜÒ³Êı
+				// è·å¾—æ€»é¡µæ•°
 				int pages_all = (int) (records % pageSize == 0 ? records / pageSize
-						: records / pageSize + 1); // »ñµÃ×ÜÒ³Êı
-				// ÉèÖÃÀà³ÉÔ±µ±Ç°Ò³ÃæµÄ²Ù×÷Ò³Âë
+						: records / pageSize + 1); // è·å¾—æ€»é¡µæ•°
+				// è®¾ç½®ç±»æˆå‘˜å½“å‰é¡µé¢çš„æ“ä½œé¡µç 
 
 				if (startPage <= 1) {
 					currentPage = 1;
@@ -349,14 +351,14 @@ public class iHibBaseDAOImpl implements iHibBaseDAO {
 				}
 
 				Query query2 = session.createQuery(hql);
-				// ¸ù¾İparaÉèÖÃ²ÎÊı
+				// æ ¹æ®paraè®¾ç½®å‚æ•°
 				for (int i = 0; i < para.length; i++) {
 					query2.setParameter(i, para[i]);
 
 				}
-				query2.setFirstResult((currentPage - 1) * pageSize);// ´ÓµÚ¼¸Ìõ¼ÇÂ¼¿ªÊ¼²éÑ¯
+				query2.setFirstResult((currentPage - 1) * pageSize);// ä»ç¬¬å‡ æ¡è®°å½•å¼€å§‹æŸ¥è¯¢
 
-				query2.setMaxResults(pageSize);// Ã¿Ò³ÏÔÊ¾¶àÉÙÌõ¼ÇÂ¼
+				query2.setMaxResults(pageSize);// æ¯é¡µæ˜¾ç¤ºå¤šå°‘æ¡è®°å½•
 				pList = query2.list();
 				session.close();
 
@@ -386,13 +388,13 @@ public class iHibBaseDAOImpl implements iHibBaseDAO {
 			Session session = HibernateSessionFactory.getSession();
 			Transaction tx = null;
 			try {
-				tx = session.beginTransaction(); // ¿ªÆôÒ»¸öÊÂÎñ
-				// ½«»á»°Session¶ÔÏó×ª»»³ÉjdbcµÄConnection
+				tx = session.beginTransaction(); // å¼€å¯ä¸€ä¸ªäº‹åŠ¡
+				// å°†ä¼šè¯Sessionå¯¹è±¡è½¬æ¢æˆjdbcçš„Connection
 				Connection con = session.connection();
 				PreparedStatement ptmt = con.prepareStatement(sql);
 				int row = ptmt.executeUpdate();
 
-				tx.commit(); // ³Ö¾Ã»¯²Ù×÷
+				tx.commit(); // æŒä¹…åŒ–æ“ä½œ
 				session.close();
 
 				if (row > 0)
@@ -403,7 +405,7 @@ public class iHibBaseDAOImpl implements iHibBaseDAO {
 			} catch (Exception e) {
 				e.printStackTrace();
 				if (tx != null)
-					tx.rollback(); // ³·Ïú
+					tx.rollback(); // æ’¤é”€
 				if (session != null) session.close();
 			}
 			return false;
@@ -415,15 +417,15 @@ public class iHibBaseDAOImpl implements iHibBaseDAO {
 			Session session = HibernateSessionFactory.getSession();
 			Transaction tx = null;
 			try {
-				tx = session.beginTransaction(); // ¿ªÆôÒ»¸öÊÂÎñ
-				// ½«»á»°Session¶ÔÏó×ª»»³ÉjdbcµÄConnection
+				tx = session.beginTransaction(); // å¼€å¯ä¸€ä¸ªäº‹åŠ¡
+				// å°†ä¼šè¯Sessionå¯¹è±¡è½¬æ¢æˆjdbcçš„Connection
 				Connection con = session.connection();
 				PreparedStatement ptmt = con.prepareStatement(sql);
 				for (int i = 0; i < para.length; i++) {
 					ptmt.setObject(i + 1, para[i]);
 				}
 				int row = ptmt.executeUpdate();
-				tx.commit(); // ³Ö¾Ã»¯²Ù×÷
+				tx.commit(); // æŒä¹…åŒ–æ“ä½œ
 				session.close();
 
 				if (row > 0)
@@ -434,7 +436,7 @@ public class iHibBaseDAOImpl implements iHibBaseDAO {
 			} catch (Exception e) {
 				e.printStackTrace();
 				if (tx != null)
-					tx.rollback(); // ³·Ïú
+					tx.rollback(); // æ’¤é”€
 				if (session != null) session.close();
 			}
 			return false;
@@ -446,12 +448,12 @@ public class iHibBaseDAOImpl implements iHibBaseDAO {
 			Transaction tx = null;
 
 			try {
-				tx = session.beginTransaction(); // ¿ªÆôÒ»¸öÊÂÎñ
-				// ½«»á»°Session¶ÔÏó×ª»»³ÉjdbcµÄConnection
+				tx = session.beginTransaction(); // å¼€å¯ä¸€ä¸ªäº‹åŠ¡
+				// å°†ä¼šè¯Sessionå¯¹è±¡è½¬æ¢æˆjdbcçš„Connection
 				Connection con = session.connection();
 				PreparedStatement ptmt = con.prepareStatement(sql);
 				int row = ptmt.executeUpdate();
-				tx.commit(); // ³Ö¾Ã»¯²Ù×÷
+				tx.commit(); // æŒä¹…åŒ–æ“ä½œ
 				session.close();
 
 				if (row > 0) return true;
@@ -460,7 +462,7 @@ public class iHibBaseDAOImpl implements iHibBaseDAO {
 
 			} catch (Exception e) {
 				e.printStackTrace();
-				if (tx != null) tx.rollback(); // ³·Ïú
+				if (tx != null) tx.rollback(); // æ’¤é”€
 				if (session != null) session.close();
 			}
 			return false;
@@ -472,15 +474,15 @@ public class iHibBaseDAOImpl implements iHibBaseDAO {
 			Session session = HibernateSessionFactory.getSession();
 			Transaction tx = null;
 			try {
-				tx = session.beginTransaction(); // ¿ªÆôÒ»¸öÊÂÎñ
-				// ½«»á»°Session¶ÔÏó×ª»»³ÉjdbcµÄConnection
+				tx = session.beginTransaction(); // å¼€å¯ä¸€ä¸ªäº‹åŠ¡
+				// å°†ä¼šè¯Sessionå¯¹è±¡è½¬æ¢æˆjdbcçš„Connection
 				Connection con = session.connection();
 				PreparedStatement ptmt = con.prepareStatement(sql);
 				for (int i = 0; i < para.length; i++) {
 					ptmt.setObject(i + 1, para[i]);
 				}
 				int row = ptmt.executeUpdate();
-				tx.commit(); // ³Ö¾Ã»¯²Ù×÷
+				tx.commit(); // æŒä¹…åŒ–æ“ä½œ
 				session.close();
 
 				if (row > 0) return true;
@@ -488,7 +490,7 @@ public class iHibBaseDAOImpl implements iHibBaseDAO {
 
 			} catch (Exception e) {
 				e.printStackTrace();
-				if (tx != null) tx.rollback(); // ³·Ïú
+				if (tx != null) tx.rollback(); // æ’¤é”€
 				if (session != null) session.close();
 			}
 
@@ -509,20 +511,20 @@ public class iHibBaseDAOImpl implements iHibBaseDAO {
 
 				boolean type = ctmt.execute();
 				tx.commit();
-				if (type) { // Îªtrue±íÃ÷´æ´¢¹ı³ÌÊÇÒ»¸öselectÓï¾ä
+				if (type) { // ä¸ºtrueè¡¨æ˜å­˜å‚¨è¿‡ç¨‹æ˜¯ä¸€ä¸ªselectè¯­å¥
 					ResultSet rs = ctmt.getResultSet();
 					// globesession.close();
 					return rs;
-				} else { // ²»ÊÇselect£¬Ôò»ñÈ¡·µ»ØÖµ
+				} else { // ä¸æ˜¯selectï¼Œåˆ™è·å–è¿”å›å€¼
 
-					int isSuccess = ctmt.getInt(1); // »ñµÃ·µ»ØÖµ¡£
+					int isSuccess = ctmt.getInt(1); // è·å¾—è¿”å›å€¼ã€‚
 					session.close();
 					return new Integer(isSuccess);
 				}
 
 			} catch (Exception e) {
 				e.printStackTrace();
-				if (tx != null) tx.rollback(); // ´íÎóÊ±£¬»Ø¹ö²Ù×÷
+				if (tx != null) tx.rollback(); // é”™è¯¯æ—¶ï¼Œå›æ»šæ“ä½œ
 				if (session != null) session.close();
 			}
 			return null;
@@ -545,20 +547,20 @@ public class iHibBaseDAOImpl implements iHibBaseDAO {
 				boolean type = ctmt.execute();
 
 				tx.commit();
-				if (type) { // Îªtrue±íÃ÷´æ´¢¹ı³ÌÊÇÒ»¸öselectÓï¾ä
+				if (type) { // ä¸ºtrueè¡¨æ˜å­˜å‚¨è¿‡ç¨‹æ˜¯ä¸€ä¸ªselectè¯­å¥
 					ResultSet rs = ctmt.getResultSet();
 					// globesession.close();
 					return rs;
-				} else { // ²»ÊÇselect£¬Ôò»ñÈ¡·µ»ØÖµ
+				} else { // ä¸æ˜¯selectï¼Œåˆ™è·å–è¿”å›å€¼
 
-					int isSuccess = ctmt.getInt(1); // »ñµÃ·µ»ØÖµ¡£
+					int isSuccess = ctmt.getInt(1); // è·å¾—è¿”å›å€¼ã€‚
 					session.close();
 					return new Integer(isSuccess);
 				}
 
 			} catch (Exception e) {
 				e.printStackTrace();
-				if (tx != null) tx.rollback(); // ´íÎóÊ±£¬»Ø¹ö²Ù×÷
+				if (tx != null) tx.rollback(); // é”™è¯¯æ—¶ï¼Œå›æ»šæ“ä½œ
 				if (session != null) session.close();
 			}
 			return null;
@@ -586,7 +588,7 @@ public class iHibBaseDAOImpl implements iHibBaseDAO {
 			} catch (Exception e) {
 
 				e.printStackTrace();
-				if (tx != null) tx.rollback(); // ´íÎóÊ±£¬»Ø¹ö²Ù×÷
+				if (tx != null) tx.rollback(); // é”™è¯¯æ—¶ï¼Œå›æ»šæ“ä½œ
 				if (session != null) session.close();
 			}
 			return false;
@@ -616,11 +618,14 @@ public class iHibBaseDAOImpl implements iHibBaseDAO {
 				return true;
 			} catch (Exception e) {
 				e.printStackTrace();
-				if (tx != null) tx.rollback(); // ´íÎóÊ±£¬»Ø¹ö²Ù×÷
+				if (tx != null) tx.rollback(); // é”™è¯¯æ—¶ï¼Œå›æ»šæ“ä½œ
 				if (session != null) session.close();
 			}
 			return false;
 
 		}
+		
+		
+		
 
 }
