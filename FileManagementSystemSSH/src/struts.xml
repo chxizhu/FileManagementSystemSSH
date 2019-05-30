@@ -20,7 +20,7 @@
 		<action name="addfileAction"
 			class="control.action.addfileAction">
 			<result name="success" type="dispatcher">
-				/uplode.jsp
+				/filesucceed.jsp
 			</result>
 		</action>
 		<action name="error" class="control.action.ErrorAction">
@@ -57,4 +57,10 @@
 				/seekImg.jsp
 			</result>
 			<result name="error" type="dispatcher">/error.jsp</result>
+		</action>
+		<action name="fileupdating"
+			class="control.action.fileupdatingAction">
+			<result name="success" type="dispatcher">
+				/fileupdating.jsp
+			</result>
 		</action></package></struts>    

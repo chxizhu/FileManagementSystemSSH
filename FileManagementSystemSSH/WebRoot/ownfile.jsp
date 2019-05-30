@@ -191,10 +191,10 @@
 					}  
 					else if (obj.event === 'edit') {
 						layui.use('layer', function(){
-						  var layer = layui.layer;
+						  
 						  var fileid = data.fileid; 
-						    layer.msg(fileid);
-						    window.location.href="fileupdating.jsp?fileid="+fileid;
+						  
+						    window.location.href="fileupdating.action?fileid="+fileid;
 						});  
 					}
 				});

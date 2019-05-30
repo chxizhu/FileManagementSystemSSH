@@ -82,24 +82,18 @@
 					<div class="layui-card-header fontsize">文件信息修改</div>
 					<hr class="layui-bg-blue">
 					<div class="layui-card-body">
-						<form class="layui-form" action="addfileAction.action">
+						<form class="layui-form" action="">
 							<div class="layui-form-item">
 								<label class="layui-form-label">文件标题</label>
 								<div class="layui-input-block">
 									<input type="text" name="filename" lay-verify="required"
-										id="title" autocomplete="off"
+										value="${title }"  id="title" autocomplete="off"
 										placeholder="文件标题内容不可修改（如需修改请直接修改上传前文件标题）" readonly="true"
 										class="layui-input">
 								</div>
 							</div>
 
-							<div class="layui-form-item">
-								<label class="layui-form-label">文件大小</label>
-								<div class="layui-input-block">
-									<input type="text" id="size" lay-verify="required"
-										name="filesize" readonly="true" class="layui-input">
-								</div>
-							</div>
+							
 
 							<div class="layui-form-item">
 								<label class="layui-form-label">文件权限</label>
@@ -117,7 +111,7 @@
 								<label class="layui-form-label">文件标签</label>
 								<div class="layui-input-block">
 									<input type="text" name="lable" lay-verify="required"
-										autocomplete="off" placeholder="请输入文件标签，标签之间用，隔开"
+										autocomplete="off" value="${labe}" placeholder="请输入文件标签，标签之间用，隔开"
 										class="layui-input">
 								</div>
 							</div>
@@ -126,7 +120,7 @@
 								<label class="layui-form-label">文件简介</label>
 								<div class="layui-input-block">
 									<textarea placeholder="请简介输入内容" name="dscribe"
-										lay-verify="required" class="layui-textarea"></textarea>
+										lay-verify="required"  class="layui-textarea">${authority}</textarea>
 								</div>
 							</div>
 
@@ -134,7 +128,7 @@
 								<div class="layui-input-block">
 									<button class="layui-btn  layui-btn-normal" lay-submit=""
 										lay-filter="demo1">立即提交</button>
-									<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+									<a href="ownfile.jsp" class="layui-btn layui-btn-primary">返回</a>
 								</div>
 							</div>
 						</form>

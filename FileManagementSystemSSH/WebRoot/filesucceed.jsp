@@ -14,7 +14,7 @@
 <!--自定义样式-->
 <style>
 .mtop {
-	margin-top: 200px;
+	margin-top: 100px;
 }
 
 .same {
@@ -27,7 +27,7 @@
 }
 
 .text {
-	width: 70%;
+	width: 80%;
 }
 
 .btn {
@@ -35,7 +35,7 @@
 }
 
 .footer {
-	margin-top: 300px;
+	margin-top: 100px;
 	text-align: center;
 }
 </style>
@@ -45,7 +45,7 @@
 <body>
 	<!--导航信息 -->
 
-	<div class="layui-row">
+	<div class="layui-row ">
 		<div class="layui-col-md12">
 
 			<ul class="layui-nav layui-bg-blue">
@@ -55,20 +55,14 @@
 
 				<li class="layui-nav-item "><a href="ownfile.jsp">个人文件管理</a></li>
 
-				
-				<li class="layui-nav-item layui-col-md-offset6"><a href="javascript:;">欢迎您：${loginUser.username}</a>
-					<dl class="layui-nav-child">
-						<!-- 二级菜单 -->
-						<dd>
-							<a href="UserInformationEdit.jsp">个人信息修改</a>
-						</dd>
-						<dd>
-							<a href="passwordEdit.jsp">密码修改</a>
-						</dd>
-						
-					</dl></li>
+				<li class="layui-nav-item "><a href="UserInformationEdit.jsp">用户基础信息修改</a>
+				</li>
 
-				
+				<li class="layui-nav-item "><a href="passwordEdit.jsp">密码修改</a>
+				</li>
+
+				<li class="layui-nav-item layui-col-md-offset4"><a
+					href="javascript:;">欢迎您：${loginUser.username}</a></li>
 				<li class="layui-nav-item "><a href="login.jsp">退出</a></li>
 
 			</ul>
@@ -76,21 +70,19 @@
 		</div>
 	</div>
 
-	<!--主要內容-->
-	<div class="layui-container mtop">
-		<div class="layui-row">
-			<div class="layui-col-md6 layui-col-md-offset3 ">
-				<form class="layui-form" action="seek.action">
-					<div class="same ">
-						<input type="hidden" name="userid" value="${loginUser.userid }">
-						<input type="hidden" name="f_department_id"
-							value="${loginUser.departmentid }"> <input type="text"
-							placeholder="请输入标题" class="same text " name="filekeyword">
-						<button class="layui-btn layui-btn-normal same btn">搜 索</button>
-					</div>
-				</form>
-			</div>
+	<div class="layui-container">
+		<div class="layui-row mtop">
+			<div class="layui-col-md12"></div>
+				<div style="text-align:center"><img src="imgs/succeed.png" alt="layui" style="width:200px; text-align:center"></div>
+				<div style="text-align:center;margin-top: 50px;font-size:25px"><a>文件上传成功</a></div>
+				<div style="text-align:center;margin-top: 50px;">
+    <a href="uplode.jsp" class="layui-btn layui-btn-normal" style="margin-right: 50px;">继续上传</a>
+     <a href="ownfile.jsp" class="layui-btn layui-btn-normal" style="margin-right: 50px;">查看文件</a>
+      <a href="index.jsp" class="layui-btn layui-btn-normal" >返回主页</a>
+    
+  </div> 
 		</div>
+		
 	</div>
 
 	<div class="layui-footer footer">
