@@ -64,6 +64,10 @@
 					<li class="layui-nav-item ">
 						<a href="UserInformationEdit.jsp">用户基础信息修改</a>
 					</li>
+					
+					<li class="layui-nav-item ">
+						<a href="passwordEdit.jsp">密码修改</a>
+					</li>
 						
 					<li class="layui-nav-item layui-col-md-offset5">
 						<a href="javascript:;">欢迎您：${loginUser.username}</a>

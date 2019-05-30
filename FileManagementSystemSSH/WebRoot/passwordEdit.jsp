@@ -86,7 +86,7 @@
 
 							
 
-							<div ><p class="fontsize" style="margin-top: 30px;margin-bottom: 10px;">用户基础信息修改</p></div>
+							<div ><p class="fontsize" style="margin-top: 30px;margin-bottom: 10px;">密码修改</p></div>
 							<hr class="layui-bg-blue">
 							<form class="layui-form" action="PassdEitsaction.action" onsubmit= "return formCheck() ">
 							
@@ -102,14 +102,14 @@
 								<div class="layui-form-item">
 									 <label class="layui-form-label">修改密码</label>
 										    <div class="layui-input-inline">
-										      <input id="pwd1" type="password" name="pwd" lay-verify="pass" placeholder="请输入密码" autocomplete="off" class="layui-input">
+										      <input id="pwd1" type="password" name="pwd" lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
 										    </div>
 										    <div class="layui-form-mid layui-word-aux">请填写6到12位密码</div>
 								</div>
 								<div class="layui-form-item">
 									 <label class="layui-form-label">确定密码</label>
 										    <div class="layui-input-inline">
-										      <input id="pwd2" type="password" name="pwd2" lay-verify="pass" placeholder="请输入密码" autocomplete="off" class="layui-input">
+										      <input id="pwd2" type="password" name="pwd2" lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input">
 										    </div>
 										    <div class="layui-form-mid layui-word-aux">请再次输入密码</div>
 								</div>
@@ -138,7 +138,7 @@
 		<div class="layui-footer" style="margin-top: 20px;margin-bottom: 30px.;text-align: center;">
 			<div class="layui-main">
 				<p>&copy; 2019
-					<a href="/">文件资源管理系统</a>
+					<a href="#">文件资源管理系统</a>
 				</p>
 			</div>
 		</div>
