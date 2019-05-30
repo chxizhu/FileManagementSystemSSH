@@ -42,8 +42,46 @@
 
 <body>
 	
+	<!--导航信息 -->
+
+		<div class="layui-row">
+			<div class="layui-col-md12">
+
+				<ul class="layui-nav layui-bg-blue">
+					<li class="layui-nav-item ">
+						<a href="index.jsp">文件资源管理系统</a>
+					</li>
+					
+					<li class="layui-nav-item ">
+						<a href="uplode.jsp">文件上传</a>
+					</li>
+					
+					<li class="layui-nav-item ">
+						<a href="ownfile.jsp">个人文件管理</a>
+					</li>
+					
+					<li class="layui-nav-item ">
+						<a href="UserInformationEdit.jsp">用户基础信息修改</a>
+					</li>
+					
+					<li class="layui-nav-item ">
+						<a href="passwordEdit.jsp">密码修改</a>
+					</li>
+						
+					<li class="layui-nav-item layui-col-md-offset5">
+						<a href="javascript:;">欢迎您：${loginUser.username}</a>
+					</li>
+					<li class="layui-nav-item ">
+						<a href="login.jsp">退出</a>
+					</li>
+
+				</ul>
+
+			</div>
+		</div>
+		
 	<div class="row top">
-		<div class="layui-col-md8 layui-col-md-offset1">	
+		<div class="layui-col-md8 layui-col-md-offset2">	
 		
 			<div class="layui-col-md10">				
 				<form class="layui-form" action="categoryseek.action">
@@ -61,12 +99,12 @@
 			<!-- <div class="layui-col-md1"><button class="layui-btn layui-btn-normal">搜索一下</button></div>				 -->						
 		</div>	
 		
-		<div class="layui-col-md1 layui-col-md-offset1 top">
+		<%-- <div class="layui-col-md1 layui-col-md-offset1 top">
 			<div class="layui-col-md1" style="width:250px;text-align :center"><a href="javascript:;">当前用户:${loginUser.username}</a>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="index.jsp">返回首页</a>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="login.jsp">退出</a>
 			</div>
-		</div>																				
+		</div> --%>																				
 	</div>
 	
 	<div class="row">
@@ -83,7 +121,7 @@
 	</div>
 	
 	<div class="row top">
-		<div class="layui-col-md6 layui-col-md-offset3 top">	
+		<div class="layui-col-md8 layui-col-md-offset2 top">	
 			
 		 <c:forEach items="${filelist }" var="forum" begin="0" end="1000" step="1">
 			
