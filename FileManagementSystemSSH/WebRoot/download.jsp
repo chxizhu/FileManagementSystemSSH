@@ -136,7 +136,7 @@
 
 								<div class="layui-form-item">
 									<div class="layui-input-block">
-										<a href="../upload2/${path}">文件下载</a>
+										<a href="DownLoadServlet.do?path=${path} " class="layui-btn">下载</a>
 										
 									</div>
 								</div>
@@ -151,7 +151,7 @@
 		<div class="layui-footer" style="margin-top: 20px;margin-bottom: 30px.;text-align: center;">
 			<div class="layui-main">
 				<p>&copy; 2019
-					<a href="/">文件资源管理系统</a>
+					<a href="">文件资源管理系统</a>
 				</p>
 			</div>
 		</div>

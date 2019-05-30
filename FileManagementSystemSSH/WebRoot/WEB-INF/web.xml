@@ -29,6 +29,12 @@
     <servlet-name>SafeCode</servlet-name>
     <servlet-class>servlet.control.SafeCode</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>DownLoadServlet</servlet-name>
+    <servlet-class>servlet.control.DownLoadServlet</servlet-class>
+  </servlet>
+   
+
 
   <servlet-mapping>
     <servlet-name>FileUploadServlet</servlet-name>
@@ -42,4 +48,11 @@
     <servlet-name>SafeCode</servlet-name>
     <url-pattern>/SafeCode.do</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DownLoadServlet</servlet-name>
+    <url-pattern>/DownLoadServlet.do</url-pattern>
+  </servlet-mapping>
+
+ 
+
 </web-app>
