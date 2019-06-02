@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="layui/css/layui.css" media="all">
-<title>用户基础信息修改</title>
+<title>企业文件资源管理</title>
 <style>
 			.mtop {
 				margin-top: 30px;

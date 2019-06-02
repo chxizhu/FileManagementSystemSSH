@@ -5,7 +5,7 @@
 
 <head>
 <meta charset="utf-8">
-<title>企业文件资源管理系统</title>
+<title>企业文件资源管理</title>
 <meta name="renderer" content="webkit">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport"
