@@ -9,7 +9,11 @@
         <resourceEdge source="error" routing="0" target="login.jsp" />
       </result>
     </action>
-    <action name="UserinformationEditAction" location="84,339" size="150,40" />
+    <action name="UserinformationEditAction" location="84,339" size="150,40">
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="eitd.jsp" />
+      </result>
+    </action>
     <action name="loginout" location="80,173" size="150,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="login.jsp" />
@@ -87,5 +91,6 @@
   <webResource name="seekImg.jsp" path="/seekImg.jsp" location="350,500" size="150,55" />
   <webResource name="fileupdating.jsp" path="/fileupdating.jsp" location="350,650" size="150,55" />
   <webResource name="filesucceed.jsp" path="/filesucceed.jsp" location="0,0" size="150,55" />
+  <webResource name="eitd.jsp" path="/eitd.jsp" location="0,0" size="150,55" />
 </Struts2Diagram>
 
