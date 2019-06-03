@@ -18,7 +18,7 @@
       <img src="imgs/logo.png" alt="layui" style="width:50px">  
    	 
     </a>
-   <div align=center><h1>文件资源管理系统</h1></div>
+   <div align=center><h1>企业文件资源管理</h1></div>
     <ul class="layui-nav fly-nav-user">
       <!-- 未登入的状态 -->
       <li class="layui-nav-item">
