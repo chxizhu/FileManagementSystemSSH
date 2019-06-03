@@ -84,39 +84,38 @@
 				    <div class="layui-input-block">
 				      <input type="hidden" name="userid" value="${loginUser.userid }">	
 					  <input type="hidden" name="f_department_id" value="${loginUser.departmentid }">		
-				      <input type="text" name="filekeyword" lay-verify="title" autocomplete="off" placeholder="${filekeyword }" class="layui-input">
+				      <input type="text" name="filekeyword" lay-verify="title" autocomplete="off" value="${filekeyword }" placeholder="" class="layui-input" id="seekinput">
 				      <button class="layui-btn layui-btn-normal seekbtn">搜索一下</button>
 				    </div>
 				  </div>
 			  </form>				
 			</div>
-			
-			<!-- <div class="layui-col-md1"><button class="layui-btn layui-btn-normal">搜索一下</button></div>				 -->						
-		</div>	
-		
-		<%-- <div class="layui-col-md1 layui-col-md-offset1 top">
-			<div class="layui-col-md1" style="width:250px;text-align :center"><a href="javascript:;">当前用户:${loginUser.username}</a>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="index.jsp">返回首页</a>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="login.jsp">退出</a>
-			</div>
-		</div> --%>																				
+																							
 	</div>
 	
 	<div class="row">
 		<div class="layui-col-md12">			
-			<ul class="layui-nav daohan" lay-filter=""> 				
-  				<li class="layui-nav-item"><a href="seekimg.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=1"><font color="#000">图片</font></a></li>
+			<%--  <ul class="layui-nav daohan" lay-filter=""> 				
+  				<li class="layui-nav-item"><a href="seekimg.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=1&filekeyword=${filekeyword }"><font color="#000">图片</font></a></li>
   				<li class="layui-nav-item"><a href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=2"><font color="#000">文档</font></a></li>
   				<li class="layui-nav-item"><a href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=3"><font color="#000">视频</font></a></li>
   				<li class="layui-nav-item"><a href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=4"><font color="#000">音频</font></a></li>
   				<li class="layui-nav-item"><a href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=5"><font color="#000">其他</font></a></li>
-			</ul>
+			</ul>  --%>
+			
+			 <ul class="layui-nav daohan" lay-filter=""> 				
+  				<li class="layui-nav-item" id="one"><a><font color="#000">图片</font></a></li>
+  				<li class="layui-nav-item" id="two"><a><font color="#000">文档</font></a></li>
+  				<li class="layui-nav-item" id="three"><a><font color="#000">视频</font></a></li>
+  				<li class="layui-nav-item" id="four"><a><font color="#000">音频</font></a></li>
+  				<li class="layui-nav-item" id="five"><a><font color="#000">其他</font></a></li>
+			</ul> 
 	
 		</div>
 	</div>
 	
 	<div class="row top">
-		<div class="layui-col-md8 layui-col-md-offset2 top" id="frameContent" style="height:200px">	
+		<div class="layui-col-md8 layui-col-md-offset2 top">	
 			
 		 <c:forEach items="${filelist }" var="forum" >
 			
@@ -140,9 +139,9 @@
 			
 			</c:forEach>
 			
-			<div id="pages" style="font-size:12px; width:605px; line-height:40px; text-align:center;">
+			<!-- <div id="pages" style="font-size:12px; width:605px; line-height:40px; text-align:center;">
     			分页 页数
-			</div>
+			</div> -->
 			
 			<!-- <div class="layui-card daohan">						
 			
@@ -170,15 +169,42 @@
 <script src="layui/layui.js" charset="utf-8"></script>
  
  <script>
-	 layui.use(['form','element'], function(){
+	 layui.use(['form','element','jquery'], function(){
 	  var form = layui.form;
 	  	  element = layui.element;//导航
+	  	  $ = layui.jquery;
+	  	  
+	  	 // 图片搜索
+	  	   $("#one").click(function(){
+	  	  	window.location.href="seekimg.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=1&filekeyword=" + $("#seekinput").val();	  	 	
+	  	  }) 
+	  	  
+	  	   // 文档搜索
+	  	   $("#two").click(function(){
+	  	  	window.location.href="seekimg.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=2&filekeyword=" + $("#seekinput").val();	  	 	
+	  	  }) 
+	  	  
+	  	   // 视频搜索
+	  	   $("#three").click(function(){
+	  	  	window.location.href="seekimg.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=3&filekeyword=" + $("#seekinput").val();	  	 	
+	  	  }) 
+	  	  
+	  	   // 音频搜索
+	  	   $("#four").click(function(){
+	  	  	window.location.href="seekimg.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=4&filekeyword=" + $("#seekinput").val();	  	 	
+	  	  }) 
+	  	  
+	  	   // 其他搜索
+	  	   $("#five").click(function(){
+	  	  	window.location.href="seekimg.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=5&filekeyword=" + $("#seekinput").val();	  	 	
+	  	  }) 
 	 
 		
 	}); 
 </script>
 
-<script language="javascript">
+   
+<!-- <script language="javascript">
 		var obj = document.getElementById("frameContent");  //获取内容层
 		var pages = document.getElementById("pages");         //获取翻页层
 		var pgindex=1;                                      //当前页
@@ -205,6 +231,6 @@
 		 obj.scrollTop=(pageINdex-1)*parseInt(obj.offsetHeight);                                                                  //根据高度，输出指定的页
 		 pgindex=pageINdex;
 		}
-</script>
+</script> -->
  
 </html>

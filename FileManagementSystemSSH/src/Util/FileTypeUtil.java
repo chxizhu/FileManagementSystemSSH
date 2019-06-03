@@ -40,10 +40,12 @@ public class FileTypeUtil {
 	    FILE_TYPE_MAP.put("ai", 1);
 	    FILE_TYPE_MAP.put("raw", 1);
 	    FILE_TYPE_MAP.put("wmf", 1);
+	    
 	    FILE_TYPE_MAP.put("txt", 2);
 	    FILE_TYPE_MAP.put("doc", 2);
 	    FILE_TYPE_MAP.put("docx", 2);
 	    FILE_TYPE_MAP.put("xls", 2);
+	    FILE_TYPE_MAP.put("xlsx", 2);
 	    FILE_TYPE_MAP.put("htm", 2);
 	    FILE_TYPE_MAP.put("html", 2);
 	    FILE_TYPE_MAP.put("jsp", 2);
@@ -51,6 +53,7 @@ public class FileTypeUtil {
 	    FILE_TYPE_MAP.put("wpd", 2);
 	    FILE_TYPE_MAP.put("pdf", 2);
 	    FILE_TYPE_MAP.put("ppt", 2);
+	    FILE_TYPE_MAP.put("pptx", 2);
 	    FILE_TYPE_MAP.put("mp4", 3);
 	    FILE_TYPE_MAP.put("avi", 3);
 	    FILE_TYPE_MAP.put("mov", 3);

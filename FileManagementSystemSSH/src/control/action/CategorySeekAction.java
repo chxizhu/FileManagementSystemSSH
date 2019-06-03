@@ -59,11 +59,13 @@ public class CategorySeekAction extends BaseAction {
 			}				
 		}
 		else{//普通员查询
-			if(filekeyword != null){//通过输入框来查询
-				filelist = DAOFactorys.getFileDAO().slectallfile(userid,f_department_id,filekeyword);					;					
+			if(filekeyword != null && (type_id == 1 || type_id == 2 || type_id == 3 || type_id == 4 || type_id == 5)){//通过输入框来查询
+				//filelist = DAOFactorys.getFileDAO().slectallfile(userid,f_department_id,filekeyword);		
+				filelist = DAOFactorys.getFileDAO().categoryslectallfile(userid, f_department_id, type_id, filekeyword);					
 			}
 			else{//通过文件分类来查询
-					filelist = DAOFactorys.getFileDAO().categoryslectallfile(filekeyword, f_department_id, type_id);		
+					//filelist = DAOFactorys.getFileDAO().categoryslectallfile(filekeyword, f_department_id, type_id);	
+					filelist = DAOFactorys.getFileDAO().slectallfile(userid,f_department_id,filekeyword);				
 				}
 			
 		}

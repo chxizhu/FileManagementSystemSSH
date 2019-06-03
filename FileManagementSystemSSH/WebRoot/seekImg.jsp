@@ -81,7 +81,7 @@
 				    <div class="layui-input-block">
 				      <input type="hidden" name="userid" value="${loginUser.userid }">	
 					  <input type="hidden" name="f_department_id" value="${loginUser.departmentid }">		
-				      <input type="text" name="filekeyword" lay-verify="title" autocomplete="off" placeholder="${filekeyword }" class="layui-input">
+				      <input type="text" name="filekeyword" lay-verify="title" autocomplete="off" value="${filekeyword }" placeholder="" class="layui-input">
 				      <button class="layui-btn layui-btn-normal seekbtn">搜索一下</button>
 				    </div>
 				  </div>
