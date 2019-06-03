@@ -58,7 +58,7 @@ public interface UserDAO {
 	 * @param department_id 用户所属的部门
 	 * @return 修改成功返回true 失败返回false
 	 */
-	public boolean modifyNormalUser(String userid,String pwd,String username,String agend,String phone,int department_id); 	
+	public boolean modifyNormalUser(String userid,String username,String agend,String phone,int department_id); 	
 	
 	/**
 	 * 按发表文章数量倒序排序，返回所有用户信息

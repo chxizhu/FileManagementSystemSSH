@@ -85,9 +85,9 @@ public class UserinformationEditAction extends BaseAction {
 		// TODO Auto-generated method stub
 		UserDAO udao = new UserDAOImpl();
 		VUser loginUser = (VUser)session.getAttribute("loginUser");
-		udao.modifyNormalUser(loginUser.getUserid(), pwd, username, agend, phone, department_id);
+		udao.modifyNormalUser(loginUser.getUserid(), username,agend, phone, department_id);
 		
-		boolean usereitd=	udao.modifyNormalUser(userid, pwd, username, agend, phone, department_id);
+		boolean usereitd=	udao.modifyNormalUser(userid,username, agend, phone, department_id);
 		if (usereitd == true) {
 			
 			return SUCCESS;

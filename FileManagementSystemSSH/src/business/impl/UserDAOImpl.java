@@ -54,10 +54,10 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public boolean modifyNormalUser(String userid, String pwd, String username,
+	public boolean modifyNormalUser(String userid, String username,
 			String agend, String phone, int department_id) {
-		String sql = "update T_User set pwd=?,username=?,agend=?,phone=?,department_id=? where userid=?";
-		Object[] param = {pwd,username,agend,phone,department_id,userid};
+		String sql = "update T_User set username=?,agend=?,phone=?,department_id=? where userid=?";
+		Object[] param = {username,agend,phone,department_id,userid};
 		return bdao.update(sql, param);
 		
 			
