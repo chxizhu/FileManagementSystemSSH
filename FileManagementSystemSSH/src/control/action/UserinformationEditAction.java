@@ -87,7 +87,7 @@ public class UserinformationEditAction extends BaseAction {
 		VUser loginUser = (VUser)session.getAttribute("loginUser");
 		udao.modifyNormalUser(loginUser.getUserid(), username,agend, phone, department_id);
 		
-		boolean usereitd=	udao.modifyNormalUser(userid,username, agend, phone, department_id);
+		boolean usereitd=	udao.modifyNormalUser(loginUser.getUserid(),username, agend, phone, department_id);
 		if (usereitd == true) {
 			
 			return SUCCESS;

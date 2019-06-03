@@ -127,7 +127,7 @@
 									      <div class="layui-input-inline">
 									        <select name="department_id" lay-verify="required" lay-search="">
 									          <option value="">直接选择或搜索选择你所属的部门</option>
-									          <option value="101">layer</option>
+									          <option value="301">layer</option>
 									          <option value="2">form</option>
 									          <option value="3">layim</option>
 									          <option value="4">element</option>

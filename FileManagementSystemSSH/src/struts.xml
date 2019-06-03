@@ -10,6 +10,7 @@
 		<action name="UserinformationEditAction"
 			class="control.action.UserinformationEditAction">
 			<result name="error">/eitd.jsp</result>
+			<result name="success">/eitd.jsp</result>
 		</action>
 		<action name="loginout" class="control.action.LoginOutAction">
 			<result name="success" type="dispatcher">/login.jsp</result>
