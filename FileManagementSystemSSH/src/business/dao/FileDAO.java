@@ -63,27 +63,19 @@ public interface FileDAO {
 	 * @param String filekeyword 文件搜索关键字
 	 * @return  List<TFile>
 	 */
-	public List<VUserFile> leadslectallfile(String userid,String filekeyword);
+	public List<VUserFile> leadslectallfile(String userid,String filekeyword);	
 	
 	/**
-	 * 普通员工按照文件分类查询文件(可查询文件权限为个人，本部门，公司的)
-	 * @param String userid 当前用户
-	 * @param int f_department_id  文件所属部门ID
-	 * @param int typeid 文件类型ID
-	 * @return  List<TFile>
-	 */
-	public List<VUserFile> categoryslectallfile(String userid,int f_department_id,int type_id);
-	
-	/**
-	 * 领导按照文件分类查询文件(可查询文件权限为个人，所有部门，公司的)
+	 * 领导按照文件分类和输入框关键字查询文件(可查询文件权限为个人，所有部门，公司的)
 	 * @param String userid 当前用户
 	 * @param int type_id 文件类型ID
+	 * @param String filekeyword 文件搜索关键字
 	 * @return  List<TFile>
 	 */
-	public List<VUserFile> leadcategoryslectallfile(String userid,int type_id);
+	public List<VUserFile> leadcategoryslectallfile(String userid,int type_id,String filekeyword);
 	
 	/**
-	 * 普通员工按照文件分类查询文件(可查询文件权限为个人，本部门，公司的)
+	 * 普通员工按照文件分类和输入框关键字查询文件(可查询文件权限为个人，本部门，公司的)
 	 * @param String userid 当前用户
 	 * @param int f_department_id  文件所属部门ID
 	 * @param String filekeyword 文件搜索关键字
@@ -91,6 +83,22 @@ public interface FileDAO {
 	 * @return  List<TFile>
 	 */
 	public List<VUserFile> categoryslectallfile(String userid,int f_department_id,int type_id,String filekeyword);
+	
+	/**
+	 * 普通员工（staff）按照时间降序查询所有文件(可查询文件权限为个人，本部门，公司的)
+	 * @param String userid 当前用户
+	 * @param int f_department_id  文件所属部门ID
+	 * @return  List<TFile>
+	 */
+	public List<VUserFile> staffslectallfile(String userid,int f_department_id);
+	
+	/**
+	 * 领导按照时间降序查询所有文件(可查询文件权限为个人，所有部门，公司的)
+	 * @param String userid 当前用户
+	 * @return  List<TFile>
+	 */
+	public List<VUserFile> leadslectallfile(String userid);	
+
 	
 	/**
 	 * 根据文件权限查询权限名称

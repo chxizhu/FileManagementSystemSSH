@@ -103,7 +103,8 @@
   				<li class="layui-nav-item"><a href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=5"><font color="#000">其他</font></a></li>
 			</ul>  --%>
 			
-			 <ul class="layui-nav daohan" lay-filter=""> 				
+			 <ul class="layui-nav daohan" lay-filter=""> 	
+			    <li class="layui-nav-item" id="zero"><a><font color="#000">全部</font></a></li>				
   				<li class="layui-nav-item" id="one"><a><font color="#000">图片</font></a></li>
   				<li class="layui-nav-item" id="two"><a><font color="#000">文档</font></a></li>
   				<li class="layui-nav-item" id="three"><a><font color="#000">视频</font></a></li>
@@ -151,6 +152,11 @@
 	  var form = layui.form;
 	  	  element = layui.element;//导航
 	  	  $ = layui.jquery;
+	  	  
+	  	   //按时间搜索全部
+	  	   $("#zero").click(function(){
+	  	  	window.location.href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=6";	  	 	
+	  	  })   	  
 	  	  
 	  	 // 图片搜索
 	  	   $("#one").click(function(){

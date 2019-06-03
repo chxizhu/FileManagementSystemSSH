@@ -83,9 +83,8 @@
 				<form class="layui-form" action="seek.action">
 					<div class="same ">
 						<input type="hidden" name="userid" value="${loginUser.userid }">
-						<input type="hidden" name="f_department_id"
-							value="${loginUser.departmentid }"> <input type="text"
-							placeholder="请输入标题" class="same text " name="filekeyword">
+						<input type="hidden" name="f_department_id" value="${loginUser.departmentid }"> 
+						<input type="text" placeholder="请输入标题" class="same text " name="filekeyword">
 						<button class="layui-btn layui-btn-normal same btn">搜 索</button>
 					</div>
 				</form>

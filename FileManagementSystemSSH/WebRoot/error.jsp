@@ -89,7 +89,7 @@
 					<div class="same ">
 						<input type="hidden" name="userid" value="${loginUser.userid }">	
 						<input type="hidden" name="f_department_id" value="${loginUser.departmentid }">											
-						<input type="text" value="${filekeyword }" placeholder="" class="same text " name="filekeyword"><button class="layui-btn layui-btn-normal same btn">搜  索</button>
+						<input type="text" value="${filekeyword }" placeholder="" class="same text " name="filekeyword" id="seekinput"><button class="layui-btn layui-btn-normal same btn">搜  索</button>
 					</div>
 				</form>
 			</div>
@@ -100,13 +100,14 @@
 	
 	<div class="row">
 		<div class="layui-col-md12" style="margin-top:20px">	
-			<ul class="layui-nav daohan" lay-filter=""> 				
-  				<li class="layui-nav-item"><a href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=1"><font color="#000">图片</font></a></li>
-  				<li class="layui-nav-item"><a href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&typeid=2"><font color="#000">文档</font></a></li>
-  				<li class="layui-nav-item"><a href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&typeid=3"><font color="#000">视频</font></a></li>
-  				<li class="layui-nav-item"><a href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&typeid=4"><font color="#000">音频</font></a></li>
-  				<li class="layui-nav-item"><a href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=5"><font color="#000">其他</font></a></li>
-			</ul>
+			<ul class="layui-nav daohan" lay-filter=""> 	
+			    <li class="layui-nav-item" id="zero"><a><font color="#000">全部</font></a></li>				
+  				<li class="layui-nav-item" id="one"><a><font color="#000">图片</font></a></li>
+  				<li class="layui-nav-item" id="two"><a><font color="#000">文档</font></a></li>
+  				<li class="layui-nav-item" id="three"><a><font color="#000">视频</font></a></li>
+  				<li class="layui-nav-item" id="four"><a><font color="#000">音频</font></a></li>
+  				<li class="layui-nav-item" id="five"><a><font color="#000">其他</font></a></li>
+			</ul> 
 		</div>
 	</div>
 	
@@ -134,10 +135,40 @@
 <script src="layui/layui.js" charset="utf-8"></script>
  
  <script>
-	 layui.use(['form','element'], function(){
+	 layui.use(['form','element','jquery'], function(){
 	  var form = layui.form;
 	  	  element = layui.element;//导航
+	  	   $ = layui.jquery;
 	 
+	 //按时间搜索全部
+	  	   $("#zero").click(function(){
+	  	  	window.location.href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=6";	  	 	
+	  	  })   	  
+	  	  
+	  	 // 图片搜索
+	  	   $("#one").click(function(){
+	  	  	window.location.href="seekimg.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=1&filekeyword=" + $("#seekinput").val();	  	 	
+	  	  }) 
+	  	  
+	  	   // 文档搜索
+	  	   $("#two").click(function(){
+	  	  	window.location.href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=2&filekeyword=" + $("#seekinput").val();	  	 	
+	  	  }) 
+	  	  
+	  	   // 视频搜索
+	  	   $("#three").click(function(){
+	  	  	window.location.href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=3&filekeyword=" + $("#seekinput").val();	  	 	
+	  	  }) 
+	  	  
+	  	   // 音频搜索
+	  	   $("#four").click(function(){
+	  	  	window.location.href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=4&filekeyword=" + $("#seekinput").val();	  	 	
+	  	  }) 
+	  	  
+	  	   // 其他搜索
+	  	   $("#five").click(function(){
+	  	  	window.location.href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=5&filekeyword=" + $("#seekinput").val();	  	 	
+	  	  }) 
 		
 	}); 
 	

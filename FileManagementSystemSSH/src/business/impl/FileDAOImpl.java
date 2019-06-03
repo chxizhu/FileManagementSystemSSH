@@ -65,16 +65,9 @@ public class FileDAOImpl implements FileDAO {
 	}
 	
 	@Override	
-	public List<VUserFile> categoryslectallfile(String userid,int f_department_id,int type_id) {
-		String hql =  "from VUserFile o where (userid = ? or authorityid = 101 or authorityid = 102 or authorityid = 103) and (f_department_id = ? or authorityid = 103) and type_id = ? ";
-		Object[] para = {userid,f_department_id,type_id};
-		return bdao.select(hql, para);
-	}
-	
-	@Override	
-	public List<VUserFile> leadcategoryslectallfile(String userid,int type_id) {
-		String hql =  "from VUserFile o where (userid = ? or authorityid = 101 or authorityid = 102 or authorityid = 103) and type_id = ? ";
-		Object[] para = {userid,type_id};
+	public List<VUserFile> leadcategoryslectallfile(String userid,int type_id,String filekeyword) {
+		String hql =  "from VUserFile o where (userid = ? or authorityid = 101 or authorityid = 102 or authorityid = 103) and type_id = ? and concat(o.userid,o.username,o.filename,o.dscribe,o.lable,o.filesize) like ? ";
+		Object[] para = {userid,type_id,"%" + filekeyword + "%"};
 		return bdao.select(hql, para);
 	}
 	
@@ -82,6 +75,20 @@ public class FileDAOImpl implements FileDAO {
 	public List<VUserFile> categoryslectallfile(String userid,int f_department_id,int type_id,String filekeyword) {
 		String hql =  "from VUserFile o where (userid = ? or authorityid = 102 or authorityid = 103) and (f_department_id = ? or authorityid = 103) and type_id = ? and concat(o.userid,o.username,o.filename,o.dscribe,o.lable,o.filesize) like ? ";
 		Object[] para = {userid,f_department_id,type_id,"%" + filekeyword + "%"};
+		return bdao.select(hql, para);
+	}
+	
+	@Override	
+	public List<VUserFile> staffslectallfile(String userid,int f_department_id) {
+		String hql =  "from VUserFile o where (userid = ? or authorityid = 102 or authorityid = 103) and (f_department_id = ? or authorityid = 103) order by uptime desc";
+		Object[] para = {userid,f_department_id};
+		return bdao.select(hql, para);
+	}
+	
+	@Override	
+	public List<VUserFile> leadslectallfile(String userid) {
+		String hql =  "from VUserFile o where (userid = ? or authorityid = 101 or authorityid = 102 or authorityid = 103) order by uptime desc ? ";
+		Object[] para = {userid};
 		return bdao.select(hql, para);
 	}
 	
