@@ -66,7 +66,7 @@ public class FileDAOImpl implements FileDAO {
 	
 	@Override	
 	public List<VUserFile> leadcategoryslectallfile(String userid,int type_id,String filekeyword) {
-		String hql =  "from VUserFile o where (userid = ? or authorityid = 101 or authorityid = 102 or authorityid = 103) and type_id = ? and concat(o.userid,o.username,o.filename,o.dscribe,o.lable,o.filesize) like ? ";
+		String hql =  "from VUserFile o where (userid = ? or authorityid = 102 or authorityid = 103) and type_id = ? and concat(o.userid,o.username,o.filename,o.dscribe,o.lable,o.filesize) like ? ";
 		Object[] para = {userid,type_id,"%" + filekeyword + "%"};
 		return bdao.select(hql, para);
 	}
@@ -87,7 +87,7 @@ public class FileDAOImpl implements FileDAO {
 	
 	@Override	
 	public List<VUserFile> leadslectallfile(String userid) {
-		String hql =  "from VUserFile o where (userid = ? or authorityid = 101 or authorityid = 102 or authorityid = 103) order by uptime desc";
+		String hql =  "from VUserFile o where (userid = ? or authorityid = 102 or authorityid = 103) order by uptime desc";
 		Object[] para = {userid};
 		return bdao.select(hql, para);
 	}

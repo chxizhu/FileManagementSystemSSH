@@ -95,6 +95,7 @@ public interface FileDAO {
 	/**
 	 * 领导按照时间降序查询所有文件(可查询文件权限为个人，所有部门，公司的)
 	 * @param String userid 当前用户
+	 * @param int f_department_id  文件所属部门ID
 	 * @return  List<TFile>
 	 */
 	public List<VUserFile> leadslectallfile(String userid);	
