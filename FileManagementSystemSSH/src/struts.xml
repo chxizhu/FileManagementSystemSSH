@@ -32,7 +32,7 @@
 		</action>
 		<action name="PassdEitsaction"
 			class="control.action.PassdEitsaction">
-			<result name="error">/error.jsp</result>
+			<result name="error">/login.jsp</result>
 		</action>
 		<action name="downloadAction"
 			class="control.action.downloadAction">

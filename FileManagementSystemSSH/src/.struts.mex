@@ -39,7 +39,7 @@
     <action name="ownfile" location="78,558" size="150,40" />
     <action name="PassdEitsaction" location="80,609" size="150,41">
       <result name="error">
-        <resourceEdge source="error" routing="0" target="error.jsp" />
+        <resourceEdge source="error" routing="0" target="login.jsp" />
       </result>
     </action>
     <action name="downloadAction" location="91,677" size="150,62">
