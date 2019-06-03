@@ -19,8 +19,7 @@
 
 .same {
 	padding: 0;
-	margin-top: -2px;
-	margin-left: -1px;
+	margin-top: -2px;	
 	box-sizing: border-box;
 	border: 1;
 	height: 45px;
@@ -31,6 +30,7 @@
 }
 
 .btn {
+	margin-left:-4px;
 	width: 20%;
 }
 

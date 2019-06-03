@@ -30,8 +30,8 @@
 		text-overflow: ellipsis;		
 		white-space: nowrap; //文本不换行，这样超出一行的部分被截取，显示...
 }
-.seekbtn{
-	margin-left:742px;
+ .seekbtn{
+	margin-left:733px;
 	margin-top:-38px;
 	}	
 		
@@ -138,29 +138,7 @@
 			</div>
 			
 			</c:forEach>
-			
-			<!-- <div id="pages" style="font-size:12px; width:605px; line-height:40px; text-align:center;">
-    			分页 页数
-			</div> -->
-			
-			<!-- <div class="layui-card daohan">						
-			
-			  <div class="layui-card-header">文章</div>
- 			 <div class="layui-card-body line-limit-length">
-			    卡片式面板面板通常用于非白色背景色的主体内从而映衬出边框投影这几天心里颇不宁静。今晚在院子里坐着乘凉，忽然想起日日走过的荷塘，在这满月的光里，总该另有一番样子吧。月亮渐渐地升高了，墙外马路上孩子们的欢笑，已经听不见了；妻在屋里拍着闰儿⑴，迷迷糊糊地哼着眠歌。我悄悄地披了大衫，带上门出去。
-				沿着荷塘，是一条曲折的小煤屑路。
-			  </div>
-			  
-			   <div class="layui-card-body line-limit-length"></div>
-			  
-			   <div class="layui-card-body line-limit-length">
-			   	<a href="">上传用户:是的</a>
-			   	<span style="margin-left:80px"><a href="">上传时间:2019-8-1</a></span>
-			   	<span style="margin-left:80px"><a href="">文件大小:20kb</a></span>
-			  </div>			  			  
-			  
-			</div> -->
-			
+									
 		</div>
 	</div>
 	
@@ -181,56 +159,26 @@
 	  	  
 	  	   // 文档搜索
 	  	   $("#two").click(function(){
-	  	  	window.location.href="seekimg.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=2&filekeyword=" + $("#seekinput").val();	  	 	
+	  	  	window.location.href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=2&filekeyword=" + $("#seekinput").val();	  	 	
 	  	  }) 
 	  	  
 	  	   // 视频搜索
 	  	   $("#three").click(function(){
-	  	  	window.location.href="seekimg.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=3&filekeyword=" + $("#seekinput").val();	  	 	
+	  	  	window.location.href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=3&filekeyword=" + $("#seekinput").val();	  	 	
 	  	  }) 
 	  	  
 	  	   // 音频搜索
 	  	   $("#four").click(function(){
-	  	  	window.location.href="seekimg.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=4&filekeyword=" + $("#seekinput").val();	  	 	
+	  	  	window.location.href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=4&filekeyword=" + $("#seekinput").val();	  	 	
 	  	  }) 
 	  	  
 	  	   // 其他搜索
 	  	   $("#five").click(function(){
-	  	  	window.location.href="seekimg.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=5&filekeyword=" + $("#seekinput").val();	  	 	
+	  	  	window.location.href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=5&filekeyword=" + $("#seekinput").val();	  	 	
 	  	  }) 
-	 
-		
+	 	
 	}); 
 </script>
 
    
-<!-- <script language="javascript">
-		var obj = document.getElementById("frameContent");  //获取内容层
-		var pages = document.getElementById("pages");         //获取翻页层
-		var pgindex=1;                                      //当前页
-		window.onload = function()                             //重写窗体加载的事件
-		{
-		var allpages = Math.ceil(parseInt(obj.scrollHeight)/parseInt(obj. offsetHeight));//获取页面数量
-		    pages.innerHTML = "<b>共"+allpages+"页</b> ";     //输出页面数量
-		for (var i=1;i<=allpages;i++){
-		        pages.innerHTML += "<a href=\"javascript:showPage('"+i+"');\">第"+i+"页</a> ";
-		//循环输出第几页
-		    }
-		 pages.innerHTML += " <a href=\"javascript:gotopage('-1');\">上一页</a>  <a href=\"javascript:gotopage('1');\">下一页</a>"
-		}
-		function gotopage(value){
-		try{
-		 value=="-1"?showPage(pgindex-1):showPage(pgindex+1);
-		 }catch(e){
-		  
-		 }
-		}
-		function showPage(pageINdex)
-		{
-		     
-		 obj.scrollTop=(pageINdex-1)*parseInt(obj.offsetHeight);                                                                  //根据高度，输出指定的页
-		 pgindex=pageINdex;
-		}
-</script> -->
- 
 </html>

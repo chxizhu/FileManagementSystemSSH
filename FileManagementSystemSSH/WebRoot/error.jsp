@@ -89,7 +89,7 @@
 					<div class="same ">
 						<input type="hidden" name="userid" value="${loginUser.userid }">	
 						<input type="hidden" name="f_department_id" value="${loginUser.departmentid }">											
-						<input type="text" placeholder="${filekeyword }" class="same text " name="filekeyword"><button class="layui-btn layui-btn-normal same btn">搜  索</button>
+						<input type="text" value="${filekeyword }" placeholder="" class="same text " name="filekeyword"><button class="layui-btn layui-btn-normal same btn">搜  索</button>
 					</div>
 				</form>
 			</div>
