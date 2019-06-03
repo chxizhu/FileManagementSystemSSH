@@ -87,7 +87,7 @@ public class FileDAOImpl implements FileDAO {
 	
 	@Override	
 	public List<VUserFile> leadslectallfile(String userid) {
-		String hql =  "from VUserFile o where (userid = ? or authorityid = 101 or authorityid = 102 or authorityid = 103) order by uptime desc ? ";
+		String hql =  "from VUserFile o where (userid = ? or authorityid = 101 or authorityid = 102 or authorityid = 103) order by uptime desc";
 		Object[] para = {userid};
 		return bdao.select(hql, para);
 	}
