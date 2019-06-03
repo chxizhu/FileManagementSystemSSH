@@ -69,7 +69,7 @@
 					</dl></li>
 
 				
-				<li class="layui-nav-item "><a href="login.jsp">退出</a></li>
+				<li class="layui-nav-item "><a href="login.jsp" onclick="fun1()">退出</a></li>
 
 			</ul>
 
@@ -111,6 +111,11 @@
 				layer.msg(elem.text());
 			});
 		});
+		
+			function fun1(){
+    alert("确定要退出吗？")
+		}
+		
 	</script>
 
 </body>

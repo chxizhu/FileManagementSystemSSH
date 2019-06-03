@@ -73,7 +73,7 @@
 						<a href="javascript:;">欢迎您：${loginUser.username}</a>
 					</li>
 					<li class="layui-nav-item ">
-						<a href="login.jsp">退出</a>
+						<a href="login.jsp" onclick="fun1()" >退出</a>
 					</li>
 
 				</ul>
@@ -91,5 +91,23 @@
     	<a href="#">返回页面</a>
     </div>
 	
+	<script src="layui/layui.js" charset="utf-8"></script>
+
+	<script>
+		layui.use('element', function() {
+			var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+
+			//监听导航点击
+			element.on('nav(demo)', function(elem) {
+				//console.log(elem)
+				layer.msg(elem.text());
+			});
+		});
+		
+		function fun1(){
+    alert("确定要退出吗？")
+		}
+		
+	</script>
 </body>
 </html>
