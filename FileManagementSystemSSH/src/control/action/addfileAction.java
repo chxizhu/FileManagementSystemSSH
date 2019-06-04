@@ -101,7 +101,7 @@ public class addfileAction extends BaseAction {
 		tFile.setLable(lable);
 		tFile.setFilesize(filesize);
 		tFile.setFilesuffix(filesuffix);// 文件后缀
-		tFile.setFilepath(filename);// 文件路径
+		tFile.setFilepath(filepath);// 文件路径
 		tFile.setDownloads(0);
 		tFile.setFDepartmentId(loginUser.getDepartmentid());
 		FileDAO udao = DAOFactorys.getFileDAO();

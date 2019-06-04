@@ -5,7 +5,7 @@
 
 <head>
 <meta charset="utf-8">
-<title>企业文件资源管理</title>
+<title>文件资源管理系统</title>
 <meta name="renderer" content="webkit">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport"
@@ -106,17 +106,9 @@
 								<label class="layui-form-label">文件标题</label>
 								<div class="layui-input-block">
 									<input type="text" name="filename" lay-verify="required" id="title"
-										autocomplete="off" placeholder="文件标题内容不可修改（如需修改请直接修改上传前文件标题）" readonly="true" class="layui-input">
+										autocomplete="off" placeholder="文件标题内容"  class="layui-input">
 								</div>
 							</div>
-							
-							<div class="layui-form-item">
-								<label class="layui-form-label">文件大小</label>
-								<div class="layui-input-block">
-									<input type="text" id="size" lay-verify="required" name="filesize" readonly="true" class="layui-input">
-								</div>
-							</div>
-
 							<div class="layui-form-item">
 								<label class="layui-form-label">文件权限</label>
 								<div class="layui-input-block">
@@ -143,7 +135,9 @@
 									<textarea placeholder="请简介输入内容" name="dscribe"  lay-verify="required" class="layui-textarea"></textarea>
 								</div>
 							</div>
-
+							
+							<input type="hidden" type="text" id="size" lay-verify="required" name="filesize" readonly="true" class="layui-input">
+							<input type="hidden" type="text" id="filepath" lay-verify="required" name="filepath" readonly="true" class="layui-input">
 							<div class="layui-form-item">
 								<div class="layui-input-block">
 									<button class="layui-btn  layui-btn-normal" lay-submit=""
@@ -214,6 +208,8 @@
 						//console.log(file); //得到文件对象
 						//console.log(result); //得到文件base64编码，比如图片
 						$("#title").val(file.name);
+						$("#filepath").val(file.name);
+						
 						$("#size").val(file.size / 1024 + "K");
 						//alert(file.type);
 						//alert(file.lastModifiedDate);
