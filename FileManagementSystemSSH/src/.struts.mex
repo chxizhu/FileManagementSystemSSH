@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Struts2Diagram version="2.0">
-  <package name="default" location="33,22" size="269,1103">
+  <package name="default" location="33,22" size="269,1229">
     <action name="loginAction" location="117,116" size="150,62">
       <result name="success">
         <resourceEdge source="success" routing="0" target="index.jsp" />
@@ -78,9 +78,14 @@
         <resourceEdge source="error" routing="0" target="error.jsp" />
       </result>
     </action>
-    <action name="fileupdating" location="118,1061" size="150,41">
+    <action name="fileupdating" location="64,1054" size="150,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="fileupdating.jsp" />
+      </result>
+    </action>
+    <action name="returnindex" location="108,1156" size="150,40">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="index.jsp" />
       </result>
     </action>
   </package>

@@ -54,7 +54,7 @@
 		<div class="layui-col-md12">
 
 			<ul class="layui-nav layui-bg-blue">
-				<li class="layui-nav-item "><a href="index.jsp">文件资源管理系统</a></li>
+				<li class="layui-nav-item "><a href="returnindex.action">文件资源管理系统</a></li>
 
 				<li class="layui-nav-item "><a href="uplode.jsp">文件上传</a></li>
 

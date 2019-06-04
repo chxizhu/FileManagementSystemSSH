@@ -122,7 +122,7 @@
 									      </div>
 								</div>
 								
-								<div class="layui-form-item">
+								<!-- <div class="layui-form-item">
 									 <label class="layui-form-label">所属部门</label>
 									      <div class="layui-input-inline">
 									        <select name="department_id" lay-verify="required" lay-search="">
@@ -149,7 +149,7 @@
 									          <option value="20">radio</option>
 									        </select>
 									      </div>
-								</div>
+								</div> -->
 								
 								
 

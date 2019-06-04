@@ -49,8 +49,9 @@ public class CategorySeekAction extends BaseAction {
 		VUser loginUser = (VUser)session.getAttribute("loginUser");//得到当前登录用户
 				
 		List<VUserFile> filelist = new ArrayList<VUserFile>() ;
-		
-		if(loginUser.getRoleid() == 203){//判断当前登录用户是否为管理层领导，203位总经理管理层
+				
+		if(loginUser.getRoleid() == 203){//判断当前登录用户是否为管理层领导，203位总经理管理层		
+			
 			if(filekeyword != null && (type_id == 1 || type_id == 2 || type_id == 3 || type_id == 4 || type_id == 5)){//通过分类和输入框关键字来查询			
 				filelist = DAOFactorys.getFileDAO().leadcategoryslectallfile(userid, type_id, filekeyword);
 			} else if(type_id == 6 && filekeyword == null){//领导查询全部文件
@@ -61,6 +62,7 @@ public class CategorySeekAction extends BaseAction {
 			}				
 		}
 		else{//普通员工查询，通过文件分类和输入框来查询
+					
 			if(filekeyword != null && (type_id == 1 || type_id == 2 || type_id == 3 || type_id == 4 || type_id == 5)){//通过分类和输入框关键字来查询	
 				filelist = DAOFactorys.getFileDAO().categoryslectallfile(userid, f_department_id, type_id, filekeyword);					
 			}else if(type_id == 6 && filekeyword == null){//普通员工查询全部文件
@@ -71,7 +73,7 @@ public class CategorySeekAction extends BaseAction {
 				}
 			
 		}
-		request.setAttribute("filelist", filelist);			
+		request.setAttribute("filelist", filelist);				
 
 		if(filelist == null || filelist.size() == 0)
 			return ERROR;

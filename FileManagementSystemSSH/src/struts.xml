@@ -65,4 +65,8 @@
 			<result name="success" type="dispatcher">
 				/fileupdating.jsp
 			</result>
+		</action>
+		<action name="returnindex"
+			class="control.action.ReturnIndexAction">
+			<result name="success" type="dispatcher">/index.jsp</result>
 		</action></package></struts>    

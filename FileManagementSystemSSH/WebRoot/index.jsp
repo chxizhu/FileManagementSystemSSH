@@ -52,6 +52,12 @@ margin-top: 60px;
 	margin-top: 300px;
 	}
 	
+	.line-limit-length {
+		overflow: hidden;		
+		text-overflow: ellipsis;		
+		white-space: nowrap; //文本不换行，这样超出一行的部分被截取，显示...
+}
+	
 </style>
 
 </head>
@@ -63,7 +69,7 @@ margin-top: 60px;
 		<div class="layui-col-md12">
 
 			<ul class="layui-nav layui-bg-blue">
-				<li class="layui-nav-item "><a href="index.jsp">文件资源管理系统</a></li>
+				<li class="layui-nav-item "><a href="returnindex.action">文件资源管理系统</a></li>
 
 				<li class="layui-nav-item "><a href="uplode.jsp">文件上传</a></li>
 
@@ -109,7 +115,7 @@ margin-top: 60px;
 	<div class="row top">
 		<div class="layui-col-md8 layui-col-md-offset2 ">	
 		<div class="layui-card-header daohan down"><a href="javascript:;">下载排行 ：TOP${count }</a></div>			
-		 <c:forEach items="${filelist }" var="file" begin="0" end="3" step="1">
+		 <c:forEach items="${showfilelist }" var="file" begin="0" end="3" step="1">
 			
 			<div class="layui-card daohan">										
 			  <div class="layui-card-header"><a href="downloadAction.action?fileid=${file.fileid}">文件标题：${file.filename}</a></div>			  

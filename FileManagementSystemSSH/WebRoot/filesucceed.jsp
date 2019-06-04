@@ -84,7 +84,7 @@
 				<div style="text-align:center;margin-top: 50px;">
     <a href="uplode.jsp" class="layui-btn layui-btn-normal" style="margin-right: 50px;">继续上传</a>
      <a href="ownfile.jsp" class="layui-btn layui-btn-normal" style="margin-right: 50px;">查看文件</a>
-      <a href="index.jsp" class="layui-btn layui-btn-normal" >返回主页</a>
+      <a href="returnindex.action" class="layui-btn layui-btn-normal" >返回主页</a>
     
   </div> 
 		</div>
