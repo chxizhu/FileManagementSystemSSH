@@ -124,8 +124,7 @@
 					<c:forEach items="${filelist }" var="forum" begin="0" end="1000"
 						step="1">
 						<div class="layui-col-md2">
-							<a href="downloadAction.action?fileid=${forum.fileid}"> <img
-								src="/upload2/${forum.filepath}" width="100%" height="200px">
+							<a href="downloadAction.action?fileid=${forum.fileid}"> <img src="/upload2/${forum.filename}" width="100%" height="200px">
 							</a>
 						</div>
 					</c:forEach>

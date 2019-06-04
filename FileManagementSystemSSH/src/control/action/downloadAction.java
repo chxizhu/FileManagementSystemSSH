@@ -182,7 +182,7 @@ public class downloadAction extends BaseAction {
 	           authority=down.get(i).getDscribe();
 	           request.setAttribute("authority", authority);
 	           
-	           downloads=Integer.parseInt(down.get(i).getDscribe());
+	           downloads=down.get(i).getDownloads();
 	           System.out.println("测试1"+downloads);
 	        		   }
 		downloads=downloads+1;
