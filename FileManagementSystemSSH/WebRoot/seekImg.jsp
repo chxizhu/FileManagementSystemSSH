@@ -86,25 +86,6 @@
 		</div>
 	</div>
 
-	<%-- <div class="row top">
-		<div class="layui-col-md8 layui-col-md-offset2">	
-		
-			<div class="layui-col-md10">				
-				<form class="layui-form" action="">
-				  <div class="layui-form-item">
-				    <div class="layui-input-block">
-				      <input type="hidden" name="userid" value="${loginUser.userid }">	
-					  <input type="hidden" name="f_department_id" value="${loginUser.departmentid }">		
-				      <input type="text" name="filekeyword" lay-verify="title" autocomplete="off" value="${filekeyword }" placeholder="" class="layui-input" id="seekinput">
-				      <button class="layui-btn layui-btn-normal seekbtn">搜索一下</button>
-				    </div> 
-				  </div>
-			  </form>				
-			</div>								
-		</div>	
-																						
-	</div> --%>
-
 	<div class="row">
 		<div class="layui-col-md8 layui-col-md-offset2 top">
 
@@ -144,7 +125,7 @@
 						step="1">
 						<div class="layui-col-md2">
 							<a href="downloadAction.action?fileid=${forum.fileid}"> <img
-								src="/upload2/${forum.filename}" width="100%" height="200px">
+								src="/upload2/${forum.filepath}" width="100%" height="200px">
 							</a>
 						</div>
 					</c:forEach>
