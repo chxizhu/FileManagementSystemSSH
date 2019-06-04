@@ -68,7 +68,7 @@
 					</dl></li>
 
 				
-				<li class="layui-nav-item "><a href="login.jsp" onclick="fun1()">退出</a></li>
+				<li class="layui-nav-item "><a href="login.jsp" onclick="if(confirm('你确定要退出吗？')==false)return false">退出</a></li>
 
 			</ul>
 
@@ -169,9 +169,7 @@
 			});
 		});
 		
-		function fun1(){
-    alert("确定要退出吗？")
-		}
+		
 		
 	</script>
 </body>
