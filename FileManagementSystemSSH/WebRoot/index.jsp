@@ -108,7 +108,7 @@ margin-top: 60px;
 	
 	<div class="row top">
 		<div class="layui-col-md8 layui-col-md-offset2 ">	
-		<div class="layui-card-header daohan down"><a href="javascript:;">下载排行 ：TOP4</a></div>			
+		<div class="layui-card-header daohan down"><a href="javascript:;">下载排行 ：TOP${count }</a></div>			
 		 <c:forEach items="${filelist }" var="file" begin="0" end="3" step="1">
 			
 			<div class="layui-card daohan">										

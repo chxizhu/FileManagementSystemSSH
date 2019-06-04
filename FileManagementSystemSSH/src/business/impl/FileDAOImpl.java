@@ -106,6 +106,20 @@ public class FileDAOImpl implements FileDAO {
 		return bdao.select(hql, para);
 	}
 	
+	@Override	
+	public int staffcountslectallfile(String userid,int f_department_id) {
+		String hql =  "select count(*) from VUserFile o where (userid = ? or authorityid = 102 or authorityid = 103) and (f_department_id = ? or authorityid = 103)";		
+		Object[] para = {userid,f_department_id};
+		return bdao.selectValue(hql, para);
+	}
+	
+	@Override	
+	public int leadcountslectallfile(String userid) {
+		String hql =  "select count(*) from VUserFile o where (userid = ? or authorityid = 102 or authorityid = 103)";
+		Object[] para = {userid};
+		return bdao.selectValue(hql, para);
+	}
+	
 	@Override
 	public List<TAuthority> getAuthority() {
 		// TODO Auto-generated method stub

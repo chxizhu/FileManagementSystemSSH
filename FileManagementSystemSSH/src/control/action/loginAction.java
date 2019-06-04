@@ -98,13 +98,23 @@ public class loginAction extends BaseAction {
 			
 			/*在主页按下载次数展示*/
 			List<VUserFile> filelist = new ArrayList<VUserFile>() ;
+			int count=0;
 			if(loginUser.getRoleid() == 203){//判断当前登录用户是否为管理层领导，203位总经理管理层
 				    filelist = DAOFactorys.getFileDAO().leaddownloadsslectallfile(userid);
+				    count = DAOFactorys.getFileDAO().leadcountslectallfile(userid);
+				    if(count > 4){
+                        count = 4;
+					 }
 				}
 				else{//普通员工查询，	
-					filelist = DAOFactorys.getFileDAO().staffdownloadsslectallfile(userid, loginUser.getDepartmentid());						
+					filelist = DAOFactorys.getFileDAO().staffdownloadsslectallfile(userid, loginUser.getDepartmentid());
+					 count = DAOFactorys.getFileDAO().staffcountslectallfile(userid, loginUser.getDepartmentid());
+					 if(count > 4){
+                          count = 4;
+					 }
 				}				
 			request.setAttribute("filelist", filelist);
+			request.setAttribute("count", count);
 			
 			return SUCCESS;
 		} else {
