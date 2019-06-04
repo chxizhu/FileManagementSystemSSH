@@ -1,8 +1,13 @@
 package control.action;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import model.VUser;
+import model.VUserFile;
+import business.factory.DAOFactorys;
 import business.impl.UserDAOImpl;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -20,6 +25,9 @@ public class loginAction extends BaseAction {
 	private String userid;
 	private String pwd;
     private String varify;
+    
+	private int f_department_id;
+    
 	public String getVarify() {
 		return varify;
 	}
@@ -43,6 +51,14 @@ public class loginAction extends BaseAction {
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
+	
+	public int getF_department_id() {
+		return f_department_id;
+	}
+
+	public void setF_department_id(int f_department_id) {
+		this.f_department_id = f_department_id;
+	}
 
 	/**
 	 * @return
@@ -51,6 +67,7 @@ public class loginAction extends BaseAction {
 		String errorsTest;
 		HttpSession session = request.getSession();
 		String srand = (String) session.getAttribute("rand");
+						
 		// 数据校验
 		if (userid == null || userid.trim().equals("")) {
 			// errorsTest = "用户名不能为空";
@@ -78,6 +95,17 @@ public class loginAction extends BaseAction {
 
 			// 成功以后在 session中记录登录用户，跳转回主页
 			session.setAttribute("loginUser", loginUser);
+			
+			/*在主页按下载次数展示*/
+			List<VUserFile> filelist = new ArrayList<VUserFile>() ;
+			if(loginUser.getRoleid() == 203){//判断当前登录用户是否为管理层领导，203位总经理管理层
+				    filelist = DAOFactorys.getFileDAO().leaddownloadsslectallfile(userid);
+				}
+				else{//普通员工查询，	
+					filelist = DAOFactorys.getFileDAO().staffdownloadsslectallfile(userid, loginUser.getDepartmentid());						
+				}				
+			request.setAttribute("filelist", filelist);
+			
 			return SUCCESS;
 		} else {
 			 errorsTest = "用户名或密码不正确，请重新输入";
@@ -86,5 +114,7 @@ public class loginAction extends BaseAction {
 				request.setAttribute("pwd", pwd );
 			return ERROR;
 		}
+						
+		
 	}
 }

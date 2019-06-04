@@ -45,11 +45,27 @@ public class SeekAction extends BaseAction {
 				
 		List<VUserFile> filelist = new ArrayList<VUserFile>() ;
 		
-		if(loginUser.getRoleid() == 203){//判断当前登录用户是否为管理层领导，203位总经理管理层
-                filelist = DAOFactorys.getFileDAO().leadslectallfile(userid, filekeyword);
+		/*if(loginUser.getRoleid() == 203){//判断当前登录用户是否为管理层领导，203位总经理管理层
+			if(filekeyword == null){
+				filelist = DAOFactorys.getFileDAO().leaddownloadsslectallfile(userid);
 			}else{
-				 filelist = DAOFactorys.getFileDAO().slectallfile(userid,f_department_id,filekeyword);									
+				filelist = DAOFactorys.getFileDAO().leadslectallfile(userid, filekeyword);
+			}                
+			}else{
+				if(filekeyword == null){
+					filelist = DAOFactorys.getFileDAO().staffdownloadsslectallfile(userid, f_department_id);	
+				}
+				else{
+					 filelist = DAOFactorys.getFileDAO().slectallfile(userid,f_department_id,filekeyword);		
+				}											
+		}		*/
+		
+		if(loginUser.getRoleid() == 203){//判断当前登录用户是否为管理层领导，203位总经理管理层			
+				filelist = DAOFactorys.getFileDAO().leadslectallfile(userid, filekeyword);           
+			}else{				
+					 filelist = DAOFactorys.getFileDAO().slectallfile(userid,f_department_id,filekeyword);													
 		}		
+		
 		request.setAttribute("filelist", filelist);			
 		
 		if(filelist == null || filelist.size() == 0)

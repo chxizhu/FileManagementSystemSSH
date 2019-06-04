@@ -99,7 +99,22 @@ public interface FileDAO {
 	 * @return  List<TFile>
 	 */
 	public List<VUserFile> leadslectallfile(String userid);	
+	
+	/**
+	 * 普通员工（staff）按照下载次数降序查询文件(可查询文件权限为个人，本部门，公司的)
+	 * @param String userid 当前用户
+	 * @param int f_department_id  文件所属部门ID
+	 * @return  List<TFile>
+	 */
+	public List<VUserFile> staffdownloadsslectallfile(String userid,int f_department_id);
 
+	/**
+	 * 领导按照文件下载次数降序查询所有文件(可查询文件权限为个人，所有部门，公司的)
+	 * @param String userid 当前用户
+	 * @param int f_department_id  文件所属部门ID
+	 * @return  List<TFile>
+	 */
+	public List<VUserFile> leaddownloadsslectallfile(String userid);	
 	
 	/**
 	 * 根据文件权限查询权限名称
