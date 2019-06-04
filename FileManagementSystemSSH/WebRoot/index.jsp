@@ -120,16 +120,16 @@ margin-top: 60px;
 			<div class="layui-card daohan">										
 			  <div class="layui-card-header">
 			  	<a href="downloadAction.action?fileid=${file.fileid}">文件标题：${file.filename}</a>
-				  <span style="float:right"><a href="downloadAction.action?fileid=${file.fileid}">下载次数:${file.downloads}</a></span>	   
+				<span style="float:right"><a href="downloadAction.action?fileid=${file.fileid}">下载次数:${file.downloads}</a></span>
 			  </div>			  
 			   
-			  <%--  <div class="layui-card-body line-limit-length">
+			<%--  <div class="layui-card-body line-limit-length">
 			   	<a href="downloadAction.action?fileid=${file.fileid}">上传用户:${file.username}</a>
 			   	<span style="margin-left:50px"><a href="downloadAction.action?fileid=${file.fileid}">上传时间:${file.uptime}</a></span>	
 			    <span style="margin-left:50px"><a href="downloadAction.action?fileid=${file.fileid}">文件权限:${file.authorityname}</a></span>
 			   	<span style="margin-left:50px"><a href="downloadAction.action?fileid=${file.fileid}">所属部门:${file.departmentname}</a></span>	
 			    <span style="margin-left:50px"><a href="downloadAction.action?fileid=${file.fileid}">下载次数:${file.downloads}</a></span>	   
-			  </div>		 --%>		 	  			  
+			  </div>		 --%> 	  			  
 			  
 			</div>
 			

@@ -100,7 +100,7 @@ public class loginAction extends BaseAction {
 			List<VUserFile> showfilelist = new ArrayList<VUserFile>() ;
 			int count=0;
 			if(loginUser.getRoleid() == 203){//判断当前登录用户是否为管理层领导，203位总经理管理层
-				showfilelist = DAOFactorys.getFileDAO().leaddownloadsslectallfile(userid);
+				showfilelist = DAOFactorys.getFileDAO().leaddownloadsslectallfile(userid);				
 				    count = DAOFactorys.getFileDAO().leadcountslectallfile(userid);
 				    if(count > 7){
                         count = 7;
