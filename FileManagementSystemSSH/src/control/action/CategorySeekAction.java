@@ -54,7 +54,7 @@ public class CategorySeekAction extends BaseAction {
 			if(filekeyword != null && (type_id == 1 || type_id == 2 || type_id == 3 || type_id == 4 || type_id == 5)){//通过分类和输入框关键字来查询			
 				filelist = DAOFactorys.getFileDAO().leadcategoryslectallfile(userid, type_id, filekeyword);
 			} else if(type_id == 6 && filekeyword == null){//领导查询全部文件
-				filelist = DAOFactorys.getFileDAO().leadslectallfile(userid);
+				filelist = DAOFactorys.getFileDAO().leadslectallfile(userid);				
 			}
 			else{//通过输入框来查询		
 				filelist = DAOFactorys.getFileDAO().leadslectallfile(userid, filekeyword);				

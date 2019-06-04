@@ -24,7 +24,7 @@
 	
 	.same {
 		padding: 0;
-		margin-top: -2px;
+		margin-top: -1px;
 		margin-left: -1px;
 		box-sizing: border-box;
 		border: 1;
