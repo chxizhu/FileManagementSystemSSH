@@ -201,4 +201,11 @@ public interface FileDAO {
 	 */
 	public List<VFile> selectfilesum(String userid);
 	
+	/**
+	 * 文件下载修改
+	 * @param int  文件内容对象
+	 * @return  boolean  成功返回true 失败返回false
+	 */
+	public boolean updatefiledowload(int fileid,int bdownloads );
+	
 }

@@ -21,9 +21,23 @@ public class downloadAction extends BaseAction {
 	private String type;
 	private String authority;
 	private String labe;
+	private int downloads;
 	
 	
 	
+	public int getDownloads() {
+		return downloads;
+	}
+
+
+
+
+	public void setDownloads(int downloads) {
+		this.downloads = downloads;
+	}
+
+
+
 
 	public String getTitle() {
 		return title;
@@ -167,9 +181,13 @@ public class downloadAction extends BaseAction {
 	          
 	           authority=down.get(i).getDscribe();
 	           request.setAttribute("authority", authority);
+	           
+	           downloads=Integer.parseInt(down.get(i).getDscribe());
+	           System.out.println("测试1"+downloads);
 	        		   }
-		
-		
+		downloads=downloads+1;
+	    System.out.println("测试2"+downloads);
+	    udao.updatefiledowload(fileid,downloads );
 		return SUCCESS;
 	}
 }
