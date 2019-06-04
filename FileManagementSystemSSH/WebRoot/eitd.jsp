@@ -50,7 +50,7 @@
 
 				<ul class="layui-nav layui-bg-blue">
 					<li class="layui-nav-item ">
-						<a href="index.jsp">文件资源管理系统</a>
+						<a href="returnindex.action">文件资源管理系统</a>
 					</li>
 					
 					<li class="layui-nav-item ">
