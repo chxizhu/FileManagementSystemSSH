@@ -35,15 +35,15 @@ public class ReturnIndexAction extends BaseAction {
 		if(loginUser.getRoleid() == 203){//判断当前登录用户是否为管理层领导，203位总经理管理层
 			showfilelist = DAOFactorys.getFileDAO().leaddownloadsslectallfile(userid);
 			    count = DAOFactorys.getFileDAO().leadcountslectallfile(userid);
-			    if(count > 4){
-                    count = 4;
+			    if(count > 7){
+                    count = 7;
 				 }
 			}
 			else{//普通员工查询，	
 				showfilelist = DAOFactorys.getFileDAO().staffdownloadsslectallfile(userid, loginUser.getDepartmentid());
 				 count = DAOFactorys.getFileDAO().staffcountslectallfile(userid, loginUser.getDepartmentid());
-				 if(count > 4){
-                      count = 4;
+				 if(count > 7){
+                      count = 7;
 				 }
 			}				
 		request.setAttribute("showfilelist", showfilelist);
