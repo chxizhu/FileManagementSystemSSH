@@ -32,15 +32,15 @@ public class ReturnIndexAction extends BaseAction {
 		List<VUserFile> showfilelist = new ArrayList<VUserFile>() ;
 		int count=0;
 		if(loginUser.getRoleid() == 203){//判断当前登录用户是否为管理层领导，203位总经理管理层
-			showfilelist = DAOFactorys.getFileDAO().leaddownloadsslectallfile(loginUser.getUserid());
-			    count = DAOFactorys.getFileDAO().leadcountslectallfile(loginUser.getUserid());
+			showfilelist = DAOFactorys.getFileDAO().leaddownloadsslectallfile(loginUser.getUserid());  //得到文章列表
+			    count = DAOFactorys.getFileDAO().leadcountslectallfile(loginUser.getUserid());		//得到文章总数
 			    if(count > 7){
                     count = 7;
 				 }
 			}
 			else{//普通员工查询，	
-				showfilelist = DAOFactorys.getFileDAO().staffdownloadsslectallfile(loginUser.getUserid(),loginUser.getDepartmentid());				
-				 count = DAOFactorys.getFileDAO().staffcountslectallfile(loginUser.getUserid(), loginUser.getDepartmentid());
+				showfilelist = DAOFactorys.getFileDAO().staffdownloadsslectallfile(loginUser.getUserid(),loginUser.getDepartmentid());	//得到文章列表			
+				 count = DAOFactorys.getFileDAO().staffcountslectallfile(loginUser.getUserid(), loginUser.getDepartmentid());		//得到文章总数
 				 if(count > 7){
                       count = 7;
 				 }

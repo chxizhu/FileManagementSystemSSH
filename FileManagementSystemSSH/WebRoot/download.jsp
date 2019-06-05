@@ -55,7 +55,6 @@
 				<li class="layui-nav-item "><a href="uplode.jsp">文件上传</a></li>
 
 				<li class="layui-nav-item "><a href="ownfile.jsp">个人文件管理</a></li>
-
 				
 				<li class="layui-nav-item layui-col-md-offset6"><a href="javascript:;">欢迎您：${loginUser.username}</a>
 					<dl class="layui-nav-child">
@@ -68,7 +67,6 @@
 						</dd>
 						
 					</dl></li>
-
 				
 				<li class="layui-nav-item "><a href="login.jsp" onclick="if(confirm('你确定要退出吗？')==false)return false">退出</a></li>
 
@@ -82,10 +80,7 @@
 			<div class="layui-row">
 				<div class="layui-col-md10 layui-col-md-offset1 ">
 					<div class="layui-card">
-						
-
-							
-
+												
 							<div ><p class="fontsize" style="margin-top: 30px;margin-bottom: 10px;">文件基本信息</p></div>
 							<hr class="layui-bg-blue">
 							<form class="layui-form" action="downloadAction.action">
@@ -116,11 +111,7 @@
 										<input disabled="disabled" value="${path}" type="text" name="path" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input">
 									</div>
 								</div>
-								
-								
-								
-								
-								
+																																						
 								<div class="layui-form-item">
 									<label class="layui-form-label">文件标签</label>
 									<div class="layui-input-block">

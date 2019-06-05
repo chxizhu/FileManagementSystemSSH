@@ -7,9 +7,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class deleteownfileAction extends ActionSupport {
 
-	private int fileid;
-
-	
+	private int fileid;	
 
 	public void setFileid(int fileid) {
 		this.fileid = fileid;

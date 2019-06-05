@@ -74,19 +74,15 @@ public class addfileAction extends BaseAction {
 		// new Date()为获取当前系统时间
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// 设置日期格式
 		String datetime = df.format(new Date());
-		// System.out.println(df.format(new Date()));
 
 		// 通过文件名获取文件后缀
 		File file = new File(filename);
 		String fileName = file.getName();
 		String filesuffix = fileName.substring(fileName.lastIndexOf(".") + 1);
-		// System.out.println(filesuffix);
 		
 		//通过文件名获取文件类型返回int
 		int TypeId=FileTypeUtil.getType(fileName);
-		//System.out.println(FileTypeUtil.getType(fileName));
-		
-		
+			
 		HttpSession session = request.getSession();
 		VUser loginUser = (VUser) session.getAttribute("loginUser");
 

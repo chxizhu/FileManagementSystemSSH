@@ -70,17 +70,11 @@ public class loginAction extends BaseAction {
 						
 		// 数据校验
 		if (userid == null || userid.trim().equals("")) {
-			// errorsTest = "用户名不能为空";
-			// bakurl = "login.jsp";
 			return ERROR;
 		} else if (pwd == null || pwd.trim().equals("")) {
-			// errorsTest = "登录密码不能为空";
-			// bakurl = "login.jsp";
 			return ERROR;
 		}
 
-		// else if(varify==null ||varify.trim().equals("")){
-		// errorsTest="验证码不能为空"; bakurl="login.jsp"; return ERROR; }else
 		if (!varify.equals(srand)) {
 			 errorsTest = "验证码不正确,请重新输入";
 			request.setAttribute("errorsTest", errorsTest );
@@ -96,19 +90,19 @@ public class loginAction extends BaseAction {
 			// 成功以后在 session中记录登录用户，跳转回主页
 			session.setAttribute("loginUser", loginUser);
 			
-			/*在主页按下载次数展示*/
+			/*在主页按下载次数展示文件*/
 			List<VUserFile> showfilelist = new ArrayList<VUserFile>() ;
 			int count=0;
 			if(loginUser.getRoleid() == 203){//判断当前登录用户是否为管理层领导，203位总经理管理层
-				showfilelist = DAOFactorys.getFileDAO().leaddownloadsslectallfile(userid);				
-				    count = DAOFactorys.getFileDAO().leadcountslectallfile(userid);
+				showfilelist = DAOFactorys.getFileDAO().leaddownloadsslectallfile(userid);		//查询文件列表		
+				    count = DAOFactorys.getFileDAO().leadcountslectallfile(userid);				//查询文件总数
 				    if(count > 7){
                         count = 7;
 					 }
 				}
 				else{//普通员工查询，	
-					showfilelist = DAOFactorys.getFileDAO().staffdownloadsslectallfile(userid, loginUser.getDepartmentid());
-					 count = DAOFactorys.getFileDAO().staffcountslectallfile(userid, loginUser.getDepartmentid());
+					showfilelist = DAOFactorys.getFileDAO().staffdownloadsslectallfile(userid, loginUser.getDepartmentid());	//查询文件列表	
+					 count = DAOFactorys.getFileDAO().staffcountslectallfile(userid, loginUser.getDepartmentid());		//查询文件总数
 					 if(count > 7){
                           count = 7;
 					 }

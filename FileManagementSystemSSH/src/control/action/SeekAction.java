@@ -46,8 +46,7 @@ public class SeekAction extends BaseAction {
 		List<VUserFile> filelist = new ArrayList<VUserFile>() ;		
 		
 		if(loginUser.getRoleid() == 203){//判断当前登录用户是否为管理层领导，203位总经理管理层			
-				filelist = DAOFactorys.getFileDAO().leadslectallfile(userid, filekeyword);    						
-				
+				filelist = DAOFactorys.getFileDAO().leadslectallfile(userid, filekeyword);    //领导模糊查询文件(可查询文件权限为个人，所有部门，公司的)									
 			}else{				
 				filelist = DAOFactorys.getFileDAO().slectallfile(userid,f_department_id,filekeyword);													
 		}				

@@ -33,7 +33,7 @@ public class PassdEitsaction extends BaseAction {
 		// TODO Auto-generated method stub
 		UserDAO udao = new UserDAOImpl();
 		VUser loginUser = (VUser)session.getAttribute("loginUser");
-		udao.modifyPwd(loginUser.getUserid(), pwd);
+		udao.modifyPwd(loginUser.getUserid(), pwd); //修改用户密码
 		
 		boolean usereitd=	udao.modifyPwd(userid, pwd);
 		if (usereitd == true) {

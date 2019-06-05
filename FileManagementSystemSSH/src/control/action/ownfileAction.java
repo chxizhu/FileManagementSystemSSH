@@ -32,25 +32,20 @@ public class ownfileAction extends BaseAction {
 		return page;
 	}
 
-
 	public void setPage(int page) {
 		this.page = page;
 	}
-
 
 	public int getLimit() {
 		return limit;
 	}
 
-
 	public void setLimit(int limit) {
 		this.limit = limit;
 	}
 
-
-	private int limit;
+	private int limit; //每页条数
 	
-
 	/**
 	 * @return
 	 * @throws IOException 
@@ -60,14 +55,13 @@ public class ownfileAction extends BaseAction {
 		HttpSession session = request.getSession();
 		VUser loginUser = (VUser) session.getAttribute("loginUser");
 		
-		//System.out.println("页数"+page+limit);
 		FileDAO udao = DAOFactorys.getFileDAO();
 		
-		List<VFile> list=udao.getForumListByPage(loginUser.getUserid(), page, limit);
-		List<VFile> num = udao.selectfilesum(loginUser.getUserid());
+		List<VFile> list=udao.getForumListByPage(loginUser.getUserid(), page, limit); //当前登录用户文件分页展示列表
+		List<VFile> num = udao.selectfilesum(loginUser.getUserid());     //得到当前用户文件总数
 		
 
-		
+		//返回json格式数据
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("application/json");
 		PrintWriter out = response.getWriter();

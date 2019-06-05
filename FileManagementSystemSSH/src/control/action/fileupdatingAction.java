@@ -102,24 +102,23 @@ public class fileupdatingAction extends BaseAction {
 
 		for (int i = 0; i < down.size(); i++) {
 			title = down.get(i).getFilename();
-
 			
 			request.setAttribute("fileid", fileid);
 			request.setAttribute("title", title);
 
-			date = down.get(i).getUptime();
+			date = down.get(i).getUptime();		//得到文件上传时间
 			request.setAttribute("date", date);
 
-			author = down.get(i).getAuthor();
+			author = down.get(i).getAuthor();		//得到文件上传作者
 			request.setAttribute("author", author);
 
-			path = down.get(i).getFilepath();
+			path = down.get(i).getFilepath();	//得到文件上传路径
 			request.setAttribute("path", path);
 
-			labe = down.get(i).getLable();
+			labe = down.get(i).getLable();		//得到文件标签
 			request.setAttribute("labe", labe);
 
-			authority = down.get(i).getDscribe();
+			authority = down.get(i).getDscribe();		//得到文件下载次数
 			request.setAttribute("authority", authority);
 		}
 

@@ -57,7 +57,6 @@ public class SavefileUpdatingAction extends ActionSupport {
 	public String execute() {
 		// TODO Auto-generated method stub
 		FileDAO udao = DAOFactorys.getFileDAO();
-		//System.out.println("id"+fileid);
 		boolean returnNum = udao.saveupdate(filename, authority_id, lable, dscribe, fileid);
 		return SUCCESS;
 	}
