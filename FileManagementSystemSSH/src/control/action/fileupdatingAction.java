@@ -103,6 +103,8 @@ public class fileupdatingAction extends BaseAction {
 		for (int i = 0; i < down.size(); i++) {
 			title = down.get(i).getFilename();
 
+			
+			request.setAttribute("fileid", fileid);
 			request.setAttribute("title", title);
 
 			date = down.get(i).getUptime();

@@ -91,13 +91,17 @@
 					<div class="layui-card-header fontsize">文件信息修改</div>
 					<hr class="layui-bg-blue">
 					<div class="layui-card-body">
-						<form class="layui-form" action="">
+						<form class="layui-form" action="savefileupdating.action">
+						<input type="text" name="fileid" lay-verify="required"
+										value="${fileid }"  id="title" autocomplete="off"
+										placeholder="文件id"
+										class="layui-input">
 							<div class="layui-form-item">
 								<label class="layui-form-label">文件标题</label>
 								<div class="layui-input-block">
 									<input type="text" name="filename" lay-verify="required"
 										value="${title }"  id="title" autocomplete="off"
-										placeholder="文件标题内容不可修改（如需修改请直接修改上传前文件标题）" readonly="true"
+										placeholder="文件标题内容"
 										class="layui-input">
 								</div>
 							</div>

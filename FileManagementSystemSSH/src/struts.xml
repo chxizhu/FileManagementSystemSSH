@@ -69,4 +69,10 @@
 		<action name="returnindex"
 			class="control.action.ReturnIndexAction">
 			<result name="success" type="dispatcher">/index.jsp</result>
+		</action>
+		<action name="savefileupdating"
+			class="control.action.SavefileUpdatingAction">
+			<result name="success" type="dispatcher">
+				/ownfile.jsp
+			</result>
 		</action></package></struts>    

@@ -153,7 +153,7 @@
 					}, {
 						field : 'lable',
 						title : '标签',
-						
+						width : 120
 						
 					}, {
 						field : 'typename',
@@ -161,15 +161,12 @@
 						sort : true,
 						width : 80
 						
-					}, {
-						field : 'uptime',
-						title : '上传时间',
-						sort : true
 					}, 
 					
 					{
 						field : 'dscribe',
 						title : '说明',
+						width : 250
 					
 					}, 
 					

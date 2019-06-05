@@ -208,4 +208,11 @@ public interface FileDAO {
 	 */
 	public boolean updatefiledowload(int fileid,int bdownloads );
 	
+	/**
+	 * 文件信息修改
+	 * @param int  文件内容对象
+	 * @return  boolean  成功返回true 失败返回false
+	 */
+	public boolean saveupdate(String filename,String authority_id,String lable,String dscribe,String fileid);
+	
 }

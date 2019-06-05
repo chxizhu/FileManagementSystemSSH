@@ -190,4 +190,13 @@ public class FileDAOImpl implements FileDAO {
 		return bdao.update(sql, param);
 	}
 	
+	
+	@Override
+public boolean saveupdate(String filename,String authority_id,String lable,String dscribe,String fileid){
+		String sql = "update T_File set filename=?,authority_id=?,lable=?,dscribe=? where fileid=?";
+		Object[] param = {filename,authority_id,lable,dscribe,fileid};
+		return bdao.update(sql, param);
+	}
+	
+	
 }
