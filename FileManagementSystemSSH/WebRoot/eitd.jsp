@@ -88,7 +88,7 @@
  		
     </div>
     <div id = "foot">
-    	<a href="#">返回页面</a>
+    	<a href="seek.jsp">返回页面</a>
     </div>
 	
 	<script src="layui/layui.js" charset="utf-8"></script>

@@ -22,7 +22,7 @@ public class downloadAction extends BaseAction {
 	private String authority;
 	private String labe;
 	private int downloads;
-	
+
 	
 	
 	public int getDownloads() {
@@ -160,7 +160,7 @@ public class downloadAction extends BaseAction {
 		udao.slectallfileid(fileid);
 		
 		List<TFile> down=udao.slectallfileid(fileid);
-		
+		System.out.println("文件id"+fileid);
 		
 		for (int i =0;i< down.size();i++){
 	           title=down.get(i).getFilename();
@@ -183,11 +183,11 @@ public class downloadAction extends BaseAction {
 	           request.setAttribute("authority", authority);
 	           
 	           downloads=down.get(i).getDownloads();
-	           System.out.println("测试1"+downloads);
+	           System.out.println("测试1："+downloads);
 	        		   }
 		downloads=downloads+1;
-	    System.out.println("测试2"+downloads);
-	    udao.updatefiledowload(fileid,downloads );
+	    System.out.println("测试2："+downloads);
+	  udao.updatefiledowload(downloads, fileid);
 		return SUCCESS;
 	}
 }
