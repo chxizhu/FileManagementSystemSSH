@@ -53,6 +53,8 @@
 						<a href="returnindex.action">文件资源管理系统</a>
 					</li>
 					
+					<li class="layui-nav-item "><a href="seek.jsp">文件搜索</a></li>
+					
 					<li class="layui-nav-item ">
 						<a href="uplode.jsp">文件上传</a>
 					</li>

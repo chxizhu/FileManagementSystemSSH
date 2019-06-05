@@ -65,7 +65,7 @@ public class ownfileAction extends BaseAction {
 		
 		List<VFile> list=udao.getForumListByPage(loginUser.getUserid(), page, limit);
 		List<VFile> num = udao.selectfilesum(loginUser.getUserid());
-		System.out.println(num.size());
+		
 
 		
 		response.setCharacterEncoding("utf-8");

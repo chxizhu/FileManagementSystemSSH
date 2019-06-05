@@ -187,7 +187,6 @@ public class FileDAOImpl implements FileDAO {
 	public boolean updatefiledowload(int downloads,int fileid) {
 		String sql = "update T_File set downloads=? where fileid=?";
 		Object[] param = {downloads,fileid};
-		System.out.println(downloads+fileid);
 		return bdao.update(sql, param);
 	}
 	
