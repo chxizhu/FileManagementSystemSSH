@@ -206,7 +206,7 @@ public interface FileDAO {
 	 * @param int  文件内容对象
 	 * @return  boolean  成功返回true 失败返回false
 	 */
-	public boolean updatefiledowload(int fileid,int bdownloads );
+	public boolean updatefiledowload(int downloads,int fileid );
 	
 	/**
 	 * 文件信息修改
