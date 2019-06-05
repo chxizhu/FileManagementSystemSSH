@@ -9,17 +9,17 @@ import business.factory.DAOFactorys;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class CategorySeekAction extends BaseAction {
+/**
+ * 
+ * @Title: CategorySeekAction.java
+ * @Package control.action
+ * @Description: 通过文件种类来查询
+ * @author ZDZ
+ * @date 2019年5月23日 上午9:11:27
+ * @version V1.0
+ */
 
-	/**
-	 * 
-	 * @Title: CategorySeekAction.java
-	 * @Package control.action
-	 * @Description: 通过文件种类来查询
-	 * @author ZDZ
-	 * @date 2019年5月23日 上午9:11:27
-	 * @version V1.0
-	 */
+public class CategorySeekAction extends BaseAction {
 	
 	private String userid;
 	private int f_department_id;

@@ -11,18 +11,17 @@ import model.VUser;
 import model.VUserFile;
 import business.factory.DAOFactorys;
 
+/**
+ * 
+ * @Title: SeekAction.java
+ * @Package control.action
+ * @Description: 通过输入框关键字模糊查询
+ * @author ZDZ
+ * @date 2019年5月23日 上午9:11:27
+ * @version V1.0
+ */
 
 public class SeekAction extends BaseAction {
-	
-	/**
-	 * 
-	 * @Title: SeekAction.java
-	 * @Package control.action
-	 * @Description: 通过输入框关键字模糊查询
-	 * @author ZDZ
-	 * @date 2019年5月23日 上午9:11:27
-	 * @version V1.0
-	 */
 	
 	private String userid;
 	private int f_department_id;

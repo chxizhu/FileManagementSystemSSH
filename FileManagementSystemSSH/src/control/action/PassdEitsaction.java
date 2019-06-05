@@ -6,17 +6,17 @@ import business.impl.UserDAOImpl;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+/**
+ * 
+ * @Title: PassdEitsaction.java
+ * @Package control.action
+ * @Description: 修改用户密码
+ * @author ZDZ
+ * @date 2019年5月23日 上午9:11:27
+ * @version V1.0
+ */
+
 public class PassdEitsaction extends BaseAction {
-	
-	/**
-	 * 
-	 * @Title: PassdEitsaction.java
-	 * @Package control.action
-	 * @Description: 修改用户密码
-	 * @author ZDZ
-	 * @date 2019年5月23日 上午9:11:27
-	 * @version V1.0
-	 */
 	
 	private String userid;
 	private String pwd;

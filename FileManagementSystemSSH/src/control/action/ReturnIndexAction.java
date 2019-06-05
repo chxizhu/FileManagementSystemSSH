@@ -9,17 +9,17 @@ import business.factory.DAOFactorys;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class ReturnIndexAction extends BaseAction {
+/**
+ * 
+ * @Title: ReturnIndexAction.java
+ * @Package control.action
+ * @Description: 其他界面回到主页按下载排行显示前7名下载文件
+ * @author ZDZ
+ * @date 2019年5月23日 上午9:11:27
+ * @version V1.0
+ */
 
-	/**
-	 * 
-	 * @Title: ReturnIndexAction.java
-	 * @Package control.action
-	 * @Description: 其他界面回到主页按下载排行显示前7名下载文件
-	 * @author ZDZ
-	 * @date 2019年5月23日 上午9:11:27
-	 * @version V1.0
-	 */
+public class ReturnIndexAction extends BaseAction {
 	
 	private String userid;
 	

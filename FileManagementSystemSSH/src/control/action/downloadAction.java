@@ -11,17 +11,17 @@ import business.impl.UserDAOImpl;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+/**
+ * 
+ * @Title: downloadAction.java
+ * @Package control.action
+ * @Description: 修改上传文件信息
+ * @author ZDZ
+ * @date 2019年5月23日 上午9:11:27
+ * @version V1.0
+ */
+
 public class downloadAction extends BaseAction {
-	
-	/**
-	 * 
-	 * @Title: downloadAction.java
-	 * @Package control.action
-	 * @Description: 修改上传文件信息
-	 * @author ZDZ
-	 * @date 2019年5月23日 上午9:11:27
-	 * @version V1.0
-	 */
 	
 	private int fileid;
 	private String title;

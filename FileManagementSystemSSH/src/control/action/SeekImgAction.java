@@ -9,17 +9,17 @@ import business.factory.DAOFactorys;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class SeekImgAction extends BaseAction {
+/**
+ * 
+ * @Title: SeekAction.java
+ * @Package control.action
+ * @Description: 通过输入框关键字模糊和文件分类来查询图片文件
+ * @author ZDZ
+ * @date 2019年5月23日 上午9:11:27
+ * @version V1.0
+ */
 
-	/**
-	 * 
-	 * @Title: SeekAction.java
-	 * @Package control.action
-	 * @Description: 通过输入框关键字模糊和文件分类来查询图片文件
-	 * @author ZDZ
-	 * @date 2019年5月23日 上午9:11:27
-	 * @version V1.0
-	 */
+public class SeekImgAction extends BaseAction {
 	
 	private String userid;
 	private int f_department_id;

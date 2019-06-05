@@ -7,17 +7,17 @@ import model.VUser;
 import model.VUserFile;
 import business.factory.DAOFactorys;
 
-public class ErrorAction extends BaseAction {
+/**
+ * 
+ * @Title: ErrorAction.java
+ * @Package control.action
+ * @Description: 搜索不到文件时跳转到错误界面
+ * @author ZDZ
+ * @date 2019年5月23日 上午9:11:27
+ * @version V1.0
+ */
 
-	/**
-	 * 
-	 * @Title: ErrorAction.java
-	 * @Package control.action
-	 * @Description: 搜索不到文件时跳转到错误界面
-	 * @author ZDZ
-	 * @date 2019年5月23日 上午9:11:27
-	 * @version V1.0
-	 */
+public class ErrorAction extends BaseAction {
 	
 	private String userid;
 	private int f_department_id;
