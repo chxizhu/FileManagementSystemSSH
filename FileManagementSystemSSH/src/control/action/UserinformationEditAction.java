@@ -10,6 +10,17 @@ import com.opensymphony.xwork2.ActionSupport;
 import freemarker.core.ReturnInstruction.Return;
 
 public class UserinformationEditAction extends BaseAction {
+	
+	/**
+	 * 
+	 * @Title: UserinformationEditAction.java
+	 * @Package control.action
+	 * @Description: 修改用户信息
+	 * @author ZDZ
+	 * @date 2019年5月23日 上午9:11:27
+	 * @version V1.0
+	 */
+	
 	private String userid;
 	private String pwd;
 	private String username;
