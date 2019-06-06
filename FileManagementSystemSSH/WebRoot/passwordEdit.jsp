@@ -76,18 +76,12 @@
 
 		</div>
 	</div>
-		
-		
-		
+				
 			<!--主要內容-->
 		<div class="layui-container mtop">
 			<div class="layui-row">
 				<div class="layui-col-md10 layui-col-md-offset1 ">
-					<div class="layui-card">
-						
-
-							
-
+					<div class="layui-card">								
 							<div ><p class="fontsize" style="margin-top: 30px;margin-bottom: 10px;">密码修改</p></div>
 							<hr class="layui-bg-blue">
 							<form class="layui-form" action="PassdEitsaction.action" onsubmit= "return formCheck() ">
