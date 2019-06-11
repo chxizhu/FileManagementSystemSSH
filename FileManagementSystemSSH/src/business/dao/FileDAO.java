@@ -133,6 +133,13 @@ public interface FileDAO {
 	public int leadcountslectallfile(String userid);	
 	
 	/**
+	 * 查询自己的所有文件(查询文件权限为个人的)，按时间降序
+	 * @param String userid 当前用户
+	 * @return  List<TFile>
+	 */
+	public List<VUserFile> personageselectfile(String userid);	
+	
+	/**
 	 * 根据文件权限查询权限名称
 	 * @return  List<TFileType>
 	 */

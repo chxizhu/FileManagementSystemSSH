@@ -140,7 +140,7 @@
 
 			<c:forEach items="${filelist }" var="forum">
 
-				<div class="layui-card daohan">
+				<div class="layui-card daohan" >
 
 					<div class="layui-card-header">
 						<a href="downloadAction.action?fileid=${forum.fileid}">文件标题：${forum.filename}</a>
@@ -170,7 +170,10 @@
 
 			</c:forEach>
 
+			<div id="demo7"></div>
 		</div>
+				 
+    
 	</div>
 
 
@@ -178,8 +181,7 @@
 <script src="layui/layui.js" charset="utf-8"></script>
 
 <script>
-	layui
-			.use(
+	layui.use(
 					[ 'form', 'element', 'jquery' ],
 					function() {
 						var form = layui.form;
@@ -187,47 +189,41 @@
 						$ = layui.jquery;
 
 						//按时间搜索全部
-						$("#zero")
-								.click(
+						$("#zero").click(
 										function() {
 											window.location.href = "categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=6";
 										})
 
 						// 图片搜索
-						$("#one")
-								.click(
+						$("#one").click(
 										function() {
 											window.location.href = "seekimg.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=1&filekeyword="
 													+ $("#seekinput").val();
 										})
 
 						// 文档搜索
-						$("#two")
-								.click(
+						$("#two").click(
 										function() {
 											window.location.href = "categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=2&filekeyword="
 													+ $("#seekinput").val();
 										})
 
 						// 视频搜索
-						$("#three")
-								.click(
+						$("#three").click(
 										function() {
 											window.location.href = "categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=3&filekeyword="
 													+ $("#seekinput").val();
 										})
 
 						// 音频搜索
-						$("#four")
-								.click(
+						$("#four").click(
 										function() {
 											window.location.href = "categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=4&filekeyword="
 													+ $("#seekinput").val();
 										})
 
 						// 其他搜索
-						$("#five")
-								.click(
+						$("#five").click(
 										function() {
 											window.location.href = "categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=5&filekeyword="
 													+ $("#seekinput").val();
@@ -237,14 +233,27 @@
 </script>
 
 <script>
-	layui.use('element', function() {
-		var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+	layui.use(['element', 'laypage'], function() {
+		var element = layui.element //导航的hover效果、二级菜单等功能，需要依赖element模块
+		,laypage = layui.laypage //分页
 
 		//监听导航点击
 		element.on('nav(demo)', function(elem) {
 			//console.log(elem)
 			layer.msg(elem.text());
 		});
+		
+		//分页
+   //完整功能
+  laypage.render({
+    elem: 'demo7'
+    ,count: 100
+    ,layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
+    ,jump: function(obj){
+      console.log(obj)
+    }
+  });
+		
 	});
 </script>
 

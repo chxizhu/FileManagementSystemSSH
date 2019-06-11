@@ -120,6 +120,13 @@ public class FileDAOImpl implements FileDAO {
 		return bdao.selectValue(hql, para);
 	}
 	
+	@Override	
+	public List<VUserFile> personageselectfile(String userid) {
+		String hql =  "from VUserFile where userid = ? order by uptime desc";
+		Object[] para = {userid};
+		return bdao.select(hql, para);
+	}
+	
 	@Override
 	public List<TAuthority> getAuthority() {
 		// TODO Auto-generated method stub
