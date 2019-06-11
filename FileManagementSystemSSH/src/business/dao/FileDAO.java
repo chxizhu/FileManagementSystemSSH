@@ -95,7 +95,6 @@ public interface FileDAO {
 	/**
 	 * 领导按照时间降序查询所有文件(可查询文件权限为个人，所有部门，公司的)
 	 * @param String userid 当前用户
-	 * @param int f_department_id  文件所属部门ID
 	 * @return  List<TFile>
 	 */
 	public List<VUserFile> leadslectallfile(String userid);	
@@ -138,6 +137,26 @@ public interface FileDAO {
 	 * @return  List<TFile>
 	 */
 	public List<VUserFile> personageselectfile(String userid);	
+	
+	/**
+	 * 普通员工（staff）查询自己本部门的所有文件(查询文件权限为本部门的)，按时间降序
+	 * @param String userid 当前用户
+	 * @param int f_department_id  文件所属部门ID
+	 * @return  List<TFile>
+	 */
+	public List<VUserFile> staffdepartmentselectfile(String userid,int f_department_id);	
+	
+	/**
+	 * 领导按照时间降序查询部门的所有文件(可查询文件权限为所有部门)
+	 * @return  List<TFile>
+	 */
+	public List<VUserFile> leaddepartmentslectallfile();	
+	
+	/**
+	 * 按照时间降序查询公司级的所有文件(可查询文件权限为公司)
+	 * @return  List<TFile>
+	 */
+	public List<VUserFile> companyslectallfile();	
 	
 	/**
 	 * 根据文件权限查询权限名称

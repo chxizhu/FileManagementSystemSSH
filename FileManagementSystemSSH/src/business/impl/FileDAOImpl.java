@@ -127,6 +127,25 @@ public class FileDAOImpl implements FileDAO {
 		return bdao.select(hql, para);
 	}
 	
+	@Override	
+	public List<VUserFile> staffdepartmentselectfile(String userid,int f_department_id) {
+		String hql =  "from VUserFile where (userid = ? and authorityid = 102) and f_department_id = ? order by uptime desc";
+		Object[] para = {userid,f_department_id};
+		return bdao.select(hql, para);
+	}
+	
+	@Override	
+	public List<VUserFile> leaddepartmentslectallfile() {
+		String hql =  "from VUserFile where authorityid = 102 order by uptime desc";		
+		return bdao.select(hql);
+	}
+	
+	@Override	
+	public List<VUserFile> companyslectallfile() {
+		String hql =  "from VUserFile where authorityid = 103 order by uptime desc";		
+		return bdao.select(hql);
+	}
+	
 	@Override
 	public List<TAuthority> getAuthority() {
 		// TODO Auto-generated method stub
@@ -199,11 +218,11 @@ public class FileDAOImpl implements FileDAO {
 	
 	
 	@Override
-public boolean saveupdate(String filename,String authority_id,String lable,String dscribe,String fileid){
-		String sql = "update T_File set filename=?,authority_id=?,lable=?,dscribe=? where fileid=?";
-		Object[] param = {filename,authority_id,lable,dscribe,fileid};
-		return bdao.update(sql, param);
-	}
+	public boolean saveupdate(String filename,String authority_id,String lable,String dscribe,String fileid){
+			String sql = "update T_File set filename=?,authority_id=?,lable=?,dscribe=? where fileid=?";
+			Object[] param = {filename,authority_id,lable,dscribe,fileid};
+			return bdao.update(sql, param);
+		}
 	
 	
 }

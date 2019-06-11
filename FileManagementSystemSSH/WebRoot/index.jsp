@@ -123,37 +123,24 @@ margin-top:11px;
 			<div class="layui-col-md6">
 				<div class="layui-card daohan">
 				  <div class="layui-card-header">个人文件<span style="float:right">更多</span></div>				
-				   <div class="layui-card-body">
+				   <div class="layui-card-body">				  
 				 		<table class="layui-table" lay-skin="line">
 						  <colgroup>
 						    <col width="320">
-						    <col width="100">
+						   <%--  <col width="100"> --%>
 						    <col width="100">
 						    <col>
 						  </colgroup>
 						  <tbody>
+						   <c:forEach items="${privatefilelist }" var="file" begin="0" end="3" step="1">
 						    <a href=""><tr>
-						      <td class="line-limit-length">扬之水，不流束薪。彼其之子，不与我戍申。怀哉怀哉，曷月予还归哉！扬之水，不流束楚。彼其之子，不与我戍</td>
-						      <td>2016-06-06</td>
-						       <td>王一博</td>
+						      <td class="line-limit-length">${file.filename}</td>
+						      <%-- <td>${file.uptime}</td>  --%>
+						       <td>${file.username}</td>
 						    </tr></a>	
-						       <tr>
-						      <td class="line-limit-length">扬之水，不流束薪。彼其之子，不与我戍申。怀哉怀哉，曷月予还归哉！扬之水，不流束楚。彼其之子，不与我戍</td>
-						      <td>2016-06-06</td>
-						       <td>王一博</td>
-						    </tr>	
-						      <tr>
-						      <td class="line-limit-length">扬之水，不流束薪。彼其之子，不与我戍申。怀哉怀哉，曷月予还归哉！扬之水，不流束楚。彼其之子，不与我戍</td>
-						      <td>2016-06-06</td>
-						       <td>王一博</td>
-						    </tr>
-						     <tr>
-						      <td class="line-limit-length">扬之水，不流束薪。彼其之子，不与我戍申。怀哉怀哉，曷月予还归哉！扬之水，不流束楚。彼其之子，不与我戍</td>
-						      <td>2016-06-06</td>
-						       <td>王一博</td>
-						    </tr>					   
+						    </c:forEach>						      				   
 						  </tbody>
-						</table>
+						</table>						
 													  					  
 					 </div>
 				 </div>			
@@ -162,37 +149,25 @@ margin-top:11px;
 			  <div class="layui-col-md6">
 				<div class="layui-card daohan">
 				  <div class="layui-card-header">部门文件<span style="float:right">更多</span></div>				
-				   <div class="layui-card-body">
+				   <div class="layui-card-body">				     
 				 		<table class="layui-table" lay-skin="line">
 						  <colgroup>
 						    <col width="320">
-						    <col width="100">
+						     <col width="100"> 
 						    <col width="100">
 						    <col>
 						  </colgroup>
 						  <tbody>
+						  <c:forEach items="${departmentlist }" var="file" begin="0" end="3" step="1">
 						    <a href=""><tr>
-						      <td class="line-limit-length">扬之水，不流束薪。彼其之子，不与我戍申。怀哉怀哉，曷月予还归哉！扬之水，不流束楚。彼其之子，不与我戍</td>
-						      <td>2016-06-06</td>
-						       <td>王一博</td>
-						    </tr></a>	
-						       <tr>
-						      <td class="line-limit-length">扬之水，不流束薪。彼其之子，不与我戍申。怀哉怀哉，曷月予还归哉！扬之水，不流束楚。彼其之子，不与我戍</td>
-						      <td>2016-06-06</td>
-						       <td>王一博</td>
-						    </tr>	
-						      <tr>
-						      <td class="line-limit-length">扬之水，不流束薪。彼其之子，不与我戍申。怀哉怀哉，曷月予还归哉！扬之水，不流束楚。彼其之子，不与我戍</td>
-						      <td>2016-06-06</td>
-						       <td>王一博</td>
-						    </tr>
-						     <tr>
-						      <td class="line-limit-length">扬之水，不流束薪。彼其之子，不与我戍申。怀哉怀哉，曷月予还归哉！扬之水，不流束楚。彼其之子，不与我戍</td>
-						      <td>2016-06-06</td>
-						       <td>王一博</td>
-						    </tr>					   
+						      <td class="line-limit-length">${file.filename}</td>
+						      <%-- <td>${file.uptime}</td> --%>
+						       <td>${file.authorityname}</td>
+						       <td>${file.departmentname}</td>
+						    </tr></a>
+						    </c:forEach>							     				   
 						  </tbody>
-						</table>
+						</table>						
 													  					  
 					 </div>
 				 </div>			
@@ -207,7 +182,7 @@ margin-top:11px;
 			<div class="layui-col-md6">
 				<div class="layui-card daohan">
 				  <div class="layui-card-header">公司文件<span style="float:right">更多</span></div>				
-				   <div class="layui-card-body">
+				   <div class="layui-card-body">				   
 				 		<table class="layui-table" lay-skin="line">
 						  <colgroup>
 						    <col width="320">
@@ -216,36 +191,22 @@ margin-top:11px;
 						    <col>
 						  </colgroup>
 						  <tbody>
-						    <a href=""><tr>
-						      <td class="line-limit-length">扬之水，不流束薪。彼其之子，不与我戍申。怀哉怀哉，曷月予还归哉！扬之水，不流束楚。彼其之子，不与我戍</td>
-						      <td>2016-06-06</td>
-						       <td>王一博</td>
-						    </tr></a>	
-						       <tr>
-						      <td class="line-limit-length">扬之水，不流束薪。彼其之子，不与我戍申。怀哉怀哉，曷月予还归哉！扬之水，不流束楚。彼其之子，不与我戍</td>
-						      <td>2016-06-06</td>
-						       <td>王一博</td>
-						    </tr>	
-						      <tr>
-						      <td class="line-limit-length">扬之水，不流束薪。彼其之子，不与我戍申。怀哉怀哉，曷月予还归哉！扬之水，不流束楚。彼其之子，不与我戍</td>
-						      <td>2016-06-06</td>
-						       <td>王一博</td>
-						    </tr>	
-						     <tr>
-						      <td class="line-limit-length">扬之水，不流束薪。彼其之子，不与我戍申。怀哉怀哉，曷月予还归哉！扬之水，不流束楚。彼其之子，不与我戍</td>
-						      <td>2016-06-06</td>
-						       <td>王一博</td>
-						    </tr>				   
+						  <c:forEach items="${companylist }" var="file" begin="0" end="3" step="1">
+						    <a href="">
+						    <tr>
+						      <td class="line-limit-length">${file.filename}</td>
+						      <td>${file.authorityname}</td>						     
+						       <td>${file.departmentname}</td>
+						    </tr></a></c:forEach>									      				   
 						  </tbody>
-						</table>
-													  					  
+						</table>							  					  
 					 </div>
 				 </div>			
 			  </div>
 			  
 			  <div class="layui-col-md6">
 				<div class="layui-card daohan">
-				  <div class="layui-card-header">个人文件下载排行<span style="float:right">更多</span></div>				
+				  <div class="layui-card-header">文件下载排行<span style="float:right">更多</span></div>				
 				   <div class="layui-card-body">
 				 		<table class="layui-table" lay-skin="line">
 						  <colgroup>
@@ -255,26 +216,14 @@ margin-top:11px;
 						    <col>
 						  </colgroup>
 						  <tbody>
+						   <c:forEach items="${showfilelist }" var="file" begin="0" end="3" step="1">
 						    <tr>
-						      <td class="line-limit-length">扬之水，不流束薪。彼其之子，不与我戍申。怀哉怀哉，曷月予还归哉！扬之水，不流束楚。彼其之子，不与我戍</td>
-						      <td>2016-06-06</td>
-						       <td>王一博</td>
+						      <td class="line-limit-length">${file.filename}</td>
+						      <td>${file.authorityname}</td>
+						       <td>下载次数:${file.downloads}</td>
 						    </tr>
-						       <tr>
-						      <td class="line-limit-length">扬之水，不流束薪。彼其之子，不与我戍申。怀哉怀哉，曷月予还归哉！扬之水，不流束楚。彼其之子，不与我戍</td>
-						      <td>2016-06-06</td>
-						       <td>王一博</td>
-						    </tr>	
-						      <tr>
-						      <td class="line-limit-length">扬之水，不流束薪。彼其之子，不与我戍申。怀哉怀哉，曷月予还归哉！扬之水，不流束楚。彼其之子，不与我戍</td>
-						      <td>2016-06-06</td>
-						       <td>王一博</td>
-						    </tr>	
-						      <tr>
-						      <td class="line-limit-length">扬之水，不流束薪。彼其之子，不与我戍申。怀哉怀哉，曷月予还归哉！扬之水，不流束楚。彼其之子，不与我戍</td>
-						      <td>2016-06-06</td>
-						       <td>王一博</td>
-						    </tr>					   
+						    </c:forEach>	
+						     				   
 						  </tbody>
 						</table>
 													  					  

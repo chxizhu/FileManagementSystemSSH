@@ -41,12 +41,19 @@ public class ReturnIndexAction extends BaseAction {
 		/*在主页按下载次数展示*/
 		List<VUserFile> showfilelist = new ArrayList<VUserFile>() ;
 		int count=0;
+		
+		/*在主页展示当前用户部门级文件*/
+		List<VUserFile> departmentlist = new ArrayList<VUserFile>() ;
+		
 		if(loginUser.getRoleid() == 203){//判断当前登录用户是否为管理层领导，203位总经理管理层
 			showfilelist = DAOFactorys.getFileDAO().leaddownloadsslectallfile(loginUser.getUserid());  //得到文章列表
 			    count = DAOFactorys.getFileDAO().leadcountslectallfile(loginUser.getUserid());		//得到文章总数
 			    if(count > 7){
                     count = 7;
 				 }
+			    
+			    departmentlist= DAOFactorys.getFileDAO().leaddepartmentslectallfile();//查询部门级文件列表	
+			    System.out.println("领导查询" + departmentlist);
 			}
 			else{//普通员工查询，	
 				showfilelist = DAOFactorys.getFileDAO().staffdownloadsslectallfile(loginUser.getUserid(),loginUser.getDepartmentid());	//得到文章列表			
@@ -54,9 +61,22 @@ public class ReturnIndexAction extends BaseAction {
 				 if(count > 7){
                       count = 7;
 				 }
+				 
+				 departmentlist = DAOFactorys.getFileDAO().staffdepartmentselectfile(loginUser.getUserid(), loginUser.getDepartmentid());//查询部门级文件列表
+				 System.out.println("员工查询" + departmentlist);
 			}				
 		request.setAttribute("showfilelist", showfilelist);
 		request.setAttribute("count", count);
+		
+		/*在主页展示个人文件*/
+		List<VUserFile> privatefilelist = new ArrayList<VUserFile>(); 
+		privatefilelist = DAOFactorys.getFileDAO().personageselectfile(loginUser.getUserid());//查询文件列表	
+		request.setAttribute("privatefilelist", privatefilelist);
+		
+		/*在主页展示公司文件*/
+		List<VUserFile> companylist = new ArrayList<VUserFile>(); 
+		companylist = DAOFactorys.getFileDAO().companyslectallfile();//查询公司文件列表	
+		request.setAttribute("companylist", companylist);
 		
 		return SUCCESS;
 		
