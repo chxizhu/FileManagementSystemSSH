@@ -53,7 +53,6 @@ public class ReturnIndexAction extends BaseAction {
 				 }
 			    
 			    departmentlist= DAOFactorys.getFileDAO().leaddepartmentslectallfile();//查询部门级文件列表	
-			    System.out.println("领导查询" + departmentlist);
 			}
 			else{//普通员工查询，	
 				showfilelist = DAOFactorys.getFileDAO().staffdownloadsslectallfile(loginUser.getUserid(),loginUser.getDepartmentid());	//得到文章列表			
@@ -63,10 +62,10 @@ public class ReturnIndexAction extends BaseAction {
 				 }
 				 
 				 departmentlist = DAOFactorys.getFileDAO().staffdepartmentselectfile(loginUser.getUserid(), loginUser.getDepartmentid());//查询部门级文件列表
-				 System.out.println("员工查询" + departmentlist);
 			}				
 		request.setAttribute("showfilelist", showfilelist);
 		request.setAttribute("count", count);
+		request.setAttribute("departmentlist", departmentlist);
 		
 		/*在主页展示个人文件*/
 		List<VUserFile> privatefilelist = new ArrayList<VUserFile>(); 
