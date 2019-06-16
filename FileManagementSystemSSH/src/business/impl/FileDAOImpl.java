@@ -135,15 +135,81 @@ public class FileDAOImpl implements FileDAO {
 	}
 	
 	@Override	
+	public List<VUserFile> staffdepartmentselectfilebypage(String userid,int f_department_id,int startPage,int pageSize) {
+		String hql =  "from VUserFile where (userid = ? and authorityid = 102) and f_department_id = ? order by uptime desc";
+		Object[] para = {userid,f_department_id};
+		return bdao.selectByPage(hql, para,startPage,pageSize);
+	}
+	
+	@Override	
+	public int staffdepartmentselectfilecount(String userid,int f_department_id) {
+		String hql =  "select count(*) from VUserFile where (userid = ? and authorityid = 102) and f_department_id = ?";
+		Object[] para = {userid,f_department_id};
+		return bdao.selectValue(hql, para);
+	}
+	
+	@Override	
 	public List<VUserFile> leaddepartmentslectallfile() {
 		String hql =  "from VUserFile where authorityid = 102 order by uptime desc";		
 		return bdao.select(hql);
 	}
 	
 	@Override	
+	public List<VUserFile> leaddepartmentslectallfilebypage(int startPage,int pageSize) {
+		String hql =  "from VUserFile where authorityid = 102 order by uptime desc";		
+		return bdao.selectByPage(hql,startPage,pageSize);
+	}
+	
+	@Override	
+	public int leaddepartmentslectallfilecount() {
+		String hql =  "select count(*) from VUserFile where authorityid = 102";		
+		return bdao.selectValue(hql);
+	}
+	
+	@Override	
 	public List<VUserFile> companyslectallfile() {
 		String hql =  "from VUserFile where authorityid = 103 order by uptime desc";		
 		return bdao.select(hql);
+	}
+	
+	@Override	
+	public List<VUserFile> companyslectallfilebypage(int startPage,int pageSize) {
+		String hql =  "from VUserFile where authorityid = 103 order by uptime desc";		
+		return bdao.selectByPage(hql,startPage,pageSize);
+	}
+	
+	@Override	
+	public int companyslectallfilecount() {
+		String hql =  "select count(*) from VUserFile where authorityid = 103";		
+		return bdao.selectValue(hql);
+	}
+	
+	@Override	
+	public List<VUserFile> staffdownloadsslectallfilebypage(String userid,int f_department_id,int startPage,int pageSize) {
+		String hql =  "from VUserFile where ((userid = ? and authorityid = 101) or authorityid = 102 or authorityid = 103) and (f_department_id = ? or authorityid = 103) order by downloads desc";		
+		Object[] para = {userid,f_department_id};
+		return bdao.selectByPage(hql,para,startPage,pageSize);
+	}
+	
+	@Override	
+	public int staffdownloadsslectallfilecount(String userid,int f_department_id) {
+		String hql =  "select count(*) from VUserFile where ((userid = ? and authorityid = 101) or authorityid = 102 or authorityid = 103) and (f_department_id = ? or authorityid = 103)";		
+		Object[] para = {userid,f_department_id};
+		return bdao.selectValue(hql,para);
+	}
+	
+	@Override	
+	public List<VUserFile> leaddownloadsslectallfilebypage(String userid,int startPage,int pageSize) {
+		String hql =  "from VUserFile where (userid = ? or authorityid = 102 or authorityid = 103) order by downloads desc";
+		Object[] para = {userid};
+		return bdao.selectByPage(hql,para,startPage,pageSize);
+	}
+	
+	@Override	
+	public int leaddownloadsslectallfilecount(String userid) {
+		String hql =  "select count(*) from VUserFile o where (userid = ? or authorityid = 102 or authorityid = 103)";
+		Object[] para = {userid};
+		return bdao.selectValue(hql,para);
 	}
 	
 	@Override

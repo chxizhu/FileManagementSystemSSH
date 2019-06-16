@@ -122,7 +122,7 @@ margin-top:11px;
 		
 			<div class="layui-col-md6">
 				<div class="layui-card daohan">
-				  <div class="layui-card-header">个人文件<span style="float:right">更多</span></div>				
+				  <div class="layui-card-header">个人文件<span style="float:right"><a href="ownfile.jsp">更多</a></span></div>				
 				   <div class="layui-card-body">				  
 				 		<table class="layui-table" lay-skin="line">
 						  <colgroup>
@@ -148,7 +148,7 @@ margin-top:11px;
 			  
 			  <div class="layui-col-md6">
 				<div class="layui-card daohan">
-				  <div class="layui-card-header">部门文件<span style="float:right">更多</span></div>				
+				  <div class="layui-card-header">部门文件<span style="float:right"><a href="departmentfile.jsp">更多</a></span></div>				
 				   <div class="layui-card-body">				     
 				 		<table class="layui-table" lay-skin="line">
 						  <colgroup>
@@ -181,7 +181,7 @@ margin-top:11px;
 		
 			<div class="layui-col-md6">
 				<div class="layui-card daohan">
-				  <div class="layui-card-header">公司文件<span style="float:right">更多</span></div>				
+				  <div class="layui-card-header">公司文件<span style="float:right"><a href="companyfile.jsp">更多</a></span></div>				
 				   <div class="layui-card-body">				   
 				 		<table class="layui-table" lay-skin="line">
 						  <colgroup>
@@ -206,7 +206,7 @@ margin-top:11px;
 			  
 			  <div class="layui-col-md6">
 				<div class="layui-card daohan">
-				  <div class="layui-card-header">文件下载排行<span style="float:right">更多</span></div>				
+				  <div class="layui-card-header">文件下载排行<span style="float:right"><a href="downloadfile.jsp">更多</a></span></div>				
 				   <div class="layui-card-body">
 				 		<table class="layui-table" lay-skin="line">
 						  <colgroup>

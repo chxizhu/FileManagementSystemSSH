@@ -147,16 +147,97 @@ public interface FileDAO {
 	public List<VUserFile> staffdepartmentselectfile(String userid,int f_department_id);	
 	
 	/**
+	 * 普通员工（staff）查询自己本部门的所有文件(查询文件权限为本部门的)总数（分页用）
+	 * @param String userid 当前用户
+	 * @param int f_department_id  文件所属部门ID
+	 */
+	public int staffdepartmentselectfilecount(String userid,int f_department_id);
+	
+	/**
+	 * 普通员工（staff）查询自己本部门的所有文件(查询文件权限为本部门的)，按时间降序进行分页
+	 * @param String userid 当前用户
+	 * @param int f_department_id  文件所属部门ID
+	 * @param int startPage  当前页
+	 * @param int pageSize  一页几条数据
+	 * @return  List<TFile>
+	 */
+	public List<VUserFile> staffdepartmentselectfilebypage(String userid,int f_department_id, int startPage,int pageSize);
+	
+	/**
 	 * 领导按照时间降序查询部门的所有文件(可查询文件权限为所有部门)
 	 * @return  List<TFile>
 	 */
 	public List<VUserFile> leaddepartmentslectallfile();	
 	
 	/**
+	 * 领导按照时间降序查询部门的所有文件(可查询文件权限为所有部门),按时间降序进行分页
+	 * @param int startPage  当前页
+	 * @param int pageSize  一页几条数据
+	 * @return  List<TFile>
+	 */
+	public List<VUserFile> leaddepartmentslectallfilebypage(int startPage,int pageSize);	
+	
+	/**
+	 * 领导按照时间降序查询部门的所有文件(可查询文件权限为所有部门)总数（分页用）
+	 * @return  List<TFile>
+	 */
+	public int leaddepartmentslectallfilecount();	
+	
+	/**
 	 * 按照时间降序查询公司级的所有文件(可查询文件权限为公司)
 	 * @return  List<TFile>
 	 */
 	public List<VUserFile> companyslectallfile();	
+	
+	/**
+	 * 按照时间降序查询公司级的所有文件(可查询文件权限为公司),按时间降序进行分
+	 * @param int startPage  当前页
+	 * @param int pageSize  一页几条数据
+	 * @return  List<TFile>
+	 */
+	public List<VUserFile> companyslectallfilebypage(int startPage,int pageSize);	
+	
+	/**
+	 * 按照时间降序查询公司级的所有文件(可查询文件权限为公司)总数
+	 * @return  List<TFile>
+	 */
+	public int companyslectallfilecount();	
+	
+	/**
+	 * 普通员工（staff）按照下载次数降序查询文件(可查询文件权限为个人，本部门，公司的),按下载数量降序进行分页
+	 * @param String userid 当前用户
+	 * @param int f_department_id  文件所属部门ID
+	 * @param int startPage  当前页
+	 * @param int pageSize  一页几条数据
+	 * @return  List<TFile>
+	 */
+	public List<VUserFile> staffdownloadsslectallfilebypage(String userid,int f_department_id,int startPage,int pageSize);
+	
+	/**
+	 * 普通员工（staff）按照下载次数降序查询文件(可查询文件权限为个人，本部门，公司的)总数
+	 * @param String userid 当前用户
+	 * @param int f_department_id  文件所属部门ID
+	 * @return  List<TFile>
+	 */
+	public int staffdownloadsslectallfilecount(String userid,int f_department_id);
+
+	/**
+	 * 领导按照文件下载次数降序查询所有文件(可查询文件权限为个人，所有部门，公司的),按下载数量降序进行分页
+	 * @param String userid 当前用户
+	 * @param int f_department_id  文件所属部门ID
+	 * @param int startPage  当前页
+	 * @param int pageSize  一页几条数据
+	 * @return  List<TFile>
+	 */
+	public List<VUserFile> leaddownloadsslectallfilebypage(String userid,int startPage,int pageSize);	
+	
+	/**
+	 * 领导按照文件下载次数降序查询所有文件(可查询文件权限为个人，所有部门，公司的),按下载数量降序进行分页
+	 * @param String userid 当前用户
+	 * @param int f_department_id  文件所属部门ID
+	 * @return  List<TFile>
+	 */
+	public int leaddownloadsslectallfilecount(String userid);	
 	
 	/**
 	 * 根据文件权限查询权限名称

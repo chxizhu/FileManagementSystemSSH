@@ -75,4 +75,14 @@
 			<result name="success" type="dispatcher">
 				/ownfile.jsp
 			</result>
-		</action></package></struts>    
+		</action>
+		<action name="departmentfile"
+			class="control.action.DepartmentFileAction">
+		</action>
+		<action name="company" 
+			class="control.action.CompanyAction">
+		</action>
+		<action name="downloadfile"
+			class="control.action.DownloadFileAction">
+		</action></package>
+		</struts>    
