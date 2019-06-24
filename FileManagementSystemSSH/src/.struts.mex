@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Struts2Diagram version="2.0">
-  <package name="default" location="33,22" size="322,1537">
+  <package name="default" location="33,22" size="322,1669">
     <action name="loginAction" location="167,166" size="150,62">
       <result name="success">
         <resourceEdge source="success" routing="0" target="index.jsp" />
@@ -49,7 +49,7 @@
         <resourceEdge source="error" routing="0" target="login.jsp" />
       </result>
     </action>
-    <action name="downloadAction" location="160,746" size="150,62">
+    <action name="downloadAction" location="96,745" size="150,62">
       <result name="error">
         <resourceEdge source="error" routing="0" target="error.jsp" />
       </result>
@@ -57,12 +57,12 @@
         <resourceEdge source="success" routing="0" target="download.jsp" />
       </result>
     </action>
-    <action name="deleteownfile" location="164,842" size="150,41">
+    <action name="deleteownfile" location="56,839" size="150,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="ownfile.jsp" />
       </result>
     </action>
-    <action name="categoryseek" location="158,923" size="150,62">
+    <action name="categoryseek" location="53,926" size="150,62">
       <result name="success">
         <resourceEdge source="success" routing="0" target="seek.jsp" />
       </result>
@@ -70,7 +70,7 @@
         <resourceEdge source="error" routing="0" target="error.jsp" />
       </result>
     </action>
-    <action name="seekimg" location="148,1005" size="150,62">
+    <action name="seekimg" location="73,998" size="150,62">
       <result name="success">
         <resourceEdge source="success" routing="0" target="seekImg.jsp" />
       </result>
@@ -78,24 +78,32 @@
         <resourceEdge source="error" routing="0" target="error.jsp" />
       </result>
     </action>
-    <action name="fileupdating" location="149,1100" size="150,41">
+    <action name="fileupdating" location="73,1109" size="150,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="fileupdating.jsp" />
       </result>
     </action>
-    <action name="returnindex" location="149,1184" size="150,41">
+    <action name="returnindex" location="59,1193" size="150,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="index.jsp" />
       </result>
     </action>
-    <action name="savefileupdating" location="141,1256" size="150,41">
+    <action name="savefileupdating" location="50,1253" size="150,41">
       <result name="success">
         <resourceEdge source="success" routing="0" target="ownfile.jsp" />
       </result>
     </action>
-    <action name="departmentfile" location="90,1319" size="150,40" />
-    <action name="company" location="72,1372" size="170,40" />
-    <action name="downloadfile" location="93,1439" size="150,40" />
+    <action name="departmentfile" location="43,1319" size="150,40" />
+    <action name="company" location="39,1373" size="170,40" />
+    <action name="downloadfile" location="39,1440" size="150,40" />
+    <action name="advancedseek" location="37,1495" size="150,40">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="advancedSeek.jsp" />
+      </result>
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="error.jsp" />
+      </result>
+    </action>
   </package>
   <webResource name="index.jsp" path="/index.jsp" location="488,39" size="150,55" />
   <webResource name="login.jsp" path="/login.jsp" location="479,126" size="150,55" />
@@ -104,9 +112,10 @@
   <webResource name="uplode.jsp" path="/uplode.jsp" location="443,372" size="150,55" />
   <webResource name="download.jsp" path="/download.jsp" location="894,639" size="150,55" />
   <webResource name="ownfile.jsp" path="/ownfile.jsp" location="525,745" size="150,55" />
-  <webResource name="seekImg.jsp" path="/seekImg.jsp" location="350,500" size="150,55" />
+  <webResource name="seekImg.jsp" path="/seekImg.jsp" location="992,1052" size="150,55" />
   <webResource name="fileupdating.jsp" path="/fileupdating.jsp" location="350,650" size="150,55" />
-  <webResource name="filesucceed.jsp" path="/filesucceed.jsp" location="350,800" size="150,55" />
+  <webResource name="filesucceed.jsp" path="/filesucceed.jsp" location="506,516" size="150,55" />
   <webResource name="eitd.jsp" path="/eitd.jsp" location="350,950" size="150,55" />
+  <webResource name="advancedSeek.jsp" path="/advancedSeek.jsp" location="887,1503" size="150,55" />
 </Struts2Diagram>
 

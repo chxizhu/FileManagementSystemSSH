@@ -84,5 +84,15 @@
 		</action>
 		<action name="downloadfile"
 			class="control.action.DownloadFileAction">
+		</action>
+		<action name="advancedseek"
+			class="control.action.AdvancedSeekAction">
+			<result name="success" type="dispatcher">
+				/advancedSeek.jsp
+			</result>
+			<result name="error" type="dispatcher">
+				<param name="location">/error.jsp</param>
+				<param name="parse">false</param>
+			</result>
 		</action></package>
 		</struts>    

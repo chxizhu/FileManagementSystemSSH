@@ -120,7 +120,7 @@
 			</div>
 		</div>
 		
-		<div class="layui-col-md1 advancedtop"><a href="">高级搜索</a></div>
+		<div class="layui-col-md1 advancedtop"><a href="advancedSeek.jsp">高级搜索</a></div>
 		
 	</div>
 
