@@ -44,7 +44,7 @@
 <body class="bcolor">
 	<!--导航信息 -->
 
-	<div class="layui-row">
+	<div class="layui-row" class="site-demo-button" id="layerDemo">
 		<div class="layui-col-md12">
 
 			<ul class="layui-nav layui-bg-blue">
@@ -68,7 +68,7 @@
 						
 					</dl></li>
 				
-				<li class="layui-nav-item "><a href="login.jsp" onclick="if(confirm('你确定要退出吗？')==false)return false">退出</a></li>
+				<li class="layui-nav-item "><button data-method="confirmTrans" class="layui-btn">退出</button></li>
 
 			</ul>
 
@@ -164,6 +164,36 @@
 		
 		
 		
+			
 	</script>
+	
+	<script>
+layui.use('layer', function(){ //独立版的layer无需执行这一句
+  var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
+  
+  //触发事件
+  var active = {
+  confirmTrans: function(){
+      //配置一个透明的询问框
+      layer.msg('确定要退出嘛？', {
+        time: 20000, //20s后自动关闭
+        btn: ['确定', '取消'],
+       yes: function(index, layero){ // 默认的是 按钮一
+   window.location.href="login.jsp"
+         }
+      });
+    }
+   
+   
+  };
+  
+  $('#layerDemo .layui-btn').on('click', function(){
+    var othis = $(this), method = othis.data('method');
+    active[method] ? active[method].call(this, othis) : '';
+  });
+  
+});
+</script>
+	
 </body>
 </html>
