@@ -127,7 +127,7 @@ margin-top:11px;
 				 		<table class="layui-table" lay-skin="line">
 						  <colgroup>
 						    <col width="320">
-						   <%--  <col width="100"> --%>
+						    <col width="100"> 
 						    <col width="100">
 						    <col>
 						  </colgroup>
@@ -135,7 +135,9 @@ margin-top:11px;
 						   <c:forEach items="${privatefilelist }" var="file" begin="0" end="3" step="1">
 						   <tr>
 						      <td class="line-limit-length"><a href="downloadAction.action?fileid=${file.fileid}">${file.filename}</a></td>	
-						      <%-- <td>${file.uptime}</td>  --%>
+						      <td><a href="downloadAction.action?fileid=${file.fileid}">
+						      		<script>document.write("${file.uptime}".substring(0, 10));</script></a>
+						      </td>  
 						       <td><a href="downloadAction.action?fileid=${file.fileid}">${file.username}</a></td>
 						    </tr>	
 						    </c:forEach>						      				   
@@ -161,8 +163,9 @@ margin-top:11px;
 						  <c:forEach items="${departmentlist }" var="file" begin="0" end="3" step="1">
 						    <tr>
 						      <td class="line-limit-length"><a href="downloadAction.action?fileid=${file.fileid}">${file.filename}</a></td>
-						      <%-- <td>${file.uptime}</td> --%>
-						       <td><a href="downloadAction.action?fileid=${file.fileid}">${file.authorityname}</a></td>
+						      <td><a href="downloadAction.action?fileid=${file.fileid}">
+						      		<script>document.write("${file.uptime}".substring(0, 10));</script></a>
+						      </td> 					      
 						       <td><a href="downloadAction.action?fileid=${file.fileid}">${file.departmentname}</a></td>
 						    </tr>
 						    </c:forEach>							     				   
@@ -194,7 +197,10 @@ margin-top:11px;
 						  <c:forEach items="${companylist }" var="file" begin="0" end="3" step="1">
 						    <tr>
 						      <td class="line-limit-length"><a href="downloadAction.action?fileid=${file.fileid}">${file.filename}</a></td>
-						      <td><a href="downloadAction.action?fileid=${file.fileid}">${file.authorityname}</a></td>						     
+						      <td><a href="downloadAction.action?fileid=${file.fileid}">
+						      		<script>document.write("${file.uptime}".substring(0, 10));</script>
+						      	  </a>
+						      </td>						     
 						       <td><a href="downloadAction.action?fileid=${file.fileid}">${file.departmentname}</a></td>
 						    </tr>
 						    </c:forEach>									      				   
@@ -219,7 +225,7 @@ margin-top:11px;
 						   <c:forEach items="${showfilelist }" var="file" begin="0" end="3" step="1">
 						    <tr>
 						      <td class="line-limit-length"><a href="downloadAction.action?fileid=${file.fileid}">${file.filename}</a></td>
-						      <td><a href="downloadAction.action?fileid=${file.fileid}">${file.authorityname}</a></td>
+						      <td><a href="downloadAction.action?fileid=${file.fileid}"><script>document.write("${file.uptime}".substring(0, 10));</script></a></td>
 						       <td><a href="downloadAction.action?fileid=${file.fileid}">下载次数:${file.downloads}</a></td>
 						    </tr>
 						    </c:forEach>	

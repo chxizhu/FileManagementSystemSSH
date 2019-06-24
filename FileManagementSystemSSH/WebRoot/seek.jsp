@@ -15,6 +15,11 @@
 	margin-top: 30px;
 }
 
+.advancedtop{
+	margin-top: 40px;
+	margin-left:-150px;
+}
+
 .DLBtn {
 	margin-left: 1000px;
 	margin-top: -38px;
@@ -51,6 +56,11 @@
 	margin-top: -4px;
 	margin-left: -1px;
 	width: 20%;
+}
+
+.advancedSeek{
+	margin-top: -4px;
+	margin-left: 700px;
 }
 </style>
 
@@ -108,9 +118,10 @@
 					</div>
 				</form>
 			</div>
-
 		</div>
-
+		
+		<div class="layui-col-md1 advancedtop"><a href="">高级搜索</a></div>
+		
 	</div>
 
 	<div class="row">
