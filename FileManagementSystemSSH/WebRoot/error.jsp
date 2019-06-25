@@ -14,6 +14,11 @@
 		margin-top:40px;
 	}
 	
+	.advancedtop{
+	margin-top: 56px;
+	margin-left:-150px;
+   }
+	
 	.daohan{
 		background:#f2f2f2;
 	}	
@@ -95,6 +100,8 @@
 			</div>
 							 				
 		</div>	
+		
+		<div class="layui-col-md1 advancedtop"><a href="advancedSeek.jsp"><span style="font-size:15px">高级搜索</span></a></div>
 																			
 	</div>
 	
