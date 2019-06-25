@@ -176,18 +176,13 @@ layui.use('layer', function(){ //独立版的layer无需执行这一句
 						$ = layui.jquery;
 
 						//按时间搜索全部
-						$("#zero")
-								.click(
-										function() {
+						$("#zero").click(function() {
 											window.location.href = "categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=6";
 										})
 
 						// 图片搜索
-						$("#one")
-								.click(
-										function() {
-											window.location.href = "seekimg.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=1&filekeyword="
-													+ $("#seekinput").val();
+						$("#one").click(function() {
+											window.location.href = "seekimg.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=1&filekeyword="$("#seekinput").val();
 										})
 
 						// 文档搜索

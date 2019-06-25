@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+	
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta charset="utf-8">
-<title>系统操作日志管理</title>
+<title>企业文件资源管理</title>
 <meta name="renderer" content="webkit">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport"
@@ -131,15 +134,13 @@
 	<div class="layui-row filetop top">
 		<div class="layui-col-md12">
 		
-			<form class="layui-form" action="">
-					
-				<div class="layui-input-inline">
-					<input type="text" name="userid" id="userid"
-						placeholder="请输入文件所属用户名" class="layui-input" autocomplete="off">
-				</div>
+			<form class="layui-form" action="advancedseek.action">
+				
+				<input type="hidden" name="userid" value="${loginUser.userid }">
+				<input type="hidden" name="f_department_id" value="${loginUser.departmentid }"> 	
 				
 				<div class="layui-input-inline">
-					<input type="text" name="filename" id=""filename""
+					<input type="text" name="filename" id="filename"
 						placeholder="请输入文件标题" class="layui-input" autocomplete="off">
 				</div>
 				
@@ -154,16 +155,17 @@
 				</div>
 				
 				<div class="layui-inline"> 
-				  	<input type="text" class="layui-input" id="beginTime" placeholder="yyyy-MM-dd">
+				  	<input type="text" class="layui-input" name="beginTime" id="beginTime" placeholder="yyyy-MM-dd">
 				</div>
 				
 				<div class="layui-inline"> 
-				  	<input type="text" class="layui-input" id="endTime" placeholder="yyyy-MM-dd">
+				  	<input type="text" class="layui-input" name="endTime" id="endTime" placeholder="yyyy-MM-dd">
 				</div>
 				
 				<div class="layui-inline">
-					<button id="btnselfrontinfo" type="button"
-						class="layui-btn layui-bg-blue">查询</button>
+					<!-- <button id="btnselfrontinfo" 
+						class="layui-btn layui-bg-blue">查询</button> -->
+						<button class="layui-btn layui-bg-blue">查询</button>
 				</div>
 
 			</form>
@@ -204,13 +206,18 @@
 
 				</div>
 
-			</c:forEach>
-
+			</c:forEach> 
+			
            </div>
 		</div>
 	
-	<script src="/js/jquery-2.1.1.min.js" charset="utf-8"></script>
+	<script src="js/jquery-2.1.1.min.js" charset="utf-8"></script>
 	<script src="layui/layui.js" charset="utf-8"></script>
+	<!-- <script>
+	$('#btnselfrontinfo').on('click',function(){
+	alert("aaa");
+	});
+	</script> -->
 	<script>
 		layui.use([ 'table', 'form', 'layer', 'laytpl', 'element','laydate' ],
 						function() {

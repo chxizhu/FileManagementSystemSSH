@@ -1,15 +1,16 @@
 package business.factory;
 
+import business.dao.AdvancedSeekDAO;
 import business.dao.FileDAO;
 import business.dao.UserDAO;
+import business.impl.AdvancedSeekDAOImpl;
 import business.impl.FileDAOImpl;
 import business.impl.UserDAOImpl;
 
 public class DAOFactorys {
 
 	/**
-	 * £¨¾²Ì¬·½·¨£©·µ»ØÒ»¸öÓÃÓÚ¶ÔÓÃ»§ĞÅÏ¢²Ù×÷µÄUserDAO¶ÔÏó
-	 * 
+	 * å¾—åˆ°ä¸€ä¸ªç”¨äºç®¡ç†å‘˜ä¸šåŠ¡æ“ä½œçš„UserDAOå®ç°ç±»å¯¹è±¡
 	 * @return UserDAO
 	 */
 	public static UserDAO getUserDAO() {
@@ -17,11 +18,18 @@ public class DAOFactorys {
 	}
 
 	/**
-	 * £¨¾²Ì¬·½·¨£©·µ»ØÒ»¸öÓÃÓÚ¶ÔÎÄ¼şĞÅÏ¢²Ù×÷µÄÎÄ¼ş¶ÔÏó
-	 * 
-	 * @return UserDAO
+	 * å¾—åˆ°ä¸€ä¸ªç”¨äºç®¡ç†å‘˜ä¸šåŠ¡æ“ä½œçš„FileDAOå®ç°ç±»å¯¹è±¡
+	 * @return FileDAO
 	 */
 	public static FileDAO getFileDAO() {
 		return new FileDAOImpl();
+	}
+	
+	/**
+	 * å¾—åˆ°ä¸€ä¸ªç”¨äºç®¡ç†å‘˜ä¸šåŠ¡æ“ä½œçš„AdvancedSeekDAOå®ç°ç±»å¯¹è±¡
+	 * @return AdvancedSeekDAO
+	 */
+	public static AdvancedSeekDAO getAdvancedSeekDAO() {
+		return new AdvancedSeekDAOImpl();
 	}
 }
