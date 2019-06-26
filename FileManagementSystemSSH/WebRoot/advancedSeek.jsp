@@ -177,7 +177,7 @@
 		
 			<c:forEach items="${filelist }" var="forum">
 
-				<div class="layui-card daohan" >
+				<div class="layui-card daohan" id="layuiCard">
 
 					<div class="layui-card-header">
 						<a href="downloadAction.action?fileid=${forum.fileid}">文件标题：${forum.filename}</a>
@@ -207,22 +207,22 @@
 
 			</c:forEach> 
 			
+			<div id=layuiCardPage></div> <!-- 分页 -->
+			
            </div>
 		</div>
 	
 	<script src="js/jquery-2.1.1.min.js" charset="utf-8"></script>
 	<script src="layui/layui.js" charset="utf-8"></script>
-	<!-- <script>
-	$('#btnselfrontinfo').on('click',function(){
-	alert("aaa");
-	});
-	</script> -->
+
 	<script>
-		layui.use([ 'table', 'form', 'layer', 'laytpl', 'element','laydate' ],
+		layui.use([ 'table', 'form', 'layer', 'laytpl', 'element','laydate', 'laypage' ],
 						function() {
 							var table = layui.table, form = layui.form, 
 							layer = layui.layer, $ = layui.jquery, 
-							element = layui.element,laydate = layui.laydate;
+							element = layui.element,
+							laydate = layui.laydate,
+							laypage = layui.laypage ;//分页
 							
 							laydate.render({
     							elem: '#beginTime' //开始日期
@@ -231,38 +231,48 @@
   						    laydate.render({
     							elem: '#endTime' //结束日期
   						    });
-
+									
+							/* //分页
+						   //完整功能
+						  laypage.render({
+						    elem: 'layuiCardPage' //1. elem: 'id' 注意：这里不能加 # 号 
+						    ,count: count
+						    ,layout: ['count', 'prev', '1', 'next', '10', 'refresh', 'skip']
+						    ,jump: function(obj){
+						      console.log(obj)
+						    }
+						  });	*/				
 							
-						}); 
+						});  
 	</script>
 	
 		<script>
-layui.use('layer', function(){ //独立版的layer无需执行这一句
-  var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
-  
-  //触发事件
-  var active = {
-  confirmTrans: function(){
-      //配置一个透明的询问框
-      layer.msg('确定要退出嘛？', {
-        time: 20000, //20s后自动关闭
-        btn: ['确定', '取消'],
-       yes: function(index, layero){ // 默认的是 按钮一
-   window.location.href="login.jsp"
-         }
-      });
-    }
-   
-   
-  };
-  
-  $('#layerDemo .layui-btn').on('click', function(){
-    var othis = $(this), method = othis.data('method');
-    active[method] ? active[method].call(this, othis) : '';
-  });
-  
-});
-</script>
+			layui.use('layer', function(){ //独立版的layer无需执行这一句
+			  var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
+			  
+			  //触发事件
+			  var active = {
+			  confirmTrans: function(){
+			      //配置一个透明的询问框
+			      layer.msg('确定要退出嘛？', {
+			        time: 20000, //20s后自动关闭
+			        btn: ['确定', '取消'],
+			       yes: function(index, layero){ // 默认的是 按钮一
+			   window.location.href="login.jsp"
+			         }
+			      });
+			    }
+			   
+			   
+			  };
+			  
+			  $('#layerDemo .layui-btn').on('click', function(){
+			    var othis = $(this), method = othis.data('method');
+			    active[method] ? active[method].call(this, othis) : '';
+			  });
+			  
+			});
+		</script>
 	
 </body>
 </html>

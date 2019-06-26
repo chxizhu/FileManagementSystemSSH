@@ -1,5 +1,7 @@
 package control.action;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +12,7 @@ import business.dao.AdvancedSeekDAO;
 import business.factory.DAOFactorys;
 import business.impl.AdvancedSeekDAOImpl;
 
+import com.alibaba.fastjson.JSON;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -26,7 +29,25 @@ public class AdvancedSeekAction extends BaseAction {
 	
 	private String userid;
 	private int f_department_id;
+	private int page;
+	private int limit; //每页条数
 	
+	public int getPage() {
+		return page;
+	}
+
+	public int getLimit() {
+		return limit;
+	}
+
+	public void setPage(int page) {
+		this.page = page;
+	}
+
+	public void setLimit(int limit) {
+		this.limit = limit;
+	}
+
 	public String getUserid() {
 		return userid;
 	}
@@ -46,9 +67,10 @@ public class AdvancedSeekAction extends BaseAction {
 	
 	/**
 	 * @return
+	 * @throws IOException 
 	 */
 	@SuppressWarnings("unused")/*表示该属性在方法或类中没有使用。添加此注解可以去除属性上的黄色警告*/
-	public String execute() {
+	public String execute() throws IOException {
 		String filename = request.getParameter("filename");//得到搜索框中的内容,文件标题
 		String dscribe = request.getParameter("dscribe");//得到搜索框中的内容,文件详细说明
 		String lable = request.getParameter("lable");//得到搜索框中的内容,文件标签
@@ -75,20 +97,40 @@ public class AdvancedSeekAction extends BaseAction {
 		
 		VUser loginUser = (VUser)session.getAttribute("loginUser");//得到当前登录用户
 		List<VUserFile> filelist = new ArrayList<VUserFile>() ;
+		int count = 0;//文件总数
 		
 		if(loginUser.getRoleid() == 203){//判断当前登录用户是否为管理层领导，203位总经理管理层
-				
+			filelist = DAOFactorys.getAdvancedSeekDAO().leadgetadvancedseekList(userid,exp.toString());	
 		}
 		else{//普通员工查询，通过文件分类和输入框来查询			
-			filelist = DAOFactorys.getAdvancedSeekDAO().getadvancedseekList(userid,f_department_id,exp.toString());		
+			filelist = DAOFactorys.getAdvancedSeekDAO().categorygetadvancedseekList(userid,f_department_id,exp.toString());	
+			/*count = DAOFactorys.getAdvancedSeekDAO().getadvancedseekListcount(userid,f_department_id,exp.toString());*/
 		}
-				
-		request.setAttribute("filelist", filelist);	
+		/*System.out.println("filelist:"+ filelist);
+		System.out.println("count:"+ count);*/
+		request.setAttribute("filelist", filelist);
+		//request.setAttribute("count", count);	
 
 		if(filelist == null || filelist.size() == 0)
 			return ERROR;
 		else		
 		//返回success 使用dispatch方式跳转到seek.jsp中
 		return SUCCESS;
+		
+		//返回json格式数据
+		/*response.setCharacterEncoding("utf-8");
+		response.setContentType("application/json");
+		PrintWriter out = response.getWriter();
+			
+		Util.ReturnData rd = new Util.ReturnData();
+		rd.code = Util.ReturnData.SUCCESS;
+		rd.msg = "";
+		rd.count=count;
+		rd.data = filelist;
+		out.write(JSON.toJSONString(rd));
+				
+		out.flush();
+		out.close();
+		return null;*/
 	}
 }

@@ -19,6 +19,11 @@
 	margin-top: 30px;
 }
 
+.advancedtop{
+	margin-top: 10px;
+	margin-left:-30px;
+}
+
 .same {
 	padding: 0;
 	margin-top: -2px;	
@@ -114,7 +119,11 @@ margin-top:11px;
 					</div>
 				</form>
 			</div>
+			
+			<div class="layui-col-md1 advancedtop"><a href="advancedSeek.jsp">高级搜索</a></div>
+			
 		</div>
+		
 	</div>
 	
 	<div class="layui-row layui-col-md-offset1">

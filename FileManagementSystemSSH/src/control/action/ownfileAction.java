@@ -60,7 +60,6 @@ public class ownfileAction extends BaseAction {
 		List<VFile> list=udao.getForumListByPage(loginUser.getUserid(), page, limit); //当前登录用户文件分页展示列表
 		List<VFile> num = udao.selectfilesum(loginUser.getUserid());     //得到当前用户文件总数
 		
-
 		//返回json格式数据
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("application/json");

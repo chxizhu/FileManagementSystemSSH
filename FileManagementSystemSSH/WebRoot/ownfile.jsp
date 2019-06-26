@@ -137,46 +137,43 @@
 					}, {
 						field : 'filename',
 						title : '文件标题',
+						width : 300,
 						fixed : 'left',
 						unresize : true,
-						sort : true
+
 					}, {
 						field : 'authorityname',
 						title : '权限',
 						width : 80,
-						sort : true,
 						edit: 'text'
 						
 					}, {
 						field : 'filesize',
 						title : '大小',
-						width : 120,
+						width : 200,
 						sort : true
 					}, {
 						field : 'lable',
 						title : '标签',
-						width : 120
+						width : 220
 						
 					}, {
 						field : 'typename',
 						title : '类型',
-						sort : true,
 						width : 80
 						
 					}, 
 					
 					{
 						field : 'dscribe',
-						title : '说明',
-						width : 250
-					
+						title : '说明',											
 					}, 
 					
 					{
 						fixed : 'right',
 						title : '操作',
 						toolbar : '#barDemo',
-						width : 180
+						width : 165
 					} ] ],
 					page : true
 				});
@@ -225,32 +222,32 @@
 		</script>
 		
 		<script>
-layui.use('layer', function(){ //独立版的layer无需执行这一句
-  var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
-  
-  //触发事件
-  var active = {
-  confirmTrans: function(){
-      //配置一个透明的询问框
-      layer.msg('确定要退出嘛？', {
-        time: 20000, //20s后自动关闭
-        btn: ['确定', '取消'],
-       yes: function(index, layero){ // 默认的是 按钮一
-   window.location.href="login.jsp"
-         }
-      });
-    }
-   
-   
-  };
-  
-  $('#layerDemo .layui-btn').on('click', function(){
-    var othis = $(this), method = othis.data('method');
-    active[method] ? active[method].call(this, othis) : '';
-  });
-  
-});
-</script>
+				layui.use('layer', function(){ //独立版的layer无需执行这一句
+				  var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
+				  
+				  //触发事件
+				  var active = {
+				  confirmTrans: function(){
+				      //配置一个透明的询问框
+				      layer.msg('确定要退出嘛？', {
+				        time: 20000, //20s后自动关闭
+				        btn: ['确定', '取消'],
+				       yes: function(index, layero){ // 默认的是 按钮一
+				   window.location.href="login.jsp"
+				         }
+				      });
+				    }
+				   
+				   
+				  };
+				  
+				  $('#layerDemo .layui-btn').on('click', function(){
+				    var othis = $(this), method = othis.data('method');
+				    active[method] ? active[method].call(this, othis) : '';
+				  });
+				  
+				});
+		</script>
 		
 </body>
 

@@ -180,7 +180,7 @@
 
 			</c:forEach>
 
-			<div id="demo7"></div>
+			<div id="page"></div>  <!-- 分页 -->
 		</div>
 				 
     
@@ -243,44 +243,44 @@
 		});
 		
 		//分页
-   //完整功能
-  laypage.render({
-    elem: 'demo7'
-    ,count: 100
-    ,layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
-    ,jump: function(obj){
-      console.log(obj)
-    }
-  });
+	   //完整功能
+	  laypage.render({
+	    elem: 'page'
+	    ,count: 100
+	    ,layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']
+	    ,jump: function(obj){
+	      console.log(obj)
+	    }
+	  });
 		
 	});
 </script>
 
 <script>
-layui.use('layer', function(){ //独立版的layer无需执行这一句
-  var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
-  
-  //触发事件
-  var active = {
-  confirmTrans: function(){
-      //配置一个透明的询问框
-      layer.msg('确定要退出嘛？', {
-        time: 20000, //20s后自动关闭
-        btn: ['确定', '取消'],
-       yes: function(index, layero){ // 默认的是 按钮一
-   window.location.href="login.jsp"
-         }
-      });
-    }
-   
-   
-  };
-  
-  $('#layerDemo .layui-btn').on('click', function(){
-    var othis = $(this), method = othis.data('method');
-    active[method] ? active[method].call(this, othis) : '';
-  });
-  
-});
+		layui.use('layer', function(){ //独立版的layer无需执行这一句
+		  var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
+		  
+		  //触发事件
+		  var active = {
+		  confirmTrans: function(){
+		      //配置一个透明的询问框
+		      layer.msg('确定要退出嘛？', {
+		        time: 20000, //20s后自动关闭
+		        btn: ['确定', '取消'],
+		       yes: function(index, layero){ // 默认的是 按钮一
+		   window.location.href="login.jsp"
+		         }
+		      });
+		    }
+		   
+		   
+		  };
+		  
+		  $('#layerDemo .layui-btn').on('click', function(){
+		    var othis = $(this), method = othis.data('method');
+		    active[method] ? active[method].call(this, othis) : '';
+		  });
+		  
+		});
 </script>
 </html>

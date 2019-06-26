@@ -120,8 +120,6 @@
 
 		<script type="text/html" id="barDemo">
 				  <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">下载</a>
-				<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
-				<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 			</script>
 		<script>
 			layui.use('table', function() {
@@ -137,30 +135,28 @@
 					}, {
 						field : 'filename',
 						title : '文件标题',
+						width : 300,
 						fixed : 'left',
 						unresize : true,
-						sort : true
 					}, {
 						field : 'authorityname',
 						title : '权限',
 						width : 80,
-						sort : true,
 						edit: 'text'
 						
 					}, {
 						field : 'filesize',
 						title : '大小',
-						width : 120,
+						width : 200,
 						sort : true
 					}, {
 						field : 'lable',
 						title : '标签',
-						width : 120
+						width : 220
 						
 					}, {
 						field : 'typename',
 						title : '类型',
-						sort : true,
 						width : 80
 						
 					}, 
@@ -168,7 +164,6 @@
 					{
 						field : 'dscribe',
 						title : '说明',
-						width : 250
 					
 					}, 
 					
@@ -176,7 +171,7 @@
 						fixed : 'right',
 						title : '操作',
 						toolbar : '#barDemo',
-						width : 180
+						width :  65
 					} ] ],
 					page : true
 				});
