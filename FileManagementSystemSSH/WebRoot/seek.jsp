@@ -199,45 +199,34 @@
 						$ = layui.jquery;
 
 						//按时间搜索全部
-						$("#zero").click(
-										function() {
-											window.location.href = "categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=6";
-										})
-
-						// 图片搜索
-						$("#one").click(
-										function() {
-											window.location.href = "seekimg.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=1&filekeyword="
-													+ $("#seekinput").val();
-										})
-
-						// 文档搜索
-						$("#two").click(
-										function() {
-											window.location.href = "categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=2&filekeyword="
-													+ $("#seekinput").val();
-										})
-
-						// 视频搜索
-						$("#three").click(
-										function() {
-											window.location.href = "categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=3&filekeyword="
-													+ $("#seekinput").val();
-										})
-
-						// 音频搜索
-						$("#four").click(
-										function() {
-											window.location.href = "categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=4&filekeyword="
-													+ $("#seekinput").val();
-										})
-
-						// 其他搜索
-						$("#five").click(
-										function() {
-											window.location.href = "categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=5&filekeyword="
-													+ $("#seekinput").val();
-										})
+					  	   $("#zero").click(function(){
+					  	  	window.location.href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=6";	  	 	
+					  	  })   	  
+					  	  
+					  	 // 图片搜索
+					  	   $("#one").click(function(){
+					  	  	window.location.href="seekimg.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=1&filekeyword=" + $("#seekinput").val();	  	 	
+					  	  }) 
+					  	  
+					  	   // 文档搜索
+					  	   $("#two").click(function(){
+					  	  	window.location.href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=2&filekeyword=" + $("#seekinput").val();	  	 	
+					  	  }) 
+					  	  
+					  	   // 视频搜索
+					  	   $("#three").click(function(){
+					  	  	window.location.href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=3&filekeyword=" + $("#seekinput").val();	  	 	
+					  	  }) 
+					  	  
+					  	   // 音频搜索
+					  	   $("#four").click(function(){
+					  	  	window.location.href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=4&filekeyword=" + $("#seekinput").val();	  	 	
+					  	  }) 
+					  	  
+					  	   // 其他搜索
+					  	   $("#five").click(function(){
+					  	  	window.location.href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=5&filekeyword=" + $("#seekinput").val();	  	 	
+					  	  }) 
 
 					});
 </script>

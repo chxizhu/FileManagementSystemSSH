@@ -15,6 +15,11 @@
 	margin-top: 30px;
 }
 
+.advancedtop{
+	margin-top: 40px;
+	margin-left:-150px;
+}
+
 .DLBtn {
 	margin-left: 1000px;
 	margin-top: -38px;
@@ -102,6 +107,8 @@
 
 		</div>
 
+		<div class="layui-col-md1 advancedtop"><a href="advancedSeek.jsp">高级搜索</a></div>
+
 	</div>
 
 	<div class="row">
@@ -176,46 +183,34 @@ layui.use('layer', function(){ //独立版的layer无需执行这一句
 						$ = layui.jquery;
 
 						//按时间搜索全部
-						$("#zero").click(function() {
-											window.location.href = "categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=6";
-										})
-
-						// 图片搜索
-						$("#one").click(function() {
-											window.location.href = "seekimg.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=1&filekeyword="$("#seekinput").val();
-										})
-
-						// 文档搜索
-						$("#two")
-								.click(
-										function() {
-											window.location.href = "categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=2&filekeyword="
-													+ $("#seekinput").val();
-										})
-
-						// 视频搜索
-						$("#three")
-								.click(
-										function() {
-											window.location.href = "categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=3&filekeyword="
-													+ $("#seekinput").val();
-										})
-
-						// 音频搜索
-						$("#four")
-								.click(
-										function() {
-											window.location.href = "categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=4&filekeyword="
-													+ $("#seekinput").val();
-										})
-
-						// 其他搜索
-						$("#five")
-								.click(
-										function() {
-											window.location.href = "categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=5&filekeyword="
-													+ $("#seekinput").val();
-										})
+					  	   $("#zero").click(function(){
+					  	  	window.location.href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=6";	  	 	
+					  	  })   	  
+					  	  
+					  	 // 图片搜索
+					  	   $("#one").click(function(){
+					  	  	window.location.href="seekimg.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=1&filekeyword=" + $("#seekinput").val();	  	 	
+					  	  }) 
+					  	  
+					  	   // 文档搜索
+					  	   $("#two").click(function(){
+					  	  	window.location.href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=2&filekeyword=" + $("#seekinput").val();	  	 	
+					  	  }) 
+					  	  
+					  	   // 视频搜索
+					  	   $("#three").click(function(){
+					  	  	window.location.href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=3&filekeyword=" + $("#seekinput").val();	  	 	
+					  	  }) 
+					  	  
+					  	   // 音频搜索
+					  	   $("#four").click(function(){
+					  	  	window.location.href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=4&filekeyword=" + $("#seekinput").val();	  	 	
+					  	  }) 
+					  	  
+					  	   // 其他搜索
+					  	   $("#five").click(function(){
+					  	  	window.location.href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=5&filekeyword=" + $("#seekinput").val();	  	 	
+					  	  }) 
 
 					});
 </script>

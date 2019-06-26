@@ -147,7 +147,7 @@
 	  	  element = layui.element;//导航
 	  	   $ = layui.jquery;
 	 
-	 //按时间搜索全部
+	     //按时间搜索全部
 	  	   $("#zero").click(function(){
 	  	  	window.location.href="categoryseek.action?userid=${loginUser.userid }&f_department_id=${loginUser.departmentid }&type_id=6";	  	 	
 	  	  })   	  
