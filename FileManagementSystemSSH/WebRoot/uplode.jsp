@@ -78,7 +78,7 @@
 					</dl></li>
 
 				
-				<li class="layui-nav-item "><button data-method="confirmTrans" class="layui-btn">退出</button></li>
+				<li class="layui-nav-item "><button data-method="confirmTrans" class="layui-btn layui-bg-blue">退出</button></li>
 
 			</ul>
 
@@ -91,7 +91,7 @@
 			<div class="layui-col-md10 layui-col-md-offset1 ">
 				<div class="layui-card">
 					<div class="layui-card-header fontsize">文件上传</div>
-					<hr class="layui-bg-blue">
+					<hr class="layui-bg-gray">
 					<div class="layui-card-body">
 
 						<div class="layui-upload-drag" id="test10">
@@ -102,7 +102,7 @@
 						<div>
 							<a id="a"></a>
 						</div>
-						<hr class="layui-bg-blue">
+						<hr class="layui-bg-gray">
 						<form class="layui-form" action="addfileAction.action">
 							<div class="layui-form-item">
 								<label class="layui-form-label">文件标题</label>

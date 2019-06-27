@@ -96,7 +96,7 @@
 					</dl></li>
 
 
-				<li class="layui-nav-item "><button data-method="confirmTrans" class="layui-btn">退出</button></li>
+				<li class="layui-nav-item "><button data-method="confirmTrans" class="layui-btn layui-bg-blue">退出</button></li>
 
 			</ul>
 

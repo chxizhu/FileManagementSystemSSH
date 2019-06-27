@@ -66,7 +66,7 @@
 				
 				
 
-				<li class="layui-nav-item layui-col-md-offset5" ><button data-method="confirmTrans" class="layui-btn">退出</button></li>
+				<li class="layui-nav-item layui-col-md-offset5" ><button data-method="confirmTrans" class="layui-btn layui-bg-blue">退出</button></li>
 				
 				
 

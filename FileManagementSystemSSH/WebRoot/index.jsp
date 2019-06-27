@@ -80,9 +80,17 @@ margin-top:11px;
 
 			<ul class="layui-nav layui-bg-blue">
 				<li class="layui-nav-item "><a href="returnindex.action">文件资源管理系统</a></li>
-
-				<li class="layui-nav-item "><a href="uplode.jsp">文件上传</a></li>
-
+				<li class="layui-nav-item "><a href="javascript:;">文件上传</a>
+					<dl class="layui-nav-child">
+						<!-- 二级菜单 -->
+						<dd>
+							<a href="uplode.jsp">文件上传</a>
+						</dd>
+						<dd>
+							<a href="addEdit.jsp">创建文档<span class="layui-badge-dot layui-bg-blue"> </a>
+						</dd>
+						
+					</dl></li>
 				<li class="layui-nav-item "><a href="ownfile.jsp">个人文件管理</a></li>
 
 				
@@ -99,7 +107,7 @@ margin-top:11px;
 					</dl></li>
 
 				
-				<li class="layui-nav-item "><button data-method="confirmTrans" class="layui-btn">退出</button></li>
+				<li class="layui-nav-item "><button data-method="confirmTrans" class="layui-btn layui-bg-blue">退出</button></li>
 
 			</ul>
 

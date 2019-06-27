@@ -70,31 +70,27 @@
 					</dl></li>
 
 				
-				<li class="layui-nav-item "><button data-method="confirmTrans" class="layui-btn">退出</button></li>
+				<li class="layui-nav-item "><button data-method="confirmTrans" class="layui-btn layui-bg-blue">退出</button></li>
 
 			</ul>
 
 		</div>
-	</div>
-				
+	</div>		
 			<!--主要內容-->
 		<div class="layui-container mtop">
 			<div class="layui-row">
 				<div class="layui-col-md10 layui-col-md-offset1 ">
 					<div class="layui-card">								
-							<div ><p class="fontsize" style="margin-top: 30px;margin-bottom: 10px;">密码修改</p></div>
-							<hr class="layui-bg-blue">
+							<div class="layui-card-header" ><p class="fontsize" style="margin-top: 30px;margin-bottom: 10px;">密码修改</p></div>
+							<hr class="layui-bg-gray">
+							 <div class="layui-card-body">
 							<form class="layui-form" action="PassdEitsaction.action" onsubmit= "return formCheck() ">
-							
 							<div class="layui-form-item">
 									<label class="layui-form-label">用户账号</label>
 									<div class="layui-input-block">
 										<input disabled="disabled" value="${loginUser.userid} " type="text" name="userid" lay-verify="title" autocomplete="off"  class="layui-input">
 									</div>
 								</div>
-
-								
-								
 								<div class="layui-form-item">
 									 <label class="layui-form-label">修改密码</label>
 										    <div class="layui-input-inline">
@@ -110,13 +106,6 @@
 										    <div class="layui-form-mid layui-word-aux">请再次输入密码</div>
 								</div>
 								
-								
-								
-								
-							
-								
-								
-
 								<div class="layui-form-item">
 									<div class="layui-input-block">
 										<button class="layui-btn  layui-btn-normal" lay-submit="" lay-filter="demo1">确定修改</button>
@@ -124,7 +113,7 @@
 									</div>
 								</div>
 							</form>
-
+							</div>
 						</div>
 					</div>
 				</div>

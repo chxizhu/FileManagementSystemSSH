@@ -70,7 +70,7 @@
 					</dl></li>
 
 				
-				<li class="layui-nav-item "><button data-method="confirmTrans" class="layui-btn">退出</button></li>
+				<li class="layui-nav-item "><button data-method="confirmTrans" class="layui-btn layui-bg-blue">退出</button></li>
 
 			</ul>
 
@@ -84,12 +84,9 @@
 			<div class="layui-row">
 				<div class="layui-col-md10 layui-col-md-offset1 ">
 					<div class="layui-card">
-						
-
-							
-
-							<div ><p class="fontsize" style="margin-top: 30px;margin-bottom: 10px;">用户基础信息修改</p></div>
-							<hr class="layui-bg-blue">
+							<div  class="layui-card-header"><p class="fontsize" style="margin-top: 30px;margin-bottom: 10px;">用户基础信息修改</p></div>
+							<hrclass="layui-bg-gray">
+							 <div class="layui-card-body">
 							<form class="layui-form" action="UserinformationEditAction.action" onsubmit= "return formCheck()">
 								<div class="layui-form-item">
 									<label class="layui-form-label">用户账号</label>
@@ -104,9 +101,6 @@
 										<input  type="text" name="username" lay-verify="required" autocomplete="off" placeholder="请输入修改的用户名" class="layui-input">
 									</div>
 								</div>
-								
-								
-								
 								
 								<div class="layui-form-item">
 								  <label class="layui-form-label">性别</label>
@@ -123,22 +117,8 @@
 									        <input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input">
 									      </div>
 								</div>
-								
-								
 								<input value="${loginUser.departmentid}" type="text"  style="display:none" name="department_id" class="layui-input">
 								
-								<%-- <div class="layui-form-item">
-									 <label class="layui-form-label">所属部门</label>
-									      <div class="layui-input-inline">
-									        <select name="department_id" lay-verify="required" lay-search="">
-									          <option value="${loginUser.departmentid}">${loginUser.departmentname}</option>
-									      
-									        </select>
-									      </div>
-								</div>  --%>
-								
-								
-
 								<div class="layui-form-item">
 									<div class="layui-input-block">
 										<button class="layui-btn  layui-btn-normal" lay-submit="" lay-filter="demo1">确定修改</button>
@@ -146,7 +126,7 @@
 									</div>
 								</div>
 							</form>
-
+							</div>
 						</div>
 					</div>
 				</div>
