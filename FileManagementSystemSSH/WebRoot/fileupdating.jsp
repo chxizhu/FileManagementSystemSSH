@@ -57,7 +57,7 @@
 
 			<ul class="layui-nav layui-bg-blue">
 				<li class="layui-nav-item "><a href="returnindex.action">文件资源管理系统</a></li>
-				
+
 				<li class="layui-nav-item "><a href="seek.jsp">文件搜索</a></li>
 
 				<li class="layui-nav-item "><a href="javascript:;">文件上传</a>
@@ -67,15 +67,17 @@
 							<a href="uplode.jsp">文件上传</a>
 						</dd>
 						<dd>
-							<a href="addEdit.jsp">创建文档<span class="layui-badge-dot layui-bg-blue"> </a>
+							<a href="addEdit.jsp">创建文档<span
+								class="layui-badge-dot layui-bg-blue"></a>
 						</dd>
-						
+
 					</dl></li>
 
 				<li class="layui-nav-item "><a href="ownfile.jsp">个人文件管理</a></li>
 
-				
-				<li class="layui-nav-item layui-col-md-offset6"><a href="javascript:;">欢迎您：${loginUser.username}</a>
+
+				<li class="layui-nav-item layui-col-md-offset6"><a
+					href="javascript:;">欢迎您：${loginUser.username}</a>
 					<dl class="layui-nav-child">
 						<!-- 二级菜单 -->
 						<dd>
@@ -84,11 +86,12 @@
 						<dd>
 							<a href="passwordEdit.jsp">密码修改</a>
 						</dd>
-						
+
 					</dl></li>
 
-				
-				<li class="layui-nav-item "><button data-method="confirmTrans" class="layui-btn layui-bg-blue">退出</button></li>
+
+				<li class="layui-nav-item "><button data-method="confirmTrans"
+						class="layui-btn layui-bg-blue">退出</button></li>
 
 			</ul>
 
@@ -104,21 +107,19 @@
 					<hr class="layui-bg-blue">
 					<div class="layui-card-body">
 						<form class="layui-form" action="savefileupdating.action">
-						<input type="text" name="fileid" lay-verify="required"
-										value="${fileid }"  id="title" autocomplete="off"
-										placeholder="文件id"
-										class="layui-input">
+							<input type="text" name="fileid" lay-verify="required"
+								value="${fileid }" id="title" autocomplete="off"
+								placeholder="文件id" class="layui-input layui-hide">
 							<div class="layui-form-item">
 								<label class="layui-form-label">文件标题</label>
 								<div class="layui-input-block">
 									<input type="text" name="filename" lay-verify="required"
-										value="${title }"  id="title" autocomplete="off"
-										placeholder="文件标题内容"
-										class="layui-input">
+										value="${title }" id="title" autocomplete="off"
+										placeholder="文件标题内容" class="layui-input">
 								</div>
 							</div>
 
-							
+
 
 							<div class="layui-form-item">
 								<label class="layui-form-label">文件权限</label>
@@ -136,8 +137,8 @@
 								<label class="layui-form-label">文件标签</label>
 								<div class="layui-input-block">
 									<input type="text" name="lable" lay-verify="required"
-										autocomplete="off" value="${labe}" placeholder="请输入文件标签，标签之间用，隔开"
-										class="layui-input">
+										autocomplete="off" value="${labe}"
+										placeholder="请输入文件标签，标签之间用，隔开" class="layui-input">
 								</div>
 							</div>
 
@@ -145,7 +146,7 @@
 								<label class="layui-form-label">文件简介</label>
 								<div class="layui-input-block">
 									<textarea placeholder="请简介输入内容" name="dscribe"
-										lay-verify="required"  class="layui-textarea">${authority}</textarea>
+										lay-verify="required" class="layui-textarea">${authority}</textarea>
 								</div>
 							</div>
 
@@ -191,37 +192,34 @@
 				layer.msg(elem.text());
 			});
 		});
-		
-			
 	</script>
 
-<script>
-layui.use('layer', function(){ //独立版的layer无需执行这一句
-  var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
-  
-  //触发事件
-  var active = {
-  confirmTrans: function(){
-      //配置一个透明的询问框
-      layer.msg('确定要退出嘛？', {
-        time: 20000, //20s后自动关闭
-        btn: ['确定', '取消'],
-       yes: function(index, layero){ // 默认的是 按钮一
-   window.location.href="login.jsp"
-         }
-      });
-    }
-   
-   
-  };
-  
-  $('#layerDemo .layui-btn').on('click', function(){
-    var othis = $(this), method = othis.data('method');
-    active[method] ? active[method].call(this, othis) : '';
-  });
-  
-});
-</script>
+	<script>
+		layui.use('layer', function() { //独立版的layer无需执行这一句
+			var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
+
+			//触发事件
+			var active = {
+				confirmTrans : function() {
+					//配置一个透明的询问框
+					layer.msg('确定要退出嘛？', {
+						time : 20000, //20s后自动关闭
+						btn : [ '确定', '取消' ],
+						yes : function(index, layero) { // 默认的是 按钮一
+							window.location.href = "login.jsp"
+						}
+					});
+				}
+
+			};
+
+			$('#layerDemo .layui-btn').on('click', function() {
+				var othis = $(this), method = othis.data('method');
+				active[method] ? active[method].call(this, othis) : '';
+			});
+
+		});
+	</script>
 </body>
 
 </html>
