@@ -9,27 +9,22 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="keywords" content="fly,layui,前端社区">
-<meta name="description"
-	content="Fly社区是模块化前端UI框架Layui的官网社区，致力于为web开发提供强劲动力">
+<meta name="description"content="Fly社区是模块化前端UI框架Layui的官网社区，致力于为web开发提供强劲动力">
 <link rel="stylesheet" href="layui/css/layui.css">
 <link rel="stylesheet" href="css/global.css">
 </head>
 
-<body>
-
+<body  style="background-color:#ffffff;">
 	<div class="fly-header layui-bg-blue">
-		<div class="layui-container">
-			<a class="fly-logo" href=""> <img src="imgs/logo.png" alt="layui"
-				style="width:50px">
-
-			</a>
-			<div align=center>
-				<h1>文件资源管理系统</h1>
+		<div class="layui-fluid">
+			<div >
+			<ul class="layui-nav" lay-filter="">
+			<li class="layui-nav-item"><a style="font-size: 18px;">文件资源管理系统</a> </li>
+			</ul>
 			</div>
 			<ul class="layui-nav fly-nav-user">
 				<!-- 未登入的状态 -->
-				<li class="layui-nav-item"><a
-					class="iconfont icon-touxiang layui-hide-xs" href="#"></a></li>
+				<li class="layui-nav-item"><a class="iconfont icon-touxiang layui-hide-xs" href="#"></a></li>
 				<li class="layui-nav-item"><a href="#">登录</a></li>
 
 			</ul>
@@ -38,10 +33,13 @@
 
 	<div class="layui-container fly-marginTop">
 		<div class="layui-row">
-			<div class="layui-col-md8 layui-col-md-offset2"
-				style="margin-top: 50px;">
+		<div class="layui-col-md3 " style="margin-top:120px;">
+		<img src="imgs/login.png" />
+		</div>
+		
+			<div class="layui-col-md6 layui-col-md-offset3" style="margin-top:50px;">
 				<div class="fly-panel fly-panel-user" pad20>
-					<div class="layui-tab layui-tab-brief" lay-filter="user">
+					<div class="layui-tab layui-tab-brief" lay-filter="user" >
 						<ul class="layui-tab-title">
 							<li class="layui-this">登录</li>
 						</ul>
@@ -79,12 +77,11 @@
 											</div>
 										</div>
 										<div class="layui-form-item">
-											<button class="layui-btn" lay-filter="*" lay-submit>立即登录</button>
+											<button class="layui-btn layui-bg-blue" lay-filter="*" lay-submit>立即登录</button>
 											<span style="padding-left:20px;"> <a href="">忘记密码？</a>
 											</span>
 										</div>
-										<div style="padding: 10px 20px; color="#FF0000 ";">
-											<font color="#FF0000"> ${errorsTest }</font>
+										<div style="padding: 10px 20px; color="#FF0000 ";"><font color="#FF0000"> ${errorsTest }</font>
 										</div>
 									</form>
 								</div>
@@ -97,7 +94,7 @@
 	</div>
 	<div class="fly-footer">
 		<p>
-			<a href=""> &copy; 2019 文件资源管理系统</a>  <a href=""> </a>
+			<a href=""> &copy; 2019 文件资源管理系统</a>
 		</p>
 
 	</div>
