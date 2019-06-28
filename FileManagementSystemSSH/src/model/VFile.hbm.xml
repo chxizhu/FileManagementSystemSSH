@@ -6,7 +6,7 @@
 -->
 <hibernate-mapping>
     <class name="model.VFile" table="V_File" schema="dbo" catalog="FileManagementSystemDB">
-       
+      
             <id name="id" type="java.lang.String">
                 <column name="id" length="36" />
             </id>
@@ -34,7 +34,7 @@
             <property name="filename" type="java.lang.String">
                 <column name="filename" length="100" />
             </property>
-            <property name="uptime" type="java.sql.Timestamp">
+            <property name="uptime" type="java.lang.String">
                 <column name="uptime" length="23" />
             </property>
             <property name="typeid" type="java.lang.Integer">
@@ -44,7 +44,7 @@
                 <column name="typename" length="10" />
             </property>
             <property name="dscribe" type="java.lang.String">
-                <column name="dscribe" length="200" />
+                <column name="dscribe" length="1000" />
             </property>
             <property name="lable" type="java.lang.String">
                 <column name="lable" length="100" />
@@ -60,6 +60,9 @@
             </property>
             <property name="downloads" type="java.lang.Integer">
                 <column name="downloads" />
+            </property>
+            <property name="edit" type="java.lang.String">
+                <column name="edit" />
             </property>
        
     </class>

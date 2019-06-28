@@ -19,7 +19,7 @@ public class VFile implements java.io.Serializable {
 	private String authorityname;
 	private Integer fileid;
 	private String filename;
-	private Timestamp uptime;
+	private String uptime;
 	private Integer typeid;
 	private String typename;
 	private String dscribe;
@@ -28,6 +28,7 @@ public class VFile implements java.io.Serializable {
 	private String filesuffix;
 	private String filepath;
 	private Integer downloads;
+	private String edit;
 
 	// Constructors
 
@@ -37,20 +38,21 @@ public class VFile implements java.io.Serializable {
 
 	/** minimal constructor */
 	public VFile(String userid, Integer roleid, Integer authorityid,
-			Integer fileid, Integer typeid) {
+			Integer fileid, String uptime, Integer typeid) {
 		this.userid = userid;
 		this.roleid = roleid;
 		this.authorityid = authorityid;
 		this.fileid = fileid;
+		this.uptime = uptime;
 		this.typeid = typeid;
 	}
 
 	/** full constructor */
 	public VFile(String id, String userid, String username, Integer roleid,
 			String rolename, Integer authorityid, String authorityname,
-			Integer fileid, String filename, Timestamp uptime, Integer typeid,
+			Integer fileid, String filename, String uptime, Integer typeid,
 			String typename, String dscribe, String lable, String filesize,
-			String filesuffix, String filepath, Integer downloads) {
+			String filesuffix, String filepath, Integer downloads, String edit) {
 		this.id = id;
 		this.userid = userid;
 		this.username = username;
@@ -69,6 +71,7 @@ public class VFile implements java.io.Serializable {
 		this.filesuffix = filesuffix;
 		this.filepath = filepath;
 		this.downloads = downloads;
+		this.edit = edit;
 	}
 
 	// Property accessors
@@ -145,11 +148,11 @@ public class VFile implements java.io.Serializable {
 		this.filename = filename;
 	}
 
-	public Timestamp getUptime() {
+	public String getUptime() {
 		return this.uptime;
 	}
 
-	public void setUptime(Timestamp uptime) {
+	public void setUptime(String uptime) {
 		this.uptime = uptime;
 	}
 
@@ -215,5 +218,13 @@ public class VFile implements java.io.Serializable {
 
 	public void setDownloads(Integer downloads) {
 		this.downloads = downloads;
+	}
+
+	public String getEdit() {
+		return this.edit;
+	}
+
+	public void setEdit(String edit) {
+		this.edit = edit;
 	}
 }

@@ -3,6 +3,7 @@ package control.action;
 import java.util.List;
 
 import model.TFile;
+import model.VFile;
 import model.VUserFile;
 import business.dao.FileDAO;
 import business.dao.UserDAO;
@@ -113,7 +114,7 @@ public class downloadAction extends BaseAction {
 		FileDAO udao = new FileDAOImpl();
 		udao.slectallfileid(fileid);
 
-		List<TFile> down = udao.slectallfileid(fileid);
+		List<VFile> down = udao.slectallfileid(fileid);
 
 		for (int i = 0; i < down.size(); i++) {
 			title = down.get(i).getFilename();
@@ -123,7 +124,7 @@ public class downloadAction extends BaseAction {
 			date = down.get(i).getUptime();
 			request.setAttribute("date", date);
 
-			author = down.get(i).getAuthor();
+			author = down.get(i).getUsername();
 			request.setAttribute("author", author);
 
 			path = down.get(i).getFilepath();
@@ -132,16 +133,23 @@ public class downloadAction extends BaseAction {
 			labe = down.get(i).getLable();
 			request.setAttribute("labe", labe);
 
-			authority = down.get(i).getDscribe();
+			authority = down.get(i).getRolename();
 			request.setAttribute("authority", authority);
+			
+			String Dscribe = down.get(i).getDscribe();
+			request.setAttribute("Dscribe", Dscribe);
 			
 			String edit = down.get(i).getEdit();
 			request.setAttribute("edit", edit);
 
 			downloads = down.get(i).getDownloads();
 			
-			type = down.get(i).getTypeId();
+			type = down.get(i).getTypeid();
 			request.setAttribute("type", type);
+			
+			String filesuffix = down.get(i).getFilesuffix();
+			request.setAttribute("filesuffix", filesuffix);
+			
 
 		}
 		downloads = downloads + 1;

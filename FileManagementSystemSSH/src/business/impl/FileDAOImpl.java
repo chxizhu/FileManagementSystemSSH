@@ -248,8 +248,8 @@ public class FileDAOImpl implements FileDAO {
 	}
 
 	@Override	
-	public List<TFile> slectallfileid(int fileid) {
-		String hql =  "from TFile where fileid = ?  ";
+	public List<VFile> slectallfileid(int fileid) {
+		String hql =  "from VFile where fileid = ?  ";
 		Object[] para = {fileid};
 		return bdao.select(hql, para);
 	}

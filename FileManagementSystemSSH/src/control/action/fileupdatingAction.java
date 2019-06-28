@@ -3,6 +3,7 @@ package control.action;
 import java.util.List;
 
 import model.TFile;
+import model.VFile;
 import business.dao.FileDAO;
 import business.impl.FileDAOImpl;
 
@@ -98,7 +99,7 @@ public class fileupdatingAction extends BaseAction {
 		FileDAO udao = new FileDAOImpl();
 		udao.slectallfileid(fileid);
 
-		List<TFile> down = udao.slectallfileid(fileid);
+		List<VFile> down = udao.slectallfileid(fileid);
 
 		for (int i = 0; i < down.size(); i++) {
 			title = down.get(i).getFilename();
@@ -109,7 +110,7 @@ public class fileupdatingAction extends BaseAction {
 			date = down.get(i).getUptime();		//得到文件上传时间
 			request.setAttribute("date", date);
 
-			author = down.get(i).getAuthor();		//得到文件上传作者
+			author = down.get(i).getRolename();		//得到文件上传作者
 			request.setAttribute("author", author);
 
 			path = down.get(i).getFilepath();	//得到文件上传路径

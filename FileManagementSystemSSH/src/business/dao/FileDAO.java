@@ -292,7 +292,7 @@ public interface FileDAO {
 	 * * @param String fileid 文件用户
 	 * @return  List<TFile>
 	 */
-	public List<TFile> slectallfileid(int fileid);
+	public List<VFile> slectallfileid(int fileid);
 	
 	/**
 	 * 单文件删除方法

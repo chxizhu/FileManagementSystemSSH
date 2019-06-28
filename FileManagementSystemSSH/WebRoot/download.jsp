@@ -106,14 +106,26 @@
 						<div class="layui-row">
 							<div class="layui-col-md12 fontsize"
 								style="margin-top: 10px;margin-bottom: 10px;">
-								文件简介：${authority}</div>
-								<c:if test="${type == 1}">
+								文件简介：${Dscribe}</div>
+								
+								<c:if test="${type ==1}">
 								 	 <img src="../upload2/${path}" id="img" style="width:100%;height:100%;"/> 
-								  <!-- 	<p style="margin-top: 10px;margin-bottom: 50px;">文件不支持预览，请下载查看↓↓↓</p>  -->
 								</c:if>
-								<c:if test="${type !=1}">
+								<c:if test="${filesuffix == 'pdf'}">
 								  	<iframe src= "/ViewerJS/#../upload2/${path}" width='100%' height='600' allowfullscreen webkitallowfullscreen></iframe>
 								</c:if>
+								<c:if test="${filesuffix != 'pdf'}$$ ${type == 2}">
+								  	 <p>文件不支持预览，请下载后查看。</p>
+								</c:if>
+								 <c:if test="${filesuffix == 'odt'}">
+								  	<iframe src= "/ViewerJS/#../upload2/${path}" width='100%' height='600' allowfullscreen webkitallowfullscreen></iframe>
+								</c:if>
+								<c:if test="${filesuffix == 'odp'}">
+								  	<iframe src= "/ViewerJS/#../upload2/${path}" width='100%' height='600' allowfullscreen webkitallowfullscreen></iframe>
+								</c:if>
+								<c:if test="${filesuffix == 'ods'}">
+								  	<iframe src= "/ViewerJS/#../upload2/${path}" width='100%' height='600' allowfullscreen webkitallowfullscreen></iframe>
+								</c:if> 
 								<div>
 								<p style="text-align:center;">
 								<form class="layui-form" action="downloadAction.action">

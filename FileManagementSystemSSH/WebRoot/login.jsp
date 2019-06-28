@@ -97,7 +97,7 @@
 	</div>
 	<div class="fly-footer">
 		<p>
-			<a href="">文件资源管理系统</a> 2019 &copy; <a href=""> 出品</a>
+			<a href=""> &copy; 2019 文件资源管理系统</a>  <a href=""> </a>
 		</p>
 
 	</div>
