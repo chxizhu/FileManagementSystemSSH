@@ -1,52 +1,51 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
-<!DOCTYPE html>
+    pageEncoding="utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-
 <head>
-<meta charset="utf-8">
-<title>企业文件资源管理</title>
-<meta name="renderer" content="webkit">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="layui/css/layui.css" media="all">
-<!--自定义样式-->
-<style>
-.mtop {
-	margin-top: 100px;
-}
-
-.same {
-	padding: 0;
-	margin-top: -2px;
-	margin-left: -1px;
-	box-sizing: border-box;
-	border: 1;
-	height: 45px;
-}
-
-.text {
-	width: 80%;
-}
-
-.btn {
-	width: 20%;
-}
-
-.footer {
-	margin-top: 100px;
-	text-align: center;
-}
-</style>
-
+<title>企业文件资源管理</title>
+		<style>
+			.mtop {
+				margin-top: 30px;
+			}
+			
+			.same {
+				padding: 0;
+				margin: 0;
+				box-sizing: border-box;
+				border: 1;
+				height: 45px;
+			}
+			
+			.text {
+				width: 80%;
+			}
+			
+			.btn {
+				width: 20%;
+			}
+			
+			.footer {
+				margin-top: 300px;
+				text-align: center;
+			}
+			
+			.bcolor {
+				background-color: #dddddd;
+			}
+			.fontsize{
+				font-size: large;
+				
+			}
+		</style>
 </head>
-
-<body>
+<body >
 	<!--导航信息 -->
 
-	<div class="layui-row">
-		<div class="layui-col-md12" class="site-demo-button" id="layerDemo">
+	<div class="layui-row" class="site-demo-button" id="layerDemo">
+		<div class="layui-col-md12">
 
 			<ul class="layui-nav layui-bg-blue">
 				<li class="layui-nav-item "><a href="returnindex.action">文件资源管理系统</a></li>
@@ -66,7 +65,6 @@
 					</dl></li>
 
 				<li class="layui-nav-item "><a href="ownfile.jsp">个人文件管理</a></li>
-
 				
 				<li class="layui-nav-item layui-col-md-offset6"><a href="javascript:;">欢迎您：${loginUser.username}</a>
 					<dl class="layui-nav-child">
@@ -79,7 +77,6 @@
 						</dd>
 						
 					</dl></li>
-
 				
 				<li class="layui-nav-item "><button data-method="confirmTrans" class="layui-btn layui-bg-blue">退出</button></li>
 
@@ -87,30 +84,42 @@
 
 		</div>
 	</div>
+		
+			<!--主要內容-->
+		<div class="layui-container mtop">
+			<div class="layui-row">
+				<div class="layui-col-md10 layui-col-md-offset1 ">
+					<div class="layui-card">
+												
+							<div class="layui-card-header"><p class="fontsize" style="margin-top: 10px;margin-bottom: 10px;">文档信息查看</p></div>
+							<div ><p class="fontsize" style="margin-top: 10px;margin-bottom: 10px;text-align:center;">${title }</p></div>
+							
+							  <div class="layui-card-header"><p  style="text-align:center;">【作者：${author}】    【时间：${date }】</p></div>
+							<div class="layui-card-header"><p >标签：${labe}</p></div>
+							 <div class="layui-card-body">
+							 
+							<div class="layui-row">
+								  <div class="layui-col-md12 fontsize" style="margin-top: 10px;margin-bottom: 50px;">
+								    ${edit }
+								  </div>
+ 
+							</div>
 
-	<div class="layui-container">
-		<div class="layui-row mtop">
-			<div class="layui-col-md12"></div>
-				<div style="text-align:center"><img src="imgs/succeed.png" alt="layui" style="width:200px; text-align:center"></div>
-				<div style="text-align:center;margin-top: 50px;font-size:25px"><a>文件上传成功</a></div>
-				<div style="text-align:center;margin-top: 50px;">
-    <a href="uplode.jsp" class="layui-btn layui-btn-normal" style="margin-right: 50px;">继续上传</a>
-     <a href="ownfile.jsp" class="layui-btn layui-btn-normal" style="margin-right: 50px;">查看文件</a>
-      <a href="returnindex.action" class="layui-btn layui-btn-normal" >返回主页</a>
-    
-  </div> 
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="layui-footer" style="margin-top: 20px;margin-bottom: 30px.;text-align: center;">
+			<div class="layui-main">
+				<p>&copy; 2019
+					<a href="">文件资源管理系统</a>
+				</p>
+			</div>
 		</div>
 		
-	</div>
-
-	<div class="layui-footer footer">
-		<div class="layui-main">
-			<p>
-				&copy; 2019 <a href="javascript:;">文件资源管理系统</a>
-			</p>
-		</div>
-	</div>
-
+	
 	<script src="layui/layui.js" charset="utf-8"></script>
 
 	<script>
@@ -126,8 +135,9 @@
 		
 		
 		
+			
 	</script>
-
+	
 	<script>
 layui.use('layer', function(){ //独立版的layer无需执行这一句
   var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
@@ -155,6 +165,6 @@ layui.use('layer', function(){ //独立版的layer无需执行这一句
   
 });
 </script>
+	
 </body>
-
 </html>

@@ -22,13 +22,13 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 
 public class downloadAction extends BaseAction {
-	
+
 	private int fileid;
 	private String title;
 	private String date;
 	private String author;
 	private String path;
-	private String type;
+	private Integer type;
 	private String authority;
 	private String labe;
 	private int downloads;
@@ -73,11 +73,11 @@ public class downloadAction extends BaseAction {
 		this.path = path;
 	}
 
-	public String getType() {
+	public Integer getType() {
 		return type;
 	}
 
-	public void setType(String type) {
+	public void setType(Integer type) {
 		this.type = type;
 	}
 
@@ -134,13 +134,25 @@ public class downloadAction extends BaseAction {
 
 			authority = down.get(i).getDscribe();
 			request.setAttribute("authority", authority);
+			
+			String edit = down.get(i).getEdit();
+			request.setAttribute("edit", edit);
 
 			downloads = down.get(i).getDownloads();
+			
+			type = down.get(i).getTypeId();
+			request.setAttribute("type", type);
 
 		}
 		downloads = downloads + 1;
-
 		udao.updatefiledowload(downloads, fileid);
-		return SUCCESS;
+		if (type != 7) {
+			return ERROR;
+		} else {
+
+			return SUCCESS;
+
+		}
+
 	}
 }

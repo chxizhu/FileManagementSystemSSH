@@ -103,12 +103,8 @@ margin-top:11px;
 						<dd>
 							<a href="passwordEdit.jsp">密码修改</a>
 						</dd>
-						
 					</dl></li>
-
-				
 				<li class="layui-nav-item "><button data-method="confirmTrans" class="layui-btn layui-bg-blue">退出</button></li>
-
 			</ul>
 
 		</div>
@@ -277,9 +273,6 @@ margin-top:11px;
 				layer.msg(elem.text());
 			});
 		});
-		
-		
-		
 	</script>
 	
 	<script>
@@ -287,8 +280,7 @@ layui.use('layer', function(){ //独立版的layer无需执行这一句
   var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
   
   //触发事件
-  var active = {
-  confirmTrans: function(){
+  var active = { confirmTrans: function(){
       //配置一个透明的询问框
       layer.msg('确定要退出嘛？', {
         time: 20000, //20s后自动关闭
@@ -298,8 +290,6 @@ layui.use('layer', function(){ //独立版的layer无需执行这一句
          }
       });
     }
-   
-   
   };
   
   $('#layerDemo .layui-btn').on('click', function(){

@@ -14,7 +14,7 @@
             <column name="filename" length="100" />
         </property>
         <property name="uptime" type="java.lang.String">
-            <column name="uptime" length="23" />
+            <column name="uptime" length="23" not-null="true" />
         </property>
         <property name="author" type="java.lang.String">
             <column name="author" length="25" />
@@ -23,7 +23,7 @@
             <column name="type_id" />
         </property>
         <property name="dscribe" type="java.lang.String">
-            <column name="dscribe" length="200" />
+            <column name="dscribe" length="1000" />
         </property>
         <property name="authorityId" type="java.lang.Integer">
             <column name="authority_id" />
@@ -45,6 +45,9 @@
         </property>
         <property name="FDepartmentId" type="java.lang.Integer">
             <column name="f_department_id" />
+        </property>
+        <property name="edit" type="java.lang.String">
+            <column name="edit" />
         </property>
     </class>
 </hibernate-mapping>

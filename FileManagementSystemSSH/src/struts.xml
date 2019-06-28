@@ -38,10 +38,14 @@
 		</action>
 		<action name="downloadAction"
 			class="control.action.downloadAction">
-			<result name="error">/error.jsp</result>
-			<result name="success" type="dispatcher">
+			<result name="error" type="dispatcher">
 				/download.jsp
 			</result>
+
+			<result name="success" type="dispatcher">
+				/editFileShow.jsp
+			</result>
+			
 		</action>
 		<action name="deleteownfile"
 			class="control.action.deleteownfileAction">
@@ -93,6 +97,11 @@
 			<result name="error" type="dispatcher">
 				<param name="location">/error.jsp</param>
 				<param name="parse">false</param>
+			</result>
+		</action>
+		<action name="addEdit" class="control.action.addEditAction">
+			<result name="success" type="dispatcher">
+				/filesucceed.jsp
 			</result>
 		</action></package>
 		</struts>    

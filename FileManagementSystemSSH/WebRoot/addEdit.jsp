@@ -102,9 +102,7 @@
 						</dl>
 					</li>
 
-					<li class="layui-nav-item ">
-						<a href="login.jsp" onclick="if(confirm('你确定要退出吗？')==false)return false">退出</a>
-					</li>
+					<li class="layui-nav-item "><button data-method="confirmTrans" id="confirmTrans" class="layui-btn layui-bg-blue">退出</button></li>
 
 				</ul>
 
@@ -120,24 +118,34 @@
 						<div class="layui-card-header">创建文档</div>
 						<div class="layui-card-body">
 
-							<form class="layui-form" >
+							<form class="layui-form"  action="addEdit.action">
 								<div class="layui-form-item">
 									<label class="layui-form-label">文档标题</label>
 									<div class="layui-input-block">
-										<input type="text" name="title" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+										<input type="text" name="filename" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
 									</div>
 								</div>
 								<div class="layui-form-item">
 									<label class="layui-form-label">文档标签</label>
 									<div class="layui-input-block">
-										<input type="text" name="label" required lay-verify="required" placeholder="请输入文档标签" autocomplete="off" class="layui-input">
+										<input type="text" name="lable" required lay-verify="required" placeholder="请输入文档标签" autocomplete="off" class="layui-input">
 									</div>
-									<div class="layui-input-block">
-										<label><span class="layui-badge-dot layui-bg-gray"></span> 标签之间用逗号隔开</label>
-									</div>
+									
 								</div>
+								<div class="layui-form-item">
+								<label class="layui-form-label">文档权限</label>
+								<div class="layui-input-block">
+									<select name="authority_id" lay-filter="aihao">
+										<option value=""></option>
+										<option value="101" selected="">个人</option>
+										<option value="102">部门</option>
+										<option value="103">公司</option>
 
-								<textarea id="demo"  name="content"  style="display: none;"></textarea>
+									</select>
+								</div>
+							</div>
+
+								<textarea id="demo"  name="edit"  style="display: none;"></textarea>
 
 								<div class="layui-form-item">
 									<div class="layui-input-block">
@@ -148,9 +156,7 @@
 							</form>
 						</div>
 					</div>
-
 				</div>
-
 			</div>
 
 			<!--底端-->
@@ -164,7 +170,6 @@
 			</div>
 
 			<script src="layui/layui.js" charset="utf-8"></script>
-
 			<script>
 				layui.use('element', function() {
 					var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
@@ -177,7 +182,34 @@
 				});
 			</script>
 			<script>
-				layui.use('layedit', function() {
+layui.use('layer', function(){ //独立版的layer无需执行这一句
+  var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
+  
+  //触发事件
+  var active = {
+   confirmTrans: function(){
+      //配置一个透明的询问框
+      layer.msg('确定要退出嘛？', {
+        time: 20000, //20s后自动关闭
+        btn: ['确定', '取消'],
+       yes: function(index, layero){ // 默认的是 按钮一
+           window.location.href="login.jsp"
+         }
+      });
+    }
+
+  };
+  
+  $('#layerDemo .layui-btn').on('click', function(){
+    var othis = $(this), method = othis.data('method');
+    active[method] ? active[method].call(this, othis) : '';
+  });
+  
+});
+</script>
+			
+			<script>
+				layui.use('layedit',function() {
 					var layedit = layui.layedit;
 					
 					layedit.set({
@@ -189,9 +221,12 @@
 					});
 					//注意：layedit.set 一定要放在 build 前面，否则配置全局接口将无效。
 					layedit.build('demo'); //建立编辑器
-					layer.msg(1111);
+					
 				});
 			</script>
+			
+			
+			
 			
 	</body>
 

@@ -52,7 +52,17 @@
 				
 				<li class="layui-nav-item "><a href="seek.jsp">文件搜索</a></li>
 
-				<li class="layui-nav-item "><a href="uplode.jsp">文件上传</a></li>
+				<li class="layui-nav-item "><a href="javascript:;">文件上传</a>
+					<dl class="layui-nav-child">
+						<!-- 二级菜单 -->
+						<dd>
+							<a href="uplode.jsp">文件上传</a>
+						</dd>
+						<dd>
+							<a href="addEdit.jsp">创建文档<span class="layui-badge-dot layui-bg-blue"> </a>
+						</dd>
+						
+					</dl></li>
 
 				<li class="layui-nav-item "><a href="ownfile.jsp">个人文件管理</a></li>
 

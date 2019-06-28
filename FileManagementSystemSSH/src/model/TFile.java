@@ -23,6 +23,7 @@ public class TFile implements java.io.Serializable {
 	private String filepath;
 	private Integer downloads;
 	private Integer FDepartmentId;
+	private String edit;
 
 	// Constructors
 
@@ -30,11 +31,16 @@ public class TFile implements java.io.Serializable {
 	public TFile() {
 	}
 
+	/** minimal constructor */
+	public TFile(String uptime) {
+		this.uptime = uptime;
+	}
+
 	/** full constructor */
 	public TFile(String filename, String uptime, String author,
 			Integer typeId, String dscribe, Integer authorityId, String lable,
 			String filesize, String filesuffix, String filepath,
-			Integer downloads, Integer FDepartmentId) {
+			Integer downloads, Integer FDepartmentId, String edit) {
 		this.filename = filename;
 		this.uptime = uptime;
 		this.author = author;
@@ -47,6 +53,7 @@ public class TFile implements java.io.Serializable {
 		this.filepath = filepath;
 		this.downloads = downloads;
 		this.FDepartmentId = FDepartmentId;
+		this.edit = edit;
 	}
 
 	// Property accessors
@@ -71,8 +78,8 @@ public class TFile implements java.io.Serializable {
 		return this.uptime;
 	}
 
-	public void setUptime(String uptime) {
-		this.uptime = uptime;
+	public void setUptime(String datetime) {
+		this.uptime = datetime;
 	}
 
 	public String getAuthor() {
@@ -153,6 +160,14 @@ public class TFile implements java.io.Serializable {
 
 	public void setFDepartmentId(Integer FDepartmentId) {
 		this.FDepartmentId = FDepartmentId;
+	}
+
+	public String getEdit() {
+		return this.edit;
+	}
+
+	public void setEdit(String edit) {
+		this.edit = edit;
 	}
 
 }
