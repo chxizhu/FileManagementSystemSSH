@@ -167,7 +167,7 @@ layui.use('layer', function(){ //独立版的layer无需执行这一句
         time: 20000, //20s后自动关闭
         btn: ['确定', '取消'],
        yes: function(index, layero){ // 默认的是 按钮一
-   window.location.href="login.jsp"
+   window.location.href = "loginout.action"
          }
       });
     }

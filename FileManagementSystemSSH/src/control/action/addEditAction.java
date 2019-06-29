@@ -13,7 +13,15 @@ import business.dao.FileDAO;
 import business.factory.DAOFactorys;
 
 import com.opensymphony.xwork2.ActionSupport;
-
+/**
+ * 
+* @Title: addEditAction.java
+* @Package control.action
+* @Description: TODO(文档在线编辑)
+* @author 成锡柱
+* @date 2019年6月29日 下午5:20:50
+* @version V1.0
+ */
 public class addEditAction extends BaseAction {
 
 	private String filename;
@@ -99,7 +107,6 @@ public class addEditAction extends BaseAction {
 				tFile.setFDepartmentId(loginUser.getDepartmentid());
 				tFile.setEdit(edit);
 				
-				System.out.println(edit);
 				FileDAO udao = DAOFactorys.getFileDAO();
 				int returnNum = udao.addFile(tFile);
 				return SUCCESS;
