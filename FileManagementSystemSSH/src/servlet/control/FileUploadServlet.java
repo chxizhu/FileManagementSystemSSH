@@ -26,10 +26,12 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 
 
+
 import Util.FileTypeUtil;
 import Util.GetFileTypeByHead;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 
 /**
  * 处理来自于jsp上传文件的控制类 1、接受上传文件 2、创建文件在服务器上的存储路径 3、保存文件在路径中
@@ -149,11 +151,26 @@ public class FileUploadServlet extends HttpServlet {
 		// System.out.println(JSON.toJSONString(respjson));
 		// out.write(JSON.toJSONString(respjson));
 
-		Util.ReturnData rd = new Util.ReturnData();
+		/*Util.ReturnData rd = new Util.ReturnData();
 		rd.code = Util.ReturnData.SUCCESS;
 		rd.msg = "";
 		rd.data = "fileName";
-		out.write(JSON.toJSONString(rd));
+		out.write(JSON.toJSONString(rd));*/
+		
+		 JSONObject res = new JSONObject();
+         JSONObject resUrl = new JSONObject();
+         resUrl.put("src", "../upload2/"+fileName);
+         res.put("code", 0);
+         res.put("msg", "上传成功");
+         res.put("data", resUrl);
+         System.out.println("res里面的值：");
+        
+         out.write(res.toString());
+         
+         System.out.println(res.toString());
+         System.out.println("res.toString()里面的值：");
+         System.out.println(JSON.toJSONString(res.toString()));    
+		
 
 	}
 
