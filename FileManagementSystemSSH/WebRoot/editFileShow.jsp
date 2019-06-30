@@ -99,7 +99,7 @@
 							 <div class="layui-card-body">
 							 
 							<div class="layui-row">
-								  <div class="layui-col-md12 fontsize" style="margin-top: 10px;margin-bottom: 50px;">
+								  <div class="layui-col-md6 fontsize" style="margin-top: 10px;margin-bottom: 50px;width:600px;">
 								    ${edit }
 								  </div>
  

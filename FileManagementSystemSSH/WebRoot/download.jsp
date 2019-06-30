@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -94,7 +94,6 @@
 						<p class="fontsize"
 							style="margin-top: 10px;margin-bottom: 10px;text-align:center;">${title }</p>
 					</div>
-
 					<div class="layui-card-header">
 						<p style="text-align:center;">【作者：${author}】 【时间：${date }】</p>
 					</div>
@@ -104,28 +103,35 @@
 					<div class="layui-card-body">
 
 						<div class="layui-row">
-							<div class="layui-col-md12 fontsize"
-								style="margin-top: 10px;margin-bottom: 10px;">
+							<div class="layui-col-md12 fontsize" style="margin-top: 10px;margin-bottom: 10px;">
 								文件简介：${Dscribe}</div>
-								
+							
 								<c:if test="${type ==1}">
 								 	 <img src="../upload2/${path}" id="img" style="width:100%;height:100%;"/> 
 								</c:if>
 								<c:if test="${filesuffix == 'pdf'}">
 								  	<iframe src= "/ViewerJS/#../upload2/${path}" width='100%' height='600' allowfullscreen webkitallowfullscreen></iframe>
 								</c:if>
+								<c:if test="${type ==3}">
+								 	 <div>				  
+                                <p style="text-align: center;"><video src="../upload2/${path}" controls="controls" width="920px" height="520px"><span data-mce-type="bookmark" style="display: inline-block; width: 0px; overflow: hidden; line-height: 0;" class="mce_SELRES_start">﻿</span>您的浏览器不支持视频播放，请使用搜狗，360等浏览器以极速模式访问！</video></p>
+   									 </div>
+								</c:if>
+								
+								<c:if test="${type ==4}">
+								 	  <audio src="../upload2/${path}" controls="controls">
+										 Your browser does not support the audio tag.
+										</audio>
+								</c:if>
+								<c:if test="${type ==5}">
+								 	   <p>文件不支持预览，请下载后查看。</p>
+								</c:if>
 								<c:if test="${filesuffix != 'pdf'}$$ ${type == 2}">
 								  	 <p>文件不支持预览，请下载后查看。</p>
 								</c:if>
-								 <c:if test="${filesuffix == 'odt'}">
-								  	<iframe src= "/ViewerJS/#../upload2/${path}" width='100%' height='600' allowfullscreen webkitallowfullscreen></iframe>
-								</c:if>
-								<c:if test="${filesuffix == 'odp'}">
-								  	<iframe src= "/ViewerJS/#../upload2/${path}" width='100%' height='600' allowfullscreen webkitallowfullscreen></iframe>
-								</c:if>
-								<c:if test="${filesuffix == 'ods'}">
-								  	<iframe src= "/ViewerJS/#../upload2/${path}" width='100%' height='600' allowfullscreen webkitallowfullscreen></iframe>
-								</c:if> 
+								
+								
+								
 								<div>
 								<p style="text-align:center;">
 								<form class="layui-form" action="downloadAction.action">
@@ -133,9 +139,7 @@
 							   </form>
 							 </p>
 							   </div>
-
-							
-							
+							  
 						</div>
 					</div>
 				</div>

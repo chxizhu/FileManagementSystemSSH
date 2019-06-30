@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
+encoding//WebRoot/download.jsp=UTF-8
 encoding//src/business/dao/FileDAO.java=utf-8
 encoding//src/business/dao/UserDAO.java=UTF-8
 encoding/<project>=UTF-8
