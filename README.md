@@ -22,6 +22,15 @@
 * 9.管理员角色权限管理，可以添加，查看，删除，查询管理员角色权限。
 * 10.日志管理，可以添加，查看日志。
 
+### 相关技术
+服务器: tomcat8.5
+数据库:SQL server2012
+后台管理端:springMVC+spring+Hibernate+json+jquery+layui
+前端网站:Struts+Spring+Hibernate+jquery+layui
+开发工具:myeclipse,chrome
+团队协作工具:git
+
+
 ### 2.1.  系统登录
 在浏览器中打开文件资源管理系统登录界面，如下图：
 
@@ -84,3 +93,5 @@
 
 ### 2.10密码修改
 系统登录成功后系统滑动到用户名，选密码修改，选择密码修改，点击【确认修改】保存密码修改。
+
+
