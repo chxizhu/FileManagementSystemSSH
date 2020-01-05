@@ -3,6 +3,9 @@
 
 实现企业文件资源的分类和快速检索，上传和下载，当前企事业单位每天都需要生成大量的文件，由于数量巨大，且分散管理，不利于后期某个时候对我呢间的快速检索和复用。因此需要一个系统能为每个用户设计一组对文件的快速分类，来实现对文件的上传，下载，快速检索的能力，同时企业也能对所有用户的文件进行快速检索，以找到想要的资源。
 
+本系统分为：\
+前端网站系统（Struts+Spring+Hibernate）+后台管理系统（springMVC+Spring+Hibernate）
+
 ### 系统功能模块：
 企业文件资源管理系统主要功能为：
 * 1.文件搜索，普通员工可以搜索文件权限为个人，本部门，公司的文件，公司领导可搜索 文件权限为个人，所有部门，公司的文件。并且，查询分为模糊查询，分类查询，组合查询。
@@ -23,12 +26,12 @@
 * 10.日志管理，可以添加，查看日志。
 
 ### 相关技术
-服务器: tomcat8.5
-数据库:SQL server2012
-后台管理端:springMVC+spring+Hibernate+json+jquery+layui
-前端网站:Struts+Spring+Hibernate+jquery+layui
-开发工具:myeclipse,chrome
-团队协作工具:git
+服务器: tomcat8.5\
+数据库:SQL server2012\
+后台管理端:springMVC+spring+Hibernate+json+jquery+layui\
+前端网站:Struts+Spring+Hibernate+jquery+layui\
+开发工具:myeclipse,chrome\
+团队协作工具:git\
 
 
 ### 2.1.  系统登录
